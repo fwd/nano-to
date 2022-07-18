@@ -16,7 +16,8 @@
         		font-size: 32px;
         		padding: 20px;
         		overflow: hidden;
-        		/*background: #000;*/
+        		background: #000;
+        		color: #fff;
         	}
         	.container {
 				display: flex;
@@ -31,7 +32,7 @@
     <body>
         <div id="app">
         	<div v-if="error">{{ error }}</div>
-        	<div class="container" v-if="!error">
+        	<div class="container" v-if="!error && found">
         		<div id="qrcode" style="opacity: 1;"></div>
         		<br>
 	            {{ found ? found.full_name : 'N/A' }}
@@ -48,24 +49,19 @@
 	        var app = new Vue({
 				el: '#app',
 				data: { 
-					message: 'Hello Nano',
 					error: false,
-					found: '',
+					found: false,
 				},
 				mounted() {
 					if (window.location.pathname !== '/') {
 						this.findUsername(window.location.pathname.replace('/', ''))
 					} else {
-						this.error = true
-						// this.error()
+						this.error = `Nano.to Username. Usage: https://ӿ.to/@esteban`
 					}
 				},
 				watch: {},
 				computed: {},
 				methods: {
-					// d() {
-					// 	this.error = true
-					// },
 					findUsername(username) {
 						if (!username) return
 						axios.get('/known.json').then((res) => {
@@ -80,9 +76,6 @@
 								    colorLight : "#ffffff",
 								    correctLevel : QRCode.CorrectLevel.H
 								});
-								// console.log(qrcode)
-								// found.qrcode = qrcode
-								// found.qrcode = new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie"
 								this.found = found 
 							}
 						})
