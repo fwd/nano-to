@@ -90,7 +90,7 @@
         	<div v-if="error" v-html="error"></div>
         	<div class="" v-if="!error && found.address">
         		<img id="qrcode" :src="qrcode" :style="`background-color: ${stringToColour(found.name || found.address)}`">
-	            <div v-if="found.full_name" class="name">{{ found.full_name }}</div>
+	            <div v-if="found.full_name" class="name">{{ found.full_name || '@' + found.name }}</div>
 	            <div class="address" v-if="found && found.address"><span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(0, 12) }}</span>{{ found.address.slice(12, 55) }}<span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(55, 99) }}</span></div>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`https://nano.to/` + found.address">Open in Nano.to</a>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`nano:` + found.address">Open in Wallet</a>
