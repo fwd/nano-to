@@ -46,10 +46,14 @@
 				font-family: monospace;
         	}
         	.btn {
-				display: block;
-				color: #FFF;
-				margin-bottom: 20px;
-				opacity: 0.5;
+			    display: block;
+			    color: #FFF;
+			    margin-bottom: 20px;
+			    opacity: 0.7;
+			    font-size: 22px;
+			    text-decoration: none;
+			    border-bottom: 2px solid;
+			    font-family: system-ui;
         	}
         	.name {
         		margin-top: 20px;
@@ -74,8 +78,8 @@
         		<img id="qrcode" :src="qrcode" :style="`background-color: ${stringToColour(found.name || found.address)}`">
 	            <div v-if="found.full_name" class="name">{{ found.full_name }}</div>
 	            <div class="address" v-if="found && found.address"><span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(0, 12) }}</span>{{ found.address.slice(12, 55) }}<span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(55, 99) }}</span></div>
-	            <a class="btn" :href="`https://nano.to/` + found.address">Open in Nano.to</a>
-	            <a class="btn" :href="`nano:` + found.address">Open in Wallet</a>
+	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`https://nano.to/` + found.address">Open in Nano.to</a>
+	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`nano:` + found.address">Open in Wallet</a>
         	</div>
         </div>
         <script>
