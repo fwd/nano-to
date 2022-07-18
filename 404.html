@@ -19,9 +19,19 @@
 				background: #000;
 				color: #fff;
 				text-align: center;
-				background-image: url(../dist/background.png);
+        	}
+        	.background {
+        		background-image: url(../dist/background.png);
 				background-position: 40% 47%;
 				background-size: 100%;
+				position: fixed;
+				height: 100vh;
+				z-index: -1;
+				width: 100%;
+				/*filter: hue-rotate(284deg);*/
+				pointer-events: none;
+				left: 0;
+				bottom: 0;
         	}
         	.container {
 				display: flex;
@@ -72,23 +82,83 @@
         	.highlight {
 
         	}
+        	.form {
+				width: 100%;
+				max-width: 390px;
+				margin: 0 auto;
+				position: relative;
+        	}
+        	.input {
+				width: 100%;
+				height: 50px;
+				margin: 35px 0;
+				border: 1px solid #163d79;
+				background: transparent;
+				color: #FFF;
+				font-size: 20px;
+				padding: 0 17px;
+				border-radius: 3px;
+				appearance: none;
+        	}
+        	.suggest h4 {
+				color: #1c4ac7;
+				font-size: 21px;
+				font-family: system-ui;
+				letter-spacing: 0.5px;
+				text-align: left;
+				padding: 10px;
+				margin-bottom: 10px;
+				border-bottom: 1px solid #4e6dff57;
+				cursor: pointer;
+        	}
+        	.suggest h4:hover {
+    		   background: #ffffff1f;
+        	}
+        	.suggest {
+				position: absolute;
+				max-height: 230px;
+				overflow: scroll;
+				background: #0000009e;
+				width: 100%;
+				top: 100px;
+        	}
+        	.cancel {
+				border-bottom: 1px solid;
+				font-size: 17px;
+				margin-top: 20px;
+				opacity: 0.4;
+				margin-bottom: 0px;
+        	}
     	</style>
     </head>
     <body>
         <div id="app">
-        	<div v-if="error" v-html="error"></div>
+        	<div class="background"></div>
+        	<div v-if="error || !found">
+        		<h3>Nano Blockchain</h3>
+        		<form action="" class="form" @submit="search()">
+        			<input type="text" class="input" v-model="query" placeholder="Search">
+        			<div class="suggest" v-if="query && !found">
+        				<h4 @click="show(i)" v-for="i in filtered">@{{ capitalizeFirstLetter(i.name) }}</h4>
+        			</div>
+        		</form>
+        	</div>
         	<div class="" v-if="!error && found.address">
         		<img id="qrcode" :src="qrcode" :style="`background-color: ${stringToColour(found.name || found.address)}`">
-	            <div v-if="found.full_name" class="name">{{ found.full_name }}</div>
+	            <div v-if="found.full_name" class="name">{{ found.full_name || '@' + found.name }}</div>
 	            <div class="address" v-if="found && found.address"><span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(0, 12) }}</span>{{ found.address.slice(12, 55) }}<span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(55, 99) }}</span></div>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`https://nano.to/` + found.address">Open in Nano.to</a>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`nano:` + found.address">Open in Wallet</a>
+	            <a class="cancel" @click="found = false; error = true">Cancel</a>
         	</div>
         </div>
         <script>
 	        var app = new Vue({
 				el: '#app',
 				data: { 
+					query: '',
+					dataset: [],
+					qrcode: false,
 					error: false,
 					found: false,
 				},
@@ -96,12 +166,44 @@
 					if (window.location.pathname !== '/') {
 						this.findUsername(window.location.pathname.replace('/', ''))
 					} else {
-						this.error = `Nano.to Username. <br> <br> Usage: https://ӿ.to/@esteban`
+						this.load()
+						this.error = true
 					}
 				},
 				watch: {},
-				computed: {},
+				computed: {
+					filtered() {
+						// if (this.query.length <= 3) return []
+						return this.dataset.filter(a => a.name.toLowerCase().includes(this.query.toLowerCase()))
+					}
+				},
 				methods: {
+					createqrcode(string) {
+						this.qrcode = QRCode.generatePNG(string, {
+							ecclevel: "M",
+							format: "html",
+							fillcolor: "#000000",
+							textcolor: "#FFFFFF",
+							margin: 4,
+							modulesize: 8
+						})
+					},
+					show(i) {
+						var self = this
+						this.error = false
+						this.found = i
+						this.$forceUpdate()
+						setTimeout(() => {
+							self.createqrcode('nano:' + i.address)
+						}, 100)
+					},
+					capitalizeFirstLetter(string) {
+						if (!string) return
+					  return string.charAt(0).toUpperCase() + string.slice(1);
+					},
+					search() {
+
+					},
 					stringToColour(str) {
 					  var hash = 0;
 					  for (var i = 0; i < str.length; i++) {
@@ -114,8 +216,18 @@
 					  }
 					  return colour;
 					},
+					loadAddress(username) {
+						if (!username) return
+						// if (username.includes('nano_')) return this.loadAddress(username)
+						this.qrcode('nano:' + username)
+						this.found = {
+							// qrcode,
+							address: username
+						} 
+					},
 					findUsername(username) {
 						if (!username) return
+						if (username.includes('nano_')) return this.loadAddress(username)
 						axios.get('/known.json').then((res) => {
 							var found = res.data.find(a => a.name.toLowerCase() == username.replace('@', '').toLowerCase())
 							if (!found) this.error = 'Not found'
@@ -136,7 +248,9 @@
 						})
 					},
 					load() {
-						console.log("Ready!")
+						axios.get('/known.json').then((res) => {
+							this.dataset = res.data
+						})
 					}
 				},
 			})
