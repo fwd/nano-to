@@ -20,6 +20,19 @@
 				color: #fff;
 				text-align: center;
         	}
+        	.background {
+        		background-image: url(../dist/background.png);
+				background-position: 40% 47%;
+				background-size: 100%;
+				position: fixed;
+				height: 100vh;
+				z-index: -1;
+				width: 100%;
+				/*filter: hue-rotate(284deg);*/
+				pointer-events: none;
+				left: 0;
+				bottom: 0;
+        	}
         	.container {
 				display: flex;
 				height: 100vh;
@@ -73,6 +86,7 @@
     </head>
     <body>
         <div id="app">
+        	<div class="background"></div>
         	<div v-if="error" v-html="error"></div>
         	<div class="" v-if="!error && found.address">
         		<img id="qrcode" :src="qrcode" :style="`background-color: ${stringToColour(found.name || found.address)}`">
@@ -86,6 +100,7 @@
 	        var app = new Vue({
 				el: '#app',
 				data: { 
+					qrcode: false,
 					error: false,
 					found: false,
 				},
@@ -93,7 +108,7 @@
 					if (window.location.pathname !== '/') {
 						this.findUsername(window.location.pathname.replace('/', ''))
 					} else {
-						this.error = `Nano.to Username. <br> <br> Usage: https://ӿ.to/@esteban`
+						this.error = `Nano Username Service. <br> <br> Usage: https://ӿ.to/:USERNAME`
 					}
 				},
 				watch: {},
@@ -111,8 +126,25 @@
 					  }
 					  return colour;
 					},
+					loadAddress(username) {
+						if (!username) return
+						// if (username.includes('nano_')) return this.loadAddress(username)
+						this.qrcode = QRCode.generatePNG('nano:' + username, {
+							ecclevel: "M",
+							format: "html",
+							fillcolor: "#000000",
+							textcolor: "#FFFFFF",
+							margin: 4,
+							modulesize: 8
+						})
+						this.found = {
+							// qrcode,
+							address: username
+						} 
+					},
 					findUsername(username) {
 						if (!username) return
+						if (username.includes('nano_')) return this.loadAddress(username)
 						axios.get('/known.json').then((res) => {
 							var found = res.data.find(a => a.name.toLowerCase() == username.replace('@', '').toLowerCase())
 							if (!found) this.error = 'Not found'
