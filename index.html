@@ -7,17 +7,18 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="apple-mobile-web-app-title" content="Hello World">
 		<link rel="apple-touch-icon" href="/icon.png">
-        <script src="https://api.fwd.dev/vue.js"></script>
-        <script src="https://api.fwd.dev/axios.js"></script>
-        <script src="../dist/qrcode.min.js"></script>
+        <script src="../dist/vue.js"></script>
+        <script src="../dist/axios.js"></script>
+        <script src="../dist/qrcode.js"></script>
         <style>
         	* { margin: 0; padding: 0; box-sizing: border-box; word-break: break-all;}
         	body {
-        		font-size: 32px;
-        		padding: 20px;
-        		overflow: hidden;
-        		background: #000;
-        		color: #fff;
+				font-size: 32px;
+				padding: 20px;
+				overflow: hidden;
+				background: #000;
+				color: #fff;
+				text-align: center;
         	}
         	.container {
 				display: flex;
@@ -32,8 +33,8 @@
     <body>
         <div id="app">
         	<div v-if="error">{{ error }}</div>
-        	<div class="container" v-if="!error && found">
-        		<div id="qrcode" style="opacity: 1;"></div>
+        	<div class="" v-if="!error && found.address">
+        		<img id="qrcode" :src="qrcode">
         		<br>
 	            {{ found ? found.full_name : 'N/A' }}
 	            <br>
@@ -68,14 +69,17 @@
 							var found = res.data.find(a => a.name.toLowerCase() == username.replace('@', '').toLowerCase())
 							if (!found) this.error = 'Not found'
 							if (found) {
-								var qrcode = new QRCode("qrcode", {
-								    text: "nano:" + found.address,
-								    width: 128,
-								    height: 128,
-								    colorDark : "#000000",
-								    colorLight : "#ffffff",
-								    correctLevel : QRCode.CorrectLevel.H
-								});
+								var string = 'nano:' + found.address
+								this.qrcode = QRCode.generatePNG(string, {
+									ecclevel: "M",
+									format: "html",
+									fillcolor: "#000000",
+									textcolor: "#FFFFFF",
+									// fillcolor: "#CCCCCC",
+									// textcolor: "#006F94",
+									margin: 4,
+									modulesize: 8
+								})
 								this.found = found 
 							}
 						})
