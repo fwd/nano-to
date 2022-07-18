@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Nano.to</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Hello World">
+		<link rel="apple-touch-icon" href="/icon.png">
+        <script src="https://api.fwd.dev/vue.js"></script>
+        <script src="https://api.fwd.dev/axios.js"></script>
+        <script src="../dist/qrcode.min.js"></script>
+        <style>
+        	* { margin: 0; padding: 0; box-sizing: border-box; word-break: break-all;}
+        	body {
+        		font-size: 32px;
+        		padding: 20px;
+        		overflow: hidden;
+        		background: #000;
+        		color: #fff;
+        	}
+        	.container {
+				display: flex;
+				height: 100vh;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				text-align: center;
+        	}
+    	</style>
+    </head>
+    <body>
+        <div id="app">
+        	<div v-if="error">{{ error }}</div>
+        	<div class="container" v-if="!error && found">
+        		<div id="qrcode" style="opacity: 1;"></div>
+        		<br>
+	            {{ found ? found.full_name : 'N/A' }}
+	            <br>
+	            <br>
+	            <div v-if="found && found.address">{{ found.address }}</div>
+	            <br>
+	            <a :href="`https://nano.to/` + found.address">Open in Nano.to</a>
+	            <br>
+	            <a :href="`nano:` + found.address">Open in Wallet</a>
+        	</div>
+        </div>
+        <script>
+	        var app = new Vue({
+				el: '#app',
+				data: { 
+					error: false,
+					found: false,
+				},
+				mounted() {
+					if (window.location.pathname !== '/') {
+						this.findUsername(window.location.pathname.replace('/', ''))
+					} else {
+						this.error = `Nano.to Username. Usage: https://ӿ.to/@esteban`
+					}
+				},
+				watch: {},
+				computed: {},
+				methods: {
+					findUsername(username) {
+						if (!username) return
+						axios.get('/known.json').then((res) => {
+							var found = res.data.find(a => a.name.toLowerCase() == username.replace('@', '').toLowerCase())
+							if (!found) this.error = 'Not found'
+							if (found) {
+								var qrcode = new QRCode("qrcode", {
+								    text: "nano:" + found.address,
+								    width: 128,
+								    height: 128,
+								    colorDark : "#000000",
+								    colorLight : "#ffffff",
+								    correctLevel : QRCode.CorrectLevel.H
+								});
+								this.found = found 
+							}
+						})
+					},
+					load() {
+						console.log("Ready!")
+					}
+				},
+			})
+        </script>
+    </body>
+</html>
