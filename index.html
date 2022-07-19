@@ -49,7 +49,8 @@
 				padding: 10px;
 				display: block;
 				margin: 30px auto;
-			    margin-bottom: 10px;
+				margin-bottom: 10px;
+				margin-top: 10px;
         	}
 			.address {
 				font-size: 25px;
@@ -70,7 +71,8 @@
 			    font-family: system-ui;
         	}
         	.name {
-        		margin-top: 20px;
+			    margin-top: 20px;
+			    font-weight: bold;
         	}
         	#app > div {
 				display: flex;
@@ -140,13 +142,13 @@
         		<form action="" class="form" @submit="search()">
         			<input type="text" class="input" v-model="query" placeholder="Search">
         			<div class="suggest" v-if="query && !found">
-        				<h4 @click="show(i)" v-for="i in filtered">@{{ capitalizeFirstLetter(i.name) }}</h4>
+        				<h4 @click="show(i)" :style="`color: ${stringToColour(i.name || i.address)}`" v-for="i in filtered">@{{ capitalizeFirstLetter(i.name) }}</h4>
         			</div>
         		</form>
         	</div>
         	<div class="" v-if="!error && found.address">
         		<img id="qrcode" :src="qrcode" :style="`background-color: ${stringToColour(found.name || found.address)}`">
-	            <div class="name">{{ found.full_name || '@' + found.name }}</div>
+	            <div class="name">{{ found.full_name || '@' + capitalizeFirstLetter(found.name) }}</div>
 	            <div class="address" v-if="found && found.address"><span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(0, 12) }}</span>{{ found.address.slice(12, 55) }}<span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(55, 99) }}</span></div>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`https://nano.to/` + found.address + '?back=' + url">Open in Nano.to</a>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`nano:` + found.address">Open in Wallet</a>
