@@ -92,7 +92,7 @@
 				width: 100%;
 				height: 50px;
 				margin: 35px 0;
-				border: 1px solid #163d79;
+				border: 1px solid #0647ac;
 				background: transparent;
 				color: #FFF;
 				font-size: 20px;
@@ -149,7 +149,7 @@
 	            <div class="address" v-if="found && found.address"><span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(0, 12) }}</span>{{ found.address.slice(12, 55) }}<span :style="`color: ${stringToColour(found.name || found.address)}`">{{ found.address.slice(55, 99) }}</span></div>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`https://nano.to/` + found.address">Open in Nano.to</a>
 	            <a class="btn" :style="`border-color: ${stringToColour(found.name || found.address)}`" :href="`nano:` + found.address">Open in Wallet</a>
-	            <a class="cancel" @click="found = false; error = true">Cancel</a>
+	            <a v-if="query" class="cancel" @click="found = false; error = true">Cancel</a>
         	</div>
         </div>
         <script>
