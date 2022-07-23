@@ -12,9 +12,9 @@
 
 ## ❯ Usage Docs
 
-Username: https://docs.nano.to/usernames
+Usernames: https://docs.nano.to/usernames
 
-Checkout: https://docs.nano.to/checkout
+Checkouts: https://docs.nano.to/checkout
 
 ## ❯ Username Dataset 
 
