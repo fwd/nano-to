@@ -1209,7 +1209,7 @@ code {
     bottom: 0;
     position: fixed;
     z-index: -1;
-    filter: brightness(0.3);
+    filter: brightness(0.2);
     background-size: 82%;
     background-repeat: no-repeat;
     background-position: center;
