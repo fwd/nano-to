@@ -67,7 +67,7 @@ All rights reserved.
                     <input v-model="string" type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
                     <div class="suggest" v-if="suggestions.length">
                       <div v-for="suggestion in suggestions" @click="doSuggestion(suggestion)">
-                      {{ suggestion.name }} 
+                      {{ capitalizeFirstLetter(suggestion.name) }} 
                       <!-- <span style="text-transform: lowercase;" :style="`opacity: 0.5; color: #13ff00;`">({{ suggestion.label || 'Username' }})</span> -->
                       </div>
                     </div>
@@ -181,6 +181,10 @@ All rights reserved.
 
       },
       methods: {
+
+        capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        },
 
         load() {
           return axios.get('https://raw.githubusercontent.com/fwd/nano/master/known.json').then((res) => {
