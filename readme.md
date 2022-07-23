@@ -8,6 +8,8 @@
   <img src="https://github.com/fwd/nano/raw/master/dist/images/cover2.png" alt="Nano.to" />
 </p>
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## ❯ Usage Docs
 
 Username: https://docs.nano.to/usernames
@@ -23,11 +25,13 @@ Checkout: https://docs.nano.to/checkout
 
 This repo is updated everytime a Username is purchased from Nano.to
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## ❯ Contributing
 
 Give a ⭐️ if this project helped you!
 
-Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/n2/issues).
+Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano/issues).
 
 ## ❯ License
 
