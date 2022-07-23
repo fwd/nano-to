@@ -1,12 +1,18 @@
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+<h2 align="center">Nano Checkout UI & Username Service</h2>
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 <p align="center">
   <img src="https://github.com/fwd/nano/raw/master/dist/images/cover2.png" alt="Prompts" width="500" />
 </p>
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+## ❯ Usage
 
-<h2 align="center">Nano Checkout & Username Service</h2>
+Dataset: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
 
 ## ❯ Contributing
 
