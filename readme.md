@@ -8,16 +8,20 @@
   <img src="https://github.com/fwd/nano/raw/master/dist/images/cover2.png" alt="Nano.to" />
 </p>
 
-## ❯ Docs
+## ❯ Usage Docs
 
 Username: https://docs.nano.to/usernames
 
 Checkout: https://docs.nano.to/checkout
 
-## ❯ Dataset
+## ❯ Username Dataset 
 
 - File: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
 - Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
+
+## ❯ Updated Frequent
+
+This repo is updated everytime a Username is purchased from Nano.to
 
 ## ❯ Contributing
 
