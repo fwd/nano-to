@@ -1209,7 +1209,7 @@ code {
     bottom: 0;
     position: fixed;
     z-index: -1;
-    filter: brightness(0.15);
+    filter: brightness(0.3);
     background-size: 82%;
     background-repeat: no-repeat;
     background-position: center;
@@ -1241,8 +1241,8 @@ code {
 }
 @media (max-width: 768px) {
     #backdrop {
-        background-size: 260%;
-            background-position: 50% 62%;
+    background-size: 210%;
+    /*background-position: 50% 62%;*/
     }
     .halo {
         background-size: 400%;
