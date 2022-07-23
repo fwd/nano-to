@@ -8,11 +8,16 @@
   <img src="https://github.com/fwd/nano/raw/master/dist/images/cover2.png" alt="Nano.to" />
 </p>
 
-## ❯ Usage
+## ❯ Docs
 
-Dataset: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
+Username: https://docs.nano.to/usernames
 
-Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
+Checkout: https://docs.nano.to/checkout
+
+## ❯ Dataset
+
+- File: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
+- Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
 
 ## ❯ Contributing
 
