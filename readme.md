@@ -21,11 +21,11 @@ Checkouts: https://docs.nano.to/checkout
 - File: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
 - Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## ❯ Updated Frequent
 
 This repo is updated everytime a Username is purchased from Nano.to
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## ❯ Contributing
 
