@@ -1,7 +1,6 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-<h1 align="center">Nano.to</h1>
-<h2 align="center">Nano Username & Checkout Service</h2>
+<h1 align="center">Nano Username & Checkout Service</h1>
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
