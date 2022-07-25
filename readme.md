@@ -33,10 +33,9 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## ❯ License
 
-- ✅ Personal use.
-- ✅ Open Source use.
-- ✅ Commercial use where Usernames and/or Checkout UI **ARE NOT** the end-product.
-- ❌ Commercial use where Usernames and/or Checkout UI **IS** the end-product.
+- ✅ Personal & Open Source
+- ✅ Commercial use where Usernames and/or Checkout **ARE NOT** the end-product.
+- ❌ Commercial use where Usernames and/or Checkout **IS** the end-product.
 
 Copyright © [@nano2dev](https://twitter.com/nano2dev).
 
