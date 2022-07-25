@@ -12,6 +12,10 @@
     font-weight: 500;
 }
 
+#checkout canvas {
+    width: 100%;
+}
+
 #app .loader {
     position: fixed;
     z-index: 999999;
@@ -204,11 +208,12 @@ section:first-child {
 }
 .qrcode {
     margin: 0 auto;
-    max-width: 125px;
+    max-width: 160px;
     margin-top: 30px;
     display: block;
     border: 10px solid black;
     border-radius: 7px;
+    height: 160px;
 }
 .security-notice .flex {
 width: fit-content;
