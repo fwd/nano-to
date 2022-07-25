@@ -14,6 +14,7 @@
 body {
   font-family: 'Monaco';
   letter-spacing: 2px;
+  background: #000 !important;
 }
 
 .address-t {
