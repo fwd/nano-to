@@ -10,22 +10,20 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Usage Docs
+## ❯ Checkout UI
 
-Usernames: https://docs.nano.to/usernames
+Docs: https://docs.nano.to/checkout
 
-Checkouts: https://docs.nano.to/checkout
+## ❯ Usernames 
 
-## ❯ Username Dataset 
+Docs: https://docs.nano.to/usernames
 
 - File: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
 - Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
 
+> Usernames (/known.json) update everytime a Username is purchased from Nano.to
+
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-## ❯ Updated Frequent
-
-This repo is updated everytime a Username is purchased from Nano.to
 
 ## ❯ Contributing
 
