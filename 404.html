@@ -7,222 +7,315 @@
 |_____|        \/  \/     |______.'  
 
 “Simplicity is the soul of efficiency.” 
-
-twitter.com/@nano2dev
-All rights reserved.
 -->
 <!DOCTYPE html>
 <html lang="en" class="brap">
-<head>
-  <meta charset="UTF-8">
-  <title>Nano.to - Nano Blockchain API</title>
-  <link rel="icon" type="image/png" href="https://nano.to/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
-  <meta name="author" content="Formsend" />
-  <meta name="description" content="Nano.to is a free API service for the NANO crypto currency. Use this API to navigate the NANO blockchain, create feeless payment pages, embed QR codes in HTML or Markdown, build your own DeFi applications and more. Anonymous, no account or API key required to use." />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
-  <meta name="apple-mobile-web-app-title" content="Nano">
-  <link rel="apple-touch-icon" href="dist/images/new_icon.png">
-  <meta property="og:title" content="Nano.to - Nano Payment API">
-  <meta property="og:image" content="dist/images/cover.png">
-  <link rel="stylesheet" href="dist/style.css">
-  <!-- <link rel="stylesheet" href="../../css/login.css"> -->
-  <script src="dist/vue.min.js"></script>
-  <script src="dist/axios.min.js"></script>
-  <!-- <script src="/assets/lodash.min.js"></script> -->
-  <script src="dist/easy.qrcode.min.js"></script>
-</head>
-<body>
-  <div id="app" :class=" `on ${color}`">
-
-    <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
-
-    <!-- SEO hackz -->
-    <p style="display: none">Nano.to is a free API service for the NANO crypto currency. Navigate the NANO blockchain, create non-custodial payment pages, QR codes and more.</p>
-    <!-- End SEO hackz -->
-
-    <div :class="`ak47 ${status ? color : 'red'} ${status.status && status.status == false ? 'error' : ''}`">
-
-      <div v-if="title" style="cursor: pointer;" @click="reset()">
-        <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
-          {{ title }}
-        </h3>
-      </div>
-
-      <div class="showQR" v-if="prompt && prompt.showQR" @click="prompt.showQR = false; $forceUpdate()">
-        <div class="qrcode-underlay"></div>
-        <div id="qrcode"></div>
-      </div>
-
-      <div :class="`box--outer ${status.status && status.status == false ? 'error' : ''}`">
-        <div class="box">
-          <div class="box--inner">
-            <div class="content">
-              <div v-if="suggestions.length" id="search-screen" @click="suggestions = []"></div>
-              <div class="holder" style="max-width: 440px">
-                <div v-if="search">
-                  <p style="font-size: 20px; margin-bottom: 30px; margin-top: 0;">Search Blockchain</p>
-                  <form @submit.prevent="query()">
-                    <input v-model="string" type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
-                    <div class="suggest" v-if="suggestions.length">
-                      <div v-for="suggestion in suggestions" @click="doSuggestion(suggestion)">
-                      {{ capitalizeFirstLetter(suggestion.name) }} 
-                      <!-- <span style="text-transform: lowercase;" :style="`opacity: 0.5; color: #13ff00;`">({{ suggestion.label || 'Username' }})</span> -->
+  <head>
+    <meta charset="UTF-8">
+    <title>Nano.to - Nano Blockchain API</title>
+    <link rel="icon" type="image/png" href="https://nano.to/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="author" content="Formsend" />
+    <meta name="description" content="Nano.to is a free API service for the NANO crypto currency. Use this API to navigate the NANO blockchain, create feeless payment pages, embed QR codes in HTML or Markdown, build your own DeFi applications and more. Anonymous, no account or API key required to use." />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
+    <meta name="apple-mobile-web-app-title" content="Nano">
+    <link rel="apple-touch-icon" href="dist/images/new_icon.png">
+    <meta property="og:title" content="Nano.to - Nano Payment API">
+    <meta property="og:image" content="dist/images/cover.png">
+    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="dist/checkout.css">
+    <script src="dist/vue.min.js"></script>
+    <script src="dist/axios.min.js"></script>
+    <script src="dist/easy.qrcode.min.js"></script>
+  </head>
+  <body>
+    <div id="app" :class=" `on ${color}`">
+      <div v-if="loading" class="loader"></div>
+      <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
+      <!-- SEO hackz -->
+      <p style="display: none">Nano.to is a free API service for the NANO crypto currency. Navigate the NANO blockchain, create non-custodial payment pages, QR codes and more.</p>
+      <!-- End SEO hackz -->
+      <div v-if="!checkout" :class="`ak47 ${status ? color : 'red'} ${status.status && status.status == false ? 'error' : ''}`">
+        <div v-if="title" style="cursor: pointer;" @click="reset()">
+          <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
+            {{ title }}
+          </h3>
+        </div>
+        <div class="showQR" v-if="prompt && prompt.showQR" @click="prompt.showQR = false; $forceUpdate()">
+          <div class="qrcode-underlay"></div>
+          <div id="qrcode"></div>
+        </div>
+        <div :class="`box--outer ${status.status && status.status == false ? 'error' : ''}`">
+          <div class="box">
+            <div class="box--inner">
+              <div class="content">
+                <div v-if="suggestions.length" id="search-screen" @click="suggestions = []"></div>
+                <div class="holder" style="max-width: 440px">
+                  <div v-if="search">
+                    <p style="font-size: 20px; margin-bottom: 30px; margin-top: 0;">Search Blockchain</p>
+                    <form @submit.prevent="query()">
+                      <input v-model="string" type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
+                      <div class="suggest" v-if="suggestions.length">
+                        <div v-for="suggestion in suggestions" @click="doSuggestion(suggestion)">
+                          {{ capitalizeFirstLetter(suggestion.name) }}
+                          <!-- <span style="text-transform: lowercase;" :style="`opacity: 0.5; color: #13ff00;`">({{ suggestion.label || 'Username' }})</span> -->
+                        </div>
+                      </div>
+                      <div style="display: block; height: 15px;"></div>
+                      <div class="row centered">
+                        <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; "> Search <span aria-hidden>_</span>
+                          <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
+                          <span aria-hidden class="cybr-btn__tag">R25</span>
+                        </button>
+                      </div>
+                    </form>
+                    <a :href="status.url ? status.url : 'https://docs.nano.to'" target="_blank">
+                      <p style=" margin-top: 20px;font-size: 14px;opacity: 0.7;margin-bottom: -20px;text-transform: uppercase; ">
+                        <span>{{ status.message ? status.message || 'API Experiencing Issues' : 'LEARN MORE' }}</span>
+                      </p>
+                    </a>
+                    <a href="http://github.com/fwd/nano" target="_blank" style="font-size: 15px; opacity: 0.7; text-transform: uppercase; filter: invert(1); margin-top: 65px; margin-bottom: -50px; zoom: 0.8;display: block;">
+                      <span>
+                        <svg enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.0" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <path clip-rule="evenodd" d="M16.003,0C7.17,0,0.008,7.162,0.008,15.997  c0,7.067,4.582,13.063,10.94,15.179c0.8,0.146,1.052-0.328,1.052-0.752c0-0.38,0.008-1.442,0-2.777  c-4.449,0.967-5.371-2.107-5.371-2.107c-0.727-1.848-1.775-2.34-1.775-2.34c-1.452-0.992,0.109-0.973,0.109-0.973  c1.605,0.113,2.451,1.649,2.451,1.649c1.427,2.443,3.743,1.737,4.654,1.329c0.146-1.034,0.56-1.739,1.017-2.139  c-3.552-0.404-7.286-1.776-7.286-7.906c0-1.747,0.623-3.174,1.646-4.292C7.28,10.464,6.73,8.837,7.602,6.634  c0,0,1.343-0.43,4.398,1.641c1.276-0.355,2.645-0.532,4.005-0.538c1.359,0.006,2.727,0.183,4.005,0.538  c3.055-2.07,4.396-1.641,4.396-1.641c0.872,2.203,0.323,3.83,0.159,4.234c1.023,1.118,1.644,2.545,1.644,4.292  c0,6.146-3.74,7.498-7.304,7.893C19.479,23.548,20,24.508,20,26c0,2,0,3.902,0,4.428c0,0.428,0.258,0.901,1.07,0.746  C27.422,29.055,32,23.062,32,15.997C32,7.162,24.838,0,16.003,0z" fill="#181616" fill-rule="evenodd"></path>
+                          <g></g>
+                          <g></g>
+                          <g></g>
+                          <g></g>
+                          <g></g>
+                          <g></g>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                  <div v-if="!search">
+                    <div v-if="prompt" class="small-mobile">
+                      <div>
+                        <h1 v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">{{ prompt.title }}</h1>
+                        <p v-html="prompt.body"></p>
                       </div>
                     </div>
-                    <div style="display: block; height: 15px;"></div>
-                    <div class="row centered">
-                      <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; ">
-                        Search<span aria-hidden>_</span>
-                        <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
-                        <span aria-hidden class="cybr-btn__tag">R25</span>
-                      </button>
-                    </div>
-                  </form>
-                  <a :href="status.url ? status.url : 'https://docs.nano.to'" target="_blank"><p style=" margin-top: 20px;font-size: 14px;opacity: 0.7;margin-bottom: -20px;text-transform: uppercase; "><span>{{ status.message ? status.message || 'API Experiencing Issues' : 'LEARN MORE' }}</span></p></a>
-                  <a href="http://github.com/nano/fwd" target="_blank" style="font-size: 15px;opacity: 0.7;text-transform: uppercase;filter: invert(1);margin-top: 65px;margin-bottom: -50px;zoom: 0.8;"><span><svg enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.0" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path clip-rule="evenodd" d="M16.003,0C7.17,0,0.008,7.162,0.008,15.997  c0,7.067,4.582,13.063,10.94,15.179c0.8,0.146,1.052-0.328,1.052-0.752c0-0.38,0.008-1.442,0-2.777  c-4.449,0.967-5.371-2.107-5.371-2.107c-0.727-1.848-1.775-2.34-1.775-2.34c-1.452-0.992,0.109-0.973,0.109-0.973  c1.605,0.113,2.451,1.649,2.451,1.649c1.427,2.443,3.743,1.737,4.654,1.329c0.146-1.034,0.56-1.739,1.017-2.139  c-3.552-0.404-7.286-1.776-7.286-7.906c0-1.747,0.623-3.174,1.646-4.292C7.28,10.464,6.73,8.837,7.602,6.634  c0,0,1.343-0.43,4.398,1.641c1.276-0.355,2.645-0.532,4.005-0.538c1.359,0.006,2.727,0.183,4.005,0.538  c3.055-2.07,4.396-1.641,4.396-1.641c0.872,2.203,0.323,3.83,0.159,4.234c1.023,1.118,1.644,2.545,1.644,4.292  c0,6.146-3.74,7.498-7.304,7.893C19.479,23.548,20,24.508,20,26c0,2,0,3.902,0,4.428c0,0.428,0.258,0.901,1.07,0.746  C27.422,29.055,32,23.062,32,15.997C32,7.162,24.838,0,16.003,0z" fill="#181616" fill-rule="evenodd"></path><g></g><g></g><g></g><g></g><g></g><g></g></svg></span></a>
-                </div>
-
-                <div v-if="!search">
-
-                  <div v-if="prompt" class="small-mobile">
-                    <div @click="showQR()">
-                      <h1 v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">{{ prompt.title }}</h1>
-                      <p v-html="prompt.body"></p>
-                    </div>
-                  </div>
-                  
-                  <div v-if="prompt && prompt.buttons && prompt.buttons.length" class="row centered button-group" :style="`margin-top: 50px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
+                    <div v-if="prompt && prompt.buttons && prompt.buttons.length" class="row centered button-group" :style="`margin-top: 50px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div v-for="button in prompt.buttons">
                         <a @click="doButton(button)">
                           <button class="cybr-btn" style="zoom: 0.6;">
-                            {{ button.label }}<span aria-hidden>_</span>
-                            <span aria-hidden class="cybr-btn__glitch">{{ button.label }}<span aria-hidden>_</span></span>
+                            {{ button.label }}
+                            <span aria-hidden>_</span>
+                            <span aria-hidden class="cybr-btn__glitch">{{ button.label }}
+                              <span aria-hidden>_</span>
+                            </span>
                             <span aria-hidden class="cybr-btn__tag">R25</span>
                           </button>
-                        <a/>
+                          <a />
                       </div>
+                    </div>
+                    <a v-if="prompt.more" :href="prompt.more" target="_blank">
+                      <p style=" margin-top: 20px; font-size: 15px; opacity: 0.7; margin-bottom: 15px; text-transform: uppercase;">
+                        <span>{{ 'LEARN MORE' }}</span>
+                      </p>
+                    </a>
+                    <a v-if="prompt" @click.prevent="prompt = false; search = true">
+                      <p style=" margin-top: 30px; font-size: 14px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;">
+                        <span>{{ 'CANCEL' }}</span>
+                      </p>
+                    </a>
                   </div>
-
-                   
-
-                   <a v-if="prompt.more" :href="prompt.more" target="_blank"><p style=" margin-top: 20px; font-size: 15px; opacity: 0.7; margin-bottom: 15px; text-transform: uppercase;"><span>{{ 'LEARN MORE' }}</span></p></a>
-
-                   <a v-if="prompt" @click.prevent="prompt = false; search = true"><p style=" margin-top: 30px; font-size: 14px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;"><span>{{ 'CANCEL' }}</span></p></a>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div v-if="checkout" id="checkout" class="flex">
+        <div v-if="!checkout.fullscreen" id="avatar" class="flex center justify" @click="checkout = false">
+          <span class="back" style="padding-right: 10px;">←</span>
+          <h3>Cancel</h3>
+        </div>
+        <section v-if="checkout.plans"  id="order" :style="`background-color: ${checkout.background && checkout.background.left ? checkout.background.left : ''}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
+          <!-- <div id="backdrop"></div> -->
+          <div class="about">
+            <div class="name flex center justify">
+              <h2>{{ checkout.title }}</h2>
+              <p class="price">$0.43</p>
+            </div>
+            <p v-if="checkout.message" class="description"></p>
+            <div class="plans">
+              <div v-for="plan in checkout.plans" :class="`${checkout.amount === plan.value ? 'active' : ''}`">
+                <div class="flex justify center" @click="checkout.amount = plan.value">
+                  <h4>{{ plan.title }}</h4>
+                  <h4>{{ plan.currency }}{{ plan.value }}</h4>
+                </div>
+              </div>
+            </div>
+            <!---->
+            <!-- <hr class="or" :style="`background-color: #f3f3f3`"> -->
+            <div class="plans custom">
+              <div class="flex justify center">
+                <h4>Enter amount (<span style="text-transform: uppercase; border-bottom: 1px solid;">USD</span>) </h4>
+                <div class="dinput">
+                  <input type="number" inputmode="decimal" min="1" max="133248297" v-model="checkout.amount">
+                </div>
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </section>
+        <section id="payment" :style="checkout.background && checkout.background.right ? `background-color: ${checkout.background.right}` : ''" :class="checkout.plans ? '' : 'full'">
+          <div class="details">
+            <!---->
+            <div class="crypto">
+              <h4 v-if="checkout.amount" class="instructions">
+                <span class="faded">To complete, send:</span>
+                <b class="amount" style="cursor: pointer;">0.46464
+                  <span class="blocky">NANO</span>
+                  <span class="hide-desktop"><img src="./dist/images/clipboard.png" alt=""></span>
+                </b>
+                <span style="opacity: 0.7; display: block; margin-bottom: 10px;">≈ USD 0.43 @ <a href="https://coinmarketcap.com/currencies/nano" target="_blank" class="cursor"> 0.926 <img src="./dist/images/info2.png" alt="" class="info-icon">
+                  </a>
+                </span>
+                <!-- <span class="faded">Nano Address:</span> -->
+              </h4>
+              <h1>{{checkout.title}}</h1>
+              <p class="address" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
+                <span>{{ checkout.address }}</span>
+                <img src="./dist/images/clipboard.png" alt="">
+              </p>
+              <div class="qrSwitcher">
+                <a href="nano:nano_19jukhu7djbei7hj7hk9cnwjg3gy1cce6mqt81mid8oqm9ez9it6ef1p83s5?amount=464640000000000000000000000000">
+                  <img alt="" class="qrcode" :style="`background:${checkout.highlight && checkout.highlight.back ? checkout.highlight.back : ''};`" src="data:image/png;base64,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">
+                  <div class="security-notice nano" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
+                    <img src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> Tap to open Natrium
+                  </div>
+                </a>
+              </div>
+              <button class="button" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
+                <span>Check Payment</span>
+                <!---->
+              </button>
+              <!---->
+              <div class="security-notice">
+                <div class="flex center">Verify the recipient address, and only send NANO (XNO) to this address. Sending any amount other than {{ checkout.amount }} will result in order not processing correctly. </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-  </div>  
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        error: false, 
-        tab: 'docs', 
-        user: false, 
-        loading: false, 
-        background: false,
-        title: 'Nano.to',
-        prompt: false,
-        search: true,
-        string: '',
-        color: 'blue',
-        usernames: [],
-        suggestions: [],
-        colors: [],
-        buttons: [
-          {
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          error: false,
+          tab: 'docs',
+          user: false,
+          loading: true,
+          background: false,
+          title: 'Nano.to',
+          prompt: false,
+          search: true,
+          string: '',
+          color: 'blue',
+          usernames: [],
+          // checkout: {
+          //   title: '@esteban',
+          //   amount: '0.46464',
+          //   address: 'nano_1name191y1bqcbh5r9xz4a9gk1r54aerf7rd4ngubwr8gckojxosjfch53bx',
+          //   background: { left: 'white', right: '#55fd008f' },
+          //   highlight: { color: '#FFF', background: '#000' },
+          //   plans: [
+          //     { title: 'Tip', value: 5 }
+          //   ]
+          // },
+          checkout: false,
+          suggestions: [],
+          colors: [],
+          buttons: [{
             text: `[]`,
             link: `https://nano.to/${1}`,
             target: '_blank'
-          },
-          {
+          }, {
             text: `[view account]`,
             link: `https://nano.to/${1}/about`,
             target: '_self'
-          },
-        ],
-        status: true,
-      },
-      watch: {
-        string() {
+          }, ],
+          status: true,
+        },
+        watch: {
+          string() {
             if (!this.string) return this.suggestions = []
             this.query()
-        },
-        admin() {
+          },
+          admin() {
             this.background = !this.background
-        }
-      },
-      mounted() {
-
-        setTimeout(() => {
-          document.onkeydown = function(evt) {
-            evt = evt || window.event;
-              if (evt.keyCode == 27) {
-                if (this.prompt) return this.prompt = false
-                if (this.search) return this.search = false
-                if (this.query) return this.suggestions = []
-                  // alert('Esc key pressed.');
+          }
+        },
+        mounted() {
+          if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
+            document.body.classList.add('fullscreen');
+          }
+          this.load((data) => {
+           
+            if (window.location.pathname !== '/') {
+              var item = data.find(a => a.name.toLowerCase().includes(window.location.pathname.replace('/', '').toLowerCase()))
+              if (item) {
+                this.checkout = {
+                  title: '@' + item.name,
+                  address: item.address,
+                  fullscreen: true,
+                  amount: false,
+                }
               }
-          }
-        })
+            }
 
-        if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
-          document.body.classList.add('fullscreen');
-        }
+            this.loading = false
 
-        this.load()
-
-      },
-      methods: {
-
-        capitalizeFirstLetter(string) {
-          return string.charAt(0).toUpperCase() + string.slice(1);
-        },
-
-        load() {
-          return axios.get('https://raw.githubusercontent.com/fwd/nano/master/known.json').then((res) => {
-            this.usernames = res.data
           })
+          // console.log(  )
         },
-
-        invalidUsername(name) {
-          return !name || name.length > 60 || name.includes('_') || name.includes('nano_') || name.includes('xrb_') || !(/^\w+$/.test(name)) || name.includes('%5C')
-        },
-
-        query() {
-
-          var string = this.string ? this.string.toLowerCase() : this.string
-
-          if (!string) return
-
-          if (string.includes('nano_') || string.includes('xrb_')) {
-            return this.suggestions = [ { name: `Nanolooker (${string.slice(0, 12)})`, url: `https://nanolooker.com/account/${string}` } ]
-          }
-
-          if (this.invalidUsername(string)) {
-            return this.suggestions = [ { name: 'Invalid Search', error: true } ]
-          }
-          
-          var item = this.usernames.find(a => a.name.toLowerCase().includes(string.toLowerCase()))
-
-          if (!item && !this.invalidUsername(string)) {
-            return this.suggestions = [ { name: 'Username Available', url: `https://nano.to/${string}/username` } ]
-          }
-
-          if (!item) return this.suggestions = [ { name: 'Invalid Search', error: true } ]
-
-          this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase()))
-
-        },
-
-        async shareText(text) {
+        methods: {
+          capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+          },
+          load(cb) {
+            return axios.get('https://raw.githubusercontent.com/fwd/nano/master/known.json').then((res) => {
+              this.usernames = res.data
+              if (cb) cb(res.data)
+            })
+          },
+          invalidUsername(name) {
+            return !name || name.length > 60 || name.includes('_') || name.includes('nano_') || name.includes('xrb_') || !(/^\w+$/.test(name)) || name.includes('%5C')
+          },
+          query() {
+            var string = this.string ? this.string.toLowerCase() : this.string
+            if (!string) return
+            if (string.includes('nano_') || string.includes('xrb_')) {
+              return this.suggestions = [{
+                name: `Nanolooker (${string.slice(0, 12)})`,
+                url: `https://nanolooker.com/account/${string}`
+              }]
+            }
+            if (this.invalidUsername(string)) {
+              return this.suggestions = [{
+                name: 'Invalid Search',
+                error: true
+              }]
+            }
+            var item = this.usernames.find(a => a.name.toLowerCase().includes(string.toLowerCase()))
+            if (!item && !this.invalidUsername(string)) {
+              return this.suggestions = [{
+                name: 'Username Available',
+                url: `https://nano.to/${string}/username`
+              }]
+            }
+            if (!item) return this.suggestions = [{
+              name: 'Invalid Search',
+              error: true
+            }]
+            this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase()))
+          },
+          async shareText(text) {
             var self = this
             // alert("yoo")
             try {
@@ -233,119 +326,114 @@ All rights reserved.
               })
               window.alert('API Key copied to clipboard.')
               // resultPara.textContent = 'MDN shared successfully'
-            } catch(err) {
+            } catch (err) {
               window.alert('Could not copy.')
               // resultPara.textContent = 'Error: ' + err
               // self.$notify('Error sharing.')
             }
-        },
-
-        copyText(text) {
+          },
+          copyText(text) {
             var self = this
             navigator.clipboard.writeText(text).then(function() {
-                // self.tooltip = false
-                window.alert('Copied to clipboard.')
-                // self.$notify('Copied to clipboard.')
+              // self.tooltip = false
+              window.alert('Copied to clipboard.')
+              // self.$notify('Copied to clipboard.')
             }, function() {
-                document.execCommand("copy");
+              document.execCommand("copy");
             })
-        },
-
-        showQR(string) {
-          this.prompt.showQR = true
-           setTimeout(() => {   
-            new QRCode(document.getElementById("qrcode"), { 
-              text: string || this.prompt.qrcode,
-              width: 300, 
-              height: 300,
-              logo: "https://nano.to/favicon.png"
-            });
-          }, 100)
-          this.$forceUpdate()
-        },
-
-        doButton(button) {
-          if (button.link === "qrcode") {
+          },
+          showQR(string) {
             this.prompt.showQR = true
+            setTimeout(() => {
+              new QRCode(document.getElementById("qrcode"), {
+                text: string || this.prompt.qrcode,
+                width: 300,
+                height: 300,
+                logo: "https://nano.to/favicon.png"
+              });
+            }, 100)
             this.$forceUpdate()
-          }
-          if (button.link === "external") {
-            window.open(button.url || button.checkout, '_blank').focus();
-          }
-        },
-
-        reset() {
-          this.title = 'Nano.to'
-          this.string = ''
-          this.search = true
-          this.suggestions = []
-        },
-
-        doSuggestion(suggestion) {
-
+          },
+          doButton(button) {
+            if (button.checkout) {
+              return this.checkout = button.checkout
+            }
+            if (button.link === "qrcode") {
+              this.prompt.showQR = true
+              this.$forceUpdate()
+            }
+            if (button.link === "external") {
+              window.open(button.url || button.checkout, '_blank').focus();
+            }
+          },
+          reset() {
+            this.title = 'Nano.to'
+            this.string = ''
+            this.search = true
+            this.suggestions = []
+          },
+          doSuggestion(suggestion) {
             if (suggestion.error) return this.reset()
             if (!suggestion.address && suggestion.url) return window.open(suggestion.url, '_blank');
-
             var self = this
-
             if (suggestion.checkout) {
               this.title = 'Username'
               this.search = false
               this.prompt = {
                 title: `@${suggestion.name}`,
                 body: 'Username Available',
-                buttons: [
-                  {
-                    label: 'Lease Username',
-                    link: "external",
-                    url: `https://nano.to/${suggestion.name}/username`
-                  }
-                ],
+                buttons: [{
+                  label: 'Lease Username',
+                  link: "external",
+                  url: `https://nano.to/${suggestion.name}/username`
+                }],
                 more: 'https://docs.nano.to/username-api'
               }
               return
             }
-
             self.search = false
-
+            var checkout = {
+              title: '@' + suggestion.name,
+              address: suggestion.address,
+              amount: false,
+              // plans: [
+              //   { title: 'Tip', value: 5 }
+              // ]
+            }
             self.prompt = {
               title: `@${suggestion.name}`,
               qrcode: `nano:${suggestion.address}`,
-              body: `<p style="font-size: 26px; text-transform: lowercase; word-break: break-word; max-width: 430px; text-align: center; width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; text-shadow: rgb(49, 49, 49) 2px 2px 0px;"><span style="color: rgb(253, 0, 7);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span></p>`,
-              buttons: [
-                {
-                  label: `Send Payment`,
-                  link: "external",
-                  url: `https://nano.to/${suggestion.address}?title=@${suggestion.name}&cancel=https://nano.to/${suggestion.name}/about`
-                },
-                {
-                  label: 'Open Natrium',
-                  link: "external",
-                  url: `nano:${suggestion.address}`
-                },
-              ]
+              body: `
+<p style="font-size: 26px; text-transform: lowercase; word-break: break-word; max-width: 430px; text-align: center; width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; text-shadow: rgb(49, 49, 49) 2px 2px 0px;">
+  <span style="color: rgb(253, 0, 7);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span>
+</p>`,
+              buttons: [{
+                label: `Send Payment`,
+                link: "external",
+                checkout: checkout
+                // url: `https://nano.to/${suggestion.address}?title=@${suggestion.name}&cancel=https://nano.to/${suggestion.name}/about`
+              }, {
+                label: 'Open Natrium',
+                link: "external",
+                url: `nano:${suggestion.address}`
+              }, ]
             }
-
             self.$forceUpdate()
-
-        },
-
-        stringToColour(str) {
-          var hash = 0;
-          for (var i = 0; i < str.length; i++) {
-            hash = str.charCodeAt(i) + ((hash << 5) - hash);
-          }
-          var colour = '#';
-          for (var i = 0; i < 3; i++) {
-            var value = (hash >> (i * 8)) & 0xFF;
-            colour += ('00' + value.toString(16)).substr(-2);
-          }
-          return colour;
-        },
-
-      }
-    })
-    
-  </script>
-</body>
+          },
+          stringToColour(str) {
+            var hash = 0;
+            for (var i = 0; i < str.length; i++) {
+              hash = str.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            var colour = '#';
+            for (var i = 0; i < 3; i++) {
+              var value = (hash >> (i * 8)) & 0xFF;
+              colour += ('00' + value.toString(16)).substr(-2);
+            }
+            return colour;
+          },
+        }
+      })
+    </script>
+  </body>
 </html>

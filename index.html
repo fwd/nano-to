@@ -91,7 +91,7 @@
                   </div>
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
-                      <div @click="showQR()">
+                      <div>
                         <h1 v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">{{ prompt.title }}</h1>
                         <p v-html="prompt.body"></p>
                       </div>
@@ -405,8 +405,7 @@
               qrcode: `nano:${suggestion.address}`,
               body: `
 <p style="font-size: 26px; text-transform: lowercase; word-break: break-word; max-width: 430px; text-align: center; width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; text-shadow: rgb(49, 49, 49) 2px 2px 0px;">
-  <span style="color: rgb(253, 0, 7);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}
-  <span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span>
+  <span style="color: rgb(253, 0, 7);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span>
 </p>`,
               buttons: [{
                 label: `Send Payment`,
