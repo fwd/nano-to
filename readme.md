@@ -33,7 +33,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## ❯ License
 
-**Limited License**
+**Limited Commercial License:**
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Usernames and/or Checkout is **NOT** the end-product.
