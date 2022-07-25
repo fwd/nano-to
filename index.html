@@ -28,6 +28,7 @@
     <script src="dist/vue.min.js"></script>
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
+    <script src="dist/nanocurrency.min.js"></script>
   </head>
   <body>
     <div id="app" :class=" `on ${color}`">
@@ -41,10 +42,6 @@
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
             {{ title }}
           </h3>
-        </div>
-        <div class="showQR" v-if="prompt && prompt.showQR" @click="prompt.showQR = false; $forceUpdate()">
-          <div class="qrcode-underlay"></div>
-          <div id="qrcode"></div>
         </div>
         <div :class="`box--outer ${status.status && status.status == false ? 'error' : ''}`">
           <div class="box">
@@ -183,8 +180,12 @@
                 <img src="./dist/images/clipboard.png" alt="">
               </p>
               <div class="qrSwitcher">
-                <a href="nano:nano_19jukhu7djbei7hj7hk9cnwjg3gy1cce6mqt81mid8oqm9ez9it6ef1p83s5?amount=464640000000000000000000000000">
-                  <img alt="" class="qrcode" :style="`background:${checkout.highlight && checkout.highlight.back ? checkout.highlight.back : ''};`" src="data:image/png;base64,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">
+                <a :href="`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`">
+                <!-- <a href="nano:ADDRESS?amount=AMOUNT"> -->
+                  <!-- <img alt=""  src=""> -->
+                  <div class="qrcode" :style="`background:${checkout.highlight && checkout.highlight.back ? checkout.highlight.back : ''};`">
+                    <div id="qrcode"></div>
+                  </div>
                   <div class="security-notice nano" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
                     <img src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> Tap to open Natrium
                   </div>
@@ -207,6 +208,7 @@
       var app = new Vue({
         el: '#app',
         data: {
+          convert: NanocurrencyWeb.tools.convert,
           error: false,
           tab: 'docs',
           user: false,
@@ -243,15 +245,18 @@
           status: true,
         },
         watch: {
-          string() {
-            if (!this.string) return this.suggestions = []
-            this.query()
+          checkout() {
+            // if (true) {}
+            this.showQR()
           },
           admin() {
             this.background = !this.background
           }
         },
         mounted() {
+          // NanocurrencyWeb.tools.convert(checkout.amount, 'NANO', 'RAW')
+          // tools.convert('1', 'NANO', 'RAW')
+          // console.log( this.convert(1, 'NANO', 'RAW') )
           if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
             document.body.classList.add('fullscreen');
           }
@@ -269,7 +274,9 @@
               }
             }
 
-            this.loading = false
+            setTimeout(() => {
+              this.loading = false
+            }, 105)
 
           })
           // console.log(  )
@@ -335,21 +342,18 @@
           copyText(text) {
             var self = this
             navigator.clipboard.writeText(text).then(function() {
-              // self.tooltip = false
               window.alert('Copied to clipboard.')
-              // self.$notify('Copied to clipboard.')
             }, function() {
               document.execCommand("copy");
             })
           },
           showQR(string) {
-            this.prompt.showQR = true
             setTimeout(() => {
               new QRCode(document.getElementById("qrcode"), {
-                text: string || this.prompt.qrcode,
+                text: string || `nano:${this.checkout.address}${this.checkout.amount ? '?amount=' + convert(this.checkout.amount, 'NANO', 'RAW') : ''}`,
                 width: 300,
-                height: 300,
-                logo: "https://nano.to/favicon.png"
+                height: 280,
+                logo: "dist/images/logo.png"
               });
             }, 100)
             this.$forceUpdate()
