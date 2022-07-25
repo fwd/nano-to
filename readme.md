@@ -35,7 +35,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Usernames and/or Checkout **ARE NOT** the end-product.
-- ❌ Commercial use where Usernames and/or Checkout **IS** the end-product.
+- ❌ Commercial use where Usernames and/or Checkout **IS** the end-product (Re-selling/Re-Packing).
 
 Copyright © [@nano2dev](https://twitter.com/nano2dev).
 
