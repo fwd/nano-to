@@ -33,9 +33,10 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## ❯ License
 
-**Non-Commercial License**
-
-Nano.to Usernames (known.json) & Checkout UI cannot be **used or copied** for **any commercial** application, without the explicit consent of @nano2dev. 
+- ✅ Personal use.
+- ✅ Open Source use.
+- ✅ Commercial use where Usernames and/or Checkout UI **ARE NOT** the end-product.
+- ❌ Commercial use where Usernames and/or Checkout UI **IS** the end-product.
 
 Copyright © [@nano2dev](https://twitter.com/nano2dev).
 
