@@ -33,7 +33,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## ❯ License
 
-Nano.to Usernames, and Checkout UI are **NOT** to be used in any **commercial** application, without the consent of [@nano2dev](https://twitter.com/nano2dev). 
+Unlike other packages, Nano.to Username Dataset, and Checkout UI are **NOT** under MIT license. Code found in this repo cannot be used for **commercial** applications, without the consent of [@nano2dev](https://twitter.com/nano2dev). 
 
 ## ❯ Stargazers
 
