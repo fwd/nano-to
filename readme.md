@@ -35,8 +35,6 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 Nano.to Usernames, and Checkout UI are **NOT** to be used in any **commercial** application, without the consent of [@nano2dev](https://twitter.com/nano2dev). 
 
-Copyright © [@nano2dev](https://twitter.com/nano2dev).
-
 ## ❯ Stargazers
 
 [![Stargazers over time](https://starchart.cc/fwd/n2.svg)](https://github.com/fwd/n2)
