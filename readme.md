@@ -1,6 +1,6 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-<h1 align="center">Nano.to Usernames</h1>
+<h1 align="center">Nano: Username & Checkout API</h1>
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -10,22 +10,20 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Usage Docs
+## ❯ Checkout UI
 
-Usernames: https://docs.nano.to/usernames
+Docs: https://docs.nano.to/checkout
 
-Checkouts: https://docs.nano.to/checkout
+## ❯ Usernames 
 
-## ❯ Username Dataset 
+Docs: https://docs.nano.to/usernames
 
 - File: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
 - Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
 
+> Usernames (/known.json) update everytime a Username is purchased from Nano.to
+
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-## ❯ Updated Frequent
-
-This repo is updated everytime a Username is purchased from Nano.to
 
 ## ❯ Contributing
 
@@ -35,27 +33,13 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## ❯ License
 
-MIT License
+**Limited License**
 
-Copyright © [@nano2dev](https://twitter.com/nano2dev).
+- ✅ Personal & Open Source
+- ✅ Commercial use where Usernames and/or Checkout is **NOT** the end-product.
+- ❌ Re-selling/Re-Packing: Usernames and/or Checkout **IS** the end-product.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright © [nano2dev](https://twitter.com/nano2dev).
 
 ## ❯ Stargazers
 
