@@ -10,22 +10,21 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Checkout UI
+## ❯ Checkout Docs
 
-Docs: https://docs.nano.to/checkout
+- https://docs.nano.to/checkout
 
-## ❯ Usernames 
+## ❯ Username Docs
 
-Docs: https://docs.nano.to/usernames
-
+- https://docs.nano.to/usernames
 
 ## ❯ Username Dataset
 
-[THIS REPO][/known.json](https://github.com/fwd/nano/blob/master/known.json)
+- [known.json](https://github.com/fwd/nano/blob/master/known.json)
 
-## ❯ Hosted (w/ CORS)
+## ❯ Username Dataset (w/ CORS)
 
-[https://ӿ.to/known](https://ӿ.to/known.json)
+- [https://ӿ.to/known](https://ӿ.to/known.json)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
