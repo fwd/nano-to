@@ -21,7 +21,7 @@ Docs: https://docs.nano.to/usernames
 
 ## ❯ Username Dataset
 
-[/known.json](https://github.com/fwd/nano/blob/master/known.json)
+[THIS REPO][/known.json](https://github.com/fwd/nano/blob/master/known.json)
 
 ## ❯ Hosted (w/ CORS)
 
