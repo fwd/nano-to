@@ -18,10 +18,14 @@ Docs: https://docs.nano.to/checkout
 
 Docs: https://docs.nano.to/usernames
 
-- File: [/known.json](https://github.com/fwd/nano/blob/master/known.json)
-- Hosted (w/ CORS): [https://raw.githubusercontent.com/fwd/nano/master/known.json](https://raw.githubusercontent.com/fwd/nano/master/known.json)
 
-> Usernames (/known.json) update everytime a Username is purchased from Nano.to
+## ❯ Username Dataset
+
+[/known.json](https://github.com/fwd/nano/blob/master/known.json)
+
+## ❯ Hosted (w/ CORS)
+
+[https://ӿ.to/known](https://ӿ.to/known.json)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
