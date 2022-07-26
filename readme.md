@@ -36,7 +36,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## ❯ License
 
-**Limited Commercial License:**
+**Limited Commercial Use:**
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the product.
