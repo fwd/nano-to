@@ -39,8 +39,8 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 **Limited Commercial Use:**
 
 - ✅ Personal & Open Source
-- ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the product.
-- ❌ Re-selling/Re-Packing/Re-Licensing: Nano.to Usernames and/or Checkout **IS** the product.
+- ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end product.
+- ❌ Re-selling / Re-Packing / Re-Licensing: Nano.to Usernames and/or Checkout **IS** the end product.
 
 Copyright © [nano2dev](https://twitter.com/nano2dev).
 
