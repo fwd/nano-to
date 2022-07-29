@@ -47,7 +47,7 @@ new Vue({
       this.load((data) => {
        
         if (window.location.pathname !== '/') {
-          var item = data.find(a => a.name.toLowerCase().includes(window.location.pathname.replace('/', '').toLowerCase()))
+          var item = data.find(a => a.name.toLowerCase() === window.location.pathname.replace('/', '').toLowerCase())
           if (item) {
             this.checkout = {
               title: '@' + item.name,
