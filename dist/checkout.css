@@ -1,7 +1,8 @@
 #checkout {
     position: fixed;
     z-index: 999;
-    background: #FFF;
+    background-color: #009dff;
+    /*background: #FFF;*/
     top: 0;
     bottom: 0;
     left: 0;
@@ -31,11 +32,12 @@
     text-align: center;
     margin-bottom: 40px;
     margin-top: -10px;
+    /*color: #FFF;*/
 }
 
 @media (max-width:  768px) {
     #checkout h1 {
-        margin-top: 80px;
+        margin-top: 25px;
     }
     #checkout {
         display: block !important;
@@ -211,19 +213,24 @@ section:first-child {
     max-width: 160px;
     margin-top: 30px;
     display: block;
-    border: 10px solid black;
+    border: 10px solid white;
     border-radius: 7px;
     height: 159px;
+    box-shadow: 1px 1px 1px #00000042;;
 }
 .security-notice .flex {
-width: fit-content;
+    width: fit-content;
     margin: 0 auto;
-    font-size: 11px;
+    font-size: 12px;
     opacity: 0.7;
     text-align: center;
     margin-top: 25px;
     letter-spacing: 2px;
     color: #000;
+    max-width: 360px;
+}
+.security-notice.small {
+    font-size: 11px;
 }
 .security-notice.nano {
     background: #000;
@@ -283,19 +290,24 @@ width: fit-content;
     font-size: 11px;
 }
 .button {
+
     padding: 15px 0;
     display: block;
     width: 100%;
     margin: 30px 0 20px 0;
     font-size: 16px;
-    background-color: var(--primary);
+    /*background-color: var(--primary);*/
     border-radius: 4px;
-    color: #fff;
+    /*color: #fff;*/
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 6px 9px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
     appearance: none;
     border: 0;
+
+    background: #F8DA2D;
+    color: #000;
+
 }
 .button span {
     font-size: 17px;
@@ -312,8 +324,8 @@ width: fit-content;
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
-    background: #000;
-    color: #FFF;
+    /*background: #000;*/
+    /*color: #FFF;*/
 }
 #payment {
     padding: 50px 40px;
@@ -326,7 +338,7 @@ width: fit-content;
     /*zoom:  1.2;*/
 }
 #payment.full {
-    height: 100vh;
+    /*height: 100vh;*/
     width: 100%;
 }
 .details {
@@ -413,6 +425,7 @@ hr {
     overflow-wrap: break-word;
     text-shadow: 1px 1px 6px rgb(0 0 0 / 36%);
     letter-spacing: 1px;
+    /*background-color: #009dff;*/
     background-color: #000;
     padding: 10px 20px;
     padding-right: 45px;

@@ -8,6 +8,7 @@ new Vue({
       loading: true,
       background: false,
       title: 'Nano.to',
+      rate: false,
       prompt: false,
       search: true,
       string: '',
@@ -45,18 +46,27 @@ new Vue({
       if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
         if (document.body) document.body.classList.add('fullscreen');
       }
+
       this.load((data) => {
        
         if (window.location.pathname !== '/') {
+          
+          this.getRate()
+
           var item = data.find(a => a.name.toLowerCase() === window.location.pathname.replace('/', '').toLowerCase())
           if (item) {
+            var query = this.queryToObject()
+            // console.log(  )
             this.checkout = {
               title: '@' + item.name,
               address: item.address,
-              fullscreen: true,
-              amount: false,
+              // fullscreen: true,
+              amount: query.price || query.amount || query.cost || false,
+              // amount: false,
             }
-            this.showQR()
+            setTimeout(() => {
+              this.showQR()
+            }, 100)
           }
         }
 
@@ -68,6 +78,18 @@ new Vue({
       // console.log(  )
     },
     methods: {
+       queryToObject(string) {
+        var pairs = (string || window.location.search).substring(1).split("&"),
+          obj = {},
+          pair,
+          i;
+        for ( i in pairs ) {
+          if ( pairs[i] === "" ) continue;
+          pair = pairs[i].split("=");
+          obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+        }
+        return obj;
+      },
       notify(text) {
         this.notification = text
         setTimeout(() => {
@@ -76,6 +98,12 @@ new Vue({
       },
       capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+      },
+      getRate(cb) {
+        return axios.get('https://api.coingecko.com/api/v3/simple/price?ids=nano&vs_currencies=usd').then((res) => {
+          if (res.data.nano && res.data.nano.usd) this.rate = res.data.nano.usd
+          if (cb) cb(res.data)
+        })
       },
       load(cb) {
         return axios.get('https://raw.githubusercontent.com/fwd/nano/master/known.json').then((res) => {
@@ -142,7 +170,7 @@ new Vue({
       showQR(string) {
         setTimeout(() => {
           new QRCode(document.getElementById("qrcode"), {
-            text: string || `nano:${this.checkout.address}${this.checkout.amount ? '?amount=' + convert(this.checkout.amount, 'NANO', 'RAW') : ''}`,
+            text: string || `nano:${this.checkout.address}${this.checkout.amount ? '?amount=' + this.convert(this.checkout.amount, 'NANO', 'RAW') : ''}`,
             width: 300,
             height: 280,
             logo: "dist/images/logo.png"
@@ -152,7 +180,9 @@ new Vue({
       },
       doButton(button) {
         if (button.checkout) {
-          return this.checkout = button.checkout
+          this.checkout = button.checkout
+          this.showQR()
+          return 
         }
         if (button.link === "qrcode") {
           this.prompt.showQR = true

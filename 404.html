@@ -158,16 +158,16 @@
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
                 <span class="faded">To complete, send:</span>
-                <b class="amount" style="cursor: pointer;">0.46464
+                <b class="amount" style="cursor: pointer;">{{ checkout.amount }}
                   <span class="blocky">NANO</span>
                   <span class="hide-desktop"><img src="./dist/images/clipboard.png" alt=""></span>
                 </b>
-                <span style="opacity: 0.7; display: block; margin-bottom: 10px;">≈ USD 0.43 @ <a href="https://coinmarketcap.com/currencies/nano" target="_blank" class="cursor"> 0.926 <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="rate" style="opacity: 0.7; display: block; margin-bottom: 10px;">≈ USD {{ Number(checkout.amount * rate).toFixed(2) }} @ <a href="https://coinmarketcap.com/currencies/nano" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
                 <!-- <span class="faded">Nano Address:</span> -->
               </h4>
-              <h1>{{checkout.title}}</h1>
+              <h1 v-if="!checkout.amount">{{checkout.title}}</h1>
               <p class="address" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`" @click="copy(checkout.address)">
                 <span class="highlight">{{ checkout.address.slice(0, 12) }}</span><span>{{ checkout.address.slice(12, 58) }}</span><span class="highlight">{{ checkout.address.slice(59, 99) }}</span>
                 <img src="./dist/images/clipboard.png" alt="">
@@ -184,11 +184,14 @@
                   </div>
                 </a>
               </div>
-              <button class="button" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
+              <button v-if="!checkout.fullscreen" class="button" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
                 <span>Check Payment</span>
               </button>
-              <div class="security-notice">
-                <div class="flex center">Verify the recipient address, and only send NANO (XNO) to this address. Sending any amount other than {{ checkout.amount }} will result in order not processing correctly. </div>
+              <div v-if="!checkout || !checkout.amount" class="security-notice">
+                <div class="flex center">Verify the recipient address, and only send NANO (XNO) to this address.</div>
+              </div>
+              <div v-if="checkout && checkout.amount" class="security-notice small">
+                <div class="flex center">Verify the recipient address, and only send NANO (XNO) to this address. Sending any amount other than {{ checkout.amount }} will not process correctly. </div>
               </div>
             </div>
           </div>
