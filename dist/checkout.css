@@ -751,3 +751,18 @@ hr.memo {
     }
     .security-notice.nano {}
 }
+
+.highlight {
+    color: #209ce9;
+}
+
+.notification {
+    position: fixed;
+    top: 26px;
+    z-index: 999999;
+    background: #209ce9;
+    text-shadow: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+}
