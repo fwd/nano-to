@@ -213,7 +213,7 @@ section:first-child {
     display: block;
     border: 10px solid black;
     border-radius: 7px;
-    height: 160px;
+    height: 159px;
 }
 .security-notice .flex {
 width: fit-content;

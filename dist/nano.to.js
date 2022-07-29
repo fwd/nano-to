@@ -41,9 +41,9 @@ new Vue({
       // NanocurrencyWeb.tools.convert(checkout.amount, 'NANO', 'RAW')
       // tools.convert('1', 'NANO', 'RAW')
       // console.log( this.convert(1, 'NANO', 'RAW') )
-      // if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
-      //   if (document.body) document.body.classList.add('fullscreen');
-      // }
+      if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
+        if (document.body) document.body.classList.add('fullscreen');
+      }
       this.load((data) => {
        
         if (window.location.pathname !== '/') {
@@ -55,6 +55,7 @@ new Vue({
               fullscreen: true,
               amount: false,
             }
+            this.showQR()
           }
         }
 
