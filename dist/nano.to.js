@@ -1,4 +1,4 @@
-var app = new Vue({
+new Vue({
     el: '#app',
     data: {
       convert: NanocurrencyWeb.tools.convert,
@@ -28,9 +28,10 @@ var app = new Vue({
       status: true,
     },
     watch: {
-      checkout() {
+      string() {
         // if (true) {}
-        this.showQR()
+        this.query()
+        // this.showQR()
       },
       admin() {
         this.background = !this.background
@@ -40,9 +41,9 @@ var app = new Vue({
       // NanocurrencyWeb.tools.convert(checkout.amount, 'NANO', 'RAW')
       // tools.convert('1', 'NANO', 'RAW')
       // console.log( this.convert(1, 'NANO', 'RAW') )
-      if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
-        document.body.classList.add('fullscreen');
-      }
+      // if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
+      //   if (document.body) document.body.classList.add('fullscreen');
+      // }
       this.load((data) => {
        
         if (window.location.pathname !== '/') {
