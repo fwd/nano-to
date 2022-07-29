@@ -11,7 +11,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Nano.to - Nano Username & Checkout API</title>
+    <title>Nano.to - Nano Username & Checkout UI</title>
     <link rel="icon" type="image/png" href="https://nano.to/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
     <meta name="author" content="nano2dev" />
@@ -27,7 +27,6 @@
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/nano.to.js"></script>
   </head>
   <body>
     <div id="app" :class=" `on ${color}`">
@@ -51,7 +50,7 @@
                   <div v-if="search">
                     <p style="font-size: 20px; margin-bottom: 30px; margin-top: 0;">Search Blockchain</p>
                     <form @submit.prevent="query()">
-                      <input v-model="string" type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
+                      <input type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
                       <div class="suggest" v-if="suggestions.length">
                         <div v-for="suggestion in suggestions" @click="doSuggestion(suggestion)">
                           {{ capitalizeFirstLetter(suggestion.name) }}
@@ -91,7 +90,7 @@
                         <p v-html="prompt.body"></p>
                       </div>
                     </div>
-                    <div v-if="prompt && prompt.buttons && prompt.buttons.length" class="row centered button-group" :style="`margin-top: 50px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
+                    <div v-if="prompt && prompt.buttons && prompt.buttons.length" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div v-for="button in prompt.buttons">
                         <a @click="doButton(button)">
                           <button class="cybr-btn" style="zoom: 0.6;">
@@ -195,5 +194,6 @@
         </section>
       </div>
     </div>
+    <script src="dist/nano.to.js"></script>
   </body>
 </html>
