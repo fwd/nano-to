@@ -13,6 +13,7 @@ new Vue({
       string: '',
       color: 'blue',
       usernames: [],
+      notification: false,
       checkout: false,
       suggestions: [],
       colors: [],
@@ -67,6 +68,12 @@ new Vue({
       // console.log(  )
     },
     methods: {
+      notify(text) {
+        this.notification = text
+        setTimeout(() => {
+          this.notification = false
+        }, 3000)
+      },
       capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       },
@@ -124,10 +131,10 @@ new Vue({
           // self.$notify('Error sharing.')
         }
       },
-      copyText(text) {
+      copy(text) {
         var self = this
         navigator.clipboard.writeText(text).then(function() {
-          window.alert('Copied to clipboard.')
+          self.notify('Copied to clipboard.')
         }, function() {
           document.execCommand("copy");
         })
