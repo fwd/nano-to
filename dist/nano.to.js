@@ -56,13 +56,11 @@ new Vue({
           var item = data.find(a => a.name.toLowerCase() === window.location.pathname.replace('/', '').toLowerCase())
           if (item) {
             var query = this.queryToObject()
-            // console.log(  )
             this.checkout = {
-              address: query.address || query.to || item.address,
               fullscreen: true,
+              address: query.address || query.to || item.address,
               amount: query.price || query.amount || query.cost || false,
               title: query.name || query.title || '@' + item.name,
-              // amount: false,
             }
             setTimeout(() => {
               this.showQR()
@@ -94,7 +92,7 @@ new Vue({
         this.notification = text
         setTimeout(() => {
           this.notification = false
-        }, 3000)
+        }, 1000)
       },
       capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
