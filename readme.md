@@ -10,11 +10,11 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Checkout Docs
+## ❯ Checkout UI
 
 - https://docs.nano.to/checkout
 
-## ❯ Username Docs
+## ❯ Username API
 
 - https://docs.nano.to/usernames
 
@@ -42,8 +42,10 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 - ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end product.
 - ❌ Re-selling / Re-Packing / Re-Licensing: Nano.to Usernames and/or Checkout **IS** the end product.
 
+If you have any questions regarding licensing. Contact: hello[@]nano.to
+
 Copyright © [nano2dev](https://twitter.com/nano2dev).
 
 ## ❯ Stargazers
 
-[![Stargazers over time](https://starchart.cc/fwd/n2.svg)](https://github.com/fwd/n2)
+[![Stargazers over time](https://starchart.cc/fwd/nano.svg)](https://github.com/fwd/nano)
