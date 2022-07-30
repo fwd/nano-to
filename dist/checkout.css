@@ -33,6 +33,7 @@
     margin-bottom: 40px;
     margin-top: -10px;
     color: #FFF;
+    text-shadow: 1px 1px 1px #0000005e;
 }
 
 @media (max-width:  768px) {
