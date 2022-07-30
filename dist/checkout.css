@@ -422,7 +422,9 @@ hr {
 .plans.custom .dinput.nano:before {
     content: "NANO"
 }
+
 .instructions {
+    margin-top: 0;
     margin-bottom: 20px;
 }
 
@@ -464,6 +466,7 @@ hr {
     font-size: 35px;
     margin: 10px 0;
     display: block;
+    color: #FFF;
 }
 .hide-desktop {
     display: none
