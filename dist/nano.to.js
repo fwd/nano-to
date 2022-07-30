@@ -58,10 +58,10 @@ new Vue({
             var query = this.queryToObject()
             // console.log(  )
             this.checkout = {
-              title: '@' + item.name,
-              address: item.address,
-              // fullscreen: true,
+              address: query.address || query.to || item.address,
+              fullscreen: true,
               amount: query.price || query.amount || query.cost || false,
+              title: query.name || query.title || '@' + item.name,
               // amount: false,
             }
             setTimeout(() => {

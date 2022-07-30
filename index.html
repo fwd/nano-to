@@ -187,7 +187,7 @@
               <button v-if="!checkout.fullscreen" class="button" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
                 <span>Check Payment</span>
               </button>
-              <div v-if="!checkout || !checkout.amount" class="security-notice">
+              <div v-if="!checkout || !checkout.amount" class="security-notice shrink">
                 <div class="flex center">Verify the recipient address, and only send NANO (XNO) to this address.</div>
               </div>
               <div v-if="checkout && checkout.amount" class="security-notice small">
