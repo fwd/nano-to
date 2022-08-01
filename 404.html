@@ -126,7 +126,6 @@ All Copyright © nano2dev
       </div>
       <div v-if="checkout" id="checkout" class="flex">
         <div v-if="!checkout.fullscreen" id="avatar" class="flex center justify" @click="checkout = false">
-          <span class="back" style="padding-right: 10px;">←</span>
           <h3 :style="`color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">← Cancel</h3>
         </div>
         <section v-if="checkout.plans"  id="order" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : ''}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
