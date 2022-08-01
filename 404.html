@@ -6,6 +6,8 @@
  _| |_        \  /\  /     _| |_.' / 
 |_____|        \/  \/     |______.'  
 “Simplicity is soul of efficiency.” 
+https://github.com/fwd/nano-names
+All Copyright © nano2dev
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -165,7 +167,6 @@
                 <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ USD {{ Number(checkout.amount * rate).toFixed(2) }} @ <a href="https://coinmarketcap.com/currencies/nano"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
-                <!-- <span class="faded">Nano Address:</span> -->
               </h4>
               <h1 v-if="!checkout.amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{checkout.title}}</h1>
               <p class="address" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.color ? checkout.color.address.color : '#000'}; background:${checkout.color && checkout.color.address && checkout.color.address.background ? checkout.color.address.background : (checkout.color && checkout.color.address && checkout.color.background ? checkout.color.background : '#FFF')};`" @click="copy(checkout.address)">
@@ -174,8 +175,6 @@
               </p>
               <div class="qrSwitcher">
                 <a :href="`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`">
-                <!-- <a href="nano:ADDRESS?amount=AMOUNT"> -->
-                  <!-- <img alt=""  src=""> -->
                   <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.background ? checkout.color.background : ''};`">
                     <div id="qrcode"></div>
                   </div>
