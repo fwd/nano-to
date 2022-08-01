@@ -57,7 +57,7 @@ new Vue({
               address: query.address || query.to || item.address,
               amount: query.price || query.amount || query.cost || false,
               title: query.name || query.title || '@' + item.name,
-              background: { right: '#009dff' }
+              color: { right: '#009dff' }
             }
             setTimeout(() => {
               this.showQR()

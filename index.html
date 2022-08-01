@@ -174,7 +174,7 @@ All Copyright © nano2dev
               </p>
               <div class="qrSwitcher">
                 <a :href="`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`">
-                  <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.background ? checkout.color.background : ''};`">
+                  <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.background ? checkout.color.background : '#FFF'}; background:${checkout.color && checkout.color.background ? checkout.color.background : '#FFF'};`">
                     <div id="qrcode"></div>
                   </div>
                   <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};background:${checkout.color && checkout.color.background ? checkout.color.background : ''};`">
