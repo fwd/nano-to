@@ -438,9 +438,10 @@ hr {
     padding: 10px 20px;
     padding-right: 45px;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 14px;
     cursor: pointer;
     color: #FFF;
+    font-weight: 400px;
     letter-spacing: 0.5px;
 }
 
