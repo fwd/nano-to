@@ -1,7 +1,7 @@
 #checkout {
     position: fixed;
     z-index: 999;
-    background-color: #009dff;
+    /*background-color: #009dff;*/
     /*background: #FFF;*/
     top: 0;
     bottom: 0;
@@ -103,7 +103,7 @@ section:first-child {
 }
 #avatar {
     position: absolute;
-    top: 25px;
+    top: 10px;
     left: 25px;
     align-items: center;
     cursor: pointer;
@@ -218,7 +218,7 @@ section:first-child {
     border-radius: 7px;
     height: 159px;
     box-shadow: 1px 1px 1px #00000042;
-    background-color: #FFF;
+    /*background-color: #FFF;*/
 }
 .security-notice .flex {
     width: fit-content;
@@ -228,7 +228,7 @@ section:first-child {
     text-align: center;
     margin-top: 25px;
     letter-spacing: 2px;
-    color: #000;
+    color: #FFF;
     max-width: 360px;
 }
 .security-notice.shrink {
@@ -239,8 +239,8 @@ section:first-child {
     font-size: 11px;
 }
 .security-notice.nano {
-    background: #000;
-    color: #FFF;
+    background: #FFF;
+    color: #000;
     opacity: 01;
     padding: 7px 15px;
     border-radius: 7px;
@@ -434,19 +434,20 @@ hr {
     text-shadow: 1px 1px 6px rgb(0 0 0 / 36%);
     letter-spacing: 1px;
     /*background-color: #009dff;*/
-    background-color: #000;
+    /*background-color: #000;*/
     padding: 10px 20px;
     padding-right: 45px;
     border-radius: 8px;
     font-size: 15px;
     cursor: pointer;
     color: #FFF;
+    letter-spacing: 0.5px;
 }
 
 .address img {
     position: absolute;
     max-width: 15px;
-    filter: invert(1);
+    /*filter: invert(1);*/
     right: 16px;
     top: -1px;
     bottom: 0;
@@ -790,4 +791,19 @@ hr.memo {
     font-family: 'Arial';
     box-shadow: 1px 1px 1px #00000038;
     background-color: #FFF;
+}
+
+.notification.good {
+    background-color: #209ce9;
+    color: #FFF;
+}
+
+.notification.warn {
+    background-color: #F8DA2D;
+    color: #000;
+}
+
+.notification.bad {
+    background-color: #f82d2d;
+    color: #FFF;
 }
