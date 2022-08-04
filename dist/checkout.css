@@ -444,10 +444,15 @@ hr {
     padding: 10px 20px;
     padding-right: 45px;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 14px;
     cursor: pointer;
     color: #FFF;
+<<<<<<< HEAD
     letter-spacing: 0.3px;
+=======
+    font-weight: 400px;
+    letter-spacing: 0.5px;
+>>>>>>> 1fd9494af6b1ef0b4bf95755c234c2d947e3150f
 }
 
 .address img {
