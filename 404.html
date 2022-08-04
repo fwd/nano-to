@@ -125,7 +125,7 @@ All Copyright © nano2dev
         </div>
       </div>
       <div v-if="checkout" id="checkout" class="flex">
-        <div id="avatar" :class="`flex center justify ${checkout.color && checkout.color.left ? '' : 'invert'}`" @click="cancel()">
+        <div id="avatar" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : 'invert'}`" @click="cancel()">
           <h3 :style="`color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">← Cancel</h3>
         </div>
         <section v-if="checkout.plans" id="order" :class="`${checkout.plans.length || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
@@ -166,7 +166,7 @@ All Copyright © nano2dev
                   <span class="blocky">NANO</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
-                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ checkout.currency.toUpperCase() }} {{ Number(checkout.amount * rate).toFixed(2) }} @ <a href="https://coinmarketcap.com/currencies/nano"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ checkout.currency  ? checkout.currency.toUpperCase() : 'USD' }} {{ Number(checkout.amount * rate).toFixed(2) }} @ <a href="https://www.coingecko.com/en/coins/nano/usd"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
               </h4>

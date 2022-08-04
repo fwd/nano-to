@@ -221,6 +221,7 @@ new Vue({
         }, 2000)
       },
       capitalizeFirstLetter(string) {
+        if (!string.charAt(0)) return
         return string.charAt(0).toUpperCase() + string.slice(1);
       },
       getRate(cb) {
