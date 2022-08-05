@@ -72,9 +72,9 @@ new Vue({
           var item = data.find(a => a.name.toLowerCase() === window.location.pathname.replace('/', '').toLowerCase())
           if (item) {
             var query = this.queryToObject()
-            var plans = ''
+            var plans = query.p
             var amount = query.price || query.amount || query.n || query.x || query.cost || false
-            if (!amount) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
+            if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
             var success = query.success ||query.success_url
             if (plans) {
               plans = plans.split(',').map(a => {
