@@ -138,7 +138,7 @@ All Copyright © nano2dev
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
             <p v-if="checkout.message" class="description">{{ checkout.message }}</p>
             <div class="plans">
-              <div v-for="plan in checkout.plans" :class="`${checkout.amount === plan.value ? 'active' : ''}`">
+              <div v-for="plan in checkout.plans" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>{{ plan.title }}</h4>
                   <h4>{{ planValue(plan) }}</h4>
