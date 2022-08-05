@@ -382,14 +382,14 @@ hr {
     height: 1px;
 }
 #checkout .plans > div {
-    border: 2px solid rgb(8 157 255 / 11%);
+    border: 2px solid rgb(0 0 0 / 15%);
     /*border: 1px solid rgb(0 0 0 / 40%);*/
     padding: 0 20px;
     margin-bottom: 20px;
     border-radius: 5px;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 6px 9px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
+    box-shadow: 0 6px 9px rgb(37 37 37 / 8%);
 }
 #checkout .plans > div p {
     margin-top: 10px;
@@ -838,7 +838,7 @@ hr.memo {
 
 #checkout .plans > div:hover,
 #checkout .active {
-        border: 2px solid #63bffb;
-    box-shadow: 1px 1px 10px #00000029;
+        border: 2px solid #63bffb !important;
+    /*box-shadow: 1px 1px 10px #00000029;*/
     background: #0fa0ff1f;
 }
