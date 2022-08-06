@@ -1,6 +1,8 @@
 new Vue({
     el: '#app',
     data: {
+      doc_title: 'Nano.to - Nano Username & Checkout UI',
+      title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
       error: false,
       status: '',
@@ -8,13 +10,11 @@ new Vue({
       user: false,
       loading: true,
       background: false,
-      title: 'Nano.to',
       rate: false,
       params: {},
       prompt: false,
       search: true,
       string: '',
-      // currency: 'NANO',
       color: 'blue',
       usernames: [],
       notification: false,
@@ -37,7 +37,6 @@ new Vue({
         var query = this.queryToObject()
         if (query.random || query.r) {
           var str = `${this.getRandomArbitrary(1, 9).toFixed(0)}${this.getRandomArbitrary(1, 9).toFixed(0)}${this.getRandomArbitrary(1, 9).toFixed(0)}${this.getRandomArbitrary(1, 9).toFixed(0)}`
-          // return str
           return (Number(this.checkout.amount) + Number(`0.00${str}`)).toFixed(6)
         }
         return this.checkout.amount
@@ -73,15 +72,18 @@ new Vue({
 
     },
     methods: {
-      express() {
+      invoice() {
+        var query = this.queryToObject()
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
-        var configured = this.checkout.endpoint || this.checkout.url || this.checkout.api || this.checkout.remote || false
+        var configured = query.project || query.server || query.endpoint || query.url || query.api || false
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then((res) => {
           if (res.data.error) {
+            this.reset()
             return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
           }
         }).catch(e => {
+          this.reset()
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
@@ -89,7 +91,11 @@ new Vue({
         this.getRate()
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         var item = item || data.find(a => a.name.toLowerCase() === path)
-        if (path && path.includes('pay_')) return this.express()
+        var checkout = path.includes('pay_') || path.includes('invoice_') || path.includes('id_')
+        if (path && checkout) {
+          document.title = `${path.includes('invoice_') ? 'Invoice ' : ''}#${path.replace('pay', '').replace('invoice_', '').replace('id_', '').slice(0, 8)} - Nano Checkout`
+          return this.invoice()
+        }
         if (item) {
           var query = this.queryToObject()
           var plans = query.p
@@ -125,6 +131,7 @@ new Vue({
               this.checkout.amount = this.checkout.plans[0].value
             }
           }, 100)
+          document.title = `@${item.name} - Nano Checkout`
         }
         if (path && path.includes('nano_')) {
           if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
@@ -176,6 +183,7 @@ new Vue({
               this.checkout.amount = this.checkout.plans[0].value
             }
           }, 100)
+          document.title = `Pay ${path.slice(0, 12)} - Nano Checkout`
         }
       },
       getRandomArbitrary(min, max) {
@@ -402,8 +410,6 @@ new Vue({
       doButton(button) {
         if (button.checkout) {
           this._checkout(button.checkout, null)
-          // this.checkout = button.checkout
-          // this.showQR()
           return 
         }
         if (button.link === "qrcode") {
@@ -418,8 +424,11 @@ new Vue({
         this.title = 'Nano.to'
         this.string = ''
         this.search = true
+        this.status = ''
+        this.color = 'blue'
         this.suggestions = []
         history.pushState({}, null, '/');
+        document.title = this.doc_title
       },
       doSuggestion(suggestion) {
         // console.log("suggestion", suggestion)
