@@ -74,13 +74,15 @@ new Vue({
     },
     methods: {
       express() {
-        axios.get('https://api.nano.to/checkout/27898c1ebbf').then((res) => {
+        var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
+        var configured = this.checkout.endpoint || this.checkout.url || this.checkout.api || this.checkout.remote || false
+        var endpoint = configured || `https://api.nano.to/checkout/${path}`
+        axios.get(endpoint).then((res) => {
           if (res.data.error) {
             return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
           }
         }).catch(e => {
-          this.notify(e.message ? e.message : 'Error 27', 'error')
-          // console.log(e)
+          this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
       _checkout(item, data) {
@@ -345,7 +347,8 @@ new Vue({
         if (!item && !this.invalidUsername(string)) {
           return this.suggestions = [{
             name: 'Username Available',
-            url: `https://nano.to/${string}/username`
+            color: 'green',
+            alert: 'Registration in Maintenance',
           }]
         }
         if (!item) return this.suggestions = [{
@@ -420,6 +423,7 @@ new Vue({
       },
       doSuggestion(suggestion) {
         // console.log("suggestion", suggestion)
+        if (suggestion.alert) return this.notify(suggestion.alert, 'warn')
         if (suggestion.url) return window.open(suggestion.url, '_blank');
         if (suggestion.checkout) return this._checkout(suggestion.checkout, null)
         if (!suggestion.address) return
