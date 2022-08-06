@@ -74,8 +74,9 @@ new Vue({
     },
     methods: {
       _checkout(item, data) {
+        var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         this.getRate()
-        var item = item || data.find(a => a.name.toLowerCase() === window.location.pathname.replace('/', '').toLowerCase())
+        var item = item || data.find(a => a.name.toLowerCase() === path)
         if (item) {
           var query = this.queryToObject()
           var plans = query.p
@@ -96,6 +97,57 @@ new Vue({
             amount,
             plans,
             title: query.name || query.title || ('@' + item.name),
+            color: {
+              right: query.rightBackground || '#009dff', 
+              address: {
+                hightlight: query.hightlight,
+              }
+            },
+            success, 
+            cancel: query.cancel || query.cancel_url || query.c, 
+          }
+          setTimeout(() => {
+            this.showQR()
+            if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
+              this.checkout.amount = this.checkout.plans[0].value
+            }
+          }, 100)
+        }
+        if (path && path.includes('nano_')) {
+          if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
+          var query = this.queryToObject()
+          
+          var plans = query.p
+
+          var amount = query.price || query.amount || query.n || query.x || query.cost
+              amount = amount ? amount.match( /\d+/g ).join('') : false
+
+          var success = query.success ||query.success_url
+
+// var amount = query.price || query.amount || query.n || query.x || query.cost || false
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
+          // var success = query.success || query.success_url
+          // if (plans && !plans.includes(':')) amount = plans
+          // if (plans && plans.includes(':')) {
+          //   plans = plans.split(',').map(a => {
+          //     return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
+          //   })
+          // }
+
+          if (plans) {
+            plans = plans.split(',').map(a => {
+              return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
+            })
+          }
+          this.checkout = {
+            currency: query.currency || query.c,
+            message: query.body || query.message || query.text || query.copy,
+            fullscreen: true,
+            image: query.image || query.img || query.i || '',
+            address: query.address || query.to || path,
+            amount,
+            plans,
+            title: query.name || query.title || 'Pay with NANO',
             color: {
               right: query.rightBackground || '#009dff', 
               address: {
