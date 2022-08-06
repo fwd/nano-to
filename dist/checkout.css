@@ -821,6 +821,7 @@ hr.memo {
     color: #000;
 }
 
+.notification.error,
 .notification.bad {
     background-color: #f82d2d;
     color: #FFF;
