@@ -50,9 +50,7 @@ new Vue({
     },
     watch: {
       string() {
-        // if (true) {}
         this.query()
-        // this.showQR()
       },
       admin() {
         this.background = !this.background
@@ -60,15 +58,12 @@ new Vue({
     },
     mounted() {
 
-      // this.params = this.queryToObject()
-
       if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
         if (document.body) document.body.classList.add('fullscreen');
       }
 
       this.load((data) => {
         if (window.location.pathname !== '/') {
-          // this.getRate()
           this._checkout(null, data)
         }
         setTimeout(() => {
@@ -193,15 +188,15 @@ new Vue({
        check() {
         try {
           return this.pending().then((pending) => {
-            var in_pending = pending.find(a => this.convert(a.amount, 'NANO', 'RAW') === this.checkout.amount)
+            var in_pending = pending.find(a => String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount))
             if (in_pending) return this.success(in_pending)
             if (!in_pending) {
               this.history().then((history) => {
-                var in_history = history.history.find(a => this.convert(a.amount, 'NANO', 'RAW') === this.checkout.amount)
+                var in_history = history.history.find(a => String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount))
                 if (in_history) return this.success(in_history)
                 if (!in_history) {
-                  this.status = 'warn'
-                  this.notify('Payment not found')
+                  // this.status = 'warn'
+                  this.notify('Payment not found', 'warn')
                 }
               })
             }
@@ -223,10 +218,11 @@ new Vue({
         }
         return obj;
       },
-      notify(text) {
+      notify(text, type){
         this.notification = text
+        if (type) this.status = type
         setTimeout(() => {
-          this.status = ''
+          if (type) this.status = ''
           this.notification = false
         }, 2000)
       },
