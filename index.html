@@ -6,6 +6,8 @@
  _| |_        \  /\  /     _| |_.' / 
 |_____|        \/  \/     |______.'  
 “Simplicity is soul of efficiency.” 
+https://github.com/fwd/nano-names
+All Copyright © nano2dev
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +21,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
     <meta name="apple-mobile-web-app-title" content="Nano.to">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
-    <meta property="og:title" content=">Nano.to - Nano Username & Checkout API">
+    <meta property="og:title" content=">Nano.to - Nano Username & Checkout UI">
     <meta property="og:image" content="dist/images/cover.png">
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/checkout.css">
@@ -30,6 +32,7 @@
   </head>
   <body>
     <div id="app" :class=" `on ${color}`">
+      <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
       <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
       <!-- SEO hackz -->
@@ -38,7 +41,7 @@
       <div v-if="!checkout" :class="`ak47 ${status ? color : 'red'} ${status.status && status.status == false ? 'error' : ''}`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
-            {{ title }}
+            <span v-if="false">nano.to/</span>{{ title }}
           </h3>
         </div>
         <div :class="`box--outer ${status.status && status.status == false ? 'error' : ''}`">
@@ -59,8 +62,8 @@
                       <div style="display: block; height: 15px;"></div>
                       <div class="row centered">
                         <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; "> Search <span aria-hidden>_</span>
-                          <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
-                          <span aria-hidden class="cybr-btn__tag">R25</span>
+                          <span aria-hidden class="cybr-btn__glitch">NANO_</span>
+                          <span aria-hidden class="cybr-btn__tag">N2</span>
                         </button>
                       </div>
                     </form>
@@ -122,28 +125,30 @@
         </div>
       </div>
       <div v-if="checkout" id="checkout" class="flex">
-        <div v-if="!checkout.fullscreen" id="avatar" class="flex center justify" @click="checkout = false">
-          <span class="back" style="padding-right: 10px;">←</span>
-          <h3>Cancel</h3>
+        <div id="avatar" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : 'invert'}`" @click="cancel()">
+          <h3 :style="`color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">← Cancel</h3>
         </div>
-        <section v-if="checkout.plans"  id="order" :style="`background-color: ${checkout.background && checkout.background.left ? checkout.background.left : ''}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
+        <section v-if="checkout.plans" id="order" :class="`${checkout.plans.length || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
+          <!-- <div id="rate">1 XNO = 4.38 USD</div> -->
           <div class="about">
             <div class="name flex center justify">
-              <h2>{{ checkout.title }}</h2>
-              <p class="price">$0.43</p>
+              <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
+              <p class="price">{{ value }}</p>
             </div>
-            <p v-if="checkout.message" class="description"></p>
+            <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
+            <p v-if="checkout.message" class="description">{{ checkout.message }}</p>
             <div class="plans">
-              <div v-for="plan in checkout.plans" :class="`${checkout.amount === plan.value ? 'active' : ''}`">
-                <div class="flex justify center" @click="checkout.amount = plan.value">
+              <div v-for="plan in checkout.plans" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
+                <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>{{ plan.title }}</h4>
-                  <h4>{{ plan.currency }}{{ plan.value }}</h4>
+                  <h4>{{ planValue(plan) }}</h4>
                 </div>
               </div>
             </div>
             <div class="plans custom">
-              <div class="flex justify center">
-                <h4>Enter amount (<span style="text-transform: uppercase; border-bottom: 1px solid;">USD</span>) </h4>
+              <div :class="`flex justify center`">
+                <h4>Enter amount: </h4>
+                <!-- <h4>Enter amount (<span @click="toggleCurrency()" style="text-transform: uppercase; border-bottom: 1px solid;">{{ checkout.currency || 'NANO' }}</span>) </h4> -->
                 <div class="dinput">
                   <input type="number" inputmode="decimal" min="1" max="133248297" v-model="checkout.amount">
                 </div>
@@ -151,43 +156,40 @@
             </div>
           </div>
         </section>
-        <section id="payment" :style="checkout.background && checkout.background.right ? `background-color: ${checkout.background.right}` : ''" :class="checkout.plans ? '' : 'full'">
+        <section id="payment" :style="checkout.color && checkout.color.right ? `background-color: ${checkout.color.right}` : ''" :class="checkout.plans ? '' : 'full'">
           <div class="details">
             <!---->
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
-                <span class="faded">To complete, send:</span>
-                <b class="amount" style="cursor: pointer;">0.46464
+                <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">To complete, send:</span>
+                <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ amount }}
                   <span class="blocky">NANO</span>
-                  <span class="hide-desktop"><img src="./dist/images/clipboard.png" alt=""></span>
+                  <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
-                <span style="opacity: 0.7; display: block; margin-bottom: 10px;">≈ USD 0.43 @ <a href="https://coinmarketcap.com/currencies/nano" target="_blank" class="cursor"> 0.926 <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ checkout.currency  ? checkout.currency.toUpperCase() : 'USD' }} {{ Number(checkout.amount * rate).toFixed(2) }} @ <a href="https://www.coingecko.com/en/coins/nano/usd"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
-                <!-- <span class="faded">Nano Address:</span> -->
               </h4>
-              <h1>{{checkout.title}}</h1>
-              <p class="address" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
-                <span>{{ checkout.address }}</span>
+              <h1 v-if="!checkout.amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{checkout.title}}</h1>
+              <p class="address" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.color ? checkout.color.address.color : '#000'}; background:${checkout.color && checkout.color.address && checkout.color.address.background ? checkout.color.address.background : (checkout.color && checkout.color.address && checkout.color.background ? checkout.color.background : '#FFF')};`" @click="copy(checkout.address)">
+                <span class="highlight" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.hightlight ? checkout.color.address.hightlight : ''};`">{{ checkout.address.slice(0, 12) }}</span><span>{{ checkout.address.slice(12, 58) }}</span><span class="highlight" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.hightlight ? checkout.color.address.hightlight : ''};`">{{ checkout.address.slice(59, 99) }}</span>
                 <img src="./dist/images/clipboard.png" alt="">
               </p>
               <div class="qrSwitcher">
                 <a :href="`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`">
-                <!-- <a href="nano:ADDRESS?amount=AMOUNT"> -->
-                  <!-- <img alt=""  src=""> -->
-                  <div class="qrcode" :style="`background:${checkout.highlight && checkout.highlight.back ? checkout.highlight.back : ''};`">
+                  <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.background ? checkout.color.background : '#FFF'}; background:${checkout.color && checkout.color.background ? checkout.color.background : '#FFF'};`">
                     <div id="qrcode"></div>
                   </div>
-                  <div class="security-notice nano" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
-                    <img src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> Tap to open Natrium
+                  <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};background:${checkout.color && checkout.color.background ? checkout.color.background : ''};`">
+                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> Tap to open Natrium
                   </div>
                 </a>
               </div>
-              <button class="button" :style="`color:${checkout.highlight && checkout.highlight.color ? checkout.highlight.color : ''};background:${checkout.highlight && checkout.highlight.background ? checkout.highlight.background : ''};`">
+              <button v-if="checkout.amount" class="button" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};background:${checkout.color && checkout.color.background ? checkout.color.background : ''};`" @click="check()">
                 <span>Check Payment</span>
               </button>
-              <div class="security-notice">
-                <div class="flex center">Verify the recipient address, and only send NANO (XNO) to this address. Sending any amount other than {{ checkout.amount }} will result in order not processing correctly. </div>
+              <div class="security-notice shrink">
+                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">Verify the recipient address, and only send NANO (XNO) to this address.</div>
               </div>
             </div>
           </div>

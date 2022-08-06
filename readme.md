@@ -10,21 +10,17 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Checkout Docs
+## ❯ Checkout UI
 
 - https://docs.nano.to/checkout
 
-## ❯ Username Docs
+## ❯ Username API
 
 - https://docs.nano.to/usernames
 
-## ❯ Username Dataset
-
-- [known.json](https://github.com/fwd/nano/blob/master/known.json)
-
 ## ❯ Username Dataset (w/ CORS)
 
-- [https://ӿ.to/known](https://ӿ.to/known.json)
+- [https://nano.to/known.json](https://nano.to/known.json)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -32,18 +28,20 @@
 
 Give a ⭐️ if this project helped you!
 
-Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano/issues).
+Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-names/issues).
 
 ## ❯ License
 
 **Limited Commercial Use:**
 
 - ✅ Personal & Open Source
-- ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end product.
-- ❌ Re-selling / Re-Packing / Re-Licensing: Nano.to Usernames and/or Checkout **IS** the end product.
+- ✅ Commercial use where Nano.to Usernames or Checkout is **NOT** the end product.
+- ❌ Re-selling/Re-Packing: Nano.to Usernames or Checkout **IS** the end product.
+
+Questions about licensing? Email: hello[@]nano.to
 
 Copyright © [nano2dev](https://twitter.com/nano2dev).
 
 ## ❯ Stargazers
 
-[![Stargazers over time](https://starchart.cc/fwd/n2.svg)](https://github.com/fwd/n2)
+[![Stargazers over time](https://starchart.cc/fwd/nano-names.svg)](https://github.com/fwd/nano-names)
