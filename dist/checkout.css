@@ -1,15 +1,21 @@
 #checkout {
     position: fixed;
     z-index: 999;
-    background: #FFF;
+    /*background-color: #009dff;*/
+    /*background: #FFF;*/
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    color: #000;
+    color: #232323;
     font-family: Roboto, Open Sans, Segoe UI, sans-serif;
     font-size: 16px;
     font-weight: 500;
+}
+
+#checkout h4 {
+        font-family: 'Arial';
+    letter-spacing: 1px;
 }
 
 #checkout canvas {
@@ -31,11 +37,13 @@
     text-align: center;
     margin-bottom: 40px;
     margin-top: -10px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #0000005e;
 }
 
 @media (max-width:  768px) {
     #checkout h1 {
-        margin-top: 80px;
+        /*margin-top: 25px;*/
     }
     #checkout {
         display: block !important;
@@ -90,7 +98,7 @@
 section {
     width: 50%;
     height: 100vh;
-    padding: 70px 70px;
+    padding: 70px;
     overflow: auto;
 }
 
@@ -100,12 +108,15 @@ section:first-child {
 }
 #avatar {
     position: absolute;
-    top: 25px;
+    top: 10px;
     left: 25px;
     align-items: center;
     cursor: pointer;
     z-index: 99;
     opacity: 0.5;
+}
+#avatar.invert {
+    filter: invert(1);
 }
 #avatar.centered {
     left: 0;
@@ -120,7 +131,7 @@ section:first-child {
     margin: 0 15px;
 }
 .payment-methods, .gallery, .name {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .description {
     font-size: 21px;
@@ -129,9 +140,10 @@ section:first-child {
 }
 
 #order {
-    display: flex;
+    /*display: flex;*/
     /*align-items: center;*/
     justify-content: center;
+    position: relative;
 }
 
 .about {
@@ -211,23 +223,33 @@ section:first-child {
     max-width: 160px;
     margin-top: 30px;
     display: block;
-    border: 10px solid black;
+    border: 10px solid white;
     border-radius: 7px;
-    height: 160px;
+    height: 159px;
+    box-shadow: 1px 1px 1px #00000042;
+    /*background-color: #FFF;*/
 }
 .security-notice .flex {
-width: fit-content;
+    width: fit-content;
     margin: 0 auto;
-    font-size: 11px;
+    font-size: 12px;
     opacity: 0.7;
     text-align: center;
     margin-top: 25px;
     letter-spacing: 2px;
-    color: #000;
+    color: #FFF;
+    max-width: 360px;
+}
+.security-notice.shrink {
+    max-width: 300px;
+    margin: 0 auto;
+}
+.security-notice.small {
+    font-size: 11px;
 }
 .security-notice.nano {
-    background: #000;
-    color: #FFF;
+    background: #FFF;
+    color: #000;
     opacity: 01;
     padding: 7px 15px;
     border-radius: 7px;
@@ -235,7 +257,7 @@ width: fit-content;
     width: fit-content;
     margin: 0 auto;
     zoom: 0.8;
-    margin-top: 25px;
+    margin-top: 30px;
 }
 .security-notice .lock-icon {
     max-width: 12px;
@@ -283,19 +305,24 @@ width: fit-content;
     font-size: 11px;
 }
 .button {
+
     padding: 15px 0;
     display: block;
     width: 100%;
     margin: 30px 0 20px 0;
     font-size: 16px;
-    background-color: var(--primary);
+    /*background-color: var(--primary);*/
     border-radius: 4px;
-    color: #fff;
+    /*color: #fff;*/
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 6px 9px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
     appearance: none;
     border: 0;
+
+    background: #F8DA2D;
+    color: #000;
+
 }
 .button span {
     font-size: 17px;
@@ -312,8 +339,8 @@ width: fit-content;
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
-    background: #000;
-    color: #FFF;
+    /*background: #000;*/
+    /*color: #FFF;*/
 }
 #payment {
     padding: 50px 40px;
@@ -326,7 +353,7 @@ width: fit-content;
     /*zoom:  1.2;*/
 }
 #payment.full {
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 .details {
@@ -355,13 +382,14 @@ hr {
     height: 1px;
 }
 #checkout .plans > div {
-    border: 1px solid rgb(0 0 0 / 40%);
+    border: 2px solid rgb(0 0 0 / 15%);
+    /*border: 1px solid rgb(0 0 0 / 40%);*/
     padding: 0 20px;
     margin-bottom: 20px;
     border-radius: 5px;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 6px 9px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
+    box-shadow: 0 6px 9px rgb(37 37 37 / 8%);
 }
 #checkout .plans > div p {
     margin-top: 10px;
@@ -374,10 +402,6 @@ hr {
     padding: 3px 15px;
     border-radius: 10px;
     font-size: 13px;
-    color: #FFF;
-}
-#checkout .plans > div:hover {
-    background: #000;
     color: #FFF;
 }
 .plans.custom .flex {
@@ -404,7 +428,9 @@ hr {
 .plans.custom .dinput.nano:before {
     content: "NANO"
 }
+
 .instructions {
+    margin-top: 0;
     margin-bottom: 20px;
 }
 
@@ -413,19 +439,26 @@ hr {
     overflow-wrap: break-word;
     text-shadow: 1px 1px 6px rgb(0 0 0 / 36%);
     letter-spacing: 1px;
-    background-color: #000;
+    /*background-color: #009dff;*/
+    /*background-color: #000;*/
     padding: 10px 20px;
     padding-right: 45px;
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 14px;
     cursor: pointer;
     color: #FFF;
+<<<<<<< HEAD
+    letter-spacing: 0.3px;
+=======
+    font-weight: 400px;
+    letter-spacing: 0.5px;
+>>>>>>> 1fd9494af6b1ef0b4bf95755c234c2d947e3150f
 }
 
 .address img {
     position: absolute;
     max-width: 15px;
-    filter: invert(1);
+    /*filter: invert(1);*/
     right: 16px;
     top: -1px;
     bottom: 0;
@@ -445,6 +478,7 @@ hr {
     font-size: 35px;
     margin: 10px 0;
     display: block;
+    color: #FFF;
 }
 .hide-desktop {
     display: none
@@ -719,7 +753,7 @@ hr.memo {
     section {
         width: 100%;
         height: auto;
-        padding: 50px 30px;
+        padding: 30px 30px;
         overflow: auto;
     }
     #avatar {
@@ -727,7 +761,12 @@ hr.memo {
         margin-left: 0;
     }
     #order {
-        padding-top: 75px;
+        padding-top: 30px;
+        /*padding-top: 75px;*/
+    }
+    #order.cancel {
+        padding-top: 70px;
+        /*padding-top: 75px;*/
     }
     .crypto {
         zoom: 1;
@@ -750,4 +789,56 @@ hr.memo {
         font-size: 17px;
     }
     .security-notice.nano {}
+}
+
+.highlight {
+    color: #089dfa;
+    font-weight: bold;
+    letter-spacing: 1px;
+} 
+
+.notification {
+    color: #000;
+    position: fixed;
+    top: 26px;
+    z-index: 999999;
+    text-shadow: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Arial';
+    box-shadow: 1px 1px 1px #00000038;
+    background-color: #FFF;
+}
+
+.notification.good {
+    background-color: #209ce9;
+    color: #FFF;
+}
+
+.notification.warn {
+    background-color: #F8DA2D;
+    color: #000;
+}
+
+.notification.bad {
+    background-color: #f82d2d;
+    color: #FFF;
+}
+
+#rate {
+    background: #e8e8e8;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#checkout .plans > div {
+    border-width: 2px;
+}
+
+#checkout .plans > div:hover,
+#checkout .active {
+        border: 2px solid #63bffb !important;
+    /*box-shadow: 1px 1px 10px #00000029;*/
+    background: #0fa0ff1f;
 }
