@@ -68,16 +68,18 @@ new Vue({
 
       this.load((data) => {
         if (window.location.pathname !== '/') {
-          this.getRate()
+          // this.getRate()
           this._checkout(null, data)
         }
         setTimeout(() => {
           this.loading = false
         }, 105)
       })
+
     },
     methods: {
       _checkout(item, data) {
+        this.getRate()
         var item = item || data.find(a => a.name.toLowerCase() === window.location.pathname.replace('/', '').toLowerCase())
         if (item) {
           var query = this.queryToObject()
