@@ -73,10 +73,21 @@ new Vue({
 
     },
     methods: {
+      express() {
+        axios.get('https://api.nano.to/checkout/27898c1ebbf').then((res) => {
+          if (res.data.error) {
+            return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
+          }
+        }).catch(e => {
+          this.notify(e.message ? e.message : 'Error 27', 'error')
+          // console.log(e)
+        })
+      },
       _checkout(item, data) {
-        var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         this.getRate()
+        var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         var item = item || data.find(a => a.name.toLowerCase() === path)
+        if (path && path.includes('pay_')) return this.express()
         if (item) {
           var query = this.queryToObject()
           var plans = query.p
@@ -89,6 +100,7 @@ new Vue({
             })
           }
           this.checkout = {
+            title: query.name || query.title || (item.name ? ('@' + item.name) : 'Pay with NANO'),
             currency: query.currency || query.c,
             message: query.body || query.message || query.text || query.copy,
             fullscreen: true,
@@ -96,7 +108,6 @@ new Vue({
             address: query.address || query.to || item.address,
             amount,
             plans,
-            title: query.name || query.title || ('@' + item.name),
             color: {
               right: query.rightBackground || '#009dff', 
               address: {
@@ -124,7 +135,7 @@ new Vue({
 
           var success = query.success ||query.success_url
 
-// var amount = query.price || query.amount || query.n || query.x || query.cost || false
+          // var amount = query.price || query.amount || query.n || query.x || query.cost || false
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
           // var success = query.success || query.success_url
           // if (plans && !plans.includes(':')) amount = plans
@@ -185,7 +196,7 @@ new Vue({
           // var value = plan.value
         this.checkout.amount = Number(plan.value)
         // }
-        document.getElementById("qrcode").innerHTML = "";
+        // document.getElementById("qrcode").innerHTML = "";
         this.showQR()
         // console.log("plan.value", )
         // console.log("this.checkout.amount", )
@@ -270,16 +281,16 @@ new Vue({
         }
         return obj;
       },
-      notify(text, type){
+      notify(text, type, timeout){
         this.notification = text
         if (type) this.status = type
         setTimeout(() => {
-          if (type) this.status = ''
+          this.status = ''
           this.notification = false
-        }, 2000)
+        }, timeout || 2000)
       },
       capitalizeFirstLetter(string) {
-        if (!string.charAt(0)) return
+        if (!string || !string.charAt(0)) return
         return string.charAt(0).toUpperCase() + string.slice(1);
       },
       getRate(cb) {
@@ -309,11 +320,20 @@ new Vue({
       query() {
         var string = this.string ? this.string.toLowerCase() : this.string
         if (!string) return
-        if (string.includes('nano_') || string.includes('xrb_')) {
-          return this.suggestions = [{
-            name: `Nanolooker (${string.slice(0, 12)})`,
-            url: `https://nanolooker.com/account/${string}`
-          }]
+        if ((string.includes('nano_') || string.includes('xrb_')) && NanocurrencyWeb.tools.validateAddress(string)) {
+          return this.suggestions = [
+            {
+              name: `Checkout (${string.slice(0, 12)})`,
+              checkout: {
+                address: string,
+                amount: false,
+              }
+            },
+            {
+              name: `Nanolooker (${string.slice(0, 12)})`,
+              url: `https://nanolooker.com/account/${string}`
+            }
+          ]
         }
         if (!string.includes('nano_') && this.invalidUsername(string)) {
           return this.suggestions = [{
@@ -360,6 +380,7 @@ new Vue({
         })
       },
       showQR(string) {
+        document.getElementById("qrcode").innerHTML = "";
         setTimeout(() => {
           var options = {
             text: string || `nano:${this.checkout.address}${this.checkout.amount ? '?amount=' + this.convert(this.amount, 'NANO', 'RAW') : ''}`,
@@ -372,8 +393,8 @@ new Vue({
           if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.light) options.colorLight = this.checkout.color.qrcode.light
           if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.logo) options.logoBackgroundColor = this.checkout.color.qrcode.logo
           new QRCode(document.getElementById("qrcode"), options);
+          this.$forceUpdate()
         }, 100)
-        this.$forceUpdate()
       },
       doButton(button) {
         if (button.checkout) {
@@ -395,10 +416,14 @@ new Vue({
         this.string = ''
         this.search = true
         this.suggestions = []
+        history.pushState({}, null, '/');
       },
       doSuggestion(suggestion) {
+        // console.log("suggestion", suggestion)
+        if (suggestion.url) return window.open(suggestion.url, '_blank');
+        if (suggestion.checkout) return this._checkout(suggestion.checkout, null)
+        if (!suggestion.address) return
         if (suggestion.error) return this.reset()
-        if (!suggestion.address && suggestion.url) return window.open(suggestion.url, '_blank');
         var self = this
         self.search = false
         var checkout = {
