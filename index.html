@@ -35,9 +35,6 @@ All Copyright © nano2dev
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
       <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
-      <!-- SEO hackz -->
-      <p style="display: none">Nano.to is a free API service for the NANO crypto currency. Navigate the NANO blockchain, create non-custodial payment pages, QR codes and more.</p>
-      <!-- End SEO hackz -->
       <div v-if="!checkout" :class="`ak47 ${status ? color : 'red'} ${status.status && status.status == false ? 'error' : ''}`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
@@ -129,7 +126,6 @@ All Copyright © nano2dev
           <h3 :style="`color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">← Cancel</h3>
         </div>
         <section v-if="checkout.plans" id="order" :class="`${checkout.plans.length || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
-          <!-- <div id="rate">1 XNO = 4.38 USD</div> -->
           <div class="about">
             <div class="name flex center justify">
               <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
@@ -148,7 +144,6 @@ All Copyright © nano2dev
             <div class="plans custom">
               <div :class="`flex justify center`">
                 <h4>Enter amount: </h4>
-                <!-- <h4>Enter amount (<span @click="toggleCurrency()" style="text-transform: uppercase; border-bottom: 1px solid;">{{ checkout.currency || 'NANO' }}</span>) </h4> -->
                 <div class="dinput">
                   <input type="number" inputmode="decimal" min="1" max="133248297" v-model="checkout.amount">
                 </div>
@@ -158,7 +153,6 @@ All Copyright © nano2dev
         </section>
         <section id="payment" :style="checkout.color && checkout.color.right ? `background-color: ${checkout.color.right}` : ''" :class="checkout.plans ? '' : 'full'">
           <div class="details">
-            <!---->
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
                 <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">To complete, send:</span>
