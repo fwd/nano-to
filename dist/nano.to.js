@@ -117,9 +117,23 @@ new Vue({
             amount,
             plans,
             color: {
-              right: query.rightBackground || '#009dff', 
+              primary: query.color ? query.color.split(':')[0].replace('$', '#') : '',
+              // background_: query.highlight ? query.highlight.split(':')[0].replace('$', '#') : '',
+              highlight_background: query.highlight && query.highlight.split(':')[0] ? query.highlight.split(':')[0].replace('$', '#') : '',
+              highlight_color: query.highlight && query.highlight.split(':')[1] ? query.highlight.split(':')[1].replace('$', '#') : '',
+              highlight_address: query.highlight && query.highlight.split(':')[2] ? query.highlight.split(':')[2].replace('$', '#') : '',
+              // text: 'white',
+              // left_color: query.color,
+              // right_color: query.color,
+              left: query.left || query.background && query.background.split(':')[0] ? query.background.split(':')[0].replace('$', '#') : '#FFF', 
+              right: query.right || query.background && query.background.split(':')[1] ? query.background.split(':')[1].replace('$', '#') : '#009dff', 
+              qrcode: {
+                logo: query.logo ? query.logo : '',
+                light: query.qrcode ? query.qrcode.split(':')[0].replace('$', '#') : '',
+                dark: query.qrcode ? query.qrcode.split(':')[1].replace('$', '#') : '',
+              },
               address: {
-                hightlight: query.hightlight,
+                hightlight: query.color,
               }
             },
             success, 
@@ -402,7 +416,8 @@ new Vue({
           }
           if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.dark) options.colorDark = this.checkout.color.qrcode.dark
           if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.light) options.colorLight = this.checkout.color.qrcode.light
-          if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.logo) options.logoBackgroundColor = this.checkout.color.qrcode.logo
+          if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.logo) options.logo = this.checkout.color.qrcode.logo
+          if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.transparent) options.backgroundImageAlpha = this.checkout.color.qrcode.transparent
           new QRCode(document.getElementById("qrcode"), options);
           this.$forceUpdate()
         }, 100)
