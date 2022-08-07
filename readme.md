@@ -10,17 +10,59 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Checkout UI
+## ❯ Usage
 
-- https://docs.nano.to/checkout
+**Any Address:**
+```text
+https://nano.to/:ADDRESS
+```
 
-## ❯ Username API
+**Nano.to Usernames:**
+```text
+https://nano.to/@nautilus
+```
 
-- https://docs.nano.to/usernames
+## ❯ Customize
 
-## ❯ Username Dataset (w/ CORS)
+Using URL params you can further customize Nano.to. This is all hosted on this repo. No backend server involved.
 
-- [https://nano.to/known.json](https://nano.to/known.json)
+## Single Panel UI
+
+```
+https://nano.to/@Nautilus?price=50
+```
+
+<img src="https://github.com/fwd/nano/raw/master/dist/single-ui.png" alt="Single Panel UI" />
+
+```text
+https://nano.to/@Nautilus
+?title=Donate
+&price=50
+&plans=Tip:0.133,Small:1,Medium:10,Large:20
+&currency=USD
+&random
+&color
+&background=blue,red
+&highlight
+&qrcode
+&image=https://media3.giphy.com/media/cnuNz0fTBIUGnx4F9T/giphy.gif
+&cancel_url=https://github.com/fwd/nano-names
+&success_url=https://media2.giphy.com/media/3o6Zt6KHxJTbXCnSvu/giphy.gif
+```
+
+**Available Params:**
+
+- **price** (number) : Single panel with price. No plans.
+- **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
+- **currency** (string) : ISO Currency Symbol. Ex JPY
+- **random** (bool/string) : Use random amounts. Ex + 0.00XXXX
+- **color** (string) : Colon separated value. Ex red:blue
+- **background** (string) : Colon separated value. Ex white:gray
+- **highlight** (string) : Colon separated value. Ex blue:red
+- **qrcode** (string) : Colon separated value. Ex white:black
+- **image** (image/url) : Remote URL of any image file.
+- **cancel_url** (string) : Redirect URL when pressed 'Cancel'
+- **success_url** (string) : Redirect URL when payment is successful
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
