@@ -122,11 +122,11 @@ All Copyright © twitter.com/nano2dev
         </div>
       </div>
       <div v-if="checkout" id="checkout" class="flex">
-        <div id="avatar" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : 'invert'}`" @click="cancel()">
-          <h3 :style="`color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">← Cancel</h3>
+        <div id="avatar" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
+          <h3 :style="`color:${checkout.color && checkout.color.text_left ? checkout.color.text_left : '#000'};`">← Cancel</h3>
         </div>
         <section v-if="checkout.plans" id="order" :class="`${checkout.plans.length || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
-          <div class="about">
+          <div class="about" :style="`color:${checkout.color && checkout.color.text_left ? checkout.color.text_left : '#000'};`">
             <div class="name flex center justify">
               <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
               <p class="price">{{ value }}</p>
@@ -134,7 +134,7 @@ All Copyright © twitter.com/nano2dev
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
             <p v-if="checkout.message" class="description">{{ checkout.message }}</p>
             <div class="plans">
-              <div v-for="plan in checkout.plans" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
+              <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(8 157 255 / 15%)'} !important; backgroundd:${checkout.color && checkout.color.primary ? checkout.color.primary : '#FFF'};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>{{ plan.title }}</h4>
                   <h4>{{ planValue(plan) }}</h4>
@@ -142,10 +142,10 @@ All Copyright © twitter.com/nano2dev
               </div>
             </div>
             <div class="plans custom">
-              <div :class="`flex justify center`">
+              <div :class="`flex justify center`" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(8 157 255 / 15%)'};`">
                 <h4>Enter amount: </h4>
                 <div class="dinput">
-                  <input type="number" inputmode="decimal" min="1" max="133248297" v-model="checkout.amount">
+                  <input type="number" inputmode="decimal" min="1" max="133248297" v-model="checkout.amount" >
                 </div>
               </div>
             </div>
@@ -165,21 +165,21 @@ All Copyright © twitter.com/nano2dev
                 </span>
               </h4>
               <h1 v-if="!checkout.amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{checkout.title}}</h1>
-              <p class="address" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.color ? checkout.color.address.color : '#000'}; background:${checkout.color && checkout.color.address && checkout.color.address.background ? checkout.color.address.background : (checkout.color && checkout.color.address && checkout.color.background ? checkout.color.background : '#FFF')};`" @click="copy(checkout.address)">
-                <span class="highlight" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.hightlight ? checkout.color.address.hightlight : ''};`">{{ checkout.address.slice(0, 12) }}</span><span>{{ checkout.address.slice(12, 58) }}</span><span class="highlight" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.hightlight ? checkout.color.address.hightlight : ''};`">{{ checkout.address.slice(59, 99) }}</span>
+              <p class="address" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.highlight_color ? checkout.color.address.highlight_color : '#000'}; background:${checkout.color && checkout.color.address && checkout.color.address.highlight_background ? checkout.color.address.highlight_background : (checkout.color && checkout.color.address && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF')};`" @click="copy(checkout.address)">
+                <span class="highlight" :style="`color:${checkout.color && checkout.color.highlight_address ? checkout.color.highlight_address : ''};`">{{ checkout.address.slice(0, 12) }}</span><span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};`">{{ checkout.address.slice(12, 58) }}</span><span class="highlight" :style="`color:${checkout.color && checkout.color.highlight_address ? checkout.color.highlight_address : ''};`">{{ checkout.address.slice(59, 99) }}</span>
                 <img src="./dist/images/clipboard.png" alt="">
               </p>
               <div class="qrSwitcher">
                 <a :href="`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`">
-                  <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.background ? checkout.color.background : '#FFF'}; background:${checkout.color && checkout.color.background ? checkout.color.background : '#FFF'};`">
+                  <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF'}; background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF'};`">
                     <div id="qrcode"></div>
                   </div>
-                  <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};background:${checkout.color && checkout.color.background ? checkout.color.background : ''};`">
+                  <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`">
                     <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> Tap to open Natrium
                   </div>
                 </a>
               </div>
-              <button v-if="checkout.amount" class="button" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};background:${checkout.color && checkout.color.background ? checkout.color.background : ''};`" @click="check()">
+              <button v-if="checkout.amount" class="button" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="check()">
                 <span>Check Payment</span>
               </button>
               <div class="security-notice shrink">

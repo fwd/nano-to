@@ -34,12 +34,19 @@ https://nano.to/@Nautilus?price=50
 
 <img src="https://github.com/fwd/nano/raw/master/dist/single-ui.png" alt="Single Panel UI" />
 
+## Two Sided UI
+
+```
+https://nano.to/@Nautilus?plans=Tip:0.133,Small:1,Medium:10,Large:20
+```
+
+## All Together
+
 ```text
 https://nano.to/@Nautilus
 ?title=Donate
-&price=50
 &plans=Tip:0.133,Small:1,Medium:10,Large:20
-&currency=USD
+&currency=JPY
 &random
 &color
 &background=blue,red
