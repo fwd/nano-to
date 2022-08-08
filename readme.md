@@ -51,8 +51,8 @@ https://nano.to/@Nautilus?plans=Tip:0.133,Small:1,Medium:10,Large:20
 - **highlight** (string) : Colon separated value. Ex blue:red
 - **qrcode** (string) : Colon separated value. Ex white:black
 - **image** (image/url) : Remote URL of any image file.
-- **cancel_url** (string) : Redirect URL when pressed 'Cancel'
-- **success_url** (string) : Redirect URL when payment is successful
+- **cancel** (string) : Redirect URL when pressed 'Cancel'
+- **success** (string) : Redirect URL on success. ```{{hash}}```.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
