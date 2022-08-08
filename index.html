@@ -141,7 +141,7 @@ All Copyright © twitter.com/nano2dev
                 </div>
               </div>
             </div>
-            <div class="plans custom">
+            <div class="plans custom" v-if="!checkout.custom">
               <div :class="`flex justify center`" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'};`">
                 <h4>Enter amount: </h4>
                 <div class="dinput">

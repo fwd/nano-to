@@ -40,29 +40,12 @@ https://nano.to/@Nautilus?price=50
 https://nano.to/@Nautilus?plans=Tip:0.133,Small:1,Medium:10,Large:20
 ```
 
-## All Together
-
-```text
-https://nano.to/@Nautilus
-?title=Donate
-&plans=Tip:0.133,Small:1,Medium:10,Large:20
-&currency=JPY
-&random
-&color
-&background=blue,red
-&highlight
-&qrcode
-&image=https://media3.giphy.com/media/cnuNz0fTBIUGnx4F9T/giphy.gif
-&cancel_url=https://github.com/fwd/nano-names
-&success_url=https://media2.giphy.com/media/3o6Zt6KHxJTbXCnSvu/giphy.gif
-```
-
 **Available Params:**
 
 - **price** (number) : Single panel with price. No plans.
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
 - **currency** (string) : ISO Currency Symbol. Ex JPY
-- **random** (bool/string) : Use random amounts. Ex + 0.00XXXX
+- **random** (boolean) : Use random amounts. Ex + 0.00XXXX
 - **color** (string) : Colon separated value. Ex red:blue
 - **background** (string) : Colon separated value. Ex white:gray
 - **highlight** (string) : Colon separated value. Ex blue:red
