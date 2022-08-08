@@ -49,6 +49,7 @@ https://nano.to/@Nautilus
 &highlight=white
 &vanity=red
 &qrcode=white:red
+&logo=https://nano.to/dist/logo/cyber.png
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/color-ui.png" alt="Single Panel UI" />
