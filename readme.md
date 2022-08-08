@@ -1,6 +1,8 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 <h1 align="center">Nano Username Service</h1>
+<h3 align="center">(100% Github Hosted. No Backend.)</h3>
+
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -21,10 +23,6 @@ https://nano.to/:ADDRESS
 ```text
 https://nano.to/@nautilus
 ```
-
-## ❯ Customize
-
-Using URL params you can further customize Nano.to. This is all hosted on this repo. No backend server involved.
 
 ## Single Panel UI
 
