@@ -43,12 +43,12 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 ## Advanced Example
 
 ```python
-http://localhost:8008/@Nautilus
+https://nano.to/@Nautilus
 ?background=$1abc9c:$9b59b6
 &color=$002e2e
-&highlight=white:$002e2e
-&vanity=$002e2e
-&qrcode=white:$002e2e
+&highlight=white
+&vanity=red
+&qrcode=white:red
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/advanced-ui.png" alt="Single Panel UI" />
