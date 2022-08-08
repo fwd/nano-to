@@ -121,8 +121,8 @@ new Vue({
           var vanity = item.vanity || query.vanity
           var donation = item.donate || query.custom
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
-          if (plans && !donation) custom = true
           var amount = query.price || query.amount || query.n || query.x || query.cost || false
+          if (!plans || donation) custom = true
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
           var success = query.success ||query.success_url
           if (plans && typeof plans === 'string') {
