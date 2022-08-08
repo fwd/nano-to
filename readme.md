@@ -35,15 +35,20 @@ https://nano.to/@Nautilus?price=50&random=true
 ## Two Sided UI
 
 ```
-https://nano.to/@Nautilus?plans=Tip:0.133,Small:1,Medium:10,Large:20
+https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-**Advance Example:**
+**Advanced Example:**
 
 ```
-http://localhost:8008/@Nautilus?background=$1abc9c:$9b59b6&color=$002e2e&highlight=white:$002e2e&vanity=$002e2e&qrcode=white:$002e2e
+http://localhost:8008/@Nautilus
+?background=$1abc9c:$9b59b6
+&color=$002e2e
+&highlight=white:$002e2e
+&vanity=$002e2e
+&qrcode=white:$002e2e
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/advanced-ui.png" alt="Single Panel UI" />
