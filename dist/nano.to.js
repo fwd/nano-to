@@ -44,7 +44,7 @@ new Vue({
       value() {
         var val = this.checkout && this.checkout.amount ? this.checkout.amount : 0
         if (this.checkout.currency === 'USD') return (this.checkout.currency || '$ ') + val
-        if (!this.checkout.currency || this.checkout.currency === 'NANO') return (this.checkout.currency || 'Ӿ ') + `${this.checkout.amount && Number(this.checkout.amount) < 1 ? Number(this.checkout.amount).toFixed(2) : Math.floor(this.checkout.amount)} NANO`
+        if (!this.checkout.currency || this.checkout.currency === 'NANO') return (this.checkout.currency || 'Ӿ ') + `${this.checkout.amount && Number(this.checkout.amount) < 1 ? Number(this.checkout.amount).toFixed(3) : Math.floor(this.checkout.amount)} NANO`
       }
     },
     watch: {
@@ -114,7 +114,7 @@ new Vue({
         if (item) {
           var query = this.queryToObject()
           var custom = true
-          var plans = item.plans || query.p
+          var plans = item.plans || query.p || query.plans
           if (plans) custom = false
           var amount = query.price || query.amount || query.n || query.x || query.cost || false
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
@@ -229,7 +229,7 @@ new Vue({
           var value = Math.floor(this.rate * plan.value)
           return `$${value}`
         }
-        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(2) : Math.floor(plan.value)} NANO`
+        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(3) : Math.floor(plan.value)} NANO`
       },
       clickPlan(plan) {
         // if (!plan.value) return
