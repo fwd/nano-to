@@ -115,6 +115,8 @@ new Vue({
           var query = this.queryToObject()
           var custom = true
           var plans = item.plans || query.p || query.plans
+          var vanity = item.vanity || query.vanity
+          var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
           if (plans) custom = false
           var amount = query.price || query.amount || query.n || query.x || query.cost || false
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
@@ -134,17 +136,24 @@ new Vue({
             amount,
             plans,
             color: {
+              // vanity: vanity,
+              vanity:  query.vanity ? query.vanity.split(':')[0].replace('$', '#') : '',
+              text:  query.color ? query.color.split(':')[0].replace('$', '#') : '',
               primary: query.color ? query.color.split(':')[0].replace('$', '#') : '',
-              highlight_background: query.highlight && query.highlight.split(':')[0] ? query.highlight.split(':')[0].replace('$', '#') : '',
-              highlight_color: query.highlight && query.highlight.split(':')[1] ? query.highlight.split(':')[1].replace('$', '#') : '',
-              highlight_address: query.highlight && query.highlight.split(':')[2] ? query.highlight.split(':')[2].replace('$', '#') : '',
+              highlight_background: highlight && highlight.split(':')[0] ? highlight.split(':')[0].replace('$', '#') : '',
+              highlight_color: highlight && highlight.split(':')[1] ? highlight.split(':')[1].replace('$', '#') : '',
+              highlight_address: highlight && highlight.split(':')[2] ? highlight.split(':')[2].replace('$', '#') : '',
               left: query.left || query.background && query.background.split(':')[0] ? query.background.split(':')[0].replace('$', '#') : '#FFF', 
               right: query.right || query.background && query.background.split(':')[1] ? query.background.split(':')[1].replace('$', '#') : '#009dff', 
               qrcode: {
                 logo: query.logo ? query.logo : '',
-                light: query.qrcode ? query.qrcode.split(':')[0].replace('$', '#') : '',
-                dark: query.qrcode ? query.qrcode.split(':')[1].replace('$', '#') : '',
+                light: query.qrcode && query.qrcode.split(':')[0] ? query.qrcode.split(':')[0].replace('$', '#') : '',
+                dark: query.qrcode && query.qrcode.split(':')[1] ? query.qrcode.split(':')[1].replace('$', '#') : '',
               },
+              // button: {
+              //   text: query.color.split(':')[1].replace('$', '#') : '',
+              //   background: query.color.split(':')[0].replace('$', '#') : '',
+              // }
               address: {
                 hightlight: query.color,
               }

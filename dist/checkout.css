@@ -839,7 +839,10 @@ hr.memo {
 
 #checkout .plans > div:hover,
 #checkout .active {
-        border: 2px solid #63bffb !important;
-    /*box-shadow: 1px 1px 10px #00000029;*/
-    background: #0fa0ff1f;
+
+    background: #FFF;
+    color: #000 !important;
+/*        border: 2px solid #63bffb !important;
+    box-shadow: 1px 1px 10px #00000029;
+    background: #0fa0ff1f;*/
 }

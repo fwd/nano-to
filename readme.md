@@ -40,6 +40,16 @@ https://nano.to/@Nautilus?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
+**Advance Example:**
+
+```
+http://localhost:8008/@Nautilus?background=$1abc9c:$9b59b6&color=$002e2e&highlight=white:$002e2e&vanity=$002e2e&qrcode=white:$002e2e
+```
+
+<img src="https://github.com/fwd/nano/raw/master/dist/images/advanced-ui.png" alt="Single Panel UI" />
+
+> Make sure to replace HEX colors as so:  ```#000000``` to ```$000000```
+
 **Available Params:**
 
 - **price** (number) : Single panel with price. No plans.
