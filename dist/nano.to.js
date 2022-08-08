@@ -135,13 +135,9 @@ new Vue({
             plans,
             color: {
               primary: query.color ? query.color.split(':')[0].replace('$', '#') : '',
-              // background_: query.highlight ? query.highlight.split(':')[0].replace('$', '#') : '',
               highlight_background: query.highlight && query.highlight.split(':')[0] ? query.highlight.split(':')[0].replace('$', '#') : '',
               highlight_color: query.highlight && query.highlight.split(':')[1] ? query.highlight.split(':')[1].replace('$', '#') : '',
               highlight_address: query.highlight && query.highlight.split(':')[2] ? query.highlight.split(':')[2].replace('$', '#') : '',
-              // text: 'white',
-              // left_color: query.color,
-              // right_color: query.color,
               left: query.left || query.background && query.background.split(':')[0] ? query.background.split(':')[0].replace('$', '#') : '#FFF', 
               right: query.right || query.background && query.background.split(':')[1] ? query.background.split(':')[1].replace('$', '#') : '#009dff', 
               qrcode: {
@@ -173,7 +169,7 @@ new Vue({
           var amount = query.price || query.amount || query.n || query.x || query.cost
               amount = amount ? amount.match( /\d+/g ).join('') : false
 
-          var success = query.success ||query.success_url
+          var success = item.success || query.success ||query.success_url || query.redirect || query.r
 
           // var amount = query.price || query.amount || query.n || query.x || query.cost || false
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
@@ -248,7 +244,7 @@ new Vue({
         this.$forceUpdate()
       },
       redirect(block, url) {
-        window.location.href = url || this.checkout.success ? this.checkout.success.replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
+        window.location.href = url || this.checkout.success ? this.checkout.success.replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
       },
       success(block) {
         this.status = 'good'
