@@ -29,16 +29,18 @@ Using URL params you can further customize Nano.to. This is all hosted on this r
 ## Single Panel UI
 
 ```
-https://nano.to/@Nautilus?price=50
+https://nano.to/@Nautilus?price=50&random=true
 ```
 
-<img src="https://github.com/fwd/nano/raw/master/dist/single-ui.png" alt="Single Panel UI" />
+<img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
 ## Two Sided UI
 
 ```
 https://nano.to/@Nautilus?plans=Tip:0.133,Small:1,Medium:10,Large:20
 ```
+
+<img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
 **Available Params:**
 
