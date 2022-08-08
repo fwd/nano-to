@@ -130,13 +130,12 @@ new Vue({
             title: item.title || query.name || query.title || (item.name ? ('@' + item.name) : 'Pay with NANO'),
             currency: query.currency || query.c,
             message: query.body || query.message || query.text || query.copy,
-            fullscreen: true,
+            fullscreen: item.back ? false : true,
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
             amount,
             plans,
             color: {
-              // vanity: vanity,
               vanity:  query.vanity ? query.vanity.split(':')[0].replace('$', '#') : '',
               text:  query.color ? query.color.split(':')[0].replace('$', '#') : '',
               primary: query.color ? query.color.split(':')[0].replace('$', '#') : '',
@@ -169,7 +168,9 @@ new Vue({
           }, 100)
           document.title = `@${item.name} - Nano Checkout`
         }
+
         if (path && path.includes('nano_')) {
+
           if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
           var query = this.queryToObject()
           
@@ -180,15 +181,7 @@ new Vue({
 
           var success = item.success || query.success ||query.success_url || query.redirect || query.r
 
-          // var amount = query.price || query.amount || query.n || query.x || query.cost || false
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
-          // var success = query.success || query.success_url
-          // if (plans && !plans.includes(':')) amount = plans
-          // if (plans && plans.includes(':')) {
-          //   plans = plans.split(',').map(a => {
-          //     return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
-          //   })
-          // }
 
           if (plans) {
             plans = plans.split(',').map(a => {
@@ -489,6 +482,7 @@ new Vue({
           name: suggestion.name,
           address: suggestion.address,
           amount: false,
+          back: true
         }
         self.prompt = {
           title: `${suggestion.name}`,
