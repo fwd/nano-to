@@ -42,7 +42,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 **Advanced Example:**
 
-```
+```python
 http://localhost:8008/@Nautilus
 ?background=$1abc9c:$9b59b6
 &color=$002e2e
