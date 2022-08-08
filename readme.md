@@ -52,9 +52,9 @@ https://nano.to/@Nautilus
 &logo=https://nano.to/dist/logo/cyber.png
 ```
 
-<img src="https://github.com/fwd/nano/raw/master/dist/images/color-ui.png" alt="Single Panel UI" />
+<img src="https://github.com/fwd/nano/raw/master/dist/images/custom-ui.png" alt="Single Panel UI" />
 
-> Make sure to replace HEX colors as so:  ```#000000``` to ```$000000```
+> Notice we replace HEX colors as so:  ```#000000``` to ```$000000```
 
 **Available Params:**
 
