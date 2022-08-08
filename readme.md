@@ -40,7 +40,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-**Advanced Example:**
+## Advanced Example
 
 ```python
 http://localhost:8008/@Nautilus
