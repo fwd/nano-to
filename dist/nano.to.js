@@ -44,7 +44,7 @@ new Vue({
       value() {
         var val = this.checkout && this.checkout.amount ? this.checkout.amount : 0
         if (this.checkout.currency === 'USD') return (this.checkout.currency || '$ ') + val
-        if (!this.checkout.currency || this.checkout.currency === 'NANO') return (this.checkout.currency || 'Ӿ ') + val
+        if (!this.checkout.currency || this.checkout.currency === 'NANO') return (this.checkout.currency || 'Ӿ ') + `${this.checkout.amount && Number(this.checkout.amount) < 1 ? Number(this.checkout.amount).toFixed(2) : Math.floor(this.checkout.amount)} NANO`
       }
     },
     watch: {
@@ -72,6 +72,21 @@ new Vue({
 
     },
     methods: {
+      lease(name) {
+        // console.log(name)
+        axios.get(`https://name.nano.to/lease/${name}`).then((res) => {
+          this._checkout(res.data, null)
+          // document.title = `${name} - New Lease`
+          // console.log( res.data )
+          // if (res.data.error) {
+          //   this.reset()
+          //   return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
+          // }
+        }).catch(e => {
+          // this.reset()
+          // this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
+        })
+      },
       invoice() {
         var query = this.queryToObject()
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
@@ -98,17 +113,19 @@ new Vue({
         }
         if (item) {
           var query = this.queryToObject()
-          var plans = query.p
+          var custom = true
+          var plans = item.plans || query.p
+          if (plans) custom = false
           var amount = query.price || query.amount || query.n || query.x || query.cost || false
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
           var success = query.success ||query.success_url
-          if (plans) {
+          if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
               return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
             })
           }
           this.checkout = {
-            title: query.name || query.title || (item.name ? ('@' + item.name) : 'Pay with NANO'),
+            title: item.title || query.name || query.title || (item.name ? ('@' + item.name) : 'Pay with NANO'),
             currency: query.currency || query.c,
             message: query.body || query.message || query.text || query.copy,
             fullscreen: true,
@@ -212,7 +229,7 @@ new Vue({
           var value = Math.floor(this.rate * plan.value)
           return `$${value}`
         }
-        return `${plan.value} NANO`
+        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(2) : Math.floor(plan.value)} NANO`
       },
       clickPlan(plan) {
         // if (!plan.value) return
@@ -254,7 +271,9 @@ new Vue({
             json_block: true,
             source: true,
           }).then((res) => {
-            resolve(res.data.blocks == "" ? [] : res.data.blocks)
+            resolve(res.data.blocks == "" ? [] : Object.keys(res.data.blocks).map(key => {
+              return { address: res.data.blocks[key].source, amount: res.data.blocks[key].amount }
+            }))
           })
         })
        },
@@ -274,12 +293,18 @@ new Vue({
        },
        check() {
         try {
-          return this.pending().then((pending) => {
-            var in_pending = pending.find(a => String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount))
+          return this.pending().then((_pending) => {
+            // console.log( _pending )
+            var in_pending = _pending.find(a => {
+              console.log( NanocurrencyWeb.tools.convert )
+              // console.log( this.convert(a.amount, 'NANO', 'RAW'), this.checkout.amount, String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount)  )
+              // console.log(  "100353000000000000000000000000" )
+              return String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount)
+            })
             if (in_pending) return this.success(in_pending)
             if (!in_pending) {
-              this.history().then((history) => {
-                var in_history = history.history.find(a => String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount))
+              this.history().then((_history) => {
+                var in_history = _history.history.find(a => String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount))
                 if (in_history) return this.success(in_history)
                 if (!in_history) {
                   // this.status = 'warn'
@@ -368,9 +393,10 @@ new Vue({
         var item = this.usernames.find(a => this.isMatch(a, string))
         if (!item && !this.invalidUsername(string)) {
           return this.suggestions = [{
-            name: 'Username Available',
-            color: 'green',
-            alert: 'Registration in Maintenance',
+            name: "Username Available",
+            lease: string,
+            // color: 'green',
+            // alert: 'Registration in Maintenance',
           }]
         }
         if (!item) return this.suggestions = [{
@@ -447,7 +473,7 @@ new Vue({
       },
       doSuggestion(suggestion) {
         // console.log("suggestion", suggestion)
-        if (suggestion.alert) return this.notify(suggestion.alert, 'warn')
+        if (suggestion.lease) return this.lease(suggestion.lease)
         if (suggestion.url) return window.open(suggestion.url, '_blank');
         if (suggestion.checkout) return this._checkout(suggestion.checkout, null)
         if (!suggestion.address) return
