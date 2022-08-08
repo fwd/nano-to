@@ -50,6 +50,7 @@ https://nano.to/@Nautilus
 &vanity=red
 &qrcode=white:red
 &logo=https://nano.to/dist/logo/cyber.png
+&image=https://media3.giphy.com/media/cnuNz0fTBIUGnx4F9T/giphy.gif
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/custom-ui.png" alt="Single Panel UI" />
