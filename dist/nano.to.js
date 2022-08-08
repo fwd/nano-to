@@ -75,6 +75,9 @@ new Vue({
       lease(name) {
         // console.log(name)
         axios.get(`https://name.nano.to/lease/${name}`).then((res) => {
+        // axios.get(`https://name.nano.to/checkout/${id.replace('pay_', '')}`).then((res) => {
+          res.data.custom = true
+          res.data.back = true
           this._checkout(res.data, null)
           // document.title = `${name} - New Lease`
           // console.log( res.data )
@@ -113,11 +116,12 @@ new Vue({
         }
         if (item) {
           var query = this.queryToObject()
-          var custom = true
+          var custom = false
           var plans = item.plans || query.p || query.plans
           var vanity = item.vanity || query.vanity
+          var donation = item.donate || query.custom
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
-          if (plans) custom = false
+          if (plans && !donation) custom = true
           var amount = query.price || query.amount || query.n || query.x || query.cost || false
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
           var success = query.success ||query.success_url
@@ -133,6 +137,7 @@ new Vue({
             fullscreen: item.back ? false : true,
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
+            custom,
             amount,
             plans,
             color: {
@@ -227,13 +232,13 @@ new Vue({
           var value = Math.floor(this.rate * plan.value)
           return `$${value}`
         }
-        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(3) : Math.floor(plan.value)} NANO`
+        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(1) : Math.floor(plan.value)} NANO`
       },
       clickPlan(plan) {
         // if (!plan.value) return
         // if (this.checkout.currency !== 'USD') {
           // var value = plan.value
-        this.checkout.amount = Number(plan.value)
+        this.checkout.amount = plan.value
         // }
         // document.getElementById("qrcode").innerHTML = "";
         this.showQR()
@@ -246,7 +251,7 @@ new Vue({
         this.$forceUpdate()
       },
       redirect(block, url) {
-        window.location.href = url || this.checkout.success ? this.checkout.success.replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
+        window.location.href = url || this.checkout.success ? this.checkout.success.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
       },
       success(block) {
         this.status = 'good'

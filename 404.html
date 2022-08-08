@@ -135,7 +135,7 @@ All Copyright © twitter.com/nano2dev
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
             <p v-if="checkout.message" class="description">{{ checkout.message }}</p>
             <div class="plans">
-              <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; backgroundd:${checkout.color && checkout.color.primary ? checkout.color.primary : '#FFF'};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
+              <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : '#FFF'}; color: ${String(plan.value) == String(checkout.amount) && checkout.color && checkout.color.right ? '#FFF' : '#000'};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>{{ plan.title }}</h4>
                   <h4>{{ planValue(plan) }}</h4>
