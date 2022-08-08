@@ -54,8 +54,6 @@ https://nano.to/@Nautilus
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/custom-ui.png" alt="Single Panel UI" />
 
-> Notice we replace HEX colors as so:  ```#000000``` to ```$000000```
-
 **Available Params:**
 
 - **price** (number) : Single panel with price. No plans.
