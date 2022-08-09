@@ -117,11 +117,11 @@ new Vue({
         if (item) {
           var query = this.queryToObject()
           var custom = false
-          var plans = item.plans || query.p || query.plans
+          var plans = item.plans || query.plans
           var vanity = item.vanity || query.vanity
           var donation = item.donate || query.custom
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
-          var amount = query.price || query.amount || query.n || query.x || query.cost || false
+          var amount = query.price || query.amount || query.n || query.x || query.cost || query.p || false 
           if (!plans || donation) custom = true
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
           var success = query.success ||query.success_url
