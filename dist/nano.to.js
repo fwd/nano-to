@@ -131,7 +131,7 @@ new Vue({
             })
           }
           this.checkout = {
-            title: item.title || query.name || query.title || (item.name ? ('@' + item.name) : 'Pay with NANO'),
+            title: item.title || query.name || query.title || (item.name ? ('@' + this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
             currency: query.currency || query.c,
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.back ? false : true,
@@ -254,7 +254,7 @@ new Vue({
         window.location.href = url || this.checkout.success ? this.checkout.success.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
       },
       success(block) {
-        this.status = 'good'
+        this.status = 'blue'
         this.notify('Success')
         if (this.checkout.post_url) {
           axios.post(this.checkout.post_url, { block: block }).then((res) => {
@@ -337,7 +337,7 @@ new Vue({
         this.notification = text
         if (type) this.status = type
         setTimeout(() => {
-          this.status = ''
+          this.status = 'blue'
           this.notification = false
         }, timeout || 2000)
       },
@@ -468,7 +468,7 @@ new Vue({
         this.title = 'Nano.to'
         this.string = ''
         this.search = true
-        this.status = ''
+        this.status = 'blue'
         this.color = 'blue'
         this.suggestions = []
         history.pushState({}, null, '/');
