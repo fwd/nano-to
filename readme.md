@@ -90,7 +90,7 @@ https://api.nano.to/price
 https://pow.nano.to/:HASH
 ```
 
-> 5 Free / Minute (dPoW Replacement)
+> 5 Free / Minute (dPoW API)
 
 ## ❯ Contributing
 
