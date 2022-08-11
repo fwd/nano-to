@@ -1,6 +1,6 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-<h1 align="center">Nano Username Service</h1>
+<h1 align="center">Nano Name Service</h1>
 <h3 align="center">Hosted on Github</h3>
 
 
@@ -70,6 +70,27 @@ https://nano.to/@Nautilus
 - **success** (string) : Redirect URL on success. ```{{hash}}```.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+
+## Username Datatset API
+
+```
+https://nano.to/known.json
+```
+
+## Live Price API
+
+```
+https://api.nano.to/price
+```
+
+## Proof of Work API
+
+```
+https://pow.nano.to/:HASH
+```
+
+> 5 Free / Minute (dPoW Replacement)
 
 ## ❯ Contributing
 
