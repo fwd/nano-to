@@ -16,7 +16,8 @@
 
 - [Checkout Pages](#checkout-ui)
 - [Nano Price API](#nano-price-api)
-- [Nano PoW Marketplace](#nano-pow-api)
+- [Nano PoW API](#nano-pow-api)
+- [Username Dataset](#username-dataset)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
