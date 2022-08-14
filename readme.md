@@ -97,7 +97,7 @@ https://pow.nano.to/:HASH
 
 > 5 Free / Minute (\~0.5s Response Time)
 
-## Approved Domains
+## Available Domains
 
 - ӿ.to
 - xno.to
