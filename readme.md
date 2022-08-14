@@ -97,6 +97,12 @@ https://pow.nano.to/:HASH
 
 > 5 Free / Minute (\~0.5s Response Time)
 
+## ❯ Nano.to Domains
+
+- ӿ.to
+- xno.to
+- nano.to
+
 ## ❯ Contributing
 
 Give a ⭐️ if this project helped you!
