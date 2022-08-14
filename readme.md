@@ -21,13 +21,7 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Checkout UI
-
-Free, **Non-custodial** Checkout Pages for your Nano Address.
-
-Nano.to is a javascript application hosted on Github. 
-
-Checkout is the first "Feature". More planned.
+## Non-Custodial Checkout
 
 **Any Address:**
 ```python
