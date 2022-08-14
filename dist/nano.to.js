@@ -44,7 +44,7 @@ new Vue({
       value() {
         var val = this.checkout && this.checkout.amount ? this.checkout.amount : 0
         if (this.checkout.currency === 'USD') return (this.checkout.currency || '$ ') + val
-        if (!this.checkout.currency || this.checkout.currency === 'NANO') return (this.checkout.currency || 'Ӿ ') + `${this.checkout.amount && Number(this.checkout.amount) < 1 ? Number(this.checkout.amount).toFixed(3) : Math.floor(this.checkout.amount)} NANO`
+        if (!this.checkout.currency || this.checkout.currency === 'NANO') return (this.checkout.currency || 'Ӿ ') + `${this.checkout.amount && Number(this.checkout.amount) < 1 ? Number(this.checkout.amount).toFixed(3) : Math.floor(this.checkout.amount)}`
       }
     },
     watch: {
@@ -297,25 +297,17 @@ new Vue({
        check() {
         try {
           return this.pending().then((_pending) => {
-            // console.log( _pending )
-            var in_pending = _pending.find(a => {
-              console.log( NanocurrencyWeb.tools.convert )
-              // console.log( this.convert(a.amount, 'NANO', 'RAW'), this.checkout.amount, String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount)  )
-              // console.log(  "100353000000000000000000000000" )
-              return String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount)
-            })
+            var in_pending = _pending.find(a => String( Number(this.convert(a.amount, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
             if (in_pending) return this.success(in_pending)
             if (!in_pending) {
               this.history().then((_history) => {
-                var in_history = _history.history.find(a => String(this.convert(a.amount, 'NANO', 'RAW')) === String(this.checkout.amount))
+                var in_history = _history.history.find(a => String( Number(this.convert(a.amount, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
                 if (in_history) return this.success(in_history)
                 if (!in_history) {
-                  // this.status = 'warn'
                   this.notify('Payment not found', 'warn')
                 }
               })
             }
-            // console.log( in_pending )
           })
         } catch(e) {
           this.notify(e.message ? e.message : 'Error Occured')

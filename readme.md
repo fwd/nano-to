@@ -24,7 +24,13 @@ https://nano.to/:ADDRESS
 https://nano.to/@nautilus
 ```
 
-## Single Panel UI
+> You don't need a Username to use Nano.to.  
+
+## ❯ Checkout UI
+
+Nano.to is hosted on Github, and offers more services than just Usernames. For example, Non-custodial Checkout Pages for any Nano Address.
+
+### Checkout Usage
 
 ```
 https://nano.to/@Nautilus?price=50&random=true
@@ -32,7 +38,7 @@ https://nano.to/@Nautilus?price=50&random=true
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
-## Two Sided UI
+### Checkout w/ Plans
 
 ```
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
@@ -40,7 +46,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-## Advanced Example
+### More Advanced Example
 
 ```python
 https://nano.to/@Nautilus
@@ -50,7 +56,6 @@ https://nano.to/@Nautilus
 &vanity=red
 &qrcode=white:red
 &logo=https://nano.to/dist/logo/cyber.png
-&image=https://media3.giphy.com/media/cnuNz0fTBIUGnx4F9T/giphy.gif
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/custom-ui.png" alt="Single Panel UI" />
@@ -67,30 +72,29 @@ https://nano.to/@Nautilus
 - **qrcode** (string) : Colon separated value. Ex white:black
 - **image** (image/url) : Remote URL of any image file.
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
-- **success** (string) : Redirect URL on success. ```{{hash}}```.
+- **success** (string) : Redirect URL on success.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-
-## Username Datatset API
+## ❯ Username Datatset
 
 ```
 https://nano.to/known.json
 ```
 
-## Live Price API
+## ❯ Live Price API
 
 ```
 https://api.nano.to/price
 ```
 
-## Proof of Work API
+## ❯ Proof of Work API
 
 ```
 https://pow.nano.to/:HASH
 ```
 
-> 5 Free / Minute (0.5s Response Times)
+> 5 Free / Minute (\~0.5s Response Time)
 
 ## ❯ Contributing
 
