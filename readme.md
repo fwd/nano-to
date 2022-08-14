@@ -12,7 +12,17 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Usage
+## Table of Contents
+
+- [Checkout Pages](#hosted-checkout-ui)
+- [Nano Price API](#nano-price-api)
+- [Nano.to dPoW](#nano-pow-api)
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Checkout Pages
+
+Nano.to is hosted on Github, and offers more than just Usernames. For example, **Non-custodial Checkout Pages for any Nano Address**.
 
 **Any Address:**
 ```text
@@ -23,14 +33,6 @@ https://nano.to/:ADDRESS
 ```text
 https://nano.to/@nautilus
 ```
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-## ❯ Hosted Checkout UI
-
-Nano.to is hosted on Github, and offers more than just Usernames. For example, **Non-custodial Checkout Pages for any Nano Address**.
-
-### Checkout Usage
 
 ```
 https://nano.to/@Nautilus?price=50&random=true
