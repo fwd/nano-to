@@ -24,8 +24,6 @@ https://nano.to/:ADDRESS
 https://nano.to/@nautilus
 ```
 
-> You don't need a Username to use Nano.to.  
-
 ## ❯ Checkout UI
 
 Nano.to is hosted on Github, and offers more services than just Usernames. For example, Non-custodial Checkout Pages for any Nano Address.
