@@ -30,12 +30,12 @@ Nano.to is a javascript application hosted on Github.
 Checkout is the first "Feature". More planned.
 
 **Any Address:**
-```bash
+```python
 https://nano.to/:ADDRESS
 ```
 
 **Nano.to Usernames:**
-```bash
+```python
 https://nano.to/@Nautilus
 ```
 
