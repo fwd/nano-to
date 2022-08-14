@@ -97,19 +97,19 @@ https://pow.nano.to/:HASH
 
 > 5 Free / Minute (\~0.5s Response Time)
 
-## ❯ Nano.to Domains
+## Nano.to Domains
 
 - ӿ.to
 - xno.to
 - nano.to
 
-## ❯ Contributing
+## Contributing
 
 Give a ⭐️ if this project helped you!
 
 Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-names/issues).
 
-## ❯ License
+## License
 
 **Limited Commercial Use:**
 
@@ -121,6 +121,6 @@ Questions about licensing? Email: hello[@]nano.to
 
 Copyright © [nano2dev](https://twitter.com/nano2dev).
 
-## ❯ Stargazers
+## Stargazers
 
 [![Stargazers over time](https://starchart.cc/fwd/nano-names.svg)](https://github.com/fwd/nano-names)
