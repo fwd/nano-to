@@ -104,7 +104,6 @@ https://pow.nano.to/:HASH
 ```
 
 > 5 Free / Minute (\~0.5s Response Time)
-> Unlimited PoW (**Coming Soon**)
 
 ## Available Domains
 
