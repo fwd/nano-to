@@ -87,19 +87,19 @@ https://nano.to/@Nautilus
 
 ## Username Dataset
 
-```shell
+```pthon
 https://nano.to/known.json
 ```
 
 ## Nano Price API
 
-```shell
+```pthon
 https://api.nano.to/price
 ```
 
 ## Nano PoW API
 
-```ruby
+```pthon
 https://pow.nano.to/:HASH
 ```
 
