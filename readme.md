@@ -26,16 +26,16 @@
 Nano.to is hosted on Github, and offers more than just Usernames. For example, **Free, non-custodial Checkout UI for any Nano Address.**.
 
 **Any Address:**
-```text
+```bash
 https://nano.to/:ADDRESS
 ```
 
 **Nano.to Usernames:**
-```text
+```bash
 https://nano.to/@nautilus
 ```
 
-```
+```python
 https://nano.to/@Nautilus?price=50&random=true
 ```
 
@@ -43,7 +43,7 @@ https://nano.to/@Nautilus?price=50&random=true
 
 ### Checkout w/ Plans
 
-```
+```python
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 ```
 
@@ -82,19 +82,19 @@ https://nano.to/@Nautilus
 
 ## Username Dataset
 
-```
+```shell
 https://nano.to/known.json
 ```
 
 ## Nano Price API
 
-```
+```shell
 https://api.nano.to/price
 ```
 
 ## Nano PoW API
 
-```
+```ruby
 https://pow.nano.to/:HASH
 ```
 
