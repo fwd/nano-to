@@ -23,7 +23,7 @@
 
 ## Checkout UI
 
-Nano.to is hosted on Github, and offers more than just Usernames. For example, **Free, non-custodial Checkout UI for any Nano Address.**. You don't need a Nano.to Username. But it sure is convenient.
+Nano.to is hosted on Github, and offers more than just Usernames. For example, **Free, Hosted, Non-custodial Checkout Pages for any Nano Address or Nano.to Username.**.
 
 **Any Address:**
 ```bash
