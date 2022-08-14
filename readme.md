@@ -12,11 +12,11 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Table of Contents
+## Quick Links
 
 - [Checkout Pages](#hosted-checkout-ui)
 - [Nano Price API](#nano-price-api)
-- [Nano.to dPoW](#nano-pow-api)
+- [Nano PoW Marketplace](#nano-pow-api)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
