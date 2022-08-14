@@ -21,7 +21,7 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Non-Custodial Checkout
+## Checkout Pages
 
 **Any Address:**
 ```python
