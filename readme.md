@@ -35,6 +35,7 @@ https://nano.to/:ADDRESS
 https://nano.to/@nautilus
 ```
 
+**Customize URL:**
 ```python
 https://nano.to/@Nautilus?price=50&random=true
 ```
