@@ -32,12 +32,12 @@ https://nano.to/:ADDRESS
 
 **Nano.to Usernames:**
 ```bash
-https://nano.to/@nautilus
+https://nano.to/@Nautilus
 ```
 
 **Customize URL:**
 ```python
-https://nano.to/@Nautilus?price=50&random=true
+https://nano.to/@Nautilus?amount=50&random=true
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
@@ -66,7 +66,7 @@ https://nano.to/@Nautilus
 
 **Available Params:**
 
-- **price** (number) : Single panel with price. No plans.
+- **amount** (number) : Single panel with price. No plans.
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
 - **currency** (string) : ISO Currency Symbol. Ex JPY
 - **image** (image/url) : Display Image. Image URL.
