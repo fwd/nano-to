@@ -77,19 +77,19 @@ https://nano.to/@Nautilus
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## ❯ Username Datatset
+## Username API
 
 ```
 https://nano.to/known.json
 ```
 
-## ❯ Live Price API
+## Fiat Price API
 
 ```
 https://api.nano.to/price
 ```
 
-## ❯ Proof of Work API
+## PoW API
 
 ```
 https://pow.nano.to/:HASH
