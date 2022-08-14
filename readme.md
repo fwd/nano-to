@@ -24,9 +24,11 @@ https://nano.to/:ADDRESS
 https://nano.to/@nautilus
 ```
 
-## ❯ Checkout UI
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-Nano.to is hosted on Github, and offers more services than just Usernames. For example, Non-custodial Checkout Pages for any Nano Address.
+## ❯ Hosted Checkout UI
+
+Nano.to is hosted on Github, and offers more than just Usernames. For example, **Non-custodial Checkout Pages for any Nano Address**.
 
 ### Checkout Usage
 
@@ -63,12 +65,13 @@ https://nano.to/@Nautilus
 - **price** (number) : Single panel with price. No plans.
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
 - **currency** (string) : ISO Currency Symbol. Ex JPY
+- **image** (image/url) : Display Image. Image URL.
 - **random** (boolean) : Use random amounts. Ex + 0.00XXXX
-- **color** (string) : Colon separated value. Ex red:blue
-- **background** (string) : Colon separated value. Ex white:gray
-- **highlight** (string) : Colon separated value. Ex blue:red
-- **qrcode** (string) : Colon separated value. Ex white:black
-- **image** (image/url) : Remote URL of any image file.
+- **color** (string) : Text color. Ex red:blue
+- **background** (string) : Background color. Ex white:gray
+- **highlight** (string) : Box backgrounds value. Ex blue:red
+- **qrcode** (string) : QR Code colors. Ex white:black
+- **logo** (image/url) : Replace QR Code logo. Image URL.
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
 - **success** (string) : Redirect URL on success.
 
