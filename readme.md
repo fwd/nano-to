@@ -14,15 +14,15 @@
 
 ## Quick Links
 
-- [Checkout Pages](#hosted-checkout-ui)
+- [Checkout Pages](#checkout-ui)
 - [Nano Price API](#nano-price-api)
 - [Nano PoW Marketplace](#nano-pow-api)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Checkout Pages
+## Checkout UI
 
-Nano.to is hosted on Github, and offers more than just Usernames. For example, **Non-custodial Checkout Pages for any Nano Address**.
+Nano.to is hosted on Github, and offers more than just Usernames. For example, **Free, non-custodial Checkout UI for any Nano Address.**.
 
 **Any Address:**
 ```text
