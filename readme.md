@@ -25,7 +25,9 @@
 
 Free, **Non-custodial** Checkout Pages for your Nano Address.
 
-Nano.to is a single page application publicy hosted on Github. Checkout is the first "Feature". More to come.
+Nano.to is a javascript application hosted on Github. 
+
+Checkout is the first "Feature". More planned.
 
 **Any Address:**
 ```bash
