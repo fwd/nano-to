@@ -12,18 +12,18 @@ All Copyright © twitter.com/nano2dev
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
     <title>Nano.to - Nano Username & Checkout UI</title>
-    <link rel="icon" type="image/png" href="dist/favicon.png">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
-    <meta name="author" content="nano2dev" />
+    <meta name="author" content="https://twitter.com/nano2dev"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
     <meta name="apple-mobile-web-app-title" content="Nano.to">
-    <link rel="apple-touch-icon" href="dist/images/new_icon.png">
-    <meta property="og:title" content=">Nano Checkout">
+    <meta property="og:title" content=">Nano.to">
     <meta property="og:image" content="dist/images/cover.png">
     <meta property="twitter:image" content="dist/images/cover.png">
+    <link rel="icon" type="image/png" href="dist/favicon.png">
+    <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/checkout.css">
     <script src="dist/vue.min.js"></script>
@@ -156,16 +156,16 @@ All Copyright © twitter.com/nano2dev
           <div class="details">
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
-                <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">To complete, send:</span>
+                <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction || 'To complete, send:' }}</span>
                 <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ amount }}
-                  <span class="blocky">NANO</span>
+                  <span class="blocky">{{ checkout.currency || 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
                 <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ checkout.currency  ? checkout.currency.toUpperCase() : 'USD' }} {{ Number(checkout.amount * rate).toFixed(2) }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
               </h4>
-              <h1 v-if="!checkout.amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{checkout.title}}</h1>
+              <h1 v-if="!checkout.amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.title }}</h1>
               <p class="address" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.highlight_color ? checkout.color.address.highlight_color : '#000'}; background:${checkout.color && checkout.color.address && checkout.color.address.highlight_background ? checkout.color.address.highlight_background : (checkout.color && checkout.color.address && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF')};`" @click="copy(checkout.address)">
                 <span class="highlight" :style="`color:${checkout.color && checkout.color.vanity ? checkout.color.vanity : ''};`">{{ checkout.address.slice(0, 12) }}</span><span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};`">{{ checkout.address.slice(12, 58) }}</span><span class="highlight" :style="`color:${checkout.color && checkout.color.vanity ? checkout.color.vanity : ''};`">{{ checkout.address.slice(59, 99) }}</span>
                 <img src="./dist/images/clipboard.png" alt="">
@@ -176,15 +176,15 @@ All Copyright © twitter.com/nano2dev
                     <div id="qrcode"></div>
                   </div>
                   <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`">
-                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> Tap to open Natrium
+                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> {{ checkout.tip || 'Tap to open Natrium' }}
                   </div>
                 </a>
               </div>
               <button v-if="checkout.amount" class="button" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="check()">
-                <span>Check Payment</span>
+                <span>{{ checkout.buttonText || 'Check Payment' }}</span>
               </button>
               <div class="security-notice shrink">
-                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">Verify the recipient address, and only send NANO (XNO) to this address.</div>
+                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.note || 'Verify the recipient address, and only send NANO (XNO) to this address.' }}</div>
               </div>
             </div>
           </div>
