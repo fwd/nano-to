@@ -23,7 +23,7 @@
 
 ## Checkout UI
 
-Free, Hosted, Non-custodial Checkout Pages for any Nano Address or Nano.to Username.
+Free Github Hosted, **Non-custodial** Checkout Pages for your Nano Address.
 
 **Any Address:**
 ```bash
