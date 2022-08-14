@@ -23,7 +23,7 @@
 
 ## Checkout UI
 
-Nano.to is a single page application publicy hosted on Github. You can expect great things. For now Checkout is our first "Feature".
+Nano.to is a single page application publicy hosted on Github. Checkout is our first "Feature" after Usernames.
 
 > Free, **Non-custodial** Checkout Pages for your Nano Address.
 
