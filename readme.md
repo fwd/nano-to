@@ -104,6 +104,7 @@ https://pow.nano.to/:HASH
 ```
 
 > 5 Free / Minute (\~0.5s Response Time)
+> 30 Free / Minute when using @Username. (**Coming Soon**)
 
 ## Available Domains
 
