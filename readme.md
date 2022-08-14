@@ -23,7 +23,7 @@
 
 ## Checkout UI
 
-Nano.to is hosted on Github, and offers more than just Usernames. For example, **Free, Hosted, Non-custodial Checkout Pages for any Nano Address or Nano.to Username.**.
+Free, Hosted, Non-custodial Checkout Pages for any Nano Address or Nano.to Username.
 
 **Any Address:**
 ```bash
