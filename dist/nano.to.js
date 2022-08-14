@@ -232,6 +232,7 @@ new Vue({
           var value = Math.floor(this.rate * plan.value)
           return `$${value}`
         }
+        if (String(plan.value) == '0.133') return plan.value + ' NANO'
         return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(1) : Math.floor(plan.value)} NANO`
       },
       clickPlan(plan) {
