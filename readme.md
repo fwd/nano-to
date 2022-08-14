@@ -77,19 +77,19 @@ https://nano.to/@Nautilus
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Username API
+## Username Dataset
 
 ```
 https://nano.to/known.json
 ```
 
-## Fiat Price API
+## Nano Price API
 
 ```
 https://api.nano.to/price
 ```
 
-## PoW API
+## Nano PoW API
 
 ```
 https://pow.nano.to/:HASH
@@ -97,7 +97,7 @@ https://pow.nano.to/:HASH
 
 > 5 Free / Minute (\~0.5s Response Time)
 
-## Nano.to Domains
+## Approved Domains
 
 - ӿ.to
 - xno.to
