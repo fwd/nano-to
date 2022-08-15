@@ -365,11 +365,13 @@ new Vue({
       query() {
         var string = this.string ? this.string.toLowerCase() : this.string
         if (!string) return
+          // console.log( NanocurrencyWeb )
         if ((string.includes('nano_') || string.includes('xrb_')) && NanocurrencyWeb.tools.validateAddress(string)) {
           return this.suggestions = [
             {
               name: `Checkout (${string.slice(0, 12)})`,
               checkout: {
+                back: true,
                 address: string,
                 amount: false,
               }
@@ -379,6 +381,12 @@ new Vue({
               url: `https://nanolooker.com/account/${string}`
             }
           ]
+        }
+        if (!string.includes('nano_') && string.length >= 60) {
+          return this.suggestions = [{
+              name: `Hash (${string.slice(0, 12)})`,
+              url: `https://nanolooker.com/block/${string}`
+            }]
         }
         if (!string.includes('nano_') && this.invalidUsername(string)) {
           return this.suggestions = [{
@@ -390,9 +398,9 @@ new Vue({
         if (!item && !this.invalidUsername(string)) {
           return this.suggestions = [{
             name: "Username Available",
-            lease: string,
+            // lease: string,
             // color: 'green',
-            // alert: 'Registration in Maintenance',
+            alert: 'New Usernames is Temporarily Down',
           }]
         }
         if (!item) return this.suggestions = [{
@@ -469,6 +477,7 @@ new Vue({
       },
       doSuggestion(suggestion) {
         // console.log("suggestion", suggestion)
+        if (suggestion.alert) return this.notify(suggestion.alert)
         if (suggestion.lease) return this.lease(suggestion.lease)
         if (suggestion.url) return window.open(suggestion.url, '_blank');
         if (suggestion.checkout) return this._checkout(suggestion.checkout, null)
