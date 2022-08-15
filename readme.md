@@ -3,7 +3,6 @@
 <h1 align="center">Nano Name Service</h1>
 <h3 align="center">Hosted on Github</h3>
 
-
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 <p align="center">
