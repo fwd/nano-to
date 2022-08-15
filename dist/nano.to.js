@@ -96,8 +96,7 @@ new Vue({
         var configured = query.project || query.server || query.endpoint || query.url || query.api || false
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then((res) => {
-          // console.log( res.data )
-          // this._checkout(res.data)
+          if (res.data.error) return this.notify(res.data.message)
           this.checkout = res.data
           setTimeout(() => {
             this.showQR()
@@ -120,7 +119,7 @@ new Vue({
         var item = item || data.find(a => a.name.toLowerCase() === path)
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         if (path && checkout) {
-          document.title = `${path.includes('invoice_') ? 'Invoice ' : ''}#${path.replace('pay', '').replace('invoice_', '').replace('id_', '').slice(0, 8)} - Nano Checkout`
+          document.title = `#${path.split('_')[1]} - Nano Checkout`
           return this.invoice()
         }
         if (item) {
@@ -260,12 +259,21 @@ new Vue({
         var currency = this.queryToObject().currency
         this.$forceUpdate()
       },
+      __checkout() {
+        axios.post(this.checkout.checkout).then((res) => {
+          // if (res.data.redirect) window.location.href = res.data.redirect
+          console.log( res.data )
+        })
+      },
       redirect(block, url) {
-        window.location.href = this.checkout.redirect ? this.checkout.redirect.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
+        var checkout = this.checkout.redirect || this.checkout.checkout
+        // console.log( "checkout", checkout )
+        // window.location.href = checkout ? checkout.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
       },
       success(block) {
         this.status = 'blue'
-        if (this.checkout.redirect) this.redirect(block)
+        if (this.checkout.checkout) return this.__checkout()
+        // if (this.checkout.redirect) this.redirect(block)
        },
        pending() {
          return new Promise((resolve) => {
@@ -293,7 +301,6 @@ new Vue({
             raw: true
           }).then((res) => {
             resolve(res.data)
-            // console.log(res)
           })
         })
        },
@@ -400,9 +407,9 @@ new Vue({
         if (!item && !this.invalidUsername(string)) {
           return this.suggestions = [{
             name: "Username Available",
-            // lease: string,
+            lease: string,
             // color: 'green',
-            alert: 'New Usernames is Temporarily Down',
+            // alert: 'New Usernames is Temporarily Down',
           }]
         }
         if (!item) return this.suggestions = [{
