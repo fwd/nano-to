@@ -83,7 +83,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              this.checkout.amount = this.checkout.plans[0].amount
             }
           }, 100)
           // this._checkout(res.data, null)
@@ -110,7 +110,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              this.checkout.amount = this.checkout.plans[0].amount
             }
           }, 100)
           if (res.data.error) {
@@ -187,7 +187,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              this.checkout.amount = this.checkout.plans[0].amount
             }
           }, 100)
           document.title = `@${item.name} - Nano Checkout`
@@ -233,7 +233,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              this.checkout.amount = this.checkout.plans[0].amount
             }
           }, 100)
           document.title = `Pay ${path.slice(0, 12)} - Nano Checkout`
@@ -248,17 +248,17 @@ new Vue({
       },
       planValue(plan) {
         if (this.checkout.currency === 'USD') {
-          var value = Math.floor(this.rate * plan.value)
-          return `$${value}`
+          var amount = Math.floor(this.rate * plan.amount)
+          return `$${amount}`
         }
-        if (String(plan.value) == '0.133') return plan.value + ' NANO'
-        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(1) : Math.floor(plan.value)} NANO`
+        if (String(plan.amount) == '0.133') return plan.amount + ' NANO'
+        return `${plan.amount && Number(plan.amount) < 1 ? Number(plan.amount).toFixed(1) : Math.floor(plan.amount)} NANO`
       },
       clickPlan(plan) {
-        // if (!plan.value) return
+        // if (!plan.amount) return
         // if (this.checkout.currency !== 'USD') {
-          // var value = plan.value
-        this.checkout.amount = plan.value
+          // var amount = plan.amount
+        this.checkout.amount = plan.amount
         // }
         // document.getElementById("qrcode").innerHTML = "";
         this.showQR()
