@@ -94,7 +94,7 @@ new Vue({
         var query = this.queryToObject()
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         var configured = query.project || query.server || query.endpoint || query.url || query.api || false
-        var endpoint = configured || `https://api.nano.to/checkout/${path.replace('pay_', '')}`
+        var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then((res) => {
           if (res.data.error) {
             this.reset()
