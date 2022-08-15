@@ -146,7 +146,7 @@ new Vue({
           var success = query.success ||query.success_url
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
-              return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
+              return { title: a.trim().split(':')[0], amount: a.trim().split(':')[1] } 
             })
           }
           this.checkout = {
@@ -209,7 +209,7 @@ new Vue({
 
           if (plans) {
             plans = plans.split(',').map(a => {
-              return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
+              return { title: a.trim().split(':')[0], amount: a.trim().split(':')[1] } 
             })
           }
           this.checkout = {
