@@ -78,7 +78,15 @@ new Vue({
         // axios.get(`https://name.nano.to/checkout/${id.replace('pay_', '')}`).then((res) => {
           res.data.custom = true
           res.data.back = true
-          this._checkout(res.data, null)
+          // res.data.checkout = true
+          this.checkout = res.data
+          setTimeout(() => {
+            this.showQR()
+            if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
+              this.checkout.amount = this.checkout.plans[0].value
+            }
+          }, 100)
+          // this._checkout(res.data, null)
           // document.title = `${name} - New Lease`
           // console.log( res.data )
           // if (res.data.error) {
@@ -98,6 +106,7 @@ new Vue({
         axios.get(endpoint).then((res) => {
           if (res.data.error) return this.notify(res.data.message)
           this.checkout = res.data
+          history.pushState({}, null, `/pay_${path}`);
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
@@ -118,10 +127,12 @@ new Vue({
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         var item = item || data.find(a => a.name.toLowerCase() === path)
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
+        
         if (path && checkout) {
           document.title = `#${path.split('_')[1]} - Nano Checkout`
           return this.invoice()
         }
+
         if (item) {
           var query = this.queryToObject()
           var custom = false
@@ -261,8 +272,8 @@ new Vue({
       },
       __checkout() {
         axios.post(this.checkout.checkout).then((res) => {
-          // if (res.data.redirect) window.location.href = res.data.redirect
-          console.log( res.data )
+          if (res.data.redirect) window.location.href = res.data.redirect
+          // console.log( res.data )
         })
       },
       redirect(block, url) {
@@ -271,7 +282,8 @@ new Vue({
         // window.location.href = checkout ? checkout.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
       },
       success(block) {
-        this.status = 'blue'
+        // console.log(this.checkout)
+        // this.status = 'blue'
         if (this.checkout.checkout) return this.__checkout()
         // if (this.checkout.redirect) this.redirect(block)
        },
@@ -281,7 +293,7 @@ new Vue({
           axios.post(endpoint, { 
             action: 'pending', 
             account: this.checkout.address,
-            count: "25",
+            count: "50",
             json_block: true,
             source: true,
           }).then((res) => {
@@ -297,7 +309,7 @@ new Vue({
           axios.post(endpoint, { 
             action: 'account_history', 
             account: this.checkout.address,
-            count: "25",
+            count: "50",
             raw: true
           }).then((res) => {
             resolve(res.data)
@@ -500,7 +512,7 @@ new Vue({
           name: suggestion.name,
           address: suggestion.address,
           amount: false,
-          back: true
+          back: true,
         }
         self.prompt = {
           title: `${suggestion.name}`,
