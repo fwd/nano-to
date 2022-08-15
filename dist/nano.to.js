@@ -74,7 +74,7 @@ new Vue({
     methods: {
       lease(name) {
         // console.log(name)
-        axios.get(`https://name.nano.to/lease/${name}`).then((res) => {
+        axios.get(`https://api.nano.to/lease/${name}`).then((res) => {
         // axios.get(`https://name.nano.to/checkout/${id.replace('pay_', '')}`).then((res) => {
           res.data.custom = true
           res.data.back = true
