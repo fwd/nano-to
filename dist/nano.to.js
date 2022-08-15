@@ -97,9 +97,16 @@ new Vue({
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then((res) => {
           // console.log( res.data )
-          this._checkout(res.data)
+          // this._checkout(res.data)
+          this.checkout = res.data
+          setTimeout(() => {
+            this.showQR()
+            if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
+              this.checkout.amount = this.checkout.plans[0].value
+            }
+          }, 100)
           if (res.data.error) {
-            this.reset()
+            // this.reset()
             return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
           }
         }).catch(e => {
@@ -254,18 +261,11 @@ new Vue({
         this.$forceUpdate()
       },
       redirect(block, url) {
-        window.location.href = url || this.checkout.success ? this.checkout.success.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
+        window.location.href = this.checkout.redirect ? this.checkout.redirect.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
       },
       success(block) {
         this.status = 'blue'
-        this.notify('Success')
-        if (this.checkout.post_url) {
-          axios.post(this.checkout.post_url, { block: block }).then((res) => {
-            resolve( this.redirect(block, res.data.redirect_url) )
-          })
-          return 
-        }
-        if (this.checkout.success) this.redirect(block)
+        if (this.checkout.redirect) this.redirect(block)
        },
        pending() {
          return new Promise((resolve) => {
@@ -444,6 +444,8 @@ new Vue({
             width: 300,
             height: 280,
             logo: "dist/images/logo.png",
+            // colorLight: '#FFF',
+            // colorDark: '#000',
             // logoBackgroundColor: 'red'
           }
           if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.dark) options.colorDark = this.checkout.color.qrcode.dark

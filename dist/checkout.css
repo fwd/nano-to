@@ -183,9 +183,9 @@ section:first-child {
     zoom: 0.9;
     box-shadow: 0 6px 9px rgb(50 50 93 / 6%), 0 2px 5px rgb(0 0 0 / 8%);
 }
-.card:hover, .card.active {
+.card:hover, .plans .active {
     background-color: var(--primary);
-    color: #FFF;
+    color: #FFF !important;
 }
 .gallery {
     position: relative;
