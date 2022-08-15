@@ -96,6 +96,8 @@ new Vue({
         var configured = query.project || query.server || query.endpoint || query.url || query.api || false
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then((res) => {
+          // console.log( res.data )
+          this._checkout(res.data)
           if (res.data.error) {
             this.reset()
             return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
@@ -109,7 +111,7 @@ new Vue({
         this.getRate()
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         var item = item || data.find(a => a.name.toLowerCase() === path)
-        var checkout = path.includes('pay_') || path.includes('invoice_') || path.includes('id_')
+        var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         if (path && checkout) {
           document.title = `${path.includes('invoice_') ? 'Invoice ' : ''}#${path.replace('pay', '').replace('invoice_', '').replace('id_', '').slice(0, 8)} - Nano Checkout`
           return this.invoice()
