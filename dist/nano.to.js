@@ -1,6 +1,7 @@
 new Vue({
     el: '#app',
     data: {
+      known: 'https://raw.githubusercontent.com/fwd/nano/master/known.json',
       doc_title: 'Nano.to - Nano Username & Checkout UI',
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
@@ -57,6 +58,10 @@ new Vue({
     },
     mounted() {
 
+      var query = this.queryToObject()
+
+      if (query.nocache) this.endpoint = 'https://api.nano.to/known'
+
       if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
         if (document.body) document.body.classList.add('fullscreen');
       }
@@ -72,6 +77,17 @@ new Vue({
 
     },
     methods: {
+      showAddress(item, buttons) {
+        this.prompt = {
+          title: `${item.name}`,
+          qrcode: `nano:${item.address}`,
+          body: `
+<p style="font-size: 26px; text-transform: lowercase; word-break: break-word; max-width: 430px; text-align: center; width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; text-shadow: rgb(49, 49, 49) 2px 2px 0px;">
+<span style="color: rgb(253, 0, 7);">${item.address.slice(0, 12)}</span>${item.address.slice(12, 58)}<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span>
+</p>`,
+          // note: ""
+        }
+      },
       lease(name) {
         // console.log(name)
         axios.get(`https://api.nano.to/lease/${name}`).then((res) => {
@@ -317,6 +333,7 @@ new Vue({
         })
        },
        check() {
+        if (this.checkout.checkout) return this.__checkout()
         try {
           return this.pending().then((_pending) => {
             var in_pending = _pending.find(a => String( Number(this.convert(a.amount, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
@@ -368,7 +385,8 @@ new Vue({
         })
       },
       load(cb) {
-        return axios.get('https://raw.githubusercontent.com/fwd/nano/master/known.json').then((res) => {
+        // this.endpoint = ''
+        return axios.get(known).then((res) => {
           this.usernames = res.data
           if (cb) cb(res.data)
         })
