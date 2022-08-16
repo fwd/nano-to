@@ -90,7 +90,7 @@ new Vue({
       },
       lease(name) {
         // console.log(name)
-        axios.get(`https://api.nano.to/lease/${name}`).then((res) => {
+        axios.get(`https://api.nano.to/${name}/lease`).then((res) => {
         // axios.get(`https://name.nano.to/checkout/${id.replace('pay_', '')}`).then((res) => {
           res.data.custom = true
           res.data.back = true
@@ -481,9 +481,6 @@ new Vue({
             width: 300,
             height: 280,
             logo: "dist/images/logo.png",
-            // colorLight: '#FFF',
-            // colorDark: '#000',
-            // logoBackgroundColor: 'red'
           }
           if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.dark) options.colorDark = this.checkout.color.qrcode.dark
           if (this.checkout && this.checkout.color && this.checkout.color.qrcode && this.checkout.color.qrcode.light) options.colorLight = this.checkout.color.qrcode.light
