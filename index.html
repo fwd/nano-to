@@ -156,7 +156,7 @@ https://github.com/fwd/nano-to
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
                 <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction || 'To complete, send:' }}</span>
-                <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ amount }}
+                <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.amount }}
                   <span class="blocky">{{ checkout.currency || 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>

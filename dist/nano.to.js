@@ -386,7 +386,7 @@ new Vue({
       },
       load(cb) {
         // this.endpoint = ''
-        return axios.get(known).then((res) => {
+        return axios.get(this.known).then((res) => {
           this.usernames = res.data
           if (cb) cb(res.data)
         })
@@ -477,7 +477,7 @@ new Vue({
         document.getElementById("qrcode").innerHTML = "";
         setTimeout(() => {
           var options = {
-            text: string || `nano:${this.checkout.address}${this.checkout.amount ? '?amount=' + this.convert(this.amount, 'NANO', 'RAW') : ''}`,
+            text: string || `nano:${this.checkout.address}${this.checkout.amount ? '?amount=' + this.convert(this.checkout.amount, 'NANO', 'RAW') : ''}`,
             width: 300,
             height: 280,
             logo: "dist/images/logo.png",
