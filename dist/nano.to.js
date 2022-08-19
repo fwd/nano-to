@@ -437,9 +437,9 @@ new Vue({
         if (!item && !this.invalidUsername(string)) {
           return this.suggestions = [{
             name: "Username Available",
-            lease: string,
+            // lease: string,
             // color: 'green',
-            // alert: 'New Usernames is Temporarily Down',
+            alert: 'New Usernames Temporarily Down.',
           }]
         }
         if (!item) return this.suggestions = [{
