@@ -16,7 +16,7 @@ new Vue({
       prompt: false,
       search: true,
       string: '',
-      color: 'blue',
+      color: 'red',
       usernames: [],
       notification: false,
       checkout: false,
@@ -31,7 +31,10 @@ new Vue({
         link: `https://nano.to/${1}/about`,
         target: '_self'
       }, ],
-      status: true,
+      status: { 
+        url: 'https://github.com/fwd/nano-to/issues/4',
+        message: "WARNING: Price & PoW API down." 
+      },
     },
     computed: {
       amount() {
