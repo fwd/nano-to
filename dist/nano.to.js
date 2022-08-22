@@ -122,7 +122,9 @@ new Vue({
         axios.get(endpoint).then((res) => {
           if (res.data.error) return this.notify(res.data.message)
           this.checkout = res.data
-          history.pushState({}, null, `/pay_${path}`);
+          history.pushState({}, null, `/${path}`);
+          document.title = `${res.data.title ? res.data.title : '#' + path.split('_')[1] + ' - Nano Checkout' }`
+          if (res.data.favicon) document.querySelector("link[rel*='icon']").href = res.data.favicon;
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
@@ -145,7 +147,7 @@ new Vue({
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         
         if (path && checkout) {
-          document.title = `#${path.split('_')[1]} - Nano Checkout`
+          // document.title = `#${path.split('_')[1]} - Nano Checkout`
           return this.invoice()
         }
 
@@ -259,7 +261,9 @@ new Vue({
           return Math.random() * (max - min) + min
       },
       cancel() {
-        if (this.checkout.cancel && this.checkout.cancel.includes('.')) return window.location.href = this.checkout.cancel
+        if (this.checkout.cancel_url) {
+          return window.location.href = this.checkout.cancel_url
+        }
         this.checkout = false
       },
       planValue(plan) {
@@ -274,7 +278,7 @@ new Vue({
         // if (!plan.amount) return
         // if (this.checkout.currency !== 'USD') {
           // var amount = plan.amount
-        this.checkout.amount = plan.amount
+        this.checkout.amount = plan.value
         // }
         // document.getElementById("qrcode").innerHTML = "";
         this.showQR()
