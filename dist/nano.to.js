@@ -121,6 +121,7 @@ new Vue({
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then((res) => {
           if (res.data.error) return this.notify(res.data.message)
+          if (res.data.amount && res.data.plans && res.data.plans.length) res.data.amount = res.data.plans[0].value
           this.checkout = res.data
           history.pushState({}, null, `/${path}`);
           document.title = `${res.data.title ? res.data.title : '#' + path.split('_')[1] + ' - Nano Checkout' }`
