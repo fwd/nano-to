@@ -292,9 +292,10 @@ new Vue({
         this.$forceUpdate()
       },
       __checkout() {
-        axios.post(this.checkout.checkout).then((res) => {
-          if (res.data.redirect) window.location.href = res.data.redirect
+        axios.get(this.checkout.check_url).then((res) => {
+          if (res.data.redirect) return window.location.href = res.data.redirect
           // console.log( res.data )
+          this.notify(res.data.message)
         })
       },
       redirect(block, url) {
