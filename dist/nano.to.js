@@ -31,10 +31,7 @@ new Vue({
         link: `https://nano.to/${1}/about`,
         target: '_self'
       }, ],
-      status: { 
-        url: 'https://github.com/fwd/nano-to/issues/4',
-        message: "WARNING: Price & PoW API down." 
-      },
+      status: true,
     },
     computed: {
       amount() {
