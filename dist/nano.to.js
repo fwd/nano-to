@@ -16,7 +16,7 @@ new Vue({
       prompt: false,
       search: true,
       string: '',
-      color: 'red',
+      color: 'blue',
       usernames: [],
       notification: false,
       checkout: false,
