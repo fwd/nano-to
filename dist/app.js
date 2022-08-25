@@ -70,7 +70,8 @@ new Vue({
       invoice() {
         var query = this.queryToObject()
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
-        var configured = query.project || query.server || query.endpoint || query.url || query.api || false
+        var configured = query.check_url || query.check || query.c || query.url || query.api || false
+        if (configured) configured = configured.replace(':path', path).replace(':id', path)
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then((res) => {
           if (res.data.error) return this.notify(res.data.message)
