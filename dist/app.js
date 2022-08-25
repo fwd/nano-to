@@ -1,7 +1,8 @@
 new Vue({
     el: '#app',
     data: {
-      known: 'https://raw.githubusercontent.com/fwd/nano/master/known.json',
+      known: 'known.json',
+      // known: 'https://raw.githubusercontent.com/fwd/nano/master/known.json',
       doc_title: 'Nano.to - Nano Username & Checkout UI',
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
@@ -60,7 +61,7 @@ new Vue({
 
       var query = this.queryToObject()
 
-      if (query.nocache) this.endpoint = 'https://api.nano.to/known'
+      if (query.nocache) this.endpoint = 'https://api.nano.to/known.json'
 
       if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
         if (document.body) document.body.classList.add('fullscreen');
@@ -99,7 +100,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].amount
+              this.checkout.amount = this.checkout.plans[0].value
             }
           }, 100)
           // this._checkout(res.data, null)
@@ -129,7 +130,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].amount
+              this.checkout.amount = this.checkout.plans[0].value
             }
           }, 100)
           if (res.data.error) {
@@ -165,7 +166,7 @@ new Vue({
           var success = query.success ||query.success_url
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
-              return { title: a.trim().split(':')[0], amount: a.trim().split(':')[1] } 
+              return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
             })
           }
           this.checkout = {
@@ -206,7 +207,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].amount
+              this.checkout.amount = this.checkout.plans[0].value
             }
           }, 100)
           document.title = `@${item.name} - Nano Checkout`
@@ -252,7 +253,7 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].amount
+              this.checkout.amount = this.checkout.plans[0].value
             }
           }, 100)
           document.title = `Pay ${path.slice(0, 12)} - Nano Checkout`
@@ -269,16 +270,16 @@ new Vue({
       },
       planValue(plan) {
         if (this.checkout.currency === 'USD') {
-          var amount = Math.floor(this.rate * plan.amount)
+          var amount = Math.floor(this.rate * plan.value)
           return `$${amount}`
         }
-        if (String(plan.amount) == '0.133') return plan.amount + ' NANO'
-        return `${plan.amount && Number(plan.amount) < 1 ? Number(plan.amount).toFixed(1) : Math.floor(plan.amount)} NANO`
+        if (String(plan.value) == '0.133') return plan.value + ' NANO'
+        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(1) : Math.floor(plan.value)} NANO`
       },
       clickPlan(plan) {
-        // if (!plan.amount) return
+        // if (!plan.value) return
         // if (this.checkout.currency !== 'USD') {
-          // var amount = plan.amount
+          // var amount = plan.value
         this.checkout.amount = plan.value
         // }
         // document.getElementById("qrcode").innerHTML = "";
@@ -320,7 +321,7 @@ new Vue({
             source: true,
           }).then((res) => {
             resolve(res.data.blocks == "" ? [] : Object.keys(res.data.blocks).map(key => {
-              return { address: res.data.blocks[key].source, amount: res.data.blocks[key].amount }
+              return { address: res.data.blocks[key].source, value: res.data.blocks[key].value }
             }))
           })
         })
@@ -342,11 +343,11 @@ new Vue({
         if (this.checkout.checkout) return this.__checkout()
         try {
           return this.pending().then((_pending) => {
-            var in_pending = _pending.find(a => String( Number(this.convert(a.amount, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
+            var in_pending = _pending.find(a => String( Number(this.convert(a.value, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
             if (in_pending) return this.success(in_pending)
             if (!in_pending) {
               this.history().then((_history) => {
-                var in_history = _history.history.find(a => String( Number(this.convert(a.amount, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
+                var in_history = _history.history.find(a => String( Number(this.convert(a.value, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
                 if (in_history) return this.success(in_history)
                 if (!in_history) {
                   this.notify('Payment not found', 'warn')
@@ -391,7 +392,6 @@ new Vue({
         })
       },
       load(cb) {
-        // this.endpoint = ''
         return axios.get(this.known).then((res) => {
           this.usernames = res.data
           if (cb) cb(res.data)
