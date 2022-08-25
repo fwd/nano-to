@@ -2,13 +2,11 @@ new Vue({
     el: '#app',
     data: {
       known: 'known.json',
-      // known: 'https://raw.githubusercontent.com/fwd/nano/master/known.json',
       doc_title: 'Nano.to - Nano Username & Checkout UI',
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
       error: false,
       status: '',
-      tab: 'docs',
       user: false,
       loading: true,
       background: false,
@@ -22,32 +20,7 @@ new Vue({
       notification: false,
       checkout: false,
       suggestions: [],
-      colors: [],
-      buttons: [{
-        text: `[]`,
-        link: `https://nano.to/${1}`,
-        target: '_blank'
-      }, {
-        text: `[view account]`,
-        link: `https://nano.to/${1}/about`,
-        target: '_self'
-      }, ],
-      status: true,
-    },
-    computed: {
-      amount() {
-        var query = this.queryToObject()
-        if (query.random || query.r) {
-          var str = `${this.getRandomArbitrary(1, 9).toFixed(0)}${this.getRandomArbitrary(1, 9).toFixed(0)}${this.getRandomArbitrary(1, 9).toFixed(0)}${this.getRandomArbitrary(1, 9).toFixed(0)}`
-          return (Number(this.checkout.amount) + Number(`0.00${str}`)).toFixed(6)
-        }
-        return this.checkout.amount
-      },
-      value() {
-        var val = this.checkout && this.checkout.amount ? this.checkout.amount : 0
-        if (this.checkout.currency === 'USD') return (this.checkout.currency || '$ ') + val
-        if (!this.checkout.currency || this.checkout.currency === 'NANO') return (this.checkout.currency || 'Ӿ ') + `${this.checkout.amount && Number(this.checkout.amount) < 1 ? Number(this.checkout.amount).toFixed(3) : Math.floor(this.checkout.amount)}`
-      }
+      buttons: [],
     },
     watch: {
       string() {
@@ -78,24 +51,10 @@ new Vue({
 
     },
     methods: {
-      showAddress(item, buttons) {
-        this.prompt = {
-          title: `${item.name}`,
-          qrcode: `nano:${item.address}`,
-          body: `
-<p style="font-size: 26px; text-transform: lowercase; word-break: break-word; max-width: 430px; text-align: center; width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; text-shadow: rgb(49, 49, 49) 2px 2px 0px;">
-<span style="color: rgb(253, 0, 7);">${item.address.slice(0, 12)}</span>${item.address.slice(12, 58)}<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span>
-</p>`,
-          // note: ""
-        }
-      },
       lease(name) {
-        // console.log(name)
         axios.get(`https://api.nano.to/${name}/lease`).then((res) => {
-        // axios.get(`https://name.nano.to/checkout/${id.replace('pay_', '')}`).then((res) => {
           res.data.custom = true
           res.data.back = true
-          // res.data.checkout = true
           this.checkout = res.data
           setTimeout(() => {
             this.showQR()
@@ -103,16 +62,9 @@ new Vue({
               this.checkout.amount = this.checkout.plans[0].value
             }
           }, 100)
-          // this._checkout(res.data, null)
-          // document.title = `${name} - New Lease`
-          // console.log( res.data )
-          // if (res.data.error) {
-          //   this.reset()
-          //   return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
-          // }
         }).catch(e => {
           // this.reset()
-          // this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
+          this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
       invoice() {
@@ -149,7 +101,6 @@ new Vue({
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         
         if (path && checkout) {
-          // document.title = `#${path.split('_')[1]} - Nano Checkout`
           return this.invoice()
         }
 
@@ -166,7 +117,9 @@ new Vue({
           var success = query.success ||query.success_url
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
-              return { title: a.trim().split(':')[0], value: a.trim().split(':')[1] } 
+              var value = a.trim().split(':')[1]
+              if (query.random || query.r) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary(1000, 10000) }`
+              return { title: a.trim().split(':')[0], value } 
             })
           }
           this.checkout = {
@@ -193,10 +146,6 @@ new Vue({
                 light: query.qrcode && query.qrcode.split(':')[0] ? query.qrcode.split(':')[0].replace('$', '#') : '',
                 dark: query.qrcode && query.qrcode.split(':')[1] ? query.qrcode.split(':')[1].replace('$', '#') : '',
               },
-              // button: {
-              //   text: query.color.split(':')[1].replace('$', '#') : '',
-              //   background: query.color.split(':')[0].replace('$', '#') : '',
-              // }
               address: {
                 hightlight: query.color,
               }
@@ -260,7 +209,7 @@ new Vue({
         }
       },
       getRandomArbitrary(min, max) {
-          return Math.random() * (max - min) + min
+        return Math.floor(Math.random() * (max - min) + min)
       },
       cancel() {
         if (this.checkout.cancel_url) {
@@ -277,15 +226,8 @@ new Vue({
         return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(1) : Math.floor(plan.value)} NANO`
       },
       clickPlan(plan) {
-        // if (!plan.value) return
-        // if (this.checkout.currency !== 'USD') {
-          // var amount = plan.value
         this.checkout.amount = plan.value
-        // }
-        // document.getElementById("qrcode").innerHTML = "";
         this.showQR()
-        // console.log("plan.value", )
-        // console.log("this.checkout.amount", )
         this.$forceUpdate()
       },
       toggleCurrency() {
@@ -295,20 +237,14 @@ new Vue({
       __checkout() {
         axios.get(this.checkout.check_url).then((res) => {
           if (res.data.redirect) return window.location.href = res.data.redirect
-          // console.log( res.data )
           this.notify(res.data.message)
         })
       },
       redirect(block, url) {
         var checkout = this.checkout.redirect || this.checkout.checkout
-        // console.log( "checkout", checkout )
-        // window.location.href = checkout ? checkout.replace('/:id', '/' + this.checkout.id).replace('{{block}}', block.hash).replace('{{hash}}', block.hash).replace('{{ hash }}', block.hash).replace('{{HASH}}', block.hash).replace('{{ HASH }}', block.hash).replace(':hash', block.hash) : '/'
       },
       success(block) {
-        // console.log(this.checkout)
-        // this.status = 'blue'
         if (this.checkout.checkout) return this.__checkout()
-        // if (this.checkout.redirect) this.redirect(block)
        },
        pending() {
          return new Promise((resolve) => {
@@ -401,16 +337,12 @@ new Vue({
         return !name || name.length > 60 || name.includes('_') || name.includes('nano_') || name.includes('xrb_') || !(/^\w+$/.test(name)) || name.includes('%5C')
       },
       isMatch(item, string) {
-        // console.log(item, string)
-        // if (item.address.toLowerCase() == string.toLowerCase()) return true
         if (item.name.toLowerCase().includes(string.toLowerCase())) return true
         return false
-        // return item.name.toLowerCase().includes(string.toLowerCase())
       },
       query() {
         var string = this.string ? this.string.toLowerCase() : this.string
         if (!string) return
-          // console.log( NanocurrencyWeb )
         if ((string.includes('nano_') || string.includes('xrb_')) && NanocurrencyWeb.tools.validateAddress(string)) {
           return this.suggestions = [
             {
@@ -443,8 +375,6 @@ new Vue({
         if (!item && !this.invalidUsername(string)) {
           return this.suggestions = [{
             name: "Username Available",
-            // lease: string,
-            // color: 'green',
             alert: 'New Usernames Temporarily Down.',
           }]
         }
@@ -456,19 +386,13 @@ new Vue({
       },
       async shareText(text) {
         var self = this
-        // alert("yoo")
         try {
           await navigator.share({
-            // title: 'MDN',
             text
-            // url: 'https://developer.mozilla.org'
           })
           window.alert('API Key copied to clipboard.')
-          // resultPara.textContent = 'MDN shared successfully'
         } catch (err) {
           window.alert('Could not copy.')
-          // resultPara.textContent = 'Error: ' + err
-          // self.$notify('Error sharing.')
         }
       },
       copy(text) {
@@ -520,7 +444,6 @@ new Vue({
         document.title = this.doc_title
       },
       doSuggestion(suggestion) {
-        // console.log("suggestion", suggestion)
         if (suggestion.alert) return this.notify(suggestion.alert)
         if (suggestion.lease) return this.lease(suggestion.lease)
         if (suggestion.url) return window.open(suggestion.url, '_blank');
@@ -546,7 +469,6 @@ new Vue({
             label: `Send Payment`,
             link: "external",
             checkout: checkout,
-            // url: `https://nano.to/${suggestion.address}?title=@${suggestion.name}&cancel=https://nano.to/${suggestion.name}/about`
           }, {
             label: 'Open Natrium',
             link: "external",

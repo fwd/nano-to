@@ -129,7 +129,7 @@ https://github.com/fwd/nano-to
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
               <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
-              <p v-if="checkout.amount" class="price">{{ checkout.amount ? 'Ӿ ' : '' }} {{ checkout.random_int ? String(Number(checkout.amount).toFixed(2)).replace('.00', '') : String(Number(checkout.amount).toFixed(3)).replace('.000', '')  }}</p>
+              <p v-if="checkout.amount" class="price">{{ checkout.amount ? 'Ӿ ' : '' }} {{ checkout.random_int ? String(Number(checkout.amount).toFixed(2)).replace('.00', '') : String(Number(checkout.amount).toFixed(3)).replace('.00', '')  }}</p>
             </div>
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
             <p v-if="checkout.description" class="description" v-html="checkout.description"></p>
@@ -137,7 +137,8 @@ https://github.com/fwd/nano-to
               <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : '#FFF'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>{{ plan.title || plan.name }}</h4>
-                  <h4>{{ checkout.random_int ? String(Number(plan.value).toFixed(1)).replace('.0', '') : String(Number(plan.value).toFixed(3)).replace('.000', '') }} NANO</h4>
+                  <h4>{{ Number(plan.value) > 1 ? Math.floor(plan.value) : Number(plan.value).toFixed(3) }} NANO</h4>
+                  <!-- <h4>{{ checkout.random_int ? String(Number(plan.value).toFixed(1)).replace('.0', '') : String(Number(plan.value).toFixed(3)).replace('.000', '') }} NANO</h4> -->
                 </div>
               </div>
             </div>
