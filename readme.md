@@ -100,9 +100,9 @@ https://pow.nano.to/:HASH
 
 ## Available Domains
 
+- nano.to
 - ӿ.to
 - xno.to
-- nano.to
 
 ## Contributing
 
@@ -115,8 +115,8 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 **Limited Commercial Use:**
 
 - ✅ Personal & Open Source
-- ✅ Commercial use where Nano.to Usernames or Checkout is **NOT** the end product.
-- ❌ Re-selling/Re-Packing: Nano.to Usernames or Checkout **IS** the end product.
+- ✅ Commercial use where Nano.to Usernames or Checkout is **NOT** the end-product.
+- ❌ Re-selling/Re-Packing: Nano.to Usernames or Checkout **IS** the end-product.
 
 Questions about licensing? Email: hello[@]nano.to
 
