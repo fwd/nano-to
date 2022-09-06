@@ -129,7 +129,7 @@ https://github.com/fwd/nano-to
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
               <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
-              <p v-if="checkout.amount" class="price">{{ checkout.amount ? 'Ӿ ' : '' }} {{ String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount }}</p>
+              <p v-if="checkout.amount" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount }}</p>
             </div>
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
             <p v-if="checkout.description" class="description" v-html="checkout.description"></p>
@@ -137,7 +137,7 @@ https://github.com/fwd/nano-to
               <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : '#FFF'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>{{ plan.title || plan.name }}</h4>
-                  <h4>{{ Number(plan.value) > 1 ? Math.floor(plan.value) : Number(plan.value).toFixed(3) }} NANO</h4>
+                  <h4>{{ Number(plan.value) > 1 ? Math.floor(plan.value) : Number(plan.value).toFixed(3) }} {{ currency }}</h4>
                   <!-- <h4>{{ checkout.random_int ? String(Number(plan.value).toFixed(1)).replace('.0', '') : String(Number(plan.value).toFixed(3)).replace('.000', '') }} NANO</h4> -->
                 </div>
               </div>
@@ -147,6 +147,10 @@ https://github.com/fwd/nano-to
                 <h4>Enter amount: </h4>
                 <div class="dinput">
                   <input type="number" inputmode="decimal" min="1" max="133248297" v-model="checkout.amount" >
+              <!--     <select class="currency-select" v-model="currency">
+                    <option value="USD">USD</option>
+                    <option value="NANO">NANO</option>
+                  </select> -->
                 </div>
               </div>
             </div>
@@ -158,10 +162,10 @@ https://github.com/fwd/nano-to
               <h4 v-if="checkout.amount" class="instructions">
                 <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction || 'To complete, send:' }}</span>
                 <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.amount }}
-                  <span class="blocky">{{ checkout.currency || 'NANO' }}</span>
+                  <span class="blocky">{{ 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
-                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ checkout.currency  ? checkout.currency.toUpperCase() : 'USD' }} {{ Number(checkout.amount * rate).toFixed(2) }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ value }} {{ currency === 'NANO' ? 'USD' : currency }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${currency ? currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
               </h4>

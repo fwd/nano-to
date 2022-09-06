@@ -17,12 +17,17 @@ new Vue({
       string: '',
       color: '',
       usernames: [],
+      currency: 'NANO',
       notification: false,
       checkout: false,
       suggestions: [],
       buttons: [],
     },
     watch: {
+      currency() {
+        this._checkout()
+        console.log("yo")
+      },
       string() {
         this.query()
       },
@@ -49,6 +54,17 @@ new Vue({
         }, 105)
       })
 
+    },
+    computed: {
+      value() {
+        if (this.currency === 'NANO') return Number(this.checkout.amount * this.rate).toFixed(2)
+        if (this.currency != 'NANO') return Math.floor(this.checkout.amount)
+      },
+      total() {
+        // if (this.currency === 'NANO') return this.checkout.amount
+        return String(this.checkout.amount).includes('.') ? Number(this.checkout.amount).toFixed(3) : this.checkout.amount
+        return this.checkout.amount
+      }
     },
     methods: {
       lease(name) {
@@ -95,37 +111,43 @@ new Vue({
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
+
       _checkout(item, data) {
+
         this.getRate()
+        
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
-        var item = item || data.find(a => a.name.toLowerCase() === path)
+        var item = item || this.usernames.find(a => a.name.toLowerCase() === path) || {}
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         
         if (path && checkout) {
           return this.invoice()
         }
+        
+        var query = this.queryToObject()
+        var amount = query.price || query.amount || query.n || query.x || query.cost || query.p || false 
 
-        if (item) {
-          var query = this.queryToObject()
+        if (item && item.name) {
           var custom = false
           var plans = item.plans || query.plans
           var vanity = item.vanity || query.vanity
           var donation = item.donate || query.custom
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
-          var amount = query.price || query.amount || query.n || query.x || query.cost || query.p || false 
           if (!plans || donation) custom = true
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
           var success = query.success ||query.success_url
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
               var value = a.trim().split(':')[1]
+              // if (this.currency !== 'NANO') value = "3"
+              // if (this.currency !== 'NANO') value = (Number(value) / this.rate).toFixed(2)
               if (query.random || query.r) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
               return { title: a.trim().split(':')[0], value } 
             })
           }
           this.checkout = {
             title: item.title || query.name || query.title || (item.name ? ('@' + this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
-            currency: query.currency || query.c,
+            currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.back ? false : true,
             image: query.image || query.img || query.i || '',
@@ -162,16 +184,19 @@ new Vue({
           }, 100)
           document.title = `@${item.name} - Nano Checkout`
         }
+        
+        var query = this.queryToObject()
 
         if (path && path.includes('nano_')) {
 
+          var donation = query.custom
+
           if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
-          var query = this.queryToObject()
           
           var plans = query.p
 
-          var amount = query.price || query.amount || query.n || query.x || query.cost
-              amount = amount ? amount.match( /\d+/g ).join('') : false
+          // var amount = query.price || query.amount || query.n || query.x || query.cost
+              // amount = amount ? amount.match( /\d+/g ).join('') : false
 
           var success = item.success || query.success ||query.success_url || query.redirect || query.r
 
@@ -179,11 +204,15 @@ new Vue({
 
           if (plans) {
             plans = plans.split(',').map(a => {
-              return { title: a.trim().split(':')[0], amount: a.trim().split(':')[1] } 
+              var value = a.trim().split(':')[1]
+              if (this.currency !== 'NANO') value = (Number(value) / this.rate).toFixed(2)
+              return { title: a.trim().split(':')[0], value } 
             })
           }
+
           this.checkout = {
-            currency: query.currency || query.c,
+            custom: !amount || donation ? true : false,
+            currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: true,
             image: query.image || query.img || query.i || '',
@@ -208,6 +237,7 @@ new Vue({
           }, 100)
           document.title = `Pay ${path.slice(0, 12)} - Nano Checkout`
         }
+
       },
       getRandomArbitrary(min, max) {
         return Math.random() * (max - min) + min
@@ -222,7 +252,7 @@ new Vue({
         this.checkout = false
       },
       planValue(plan) {
-        if (this.checkout.currency === 'USD') {
+        if (this.currency === 'USD') {
           var amount = Math.floor(this.rate * plan.value)
           return `$${amount}`
         }
@@ -457,6 +487,7 @@ new Vue({
         var self = this
         self.search = false
         var checkout = {
+          currency: 'NANO',
           name: suggestion.name,
           address: suggestion.address,
           amount: false,
