@@ -119,7 +119,7 @@ new Vue({
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
               var value = a.trim().split(':')[1]
-              if (query.random || query.r) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary(1000, 10000) }`
+              if (query.random || query.r) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
               return { title: a.trim().split(':')[0], value } 
             })
           }
@@ -210,6 +210,9 @@ new Vue({
         }
       },
       getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min
+      },
+      getRandomArbitrary2(min, max) {
         return Math.floor(Math.random() * (max - min) + min)
       },
       cancel() {
