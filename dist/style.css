@@ -1287,3 +1287,19 @@ code {
 #radio {
     padding-left: 40px;
 }
+
+.currency-select {
+  height: 42px;
+  margin-left: -5px;
+  min-height: 35px;
+  max-width: 150px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid;
+  font-size: 17px;
+  appearance: none;
+  text-align: center;
+  font-weight: bold;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

@@ -424,6 +424,9 @@ hr {
     width: 100%;
     position: relative;
     margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .plans.custom .dinput.nano:before {
     content: "NANO"
