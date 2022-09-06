@@ -129,7 +129,7 @@ https://github.com/fwd/nano-to
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
               <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
-              <p v-if="checkout.amount" class="price">{{ checkout.amount ? 'Ӿ ' : '' }} {{ checkout.random_int ? String(Number(checkout.amount).toFixed(2)).replace('.00', '') : String(Number(checkout.amount).toFixed(3)).replace('.00', '')  }}</p>
+              <p v-if="checkout.amount" class="price">{{ checkout.amount ? 'Ӿ ' : '' }} {{ String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount }}</p>
             </div>
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
             <p v-if="checkout.description" class="description" v-html="checkout.description"></p>
