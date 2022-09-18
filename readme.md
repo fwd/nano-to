@@ -97,7 +97,7 @@ https://nano.to/Esteban
 
 ## Register Username
 
-Registering a Usernames is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
+Registering a new Username is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
 
 ## Renew Username
 
