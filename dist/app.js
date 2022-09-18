@@ -39,7 +39,7 @@ new Vue({
 
       var query = this.queryToObject()
 
-      if (query.nocache) this.endpoint = 'https://api.nano.to/known.json'
+      if (query.nocache) this.known = 'https://api.nano.to/known'
 
       if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
         if (document.body) document.body.classList.add('fullscreen');
@@ -69,7 +69,6 @@ new Vue({
     methods: {
       lease(name) {
         axios.get(`https://api.nano.to/${name}/lease`).then((res) => {
-          res.data.custom = true
           res.data.back = true
           this.checkout = res.data
           setTimeout(() => {
@@ -79,7 +78,6 @@ new Vue({
             }
           }, 100)
         }).catch(e => {
-          // this.reset()
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
@@ -112,7 +110,7 @@ new Vue({
         })
       },
 
-      _checkout(item, data) {
+      _checkout(item, data, cache) {
 
         this.getRate()
         
@@ -128,6 +126,9 @@ new Vue({
         var amount = query.price || query.amount || query.n || query.x || query.cost || query.p || false 
 
         if (item && item.name) {
+
+          if (!cache && query.nocache) return this.doSuggestion({ name: item.name, address: item.address })
+          
           var custom = false
           var plans = item.plans || query.plans
           var vanity = item.vanity || query.vanity
@@ -139,8 +140,6 @@ new Vue({
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
               var value = a.trim().split(':')[1]
-              // if (this.currency !== 'NANO') value = "3"
-              // if (this.currency !== 'NANO') value = (Number(value) / this.rate).toFixed(2)
               if (query.random || query.r) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
               return { title: a.trim().split(':')[0], value } 
             })
@@ -239,6 +238,7 @@ new Vue({
         }
 
       },
+
       getRandomArbitrary(min, max) {
         return Math.random() * (max - min) + min
       },
@@ -268,17 +268,11 @@ new Vue({
         var currency = this.queryToObject().currency
         this.$forceUpdate()
       },
-      __checkout() {
-        axios.get(this.checkout.check_url).then((res) => {
-          if (res.data.redirect) return window.location.href = res.data.redirect
-          this.notify(res.data.message)
-        })
-      },
       redirect(block, url) {
         var checkout = this.checkout.redirect || this.checkout.checkout
       },
       success(block) {
-        if (this.checkout.checkout) return this.__checkout()
+        if (this.checkout.checkout) return this.check_url()
        },
        pending() {
          return new Promise((resolve) => {
@@ -309,8 +303,14 @@ new Vue({
           })
         })
        },
-       check() {
-        if (this.checkout.checkout) return this.__checkout()
+       check_url() {
+          axios.get(this.checkout.check_url).then((res) => {
+            if (res.data.redirect) return window.location.href = res.data.redirect
+            this.notify(res.data.message)
+          })
+        },
+      check() {
+        if (this.checkout.checkout || this.checkout.check_url) return this.check_url()
         try {
           return this.pending().then((_pending) => {
             var in_pending = _pending.find(a => String( Number(this.convert(a.value, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
@@ -347,7 +347,7 @@ new Vue({
         setTimeout(() => {
           this.status = 'blue'
           this.notification = false
-        }, timeout || 2000)
+        }, timeout || 3000)
       },
       capitalizeFirstLetter(string) {
         if (!string || !string.charAt(0)) return
@@ -409,7 +409,8 @@ new Vue({
         if (!item && !this.invalidUsername(string)) {
           return this.suggestions = [{
             name: "Username Available",
-            alert: 'New Usernames Temporarily Down.',
+            lease: string
+            // alert: 'New Usernames Temporarily Down.',
           }]
         }
         if (!item) return this.suggestions = [{
@@ -456,7 +457,7 @@ new Vue({
       },
       doButton(button) {
         if (button.checkout) {
-          this._checkout(button.checkout, null)
+          this._checkout(button.checkout, null, true)
           return 
         }
         if (button.link === "qrcode") {
@@ -478,6 +479,7 @@ new Vue({
         document.title = this.doc_title
       },
       doSuggestion(suggestion) {
+        var query = this.queryToObject()
         if (suggestion.alert) return this.notify(suggestion.alert)
         if (suggestion.lease) return this.lease(suggestion.lease)
         if (suggestion.url) return window.open(suggestion.url, '_blank');
@@ -510,7 +512,7 @@ new Vue({
             url: `nano:${suggestion.address}`
           }, ]
         }
-        history.pushState({}, null, '/' + suggestion.name);
+        history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
       },
       stringToColour(str) {
