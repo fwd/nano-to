@@ -25,6 +25,8 @@ https://github.com/fwd/nano-to
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/checkout.css">
+    <link rel="stylesheet" href="dist/point-of-sale.css">
+    <link rel="stylesheet" href="dist/confetti.css">
     <script src="dist/vue.min.js"></script>
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
@@ -35,6 +37,57 @@ https://github.com/fwd/nano-to
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
       <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
+
+      <div v-if="success && success.confetti">
+        <div v-for="i in 150" :class="`confetti-${i}`"></div>
+      </div>
+
+      <div v-if="success" id="success">
+        <div>
+          <h3 style="color:#2ecc71;margin: 0;">{{ success.title || 'Complete' }}</h3>
+          <p style="margin-bottom: 0">{{ success.message }}</p>
+          <button v-if="success.button" v-if="checkout.amount || checkout.plans.length" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="do_redirect()">
+            <span>{{ success.button || 'Continue' }}</span>
+          </button>
+          <div class="redirecting" v-if="!success.button && success.redirect">{{ success.redirect_msg || 'Redirecting...' }}</div>
+        </div>
+      </div>
+
+      <!-- Work in Progress-->
+      <div v-if="point_of_sale" class="point-of-sale">
+          <div class="device">
+              <div class="products">
+                  <ul class="product-list">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                  </ul>
+              </div>
+              <div class="checkout">
+
+                  <ul class="checkout-list">
+                      <li v-for="i in 50">1 &times; Item #1</li> 
+                  </ul>
+
+                  <div class="checkout-footer">
+                    <div class="total">
+                      <div>Total</div>
+                      <div>$26</div>
+                    </div>
+
+                    <a href="#" >Checkout <i class="ion-ios-cart"></i></a>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
       <div v-if="!checkout" :class="`ak47 blue`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
@@ -69,19 +122,14 @@ https://github.com/fwd/nano-to
                         <span>{{ status.message ? status.message || 'API Experiencing Issues' : 'LEARN MORE' }}</span>
                       </p>
                     </a>
-                    <a href="http://github.com/fwd/nano" target="_blank" style="font-size: 15px; opacity: 0.7; text-transform: uppercase; filter: invert(1); margin-top: 65px; margin-bottom: -50px; zoom: 0.8;display: block;">
-                      <span>
-                        <svg enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.0" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                          <path clip-rule="evenodd" d="M16.003,0C7.17,0,0.008,7.162,0.008,15.997  c0,7.067,4.582,13.063,10.94,15.179c0.8,0.146,1.052-0.328,1.052-0.752c0-0.38,0.008-1.442,0-2.777  c-4.449,0.967-5.371-2.107-5.371-2.107c-0.727-1.848-1.775-2.34-1.775-2.34c-1.452-0.992,0.109-0.973,0.109-0.973  c1.605,0.113,2.451,1.649,2.451,1.649c1.427,2.443,3.743,1.737,4.654,1.329c0.146-1.034,0.56-1.739,1.017-2.139  c-3.552-0.404-7.286-1.776-7.286-7.906c0-1.747,0.623-3.174,1.646-4.292C7.28,10.464,6.73,8.837,7.602,6.634  c0,0,1.343-0.43,4.398,1.641c1.276-0.355,2.645-0.532,4.005-0.538c1.359,0.006,2.727,0.183,4.005,0.538  c3.055-2.07,4.396-1.641,4.396-1.641c0.872,2.203,0.323,3.83,0.159,4.234c1.023,1.118,1.644,2.545,1.644,4.292  c0,6.146-3.74,7.498-7.304,7.893C19.479,23.548,20,24.508,20,26c0,2,0,3.902,0,4.428c0,0.428,0.258,0.901,1.07,0.746  C27.422,29.055,32,23.062,32,15.997C32,7.162,24.838,0,16.003,0z" fill="#181616" fill-rule="evenodd"></path>
-                          <g></g>
-                          <g></g>
-                          <g></g>
-                          <g></g>
-                          <g></g>
-                          <g></g>
-                        </svg>
-                      </span>
-                    </a>
+                    <div class="footer-icon">
+                      <a href="http://github.com/fwd/nano" target="_blank" style="font-size: 15px; opacity: 0.7; text-transform: uppercase; filter: invert(1); display: block; max-width: 32px;">
+                        <img src="dist/svg/github.svg" style="width: 100%">
+                      </a>
+                      <a v-if="point_of_sale" href="http://github.com/fwd/nano" target="_blank" style="font-size: 15px; opacity: 0.7; text-transform: uppercase; filter: invert(1); display: block; max-width: 28px;">
+                        <img src="dist/svg/point-of-sale.svg" alt="" style="width: 100%">
+                      </a>
+                    </div>
                   </div>
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
@@ -121,6 +169,7 @@ https://github.com/fwd/nano-to
           </div>
         </div>
       </div>
+
       <div v-if="checkout" id="checkout" class="flex">
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
           <h3 :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">{{ checkout.cancel_text || '← Cancel' }}</h3>
@@ -136,7 +185,10 @@ https://github.com/fwd/nano-to
             <div class="plans">
               <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
-                  <h4>{{ plan.title || plan.name }}</h4>
+                  <h4>
+                    {{ plan.title || plan.name }}
+                    <span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" v-if="plan.discount" class="discount">{{ Number(plan.discount) ? plan.discount + '% OFF' : plan.discount }}</span>
+                  </h4>
                   <h4>{{ Number(plan.value) > 1 ? Math.floor(plan.value) : Number(plan.value).toFixed(3) }} {{ currency }}</h4>
                   <!-- <h4>{{ checkout.random_int ? String(Number(plan.value).toFixed(1)).replace('.0', '') : String(Number(plan.value).toFixed(3)).replace('.000', '') }} NANO</h4> -->
                 </div>
@@ -194,6 +246,7 @@ https://github.com/fwd/nano-to
           </div>
         </section>
       </div>
+
     </div>
     <script src="dist/app.js"></script>
   </body>

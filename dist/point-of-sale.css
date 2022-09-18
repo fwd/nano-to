@@ -1,0 +1,231 @@
+.point-of-sale {
+    align-items: center;
+    display: flex;
+    /*height: 100%;*/
+    justify-content: center;
+    margin: 0 auto;
+    /*max-width: 1400px;*/
+    width: 100%;
+
+    font-size: 14px;
+
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+
+}
+
+.device {
+    background: #fff;
+    /*border: 30px solid #26282b;*/
+    /*border-radius: 10px;*/
+    /*box-shadow: 0 15px 20px rgba(0, 0, 0, .4);*/
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    /*width: 1000px;*/
+}
+
+.products {
+    width: 70%;
+}
+
+.product-list {
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.product-list li {
+    border: 1px solid #ddd;
+    /*height: calc(640px/3);*/
+    transition: background .1s ease;
+    width: 33.33333333%;
+}
+
+.product-list li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.product-list li:active {
+    background: #ddd;
+}
+
+.checkout {
+    background: #353941;
+    box-shadow: -6px 0 10px rgba(0, 0, 0, .3);
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    overflow: hidden;
+    width: 30%;
+    position: relative;
+}
+
+.checkout-footer {
+        position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.checkout-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+        overflow-x: scroll;
+    max-height: calc(100% - 104px);
+}
+
+.checkout-list li {
+    background: #353941;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    transition: background .1s ease;
+    width: 100%;
+}
+
+.checkout-list li:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.checkout-list li:hover {
+    background: #40444e;
+    cursor: pointer;
+}
+
+.total {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: max-content;
+    font-size: 18px;
+    font-weight: bold;
+    background: #353941;
+}
+
+.total span {
+    font-weight: 400;
+    font-size: 1.4em;
+    margin-left: 10px;
+}
+
+.checkout a {
+    align-self: flex-end;
+    background: #5f85db;
+    color: #fff;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background .1s ease;
+    width: 100%;
+}
+
+.checkout a i {
+    color: #fff;
+}
+
+.checkout a:hover {
+    background: #6d99fc;
+}
+
+.checkout a:active {
+    background: #77a6ff;
+}
+
+/* Stagger.css by digitalfio
+
+https://github.com/digitalfio/Stagger.css/
+
+*/
+
+._1 {
+  -webkit-animation-delay: 0.05s;
+  -moz-animation-delay: 0.05s;
+  -ms-animation-delay: 0.05s;
+  -o-animation-delay: 0.05s;
+  animation-delay: 0.05s;
+}
+._2 {
+  -webkit-animation-delay: 0.1s;
+  -moz-animation-delay: 0.1s;
+  -ms-animation-delay: 0.1s;
+  -o-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+._3 {
+  -webkit-animation-delay: 0.15s;
+  -moz-animation-delay: 0.15s;
+  -ms-animation-delay: 0.15s;
+  -o-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+._4 {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  -ms-animation-delay: 0.2s;
+  -o-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+._5 {
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  -ms-animation-delay: 0.25s;
+  -o-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+._6 {
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -ms-animation-delay: 0.3s;
+  -o-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+._7 {
+  -webkit-animation-delay: 0.35s;
+  -moz-animation-delay: 0.35s;
+  -ms-animation-delay: 0.35s;
+  -o-animation-delay: 0.35s;
+  animation-delay: 0.35s;
+}
+._8 {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  -ms-animation-delay: 0.4s;
+  -o-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+._9 {
+  -webkit-animation-delay: 0.45s;
+  -moz-animation-delay: 0.45s;
+  -ms-animation-delay: 0.45s;
+  -o-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+._10 {
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
