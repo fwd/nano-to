@@ -41,7 +41,7 @@ https://nano.to/@Nautilus?amount=50&random=true
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
-### Checkout w/ Plans
+## Checkout w/ Plans
 
 ```python
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
@@ -49,7 +49,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-### Advanced Example
+## Advanced Example
 
 ```python
 https://nano.to/@Nautilus
