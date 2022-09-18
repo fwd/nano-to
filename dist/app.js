@@ -1,17 +1,20 @@
 new Vue({
     el: '#app',
     data: {
+      confetti: true,
       known: 'known.json',
       doc_title: 'Nano.to - Nano Username & Checkout UI',
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
       error: false,
       status: '',
+      point_of_sale: false,
       user: false,
       loading: true,
       background: false,
       rate: false,
       params: {},
+      success: false,
       prompt: false,
       search: true,
       string: '',
@@ -271,10 +274,7 @@ new Vue({
       redirect(block, url) {
         var checkout = this.checkout.redirect || this.checkout.checkout
       },
-      success(block) {
-        if (this.checkout.checkout) return this.check_url()
-       },
-       pending() {
+      pending() {
          return new Promise((resolve) => {
           var endpoint = 'https://nanolooker.com/api/rpc'
           axios.post(endpoint, { 
@@ -285,7 +285,7 @@ new Vue({
             source: true,
           }).then((res) => {
             resolve(res.data.blocks == "" ? [] : Object.keys(res.data.blocks).map(key => {
-              return { address: res.data.blocks[key].source, value: res.data.blocks[key].value }
+              return { block: key, address: res.data.blocks[key].source, amount: res.data.blocks[key].amount }
             }))
           })
         })
@@ -299,26 +299,64 @@ new Vue({
             count: "50",
             raw: true
           }).then((res) => {
-            resolve(res.data)
+            resolve(res.data.history)
           })
         })
        },
-       check_url() {
-          axios.get(this.checkout.check_url).then((res) => {
-            if (res.data.redirect) return window.location.href = res.data.redirect
+      check_url() {
+          axios.get(this.checkout.checkout || this.checkout.check_url || this.checkout.check).then((res) => {
+            if (res.data.message) {
+              this.success = {
+                confetti: res.data.confetti || false,
+                title: res.data.title || false,
+                message: res.data.message || false,
+                confirm: res.data.conrim || false,
+                redirect_msg: res.data.redirect_msg || false,
+                button: res.data.button || false,
+                redirect: res.data.redirect || false,
+              }
+            }
+            if (res.data.redirect && !res.data.button) {
+              setTimeout(() => {
+                this.do_redirect()
+              }, 5000)
+              return
+            }
             this.notify(res.data.message)
           })
-        },
+      },
+      do_redirect(block) {
+        var redirect = this.checkout && this.checkout.redirect ? this.checkout.redirect : this.success.redirect
+        if (block) {
+          redirect = redirect
+            .split('{{id}}').join(checkout.id)
+            .split('{{hash}}').join(block.block)
+            .split('{{account}}').join(block.account).split('{{address}}').join(block.account)
+            .split('{{amount}}').join(block.amount)
+        }
+        return window.location.href = redirect
+      },
+      show_success(block) {
+        this.success = {
+          confetti: true,
+          title: 'Success',
+          message: 'Your payment was confirmed on the Nano Blockchain.',
+          confirm: true,
+          button: 'View Block',
+          redirect: `https://nanolooker.com/block/${block.block}`
+        }
+        return 
+      },
       check() {
-        if (this.checkout.checkout || this.checkout.check_url) return this.check_url()
+        if (this.checkout.checkout || this.checkout.check_url || this.checkout.check) return this.check_url()
         try {
           return this.pending().then((_pending) => {
-            var in_pending = _pending.find(a => String( Number(this.convert(a.value, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
-            if (in_pending) return this.success(in_pending)
+            var in_pending = _pending.find(a => a.amount === this.convert(this.checkout.amount, 'NANO', 'RAW') )
+            if (in_pending) return this.show_success(in_pending)
             if (!in_pending) {
               this.history().then((_history) => {
-                var in_history = _history.history.find(a => String( Number(this.convert(a.value, 'RAW', 'NANO')).toFixed(7) ) === String(this.checkout.amount))
-                if (in_history) return this.success(in_history)
+                var in_history = _history.find(a => a.amount === this.convert(this.checkout.amount, 'NANO', 'RAW') )
+                if (in_history) return this.show_success(in_history)
                 if (!in_history) {
                   this.notify('Payment not found', 'warn')
                 }

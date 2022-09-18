@@ -65,13 +65,12 @@ body {
   /*font-family: 'Share Tech Mono', monospace;*/
   font-size: 26px;
   font-weight: 300;
-  text-shadow: 0 0 5px rgba(219, 14, 21, .8);
+  /*text-shadow: 0 0 5px rgba(219, 14, 21, .8);*/
   background: url(../dist/images/bg.png) #000;
   position: relative;
   height: 100vh;
-
   overflow: hidden;
-overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 
@@ -1302,4 +1301,12 @@ code {
   font-weight: bold;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 130px;
+  margin: 50px auto -75px auto;
 }
