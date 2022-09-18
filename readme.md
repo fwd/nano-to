@@ -107,7 +107,7 @@ You can add time to your Username by visting:
 https://api.nno.to/:USERNAME/renew
 ```
 
-You must pay from the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
+You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
 
 ## Grace Period
 
