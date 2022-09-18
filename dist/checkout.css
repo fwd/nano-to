@@ -913,3 +913,11 @@ hr.memo {
     opacity: 0.4;
     font-size: 14px;
 }
+
+.close {
+    margin-top: 25px;
+    margin-bottom: -20px;
+    font-size: 13px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
