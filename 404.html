@@ -50,7 +50,7 @@ https://github.com/fwd/nano-to
             <span>{{ success.button || 'Continue' }}</span>
           </button>
           <div class="redirecting" v-if="!success.button && success.redirect">{{ success.redirect_msg || 'Redirecting...' }}</div>
-          <div class="close" @click="checkout = false; success = false">Close</div>
+          <div v-if="!success.button" class="close" @click="checkout = false; success = false">Close</div>
         </div>
       </div>
 
