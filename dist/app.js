@@ -310,7 +310,7 @@ new Vue({
                 confetti: res.data.confetti || false,
                 title: res.data.title || false,
                 message: res.data.message || false,
-                confirm: res.data.conrim || false,
+                confirm: res.data.confirm || false,
                 redirect_msg: res.data.redirect_msg || false,
                 button: res.data.button || false,
                 redirect: res.data.redirect || false,
