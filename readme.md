@@ -13,9 +13,11 @@
 
 ## Quick Links
 
-- [Checkout Pages](#checkout-ui)
-- [Nano Price API](#nano-price-api)
-- [Nano PoW API](#nano-pow-api)
+- [Register Username](#register-username)
+- [Renew Username](#renew-username)
+- [Checkout Pages](#checkout-pages)
+- [Nano.to Fiat API](#nano-price-api)
+- [Nano.to dPoW](#nano-pow-api)
 - [Username Dataset](#username-dataset)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
@@ -47,7 +49,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-### More Advanced Example
+### Advanced Example
 
 ```python
 https://nano.to/@Nautilus
@@ -78,6 +80,39 @@ https://nano.to/@Nautilus
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
+## Alias Domains
+
+Nano.to offers two additional domains that can be use interchangeably.
+
+```
+https://ӿ.to/Esteban
+https://xno.to/Esteban
+```
+
+**Redirect to:**
+
+```
+https://nano.to/Esteban
+```
+
+## Register Username
+
+Registering a Usernames is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
+
+## Renew Username
+
+You can add time to your Username by visting: 
+
+```
+https://api.nno.to/:USERNAME/renew
+```
+
+You must pay from the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
+
+## Grace Period
+
+Every Username has a 10 day grace period after expiration where only the orignal address may renew it.
+
 ## Username Dataset
 
 ```pthon
@@ -98,12 +133,6 @@ https://pow.nano.to/:HASH
 
 > 5 Free / Minute (\~0.5s Response Time)
 
-## Available Domains
-
-- nano.to
-- ӿ.to
-- xno.to
-
 ## Contributing
 
 Give a ⭐️ if this project helped you!
@@ -116,7 +145,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames or Checkout is **NOT** the end-product.
-- ❌ Re-selling/Re-Packing: Nano.to Usernames or Checkout **IS** the end-product.
+- ❌ Commercial use where Nano.to Usernames or Checkout **IS** the end-product.
 
 Questions about licensing? Email: hello[@]nano.to
 
