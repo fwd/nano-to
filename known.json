@@ -1,14 +1,5 @@
 [
   {
-    "name": "kkio",
-    "status": "active",
-    "address": "nano_3u5ejwy5f6ts6xbco5oregywp4w1hfs6k4ncjp4rw7fupd7gy6oqp5b4ypsn",
-    "created": "September 18, 2022",
-    "expires": "September 19, 2022",
-    "created_unix": 1663469197,
-    "expires_unix": 1663627560
-  },
-  {
     "name": "ako",
     "address": "nano_16gxbnihii6gdgq9jh6r5sib9841uakenhxsz4o7rfm8eh6s36m46tr7bkra",
     "created": "July 20, 2022",
