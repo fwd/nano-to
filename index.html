@@ -179,7 +179,8 @@ https://github.com/fwd/nano-to
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
               <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
-              <p v-if="checkout.amount" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount }}</p>
+              <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount }}</p>
+              <p v-if="checkout.amount && checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}</p>
             </div>
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
             <p v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
@@ -218,7 +219,7 @@ https://github.com/fwd/nano-to
                   <span class="blocky">{{ 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
-                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ value }} {{ currency === 'NANO' ? 'USD' : currency }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${currency !== 'NANO' ? currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ (checkout.amount * rate).toFixed(2) }} {{ currency === 'NANO' ? 'USD' : currency }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${currency !== 'NANO' ? currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
               </h4>
