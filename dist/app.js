@@ -318,23 +318,12 @@ new Vue({
             }
             if (res.data.redirect && !res.data.button) {
               setTimeout(() => {
-                this.do_redirect()
-              }, 5000)
+                window.location.href = res.data.redirect
+              }, res.data.delay || 5000)
               return
             }
             this.notify(res.data.message)
           })
-      },
-      do_redirect(block) {
-        var redirect = this.checkout && this.checkout.redirect ? this.checkout.redirect : this.success.redirect
-        if (block) {
-          redirect = redirect
-            .split('{{id}}').join(checkout.id)
-            .split('{{hash}}').join(block.block)
-            .split('{{account}}').join(block.account).split('{{address}}').join(block.account)
-            .split('{{amount}}').join(block.amount)
-        }
-        return window.location.href = redirect
       },
       show_success(block) {
         this.success = {
