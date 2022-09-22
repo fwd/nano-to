@@ -5,7 +5,7 @@
   |  _|      \ \/  \/ /     | |  | | 
  _| |_        \  /\  /     _| |_.' / 
 |_____|        \/  \/     |______.'  
-"Simplicity is soul of efficiency.""
+Simplicity is soul of efficiency.
 https://github.com/fwd/nano-to
 -->
 <!DOCTYPE html>
@@ -27,10 +27,6 @@ https://github.com/fwd/nano-to
     <link rel="stylesheet" href="dist/checkout.css">
     <link rel="stylesheet" href="dist/point-of-sale.css">
     <link rel="stylesheet" href="dist/confetti.css">
-    <script src="dist/vue.min.js"></script>
-    <script src="dist/axios.min.js"></script>
-    <script src="dist/easy.qrcode.min.js"></script>
-    <script src="dist/nanocurrency.min.js"></script>
   </head>
   <body>
     <div id="app" :class=" `on ${color}`">
@@ -89,7 +85,7 @@ https://github.com/fwd/nano-to
           </div>
       </div>
 
-      <div v-if="!checkout" :class="`ak47 blue`">
+      <div v-if="!checkout" :class="`cyber blue`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
             <span v-if="false">nano.to/</span>{{ title }}
@@ -248,8 +244,11 @@ https://github.com/fwd/nano-to
           </div>
         </section>
       </div>
-
     </div>
+    <script src="dist/vue.min.js"></script>
+    <script src="dist/axios.min.js"></script>
+    <script src="dist/easy.qrcode.min.js"></script>
+    <script src="dist/nanocurrency.min.js"></script>
     <script src="dist/app.js"></script>
   </body>
 </html>

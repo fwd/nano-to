@@ -1236,7 +1236,7 @@ code {
 .stats-page {
     margin-top: 50px;
 }
-.ak47 {
+.cyber {
     width: 100%;
 }
 @media (max-width: 768px) {
@@ -1253,7 +1253,7 @@ code {
     .suggest {
         zoom:  0.75;
     }
-    .ak47 {
+    .cyber {
         zoom:  0.97;
     }
     .pip-head li {
