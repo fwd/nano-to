@@ -305,6 +305,7 @@ new Vue({
        },
       check_url() {
           axios.get(this.checkout.checkout || this.checkout.check_url || this.checkout.check).then((res) => {
+            if (res.data.error) return this.notify(res.data.message)
             if (res.data.message) {
               this.success = {
                 confetti: res.data.confetti || false,
@@ -322,7 +323,6 @@ new Vue({
               }, res.data.delay || 5000)
               return
             }
-            this.notify(res.data.message)
           })
       },
       show_success(block) {
