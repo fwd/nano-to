@@ -13,12 +13,19 @@
 
 ## Quick Links
 
-- [Register Username](#register-username)
-- [Renew Username](#renew-username)
-- [Checkout Pages](#checkout-pages)
-- [Nano.to Fiat API](#nano-price-api)
-- [Nano.to dPoW](#nano-pow-api)
-- [Username Dataset](#username-dataset)
+- **Username Service**
+  - [Register Username](#register-username)
+  - [Renew Username](#renew-username)
+  - [Username Dataset](#username-dataset)
+
+- **Checkout Pages**
+  - [Simple Example](#checkout-pages)
+  - [Customize Page](#checkout-pages)
+  - [POST Requests](#advanced-example)
+
+- **Nano.to API**
+  - [Live Price API](#nano-price-api)
+  - [GPU PoW API](#nano-pow-api)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -31,17 +38,17 @@ https://nano.to/:ADDRESS
 
 **Nano.to Usernames:**
 ```python
-https://nano.to/@Nautilus
+https://nano.to/@Keeri
 ```
 
 **Customize URL:**
 ```python
-https://nano.to/@Nautilus?amount=50&random=true
+https://nano.to/@Keeri?amount=50&random=true
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
-## Checkout w/ Plans
+### Checkout with Plans
 
 ```python
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
@@ -52,16 +59,16 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 ## Advanced Example
 
 ```python
-https://nano.to/@Nautilus
-?background=$1abc9c:$9b59b6
+https://nano.to/@Keeri
+?background=$0057b7:$ffd700
 &color=$FFF
 &highlight=white
-&vanity=red
-&qrcode=white:red
+&vanity=$0057b7
+&qrcode=white:$0057b7
 &logo=https://nano.to/dist/logo/cyber.png
 ```
 
-<img src="https://github.com/fwd/nano/raw/master/dist/images/custom-ui.png" alt="Single Panel UI" />
+<img src="https://github.com/fwd/nano/raw/master/dist/images/slava-ui.png" alt="Single Panel UI" />
 
 **Available Params:**
 
@@ -79,6 +86,59 @@ https://nano.to/@Nautilus
 - **success** (string) : Redirect URL on success.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Advanced Checkout
+
+**Nano.to Checkout** is hosted on Github. Sensitive information like ```webhook_url``` cannot be passed via URL params. Instead we created ```api.nano.to``` for creating checkouts with a POST request. 
+
+```js
+const http = require('axios')
+
+http.post('https://api.nano.to', {
+  address: '@keeri',
+  background: '#0057b7,#ffd700',
+  webhook_url: 'https://example.com/secret/endpoint',
+  success_url: 'https://example.com/success?hash={{hash}}',
+  metadata: { userId: 'joe-mama', password: "Slava Urakini" },
+}).then((res) => {
+  console.log( res.data )
+})
+```
+
+**Response**
+
+```json
+{
+  "id": "f745ffa3",
+  "browser": "https://nano.to/id_f745ffa3",
+  "json": "https://api.nano.to/checkout/f745ffa3",
+  "check": "https://api.nano.to/checkout/f745ffa3/check"
+}
+```
+
+**Webhook POST Body:**
+
+```json
+{
+  "id": ":CHECKOUT_ID",
+  "block": {
+    "hash": ":PAYMENT_HASH",
+    "account": ":SENDER_ADDRESS",
+    "amount": "10991300000000000000000000000",
+    "amount_nano": "0.0109913"
+  },
+  "plan": {
+    "title": "Default",
+    "value": "0.0109913",
+    "value_raw": "10991300000000000000000000000"
+  },
+  "metadata": {
+    "userId": "joe-mama",
+    "password": "Slava Urakini"
+  },
+  "checkout": "https://api.nano.to/checkout/:CHECKOUT_ID"
+}
+```
 
 ## Alias Domains
 
