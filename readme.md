@@ -204,7 +204,8 @@ axios.post('https://pow.nano.to', {
 
 > Nano.to PoW API is a drop-in replacement for dPoW.
 
-**Response (JSON):**
+**Response:**
+
 ```json
 {
     "difficulty": "fffffffbc3b93c36",
@@ -220,7 +221,7 @@ axios.post('https://pow.nano.to', {
 
 ### Rate Limit
 
-- 5 Free / Minute (\~0.5s Response Time)
+- 5 Free / Minute (\~0.3s Response Time)
 - 10 Free / Minute (with Free API Key)
 - Unlimited PoW @ 0.01 NANO each.
 
