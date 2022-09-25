@@ -13,19 +13,17 @@
 
 ## Quick Links
 
-- **Username Service**
+- **Nano.to**
   - [Register Username](#register-username)
   - [Renew Username](#renew-username)
+  - [Checkout Pages](#checkout-pages)
+  - [Customize Checkout](#checkout-pages)
   - [Username Dataset](#username-dataset)
 
-- **Checkout Pages**
-  - [Simple Example](#checkout-pages)
-  - [Customize Page](#checkout-pages)
-  - [POST Requests](#advanced-example)
-
-- **Nano.to API**
-  - [Live Price API](#nano-price-api)
-  - [GPU PoW API](#nano-pow-api)
+- **Api.Nano.To**
+  - [Checkout POST API](#advanced-example)
+  - [Live Fiat Price API](#nano-price-api)
+  - [Proof of Work API](#gpu-powered-pow-api)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -87,9 +85,9 @@ https://nano.to/@Keeri
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Advanced Checkout
+## Checkout API
 
-**Nano.to Checkout** is hosted on Github. Sensitive information like ```webhook_url``` cannot be passed via URL params. Instead we created ```api.nano.to``` for creating checkouts with a POST request. 
+**Nano.to Checkout UI** is hosted on Github. Sensitive information like ```webhook_url``` cannot be passed via URL params. Instead we created ```api.nano.to``` for creating checkouts with a POST request. 
 
 ```js
 const http = require('axios')
@@ -118,6 +116,8 @@ http.post('https://api.nano.to', {
 
 **Webhook POST Body:**
 
+When payment is confirmed ```api.nano.to``` sends a POST request to the provided URL. 
+
 ```json
 {
   "id": ":CHECKOUT_ID",
@@ -140,66 +140,73 @@ http.post('https://api.nano.to', {
 }
 ```
 
-## Alias Domains
-
-Nano.to offers two additional domains that can be use interchangeably.
-
-```
-https://ӿ.to/Esteban
-https://xno.to/Esteban
-```
-
-**Redirect to:**
-
-```
-https://nano.to/Esteban
-```
-
-## Register Username
-
-Registering a new Username is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
-
-## Renew Username
-
-You can add time to your Username by visting: 
-
-```
-https://api.nano.to/:USERNAME/renew
-```
-
-You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
-
-## Grace Period
-
-Every Username has a 10 day grace period after expiration where only the orignal address may renew it.
-
-## Username Dataset
-
-```pthon
-https://nano.to/known.json
-```
-
-## Nano Price API
+### Live Fiat Price API
 
 ```pthon
 https://api.nano.to/price
 ```
 
-## Nano PoW API
+```json
+{
+  "price": 5.3012,
+  "symbol": "XNO",
+  "currency": "USD"
+}
+```
 
-```pthon
+### GPU Powered PoW API
+
+Standalone, GPU powered proof of work API for the Nano blockchain. Easily scale any Nano application.
+
+```python
 https://pow.nano.to/:HASH
 ```
 
+**or POST request:**
+```javascript
+axios.post('https://pow.nano.to', { 
+    hash: 'HASH'
+}).then((res) => {
+    // console.log(res.data)
+})
+```
+
+**Response (JSON):**
+```json
+{
+    "difficulty": "fffffffbc3b93c36",
+    "multiplier": "1.888817235874546",
+    "work": "157ad78255c73cae",
+    "frontier": "277FD6365DF608D601F18F464926B600B15F6CD705A90E2239F55E9F86E7B38F",
+    "remaining": 4,
+    "cached": false,
+    "duration": "0.201s",
+    "server": "Nano.to/GPU-4"
+}
+```
+
 > 5 Free / Minute (\~0.5s Response Time)
+> Unlimited PoW @ 0.01 NANO each.
+
+More Info: https://pow.nano.to
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Nano.to Support
+
+- Email: support@nano.to
+- Twitter: [@nano2dev](https://twitter.com/nano2dev)
+- @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9) 
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Contributing
 
 Give a ⭐️ if this project helped you!
 
-Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-names/issues).
+Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
 
-## License
+## Nano.to License
 
 **Limited Commercial Use:**
 
@@ -207,10 +214,6 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 - ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end-product.
 - ❌ Commercial use where Nano.to Usernames and/or Checkout **IS** the end-product.
 
-Questions about licensing? Email: hello[@]nano.to
-
-Copyright © [nano2dev](https://twitter.com/nano2dev).
-
 ## Stargazers
 
-[![Stargazers over time](https://starchart.cc/fwd/nano-names.svg)](https://github.com/fwd/nano-names)
+[![Stargazers over time](https://starchart.cc/fwd/nano-to.svg)](https://github.com/fwd/nano-to)
