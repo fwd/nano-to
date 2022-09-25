@@ -116,6 +116,8 @@ http.post('https://api.nano.to', {
 }
 ```
 
+> You can perform GET requests on ```check``` URL up to every 5 minutes, or redirect user to ```browser``` URL to use included Checkout UI. 
+ 
 **Webhook POST Body:**
 
 When payment is confirmed ```api.nano.to``` sends a POST request to the provided URL.
