@@ -40,7 +40,7 @@ https://github.com/fwd/nano-to
 
       <div v-if="success" id="success">
         <div>
-          <h3 style="color:#2ecc71;margin: 0;">{{ success.title || 'Complete' }}</h3>
+          <h3 class="success-title">{{ success.title || 'Success' }}</h3>
           <p style="margin-bottom: 0">{{ success.message }}</p>
           <button v-if="success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
             <span>{{ success.button }}</span>
