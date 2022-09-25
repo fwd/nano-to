@@ -42,8 +42,8 @@ https://github.com/fwd/nano-to
         <div>
           <h3 style="color:#2ecc71;margin: 0;">{{ success.title || 'Complete' }}</h3>
           <p style="margin-bottom: 0">{{ success.message }}</p>
-          <button v-if="success.button" v-if="checkout.amount || checkout.plans.length" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="do_redirect()">
-            <span>{{ success.button || 'Continue' }}</span>
+          <button v-if="success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
+            <span>{{ success.button }}</span>
           </button>
           <div class="redirecting" v-if="!success.confirm && success.redirect">{{ success.redirect_msg || 'Redirecting...' }}</div>
           <div v-if="success.confirm" class="close" @click="checkout = false; success = false">Close</div>

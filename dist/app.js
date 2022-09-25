@@ -138,7 +138,7 @@ new Vue({
           var donation = item.donate || query.custom
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
           if (!plans || donation) custom = true
-          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Small:5,Medium:10,Large:25`
           var success = query.success ||query.success_url
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
@@ -271,8 +271,9 @@ new Vue({
         var currency = this.queryToObject().currency
         this.$forceUpdate()
       },
-      redirect(block, url) {
-        var checkout = this.checkout.redirect || this.checkout.checkout
+      redirect() {
+        var redirect = this.checkout.redirect || this.checkout.checkout || this.success.redirect
+        if (checkout) return window.location.href = redirect
       },
       pending() {
          return new Promise((resolve) => {
@@ -329,7 +330,7 @@ new Vue({
         this.success = {
           confetti: true,
           title: 'Success',
-          message: 'Your payment was confirmed on the Nano Blockchain.',
+          message: 'Your payment was sent successfully.',
           confirm: true,
           button: 'View Block',
           redirect: `https://nanolooker.com/block/${block.block}`
