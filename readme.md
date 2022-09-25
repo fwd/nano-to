@@ -1,4 +1,4 @@
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+n![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 <h1 align="center">Nano Name Service</h1>
 <h3 align="center">Hosted on Github</h3>
@@ -13,11 +13,11 @@
 
 ## Quick Links
 
-- **Nano.to (Github)**
-  - [Register Username](#register-username)
-  - [Renew Username](#renew-username)
+- **Nano.to**
   - [Checkout Pages](#checkout-pages)
   - [Customize Checkout](#checkout-pages)
+  - [Register Username](#register-username)
+  - [Renew Username](#renew-username)
   - [Username Dataset](#username-dataset)
 
 - **Api.Nano.To**
@@ -27,7 +27,33 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Checkout Pages
+## Nano.to Usernames
+
+Registering a Username is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
+
+**Username Renewal**
+
+You can add time to your Username by visting: 
+
+```
+https://api.nano.to/:USERNAME/renew
+```
+
+You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
+
+**Grace Period**
+
+Every Username has a 10 day grace period after expiration where only the orignal address may renew it.
+
+## Username Dataset
+
+```pthon
+https://nano.to/known.json
+```
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Nano.to Checkout
 
 **Any Address:**
 ```python
