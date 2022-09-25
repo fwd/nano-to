@@ -156,10 +156,10 @@ To register a Username, visit https://nano.to and search for your desired Userna
 
 ### Username Renewal 
 
-You can add time to your Username by visting:
+Add time to your Username by visting:
 
 ```
-https://api.nano.to/:USERNAME/renew?redirect=true
+https://api.nano.to/:USERNAME/renew
 ```
 
 ### Grace Period
