@@ -13,7 +13,7 @@
 
 ## Quick Links
 
-- **Nano.to**
+- **Nano.to (Github)**
   - [Register Username](#register-username)
   - [Renew Username](#renew-username)
   - [Checkout Pages](#checkout-pages)
