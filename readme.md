@@ -243,9 +243,7 @@ Give a ⭐️ if this project helped you!
 
 Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
 
-## Nano.to License
-
-**Limited Commercial Use:**
+## Limited Commercial License
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end-product.
