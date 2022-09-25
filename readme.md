@@ -116,7 +116,7 @@ http.post('https://api.nano.to', {
 }
 ```
 
-> You can perform GET requests on ```check``` to check for payment, or redirect user to ```browser``` URL to use included Checkout UI. 
+> You can perform GET requests on ```check``` URL to check for payment, or redirect user to ```browser``` URL to have users use included Checkout UI. 
  
 ### Webhook POST Body
 
