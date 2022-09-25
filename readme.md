@@ -218,8 +218,11 @@ axios.post('https://pow.nano.to', {
 }
 ```
 
-> 5 Free / Minute (\~0.5s Response Time)
-> Unlimited PoW @ 0.01 NANO each.
+### Rate Limit
+
+- 5 Free / Minute (\~0.5s Response Time)
+- 10 Free / Minute (with Free API Key)
+- Unlimited PoW @ 0.01 NANO each.
 
 More Info: https://pow.nano.to
 
