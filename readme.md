@@ -1,4 +1,4 @@
-n![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 <h1 align="center">Nano Name Service</h1>
 <h3 align="center">Hosted on Github</h3>
@@ -13,7 +13,7 @@ n![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Quick Links
 
-- **Nano.to**
+- **Nano.to (Github)**
   - [Checkout Pages](#checkout-pages)
   - [Customize Checkout](#checkout-pages)
   - [Register Username](#register-username)
@@ -21,35 +21,11 @@ n![line](https://github.com/fwd/n2/raw/master/.github/line.png)
   - [Username Dataset](#username-dataset)
 
 - **Api.Nano.To**
-  - [Checkout POST API](#advanced-example)
-  - [Live Fiat Price API](#nano-price-api)
+  - [Checkout POST API](#checkout-api)
+  - [Live Fiat Price API](#fiat-price-api)
+
+- **PoW.Nano.To**
   - [Proof of Work API](#gpu-powered-pow-api)
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-## Nano.to Usernames
-
-Registering a Username is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
-
-**Username Renewal**
-
-You can add time to your Username by visting: 
-
-```
-https://api.nano.to/:USERNAME/renew
-```
-
-You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
-
-**Grace Period**
-
-Every Username has a 10 day grace period after expiration where only the orignal address may renew it.
-
-## Username Dataset
-
-```pthon
-https://nano.to/known.json
-```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -60,15 +36,17 @@ https://nano.to/known.json
 https://nano.to/:ADDRESS
 ```
 
-**Nano.to Usernames:**
+**Nano.to Username:**
 ```python
 https://nano.to/@Keeri
 ```
 
-**Customize URL:**
+**Customize Page:**
 ```python
 https://nano.to/@Keeri?amount=50&random=true
 ```
+
+> Need to provide sensitive information? See [Checkout API](#checkout-api)
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
@@ -109,11 +87,9 @@ https://nano.to/@Keeri
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
 - **success** (string) : Redirect URL on success.
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
 ## Checkout API
 
-**Nano.to Checkout UI** is hosted on Github. Sensitive information like ```webhook_url``` cannot be passed via URL params. Instead we created ```api.nano.to``` for creating checkouts with a POST request. 
+**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive information like ```webhook_url``` & ```metadata``` send a POST request to ```api.nano.to```. 
 
 ```js
 const http = require('axios')
@@ -166,7 +142,33 @@ When payment is confirmed ```api.nano.to``` sends a POST request to the provided
 }
 ```
 
-### Live Fiat Price API
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Nano.to Usernames
+
+Registering a Username is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
+
+**Username Renewal**
+
+You can add time to your Username by visting: 
+
+```
+https://api.nano.to/:USERNAME/renew
+```
+
+You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
+
+**Grace Period**
+
+Every Username has a 10 day grace period after expiration where only the orignal address may renew it.
+
+## Username Dataset
+
+```pthon
+https://nano.to/known.json
+```
+
+### Fiat Price API
 
 ```pthon
 https://api.nano.to/price
