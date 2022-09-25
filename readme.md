@@ -146,7 +146,7 @@ When the payment is found, ```api.nano.to``` sends a POST request to the provide
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Register Username
+### Register Username
 
 To register a Username, visit https://nano.to and search for your desired Username. 
 
@@ -154,7 +154,7 @@ To register a Username, visit https://nano.to and search for your desired Userna
 - Multiple Uernames w/ same Address is allowed.
 - Nano.to Faucet pays ~ 0.001 Nano, [every 24 hours](/faucet). 
 
-## Username Renewal 
+### Username Renewal 
 
 You can add time to your Username by visting:
 
@@ -162,11 +162,11 @@ You can add time to your Username by visting:
 https://api.nano.to/:USERNAME/renew?redirect=true
 ```
 
-## Grace Period
+### Grace Period
 
 Every Username has a **10 day** grace period for renewals after expiration.
 
-## Username Dataset
+### Username Dataset
 
 We actively encourage other developers to add [Nano.to Usernames](/username-advanced) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
 
@@ -176,17 +176,9 @@ https://nano.to/known.json
 
 > If privacy is your thing, don't get a Username for a particular address, and avoid the publicity.
 
-## Username Support
-
-Software bugs happen. Be sure to mention the address you tried to pay with, and which Username you were trying to get. 
-
-- Email: support@nano.to
-- Twitter: [@nano2dev](https://twitter.com/nano2dev)
-
-
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Price API
+### Price API
 
 ```pthon
 https://api.nano.to/price
@@ -200,7 +192,7 @@ https://api.nano.to/price
 }
 ```
 
-## PoW API
+### PoW API
 
 Standalone, GPU powered proof of work API for the Nano blockchain. Easily scale any Nano application.
 
