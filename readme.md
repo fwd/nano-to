@@ -196,11 +196,13 @@ https://api.nano.to/price
 
 Standalone, GPU powered proof of work API for the Nano blockchain. Easily scale any Nano application.
 
+**GET Request:**
+
 ```python
 https://pow.nano.to/:HASH
 ```
 
-**POST request:**
+**or POST request:**
 
 ```javascript
 axios.post('https://pow.nano.to', { 
