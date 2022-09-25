@@ -16,8 +16,8 @@
 - **Nano.to (Github)**
   - [Checkout Pages](#checkout-ui)
   - [Customize Checkout](#customize-checkout)
-  - [Register Username](#usernames)
-  - [Renew Username](#renewal)
+  - [Register Username](#register-username)
+  - [Renew Username](#username-renewal)
   - [Username Dataset](#username-dataset)
 
 - **Api.Nano.To**
@@ -146,15 +146,15 @@ When the payment is found, ```api.nano.to``` sends a POST request to the provide
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Usernames
+## Register Username
 
-Nano.to Usernames are aliases for your Nano address. To register a Username, visit https://nano.to and search for your desired Username. 
+To register a Username, visit https://nano.to and search for your desired Username. 
 
 - Letters, numbers, and up to 30 characters.
 - Multiple Uernames w/ same Address is allowed.
 - Nano.to Faucet pays ~ 0.001 Nano, [every 24 hours](/faucet). 
 
-## Renewal 
+## Username Renewal 
 
 You can add time to your Username by visting:
 
@@ -165,7 +165,6 @@ https://api.nano.to/:USERNAME/renew?redirect=true
 ## Grace Period
 
 Every Username has a **10 day** grace period for renewals after expiration.
-
 
 ## Username Dataset
 
