@@ -26,6 +26,7 @@
 
 - **PoW.Nano.To**
   - [Proof of Work API](#pow-api)
+  - [Get PoW API Key](https://pow.nano.to)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -176,21 +177,8 @@ https://nano.to/known.json
 
 > If privacy is your thing, don't get a Username for a particular address, and avoid the publicity.
 
+
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-### Price API
-
-```pthon
-https://api.nano.to/price
-```
-
-```json
-{
-  "price": 5.3012,
-  "symbol": "XNO",
-  "currency": "USD"
-}
-```
 
 ### PoW API
 
@@ -236,6 +224,22 @@ axios.post('https://pow.nano.to', {
 - Unlimited PoW @ 0.01 NANO each.
 
 More Info: https://pow.nano.to
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+### Price API
+
+```pthon
+https://api.nano.to/price
+```
+
+```json
+{
+  "price": 5.3012,
+  "symbol": "XNO",
+  "currency": "USD"
+}
+```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
