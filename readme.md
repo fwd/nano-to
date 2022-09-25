@@ -118,7 +118,7 @@ http.post('https://api.nano.to', {
 
 **Webhook POST Body:**
 
-When payment is confirmed ```api.nano.to``` sends a POST request to the provided URL. 
+When payment is confirmed ```api.nano.to``` sends a POST request to the provided URL.
 
 ```json
 {
