@@ -104,7 +104,7 @@ Registering a new Username is easy. Visit [https://nano.to](https://nano.to), an
 You can add time to your Username by visting: 
 
 ```
-https://api.nno.to/:USERNAME/renew
+https://api.nano.to/:USERNAME/renew
 ```
 
 You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
