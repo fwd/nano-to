@@ -46,7 +46,7 @@ https://nano.to/@Keeri
 https://nano.to/@Keeri?amount=50&random=true
 ```
 
-> Need to provide sensitive information? See [Checkout POST API](#checkout-api)
+> Using sensitive metadata? See [Checkout POST API](#checkout-api)
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
