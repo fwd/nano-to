@@ -89,7 +89,7 @@ https://nano.to/@Keeri
 
 ### Checkout API
 
-**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive information like ```webhook_url``` & ```metadata``` send a POST request to ```api.nano.to```. 
+**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive information like ```webhook_url``` & ```metadata```, send a POST request to ```api.nano.to```. 
 
 ```js
 const http = require('axios')
@@ -116,11 +116,11 @@ http.post('https://api.nano.to', {
 }
 ```
 
-> You can perform GET requests on ```check``` URL up to every 5 minutes, or redirect user to ```browser``` URL to use included Checkout UI. 
+> You can perform GET requests on ```check``` to check for payment, or redirect user to ```browser``` URL to use included Checkout UI. 
  
 ### Webhook POST
 
-When payment is confirmed ```api.nano.to``` sends a POST request to the provided URL.
+When the payment is found, ```api.nano.to``` sends a POST request to the provided URL, once.
 
 ```json
 {
