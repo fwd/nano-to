@@ -78,7 +78,7 @@ https://nano.to/@Keeri
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
 - **currency** (string) : ISO Currency Symbol. Ex JPY
 - **image** (image/url) : Display Image. Image URL.
-- **random** (boolean) : Use random amounts. Ex + 0.00XXXX
+- **random** (boolean) : Add random decimal to amount. Ex + 0.00XXXX
 - **color** (string) : Text color. Ex red:blue
 - **background** (string) : Background color. Ex white:gray
 - **highlight** (string) : Box backgrounds value. Ex blue:red
