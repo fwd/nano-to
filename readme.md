@@ -63,7 +63,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 ```python
 https://nano.to/@Keeri
 ?background=$0057b7:$ffd700
-&color=$FFF
+&color=$FFF:$000
 &highlight=white
 &vanity=$0057b7
 &qrcode=white:$0057b7
@@ -87,7 +87,7 @@ https://nano.to/@Keeri
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
 - **success** (string) : Redirect URL on success.
 
-## Checkout API
+### Checkout API
 
 **Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive information like ```webhook_url``` & ```metadata``` send a POST request to ```api.nano.to```. 
 
@@ -118,7 +118,7 @@ http.post('https://api.nano.to', {
 
 > You can perform GET requests on ```check``` URL up to every 5 minutes, or redirect user to ```browser``` URL to use included Checkout UI. 
  
-**Webhook POST Body:**
+### Webhook POST
 
 When payment is confirmed ```api.nano.to``` sends a POST request to the provided URL.
 
@@ -225,7 +225,7 @@ More Info: https://pow.nano.to
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Nano.to Support
+## Nano.to General Support
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
@@ -246,6 +246,8 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end-product.
 - ❌ Commercial use where Nano.to Usernames and/or Checkout **IS** the end-product.
+
+Contact [@nano2dev](support@nano.to) for Usage/Licensing questions.
 
 ## Stargazers
 
