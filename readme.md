@@ -14,22 +14,22 @@
 ## Quick Links
 
 - **Nano.to (Github)**
-  - [Checkout Pages](#nano-to-checkout)
-  - [Customize Checkout](#advanced-example)
+  - [Checkout Pages](#checkout-ui)
+  - [Customize Checkout](#customize-checkout)
   - [Register Username](#register-username)
   - [Renew Username](#renew-username)
   - [Username Dataset](#username-dataset)
 
 - **Api.Nano.To**
-  - [Checkout POST API](#checkout-api)
-  - [Live Fiat Price API](#fiat-price-api)
+  - [Checkout POST API](#price-api)
+  - [Live Fiat Price API](#price-api)
 
 - **PoW.Nano.To**
-  - [Proof of Work API](#gpu-powered-pow-api)
+  - [Proof of Work API](#pow-api)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Nano.to Checkout
+## Checkout UI
 
 **Any Address:**
 ```python
@@ -50,7 +50,7 @@ https://nano.to/@Keeri?amount=50&random=true
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
-### Checkout with Plans
+### Checkout Plans
 
 ```python
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
@@ -58,7 +58,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-## Advanced Example
+## Customize Checkout
 
 ```python
 https://nano.to/@Keeri
@@ -72,7 +72,7 @@ https://nano.to/@Keeri
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/slava-ui.png" alt="Single Panel UI" />
 
-**Available Params:**
+### Available Options
 
 - **amount** (number) : Single panel with price. No plans.
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
@@ -87,7 +87,7 @@ https://nano.to/@Keeri
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
 - **success** (string) : Redirect URL on success.
 
-### Checkout API
+### Checkout via POST
 
 **Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive information like ```webhook_url``` & ```metadata```, send a POST request to ```api.nano.to```. 
 
@@ -166,13 +166,16 @@ https://api.nano.to/:USERNAME/renew?redirect=true
 
 Every Username has a **10 day** grace period for renewals after expiration.
 
-## Third-Party Apps
+
+## Username Dataset
 
 We actively encourage other developers to add [Nano.to Usernames](/username-advanced) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
 
-> If privacy is your thing, don't get a Username for a particular address, and avoid the publicity.
+```pthon
+https://nano.to/known.json
+```
 
-- [List of Third-Party Nano.to Apps](/nano-apps)
+> If privacy is your thing, don't get a Username for a particular address, and avoid the publicity.
 
 ## Username Support
 
@@ -184,7 +187,7 @@ Software bugs happen. Be sure to mention the address you tried to pay with, and 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Fiat API
+## Price API
 
 ```pthon
 https://api.nano.to/price
