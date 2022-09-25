@@ -16,8 +16,8 @@
 - **Nano.to (Github)**
   - [Checkout Pages](#checkout-ui)
   - [Customize Checkout](#customize-checkout)
-  - [Register Username](#register-username)
-  - [Renew Username](#renew-username)
+  - [Register Username](#usernames)
+  - [Renew Username](#renewal)
   - [Username Dataset](#username-dataset)
 
 - **Api.Nano.To**
@@ -154,7 +154,7 @@ Nano.to Usernames are aliases for your Nano address. To register a Username, vis
 - Multiple Uernames w/ same Address is allowed.
 - Nano.to Faucet pays ~ 0.001 Nano, [every 24 hours](/faucet). 
 
-## Username Renewal 
+## Renewal 
 
 You can add time to your Username by visting:
 
