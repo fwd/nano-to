@@ -21,7 +21,7 @@
   - [Username Dataset](#username-dataset)
 
 - **Api.Nano.To**
-  - [Checkout POST API](#price-api)
+  - [Checkout POST API](#checkout-via-post)
   - [Live Fiat Price API](#price-api)
 
 - **PoW.Nano.To**
