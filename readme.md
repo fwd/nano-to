@@ -14,8 +14,8 @@
 ## Quick Links
 
 - **Nano.to (Github)**
-  - [Checkout Pages](#checkout-pages)
-  - [Customize Checkout](#checkout-pages)
+  - [Checkout Pages](#nano-to-checkout)
+  - [Customize Checkout](#advanced-example)
   - [Register Username](#register-username)
   - [Renew Username](#renew-username)
   - [Username Dataset](#username-dataset)
@@ -118,7 +118,7 @@ http.post('https://api.nano.to', {
 
 > You can perform GET requests on ```check``` to check for payment, or redirect user to ```browser``` URL to use included Checkout UI. 
  
-### Webhook POST
+### Webhook POST Body
 
 When the payment is found, ```api.nano.to``` sends a POST request to the provided URL, once.
 
@@ -146,31 +146,45 @@ When the payment is found, ```api.nano.to``` sends a POST request to the provide
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Nano.to Usernames
+## Usernames
 
-Registering a Username is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
+Nano.to Usernames are aliases for your Nano address. To register a Username, visit https://nano.to and search for your desired Username. 
 
-### Username Renewal
+- Letters, numbers, and up to 30 characters.
+- Multiple Uernames w/ same Address is allowed.
+- Nano.to Faucet pays ~ 0.001 Nano, [every 24 hours](/faucet). 
 
-You can add time to your Username by visting: 
+## Username Renewal 
+
+You can add time to your Username by visting:
 
 ```
-https://api.nano.to/:USERNAME/renew
+https://api.nano.to/:USERNAME/renew?redirect=true
 ```
 
-You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
+## Grace Period
 
-### Grace Period
+Every Username has a **10 day** grace period for renewals after expiration.
 
-Every Username has a 10 day grace period after expiration where only the orignal address may renew it.
+## Third-Party Apps
 
-### Username Dataset
+We actively encourage other developers to add [Nano.to Usernames](/username-advanced) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
 
-```pthon
-https://nano.to/known.json
-```
+> If privacy is your thing, don't get a Username for a particular address, and avoid the publicity.
 
-## Fiat Price API
+- [List of Third-Party Nano.to Apps](/nano-apps)
+
+## Username Support
+
+Software bugs happen. Be sure to mention the address you tried to pay with, and which Username you were trying to get. 
+
+- Email: support@nano.to
+- Twitter: [@nano2dev](https://twitter.com/nano2dev)
+
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Fiat API
 
 ```pthon
 https://api.nano.to/price
@@ -184,7 +198,7 @@ https://api.nano.to/price
 }
 ```
 
-## GPU Powered PoW API
+## PoW API
 
 Standalone, GPU powered proof of work API for the Nano blockchain. Easily scale any Nano application.
 
@@ -229,7 +243,7 @@ More Info: https://pow.nano.to
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Nano.to General Support
+## Support
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
@@ -243,7 +257,9 @@ Give a ⭐️ if this project helped you!
 
 Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
 
-## Limited Commercial License
+## License
+
+**Limited Commercial Use:**
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end-product.
