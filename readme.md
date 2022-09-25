@@ -148,7 +148,7 @@ When payment is confirmed ```api.nano.to``` sends a POST request to the provided
 
 Registering a Username is easy. Visit [https://nano.to](https://nano.to), and search for your desired username. If available you will see "Username Available". Follow the Checkout UI to complete. 
 
-**Username Renewal**
+### Username Renewal
 
 You can add time to your Username by visting: 
 
@@ -158,17 +158,17 @@ https://api.nano.to/:USERNAME/renew
 
 You must pay with the address on file. If you wish to change the Address, you must wait for it to expire or contact support@nano.to.
 
-**Grace Period**
+### Grace Period
 
 Every Username has a 10 day grace period after expiration where only the orignal address may renew it.
 
-## Username Dataset
+### Username Dataset
 
 ```pthon
 https://nano.to/known.json
 ```
 
-### Fiat Price API
+## Fiat Price API
 
 ```pthon
 https://api.nano.to/price
@@ -182,7 +182,7 @@ https://api.nano.to/price
 }
 ```
 
-### GPU Powered PoW API
+## GPU Powered PoW API
 
 Standalone, GPU powered proof of work API for the Nano blockchain. Easily scale any Nano application.
 
@@ -190,7 +190,8 @@ Standalone, GPU powered proof of work API for the Nano blockchain. Easily scale 
 https://pow.nano.to/:HASH
 ```
 
-**or POST request:**
+**POST request:**
+
 ```javascript
 axios.post('https://pow.nano.to', { 
     hash: 'HASH'
@@ -198,6 +199,8 @@ axios.post('https://pow.nano.to', {
     // console.log(res.data)
 })
 ```
+
+> Nano.to PoW API is a drop-in replacement for dPoW.
 
 **Response (JSON):**
 ```json
