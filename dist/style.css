@@ -1310,3 +1310,12 @@ code {
   width: 130px;
   margin: 50px auto -75px auto;
 }
+
+.success-title {
+  color: rgb(46, 204, 113);
+  margin: 0px;
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
