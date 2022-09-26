@@ -139,7 +139,7 @@ When the payment is found, ```api.nano.to``` sends a POST request to the provide
   },
   "metadata": {
     "userId": "joe-mama",
-    "password": "Slava Urakini"
+    "password": "Slava Ukraini"
   },
   "checkout": "https://api.nano.to/checkout/:CHECKOUT_ID"
 }
