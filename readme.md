@@ -100,7 +100,7 @@ http.post('https://api.nano.to', {
   background: '#0057b7,#ffd700',
   webhook_url: 'https://example.com/secret/endpoint',
   success_url: 'https://example.com/success?hash={{hash}}',
-  metadata: { userId: 'joe-mama', password: "Slava Urakini" },
+  metadata: { userId: 'joe-mama', password: "Slava Ukraini" },
 }).then((res) => {
   console.log( res.data )
 })
