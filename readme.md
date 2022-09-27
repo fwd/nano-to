@@ -163,7 +163,7 @@ Add time to your lease by visting:
 https://nano.to/:USERNAME/renew
 ```
 
-> Only original address may add time. If you need to change address contact [support@nano.to](mailto:support@nano.to)
+> Only original address may add time. If you need to change Username address, contact: [support@nano.to](mailto:support@nano.to)
 
 ## Username Grace Period
 
