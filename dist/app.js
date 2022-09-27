@@ -22,6 +22,7 @@ new Vue({
       usernames: [],
       currency: 'NANO',
       notification: false,
+      dev_mode: false,
       checkout: false,
       suggestions: [],
       buttons: [],
@@ -64,7 +65,6 @@ new Vue({
         if (this.currency != 'NANO') return Math.floor(this.checkout.amount)
       },
       total() {
-        // if (this.currency === 'NANO') return this.checkout.amount
         return String(this.checkout.amount).includes('.') ? Number(this.checkout.amount).toFixed(3) : this.checkout.amount
         return this.checkout.amount
       }
@@ -104,7 +104,6 @@ new Vue({
             }
           }, 100)
           if (res.data.error) {
-            // this.reset()
             return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
           }
         }).catch(e => {
@@ -196,9 +195,6 @@ new Vue({
           if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
           
           var plans = query.p
-
-          // var amount = query.price || query.amount || query.n || query.x || query.cost
-              // amount = amount ? amount.match( /\d+/g ).join('') : false
 
           var success = item.success || query.success ||query.success_url || query.redirect || query.r
 
@@ -405,21 +401,27 @@ new Vue({
       query() {
         var string = this.string ? this.string.toLowerCase() : this.string
         if (!string) return
+        var item = this.usernames.find(a => this.isMatch(a, string))
         if ((string.includes('nano_') || string.includes('xrb_')) && NanocurrencyWeb.tools.validateAddress(string)) {
-          return this.suggestions = [
-            {
-              name: `Checkout (${string.slice(0, 12)})`,
+          var username = this.usernames.filter(a => a.address === string)
+          console.log( username[username.length - 1] )
+          var suggestions = []
+          if (username && username[username.length - 1]) {
+            suggestions.push({
+              name: username[username.length - 1].name,
               checkout: {
                 back: true,
-                address: string,
-                amount: false,
+                name: username[username.length - 1].name,
+                address: username[username.length - 1].address
               }
-            },
-            {
+            })
+            suggestions.push({
               name: `Nanolooker (${string.slice(0, 12)})`,
               url: `https://nanolooker.com/account/${string}`
-            }
-          ]
+            })
+          }
+          this.suggestions = suggestions
+          return
         }
         if (!string.includes('nano_') && string.length >= 60) {
           return this.suggestions = [{
@@ -433,19 +435,28 @@ new Vue({
             error: true
           }]
         }
-        var item = this.usernames.find(a => this.isMatch(a, string))
-        if (!item && !this.invalidUsername(string)) {
-          return this.suggestions = [{
-            name: "Username Available",
-            lease: string
-            // alert: 'New Usernames Temporarily Down.',
-          }]
-        }
-        if (!item) return this.suggestions = [{
-          name: 'Invalid Search',
-          error: true
-        }]
         this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase())).reverse()
+        if ((!item || item.name.toLowerCase() !== string.toLowerCase()) && !this.invalidUsername(string)) {
+          if (this.suggestions.length > 5) {
+            this.suggestions.unshift({
+              name: `${string} (Username Available)`,
+              lease: string,
+              color: '#c2ffc8',
+              checkout: {
+                title: '@' + string
+              }
+            })
+          } else {
+            this.suggestions.push({
+              name: `${string} (Username Available)`,
+              lease: string,
+              color: '#c2ffc8',
+              checkout: {
+                title: '@' + string
+              }
+            })
+          }
+        }
       },
       async shareText(text) {
         var self = this
@@ -500,6 +511,7 @@ new Vue({
         this.title = 'Nano.to'
         this.string = ''
         this.search = true
+        this.dev_mode = false
         this.status = 'blue'
         this.color = 'blue'
         this.suggestions = []
