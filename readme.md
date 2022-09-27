@@ -147,7 +147,7 @@ When the payment is found, ```api.nano.to``` sends a POST request to the provide
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-### Register Username
+## Register Username
 
 To register a Username, visit https://nano.to and search for your desired Username. 
 
@@ -155,19 +155,21 @@ To register a Username, visit https://nano.to and search for your desired Userna
 - Multiple Uernames w/ same Address is allowed.
 - Nano.to Faucet pays ~ 0.001 Nano, [every 24 hours](/faucet). 
 
-### Username Renewal 
+## Username Renewal 
 
-Add time to your Username by visting:
+Add time to your lease by visting:
 
 ```
-https://api.nano.to/:USERNAME/renew
+https://nano.to/:USERNAME/renew
 ```
 
-### Grace Period
+> Only original address may add time. If you need to change address contact [support@nano.to](mailto:support@nano.to?subject=Change Lease Address)
 
-Every Username has a **10 day** grace period for renewals after expiration.
+## Username Grace Period
 
-### Username Dataset
+Usernames have **10 day** after expiration where only the original address may renew.
+
+## Username Dataset
 
 We actively encourage other developers to add [Nano.to Usernames](/username-advanced) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
 
