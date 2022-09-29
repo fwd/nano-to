@@ -436,7 +436,7 @@ new Vue({
           }]
         }
         this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase())).reverse()
-        if ((!item || item.name.toLowerCase() !== string.toLowerCase()) && !this.invalidUsername(string)) {
+        if ((!item || item.name.toLowerCase() !== string.toLowerCase()) && !this.invalidUsername(string) && !this.suggestions.find(a => a.name.toLowerCase() === string.toLowerCase())) {
           if (this.suggestions.length > 5) {
             this.suggestions.unshift({
               name: `${string} (Username Available)`,
