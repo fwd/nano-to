@@ -13,12 +13,14 @@
 
 ## Quick Links
 
-- **Nano.to (Github)**
-  - [Checkout Pages](#checkout-ui)
-  - [Customize Checkout](#customize-checkout)
+- **Nano.to Usernames (Github)**
   - [Register Username](#register-username)
   - [Renew Username](#username-renewal)
   - [Username Dataset](#username-dataset)
+
+- **Nano.to Checkout (Github)**
+  - [Non-Custodial Checkout](#non-custodial-checkout-pages)
+  - [Customize Checkout](#customize-checkout)
 
 - **Api.Nano.To**
   - [Checkout POST API](#checkout-via-post)
@@ -30,28 +32,29 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Checkout UI
+## Non-Custodial Checkout Pages
 
-**Any Address:**
+Nano.to is not just a Username service. It's also a highly customizable Checkout interface. This works by checking the ```pending``` and ```history``` of any given Nano address. Works best if the amount has random sub-decimals.
+
+**Nano.to Username:**
+```python
+https://nano.to/@Development
+```
+
+**Any Address (Free):**
 ```python
 https://nano.to/:ADDRESS
 ```
 
-**Nano.to Username:**
-```python
-https://nano.to/@Keeri
-```
+### Single Panel UI
 
-**Customize Page:**
 ```python
 https://nano.to/@Keeri?amount=50&random=true
 ```
 
-> Using sensitive metadata? See [Checkout POST API](#checkout-via-post)
-
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
-### Checkout Plans
+### Double Panel UI
 
 ```python
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
@@ -76,8 +79,8 @@ https://nano.to/@Keeri
 ### Available Options
 
 - **amount** (number) : Single panel with price. No plans.
+- **goal** (number) : Show a funding UI with Goal & Received.
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
-- **currency** (string) : ISO Currency Symbol. Ex JPY
 - **image** (image/url) : Display Image. Image URL.
 - **random** (boolean) : Add random decimal to amount. Ex + 0.00XXXX
 - **color** (string) : Text color. Ex red:blue
@@ -87,6 +90,11 @@ https://nano.to/@Keeri
 - **logo** (image/url) : Replace QR Code logo. Image URL.
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
 - **success** (string) : Redirect URL on success.
+
+**In-Development:**
+- **currency** (string) : ISO Currency Symbol. Ex JPY
+
+> Need to provide sensitive data? See the [POST Checkout API](#checkout-via-post)
 
 ### Checkout via POST
 
@@ -117,11 +125,14 @@ http.post('https://api.nano.to', {
 }
 ```
 
+### POST Only Options
+
+- **webhook_url** (number) : URL to receive succesful payment metadata.
+- **metadata** (number) : Object with any kind of JSON data.
+
 > You can perform GET requests on ```check``` URL to check for payment, or redirect user to ```browser``` URL to have users use included Checkout UI. 
  
-### Webhook POST Body
-
-When the payment is found, ```api.nano.to``` sends a POST request to the provided URL, once.
+**POST Body:**
 
 ```json
 {
