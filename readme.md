@@ -6,7 +6,7 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 <p align="center">
-  <img src="https://github.com/fwd/nano/raw/master/dist/images/banner.png" alt="Nano.to" />
+  <img src="https://github.com/fwd/nano/raw/master/dist/images/funding.png" alt="Nano.to" />
 </p>
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
