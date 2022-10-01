@@ -34,17 +34,19 @@
 
 ## Non-Custodial Checkout Pages
 
-Nano.to is not just a Username service. It's also a highly customizable Checkout interface. This works by checking the ```pending``` and ```history``` of any given Nano address. Works best if the amount has random sub-decimals.
+Nano.to is not just a Username service. It's also a highly customizable hosted Checkout page. This works by checking the ```pending``` and ```history``` of any given Nano address. Works with any Address or Username.
+
+**Any Address (Free):**
+```python
+https://nano.to/:ADDRESS
+```
 
 **Nano.to Username:**
 ```python
 https://nano.to/@Development
 ```
 
-**Any Address (Free):**
-```python
-https://nano.to/:ADDRESS
-```
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ### Single Panel UI
 
@@ -79,7 +81,7 @@ https://nano.to/@Keeri
 ### Available Options
 
 - **amount** (number) : Single panel with price. No plans.
-- **goal** (number) : Show a funding UI with Goal & Received.
+- **goal** (string) : Show a funding UI with Goal & Received.
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
 - **image** (image/url) : Display Image. Image URL.
 - **random** (boolean) : Add random decimal to amount. Ex + 0.00XXXX
@@ -94,11 +96,9 @@ https://nano.to/@Keeri
 **In-Development:**
 - **currency** (string) : ISO Currency Symbol. Ex JPY
 
-> Need to provide sensitive data? See the [POST Checkout API](#checkout-via-post)
-
 ### Checkout via POST
 
-**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive information like ```webhook_url``` & ```metadata```, send a POST request to ```api.nano.to```. 
+**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive data use this api. 
 
 ```js
 const http = require('axios')
