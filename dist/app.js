@@ -98,7 +98,7 @@ new Vue({
             var selected = query.selected && res.data.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? res.data.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : res.data.plans[0].value
             res.data.amount = selected
           }
-          if (res.data.goal && Number(res.data.goal)) {
+          if (res.data.goal) {
             var account_info = await this.balance(query.address || query.to || item.address)
             res.data.goal = {
               title: res.data.goal ? res.data.goal.split(':')[1] : '',
@@ -167,7 +167,7 @@ new Vue({
             })
           }
 
-          if (query.goal && Number(query.goal)) {
+          if (query.goal) {
 
             var account_info = await this.balance(query.address || query.to || item.address)
 
@@ -245,7 +245,7 @@ new Vue({
             })
           }
 
-          if (query.goal && Number(query.goal)) {
+          if (query.goal) {
 
             var account_info = await this.balance(query.address || query.to || path)
 
