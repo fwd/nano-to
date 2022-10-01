@@ -21,9 +21,10 @@
 - **Nano.to Checkout (Github)**
   - [Non-Custodial Checkout](#non-custodial-checkout-pages)
   - [Customize Checkout](#customize-checkout)
+  - [Checkout Funding UI](#checkout-funding-ui)
+  - [Checkout Backend API](#checkout-via-post)
 
 - **Api.Nano.To**
-  - [Checkout POST API](#checkout-via-post)
   - [Live Fiat Price API](#price-api)
 
 - **PoW.Nano.To**
@@ -48,7 +49,7 @@ https://nano.to/@Development
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-### Single Panel UI
+### Single Panel Checkout
 
 ```python
 https://nano.to/@Keeri?amount=50&random=true
@@ -56,7 +57,7 @@ https://nano.to/@Keeri?amount=50&random=true
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
-### Double Panel UI
+### Double Panel Checkout
 
 ```python
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
@@ -64,7 +65,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-## Customize Checkout
+## Customize Checkout Color
 
 ```python
 https://nano.to/@Keeri
@@ -96,7 +97,17 @@ https://nano.to/@Keeri
 **In-Development:**
 - **currency** (string) : ISO Currency Symbol. Ex JPY
 
-### Checkout via POST
+### Checkout Funding UI
+
+```python
+https://nano.to/@Keeri?goal=10:Nault Server Costs
+```
+
+<img src="https://github.com/fwd/nano/raw/master/dist/images/funding.png" alt="Single Panel UI" />
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+### Checkout  via POST
 
 **Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive data use this api. 
 
