@@ -193,13 +193,16 @@ section:first-child {
 }
 
 #order {
-    /*display: flex;*/
-    /*align-items: center;*/
+    display: flex;
     justify-content: center;
     position: relative;
     padding: 50px 70px;
 }
 
+#order .about {
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
 
 .about {
