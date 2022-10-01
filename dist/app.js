@@ -573,6 +573,8 @@ new Vue({
         this.string = ''
         this.search = true
         this.dev_mode = false
+        this.checkout = false
+        this.customAmount = ''
         this.status = 'blue'
         this.color = 'blue'
         this.suggestions = []
