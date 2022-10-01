@@ -93,9 +93,8 @@ new Vue({
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
         axios.get(endpoint).then(async (res) => {
           if (res.data.error) return this.notify(res.data.message)
-          if (res.data.amount && res.data.plans && res.data.plans.length) {
-            // res.data.amount = res.data.plans[0].value
-            var selected = query.selected && res.data.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? res.data.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : res.data.plans[0].value
+          if (res.data.plans && res.data.plans.length) {
+            var selected = res.data.selected && res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()) ? res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()).value : res.data.plans[0].value
             res.data.amount = selected
           }
           if (res.data.goal) {
