@@ -100,7 +100,7 @@ https://nano.to/@Keeri
 ### Checkout Funding UI
 
 ```python
-https://nano.to/@Keeri?goal=10:Nault Server Costs
+https://nano.to/@Basedlemahieu?goal=100
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/funding.png" alt="Single Panel UI" />
