@@ -200,6 +200,8 @@ section:first-child {
     padding: 50px 70px;
 }
 
+
+
 .about {
     width: 100%;
     /*margin-top: 30px;*/
@@ -791,6 +793,10 @@ hr.memo {
     padding-top: 90px;
 }
 @media (max-width: 768px) {
+    #order {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
     .hide-desktop {
         display: inline-block
     }

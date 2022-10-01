@@ -90,7 +90,7 @@ https://nano.to/@Keeri
 - **color** (string) : Text color. Ex red:blue
 - **background** (string) : Background color. Ex white:gray
 - **highlight** (string) : Box backgrounds value. Ex blue:red
-- **qrcode** (string) : QR Code colors. Ex white:black
+- **qrcode** (string) : Replace QR Code color. Ex white:black
 - **logo** (image/url) : Replace QR Code logo. Image URL.
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
 - **success** (string) : Redirect URL on success.
