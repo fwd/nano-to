@@ -82,8 +82,9 @@ https://nano.to/@Keeri
 ### Available Options
 
 - **amount** (number) : Single panel with price. No plans.
-- **goal** (string) : Show a funding UI with Goal & Received.
+- **goal** (string) : Show a funding metter with Goal & Progress.
 - **plans** (string) : Plans separated by commas. Ex. Tip:30,Small:5
+- **selected** (string) : Title of Plan to select by default.
 - **image** (image/url) : Display Image. Image URL.
 - **random** (boolean) : Add random decimal to amount. Ex + 0.00XXXX
 - **color** (string) : Text color. Ex red:blue
