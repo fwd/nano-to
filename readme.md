@@ -107,9 +107,9 @@ https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-### Checkout  via POST
+### Checkout via POST
 
-**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to use sensitive data use this api. 
+**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to provide senstive information such as ```webhook_url``` and ```metadata``` that were this API comes in handy.
 
 ```js
 const http = require('axios')
