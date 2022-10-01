@@ -100,7 +100,7 @@ https://nano.to/@Keeri
 ### Checkout Funding UI
 
 ```python
-https://nano.to/@Basedlemahieu?goal=100
+https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/funding.png" alt="Single Panel UI" />
