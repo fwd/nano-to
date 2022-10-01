@@ -26,6 +26,7 @@ https://github.com/fwd/nano-to
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/checkout.css">
     <link rel="stylesheet" href="dist/point-of-sale.css">
+    <link rel="stylesheet" href="dist/goal-meter.css">
     <link rel="stylesheet" href="dist/confetti.css">
   </head>
   <body>
@@ -181,14 +182,46 @@ https://github.com/fwd/nano-to
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
           <h3 :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">{{ checkout.cancel_text ? '← ' + checkout.cancel_text : '← Cancel' }}</h3>
         </div>
-        <section v-if="checkout.plans" id="order" :class="`${checkout.plans.length || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
+        <section v-if="checkout.plans" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
+
             <div class="name flex center justify">
               <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount }}</p>
               <p v-if="checkout.amount && checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}</p>
             </div>
+
+            <div v-if="checkout.goal" id="goal-meter">
+              <div id="countdown-wrap">
+
+                <div class="flex-item">
+                  <div class="goal-stat">{{ checkout.goal.title || 'Funding Goal' }}</div>
+                  <div class="goal-stat">Ӿ {{ checkout.goal.total }}</div>
+                </div>
+                
+                <div id="glass">
+                    <div id="contribution" :style="`left:${ (100 * checkout.goal.balance) / checkout.goal.total > 100 ? '100%' : (100 * checkout.goal.balance) / checkout.goal.total + '%' }; width: ${ (100 * checkout.amount) / checkout.goal.total > 100 ? '100%' : (100 * checkout.amount) / checkout.goal.total + '%' }`"></div>
+                    <div id="progress" :style="`width:${ (100 * checkout.goal.balance) / checkout.goal.total > 100 ? '100%' : (100 * checkout.goal.balance) / checkout.goal.total + '%' }`"></div>
+                </div>
+                
+                <div class="flex-item">
+
+                  <div class="goal-stat"> 
+                    <span class="goal-number">{{ ( (100 * checkout.goal.balance) / checkout.goal.total ).toFixed(1) }}% <b>Funded</b></span>
+                  </div>
+
+                  <div class="goal-stat"> 
+                    <span class="goal-number">Ӿ {{ checkout.goal.balance }} <b>Raised</b></span>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+
             <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
+
+            
             <p v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
             <div class="plans">
               <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">

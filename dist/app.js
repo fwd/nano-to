@@ -77,7 +77,8 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
+              this.checkout.amount = selected
             }
           }, 100)
         }).catch(e => {
@@ -90,9 +91,21 @@ new Vue({
         var configured = query.check_url || query.check || query.c || query.url || query.api || false
         if (configured) configured = configured.replace(':path', path).replace(':id', path)
         var endpoint = configured || `https://api.nano.to/checkout/${path}`
-        axios.get(endpoint).then((res) => {
+        axios.get(endpoint).then(async (res) => {
           if (res.data.error) return this.notify(res.data.message)
-          if (res.data.amount && res.data.plans && res.data.plans.length) res.data.amount = res.data.plans[0].value
+          if (res.data.amount && res.data.plans && res.data.plans.length) {
+            // res.data.amount = res.data.plans[0].value
+            var selected = query.selected && res.data.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? res.data.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : res.data.plans[0].value
+            res.data.amount = selected
+          }
+          if (res.data.goal) {
+            var account_info = await this.balance(query.address || query.to || item.address)
+            res.data.goal = {
+              title: res.data.goal ? res.data.goal.split(':')[1] : '',
+              total: res.data.goal ? res.data.goal.split(':')[0] : '',
+              balance: Number(account_info.balance).toFixed(2)
+            }
+          }
           this.checkout = res.data
           history.pushState({}, null, `/${path}`);
           document.title = `${res.data.title ? res.data.title : '#' + path.split('_')[1] + ' - Nano Checkout' }`
@@ -100,7 +113,8 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
+              this.checkout.amount = selected
             }
           }, 100)
           if (res.data.error) {
@@ -112,7 +126,7 @@ new Vue({
         })
       },
 
-      _checkout(item, data, cache) {
+      async _checkout(item, data, cache) {
 
         this.getRate()
         
@@ -125,10 +139,13 @@ new Vue({
         }
         
         var query = this.queryToObject()
+
         var amount = query.price || query.amount || query.n || query.x || query.cost || query.p || false 
 
-        if (item && item.name) {
+        var goal = false
 
+        if (item && item.name) {
+        
           if (!cache && query.nocache) return this.doSuggestion({ name: item.name, address: item.address })
           
           var custom = false
@@ -136,9 +153,12 @@ new Vue({
           var vanity = item.vanity || query.vanity
           var donation = item.donate || query.custom
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
+          
           if (!plans || donation) custom = true
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Small:5,Medium:10,Large:25`
+          
           var success = query.success ||query.success_url
+
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
               var value = a.trim().split(':')[1]
@@ -146,6 +166,19 @@ new Vue({
               return { title: a.trim().split(':')[0], value } 
             })
           }
+
+          if (query.goal) {
+
+            var account_info = await this.balance(query.address || query.to || item.address)
+
+            goal = { 
+              title: query.goal ? query.goal.split(':')[1] : '',
+              total: query.goal ? query.goal.split(':')[0] : '',
+              balance: Number(account_info.balance).toFixed(2)
+            }
+
+          }
+
           this.checkout = {
             title: item.title || query.name || query.title || (item.name ? ('@' + this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
             currency: query.currency || query.c || 'NANO',
@@ -153,6 +186,7 @@ new Vue({
             fullscreen: item.back ? false : true,
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
+            goal,
             custom,
             amount,
             plans,
@@ -180,10 +214,13 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
+              this.checkout.amount = selected
             }
           }, 100)
+          
           document.title = `@${item.name} - Nano Checkout`
+
         }
         
         var query = this.queryToObject()
@@ -208,6 +245,18 @@ new Vue({
             })
           }
 
+          if (query.goal) {
+
+            var account_info = await this.balance(query.address || query.to || path)
+
+            goal = { 
+              title: query.goal ? query.goal.split(':')[1] : '',
+              total: query.goal ? query.goal.split(':')[0] : '',
+              balance: Number(account_info.balance).toFixed(2)
+            }
+
+          }
+
           this.checkout = {
             custom: !amount || donation ? true : false,
             currency: query.currency || query.c || 'NANO',
@@ -217,6 +266,7 @@ new Vue({
             address: query.address || query.to || path,
             amount,
             plans,
+            goal,
             title: query.name || query.title || 'Pay with NANO',
             color: {
               right: query.rightBackground || '#009dff', 
@@ -230,7 +280,8 @@ new Vue({
           setTimeout(() => {
             this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              this.checkout.amount = this.checkout.plans[0].value
+              var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
+              this.checkout.amount = selected
             }
           }, 100)
           document.title = `Pay ${path.slice(0, 12)} - Nano Checkout`
@@ -270,6 +321,17 @@ new Vue({
       redirect() {
         var redirect = this.checkout.redirect || this.checkout.checkout || this.success.redirect
         if (checkout) return window.location.href = redirect
+      },
+      balance(address) {
+         return new Promise((resolve) => {
+          var endpoint = 'https://nanolooker.com/api/rpc'
+          axios.post(endpoint, { 
+            action: 'account_info', 
+            account: address,
+          }).then((res) => {
+            resolve({ balance: this.convert(res.data.balance, 'RAW', 'NANO'), balance_raw: res.data.balance })
+          })
+        })
       },
       pending() {
          return new Promise((resolve) => {
