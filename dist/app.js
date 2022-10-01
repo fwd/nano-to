@@ -12,6 +12,7 @@ new Vue({
       user: false,
       loading: true,
       background: false,
+      customAmount: '',
       rate: false,
       params: {},
       success: false,
@@ -28,9 +29,11 @@ new Vue({
       buttons: [],
     },
     watch: {
+      customAmount() {
+        this.checkout.amount = this.customAmount
+      },
       currency() {
         this._checkout()
-        console.log("yo")
       },
       string() {
         this.query()
