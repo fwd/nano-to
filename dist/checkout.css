@@ -13,6 +13,11 @@
     justify-content: center;
 }
 
+.about .name h2,
+.about .name .price {
+    margin-top: 0;
+}
+
 #success p {
     font-size: 17px;
 }
@@ -192,6 +197,7 @@ section:first-child {
     /*align-items: center;*/
     justify-content: center;
     position: relative;
+    padding: 50px 70px;
 }
 
 .about {
@@ -781,6 +787,9 @@ hr.memo {
     margin: auto;
     justify-content: center;
 }
+#order.cancel {
+    padding-top: 90px;
+}
 @media (max-width: 768px) {
     .hide-desktop {
         display: inline-block
@@ -812,12 +821,10 @@ hr.memo {
         margin-left: 0;
     }
     #order {
-        padding-top: 30px;
-        /*padding-top: 75px;*/
+        padding-top: 40px;
     }
     #order.cancel {
         padding-top: 70px;
-        /*padding-top: 75px;*/
     }
     .crypto {
         zoom: 1;
