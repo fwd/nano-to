@@ -79,10 +79,7 @@ new Vue({
           this.checkout = res.data
           setTimeout(() => {
             this.showQR()
-            if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
-              var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
-              this.checkout.amount = selected
-            }
+            this.checkout.amount = this.checkout.plans[2].value
           }, 100)
         }).catch(e => {
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
