@@ -20,8 +20,8 @@
 
 - **Nano.to Checkout (Github)**
   - [Non-Custodial Checkout](#non-custodial-checkout-pages)
-  - [Customize Checkout](#customize-checkout)
-  - [Checkout Funding UI](#checkout-funding-ui)
+  - [Customize Checkout Color](#customize-checkout)
+  - [Checkout Funding Meter](#checkout-funding-ui)
   - [Checkout Backend API](#checkout-via-post)
 
 - **Api.Nano.To**
