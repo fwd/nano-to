@@ -440,7 +440,7 @@ hr {
 #checkout .plans > div {
     border: 2px solid rgb(0 0 0 / 15%);
     /*border: 1px solid rgb(0 0 0 / 40%);*/
-    padding: 0 20px;
+    padding: 0 16px;
     margin-bottom: 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -460,6 +460,10 @@ hr {
     font-size: 13px;
     color: #FFF;
 }
+.plans.custom {
+    border-top: 1px solid #00000012;
+    margin-top: 28px;
+}
 .plans.custom .flex {
     margin-top: 25px;
 }
@@ -468,11 +472,11 @@ hr {
 }
 .plans.custom input {
     min-height: 35px;
-    max-width: 150px;
+    max-width: 130px;
     width: 100%;
     border-radius: 5px;
     text-align: left;
-    border: 1px solid;
+    border: 2px solid #0000002b;
     font-size: 18px;
 }
 .plans.custom .dinput {
@@ -482,12 +486,17 @@ hr {
     margin-bottom: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
 }
 .plans.custom .dinput.nano:before {
     content: "NANO"
 }
-
+.dinput .symbol {
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    opacity: 0.2;
+}
 .instructions {
     margin-top: 0;
     margin-bottom: 20px;

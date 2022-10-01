@@ -239,8 +239,9 @@ https://github.com/fwd/nano-to
               <div :class="`flex justify center`" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'};`">
                 <h4>Enter amount: </h4>
                 <div class="dinput">
-                  <input type="number" inputmode="decimal" min="1" max="133248297" v-model="checkout.amount" >
-              <!--     <select class="currency-select" v-model="currency">
+                  <input type="number" inputmode="decimal" max="133248297" v-model="customAmount" >
+                  <!-- <div class="symbol">Ӿ</div> -->
+                  <!-- <select class="currency-select" v-model="currency">
                     <option value="USD">USD</option>
                     <option value="NANO">NANO</option>
                   </select> -->
