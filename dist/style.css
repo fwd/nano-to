@@ -1,23 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: Cyber;
   src: url("../dist/fonts/Cyber.otf");
   font-display: swap;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: 'Monaco';
   font-style: normal;
   font-weight: normal;
-    src: url("../dist/fonts/Monaco.otf");
+  src: url("../dist/fonts/Monaco.otf");
 }
 
 body {
   font-family: 'Monaco';
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   background: #000 !important;
 }
 
