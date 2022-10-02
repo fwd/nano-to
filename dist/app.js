@@ -202,7 +202,7 @@ new Vue({
             title: item.title || query.name || query.title || (item.name ? ('@' + this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
-            fullscreen: item.back ? false : true,
+            fullscreen: item.expires ? true : false,
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
@@ -640,8 +640,8 @@ new Vue({
           currency: 'NANO',
           name: suggestion.name,
           address: suggestion.address,
-          amount: false,
           back: true,
+          amount: false
           // fullscreen: true
         }
         self.prompt = {
@@ -656,7 +656,7 @@ new Vue({
             link: "external",
             checkout: checkout,
           }, {
-            label: 'Open Natrium',
+            label: 'Open Wallet',
             link: "external",
             url: `nano:${suggestion.address}`
           }, ]
