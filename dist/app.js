@@ -46,6 +46,8 @@ new Vue({
     },
     mounted() {
 
+      var self = this
+
       var query = this.queryToObject()
 
       if (query.nocache) this.known = 'https://api.nano.to/known'
@@ -62,6 +64,19 @@ new Vue({
           this.loading = false
         }, 105)
       })
+
+      document.onkeydown = function(evt) {
+          evt = evt || window.event;
+          var isEscape = false;
+          if ("key" in evt) {
+              isEscape = (evt.key === "Escape" || evt.key === "Esc");
+          } else {
+              isEscape = (evt.keyCode === 27);
+          }
+          if (isEscape) {
+              self.reset()
+          }
+      }
 
     },
     computed: {
@@ -532,7 +547,7 @@ new Vue({
             this.suggestions.unshift({
               name: `${string} (Username Available)`,
               lease: string,
-              color: '#c2ffc8',
+              color: '#cf94ff',
               checkout: {
                 title: '@' + string
               }
@@ -541,7 +556,7 @@ new Vue({
             this.suggestions.push({
               name: `${string} (Username Available)`,
               lease: string,
-              color: '#c2ffc8',
+              color: '#cf94ff',
               checkout: {
                 title: '@' + string
               }

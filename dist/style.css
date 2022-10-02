@@ -1,14 +1,18 @@
-/*@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);*/
 @font-face {
-  font-family: 'MyWebFont';
-  src: url('/fonts/Space.otf'); /* IE9 Compat Modes */
+  font-family: Cyber;
+  src: url("../dist/fonts/Cyber.otf");
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 @font-face {
   font-family: 'Monaco';
   font-style: normal;
   font-weight: normal;
-  src: local('Monaco'), url('/fonts/Monaco.woff') format('woff');
+    src: url("../dist/fonts/Monaco.otf");
 }
 
 body {
@@ -275,19 +279,6 @@ input::selection {
   /*background: rgba(219, 14, 21, .2);*/
   text-transform: uppercase;
   font-size: 20px;
-}
-
-
-
-
-@font-face {
-  font-family: Cyber;
-  src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
-  font-display: swap;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 /*body {
@@ -991,10 +982,10 @@ body.off::after {
 .suggest div {
     margin: 10px 0;
     cursor: pointer;
-    color: #dfdfdf;
+    color: #FFF;
     padding: 5px;
     letter-spacing: 1px;
-     opacity: 0.8; 
+     /*opacity: 0.8; */
     text-shadow: 1px 1px 1px #00000038;
     /*text-transform: capitalize;*/
     /*font-size: 20px;*/
