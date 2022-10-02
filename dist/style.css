@@ -493,7 +493,7 @@ body .cybr-btn + .cybr-btn {
   }
   .title::after,
   .title::before {
-    margin: 0 5px
+    /*margin: 0 5px*/
   }
   .address {
     font-size: 13px !important;

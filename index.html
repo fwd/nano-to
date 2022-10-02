@@ -89,9 +89,7 @@ https://github.com/fwd/nano-to
 
       <div v-if="!checkout" :class="`cyber blue`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
-          <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">
-            <span v-if="false">nano.to/</span>{{ title }}
-          </h3>
+          <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">{{ title }}</h3>
         </div>
         <div :class="`box--outer ${status.status && status.status == false ? 'error' : ''}`">
           <div class="box">
