@@ -183,9 +183,12 @@ section:first-child {
     border-radius: 50%;
     margin: 0 15px;
 }
-.payment-methods, .gallery, .name {
-    margin-bottom: 20px;
+
+.payment-methods, 
+.gallery, .name {
+    margin-bottom: 15px;
 }
+
 .description {
     font-size: 21px;
     line-height: 1.4;
@@ -814,7 +817,7 @@ hr.memo {
     }
     #avatar {
         position: absolute;
-        top: 12px;
+        top: 10px;
         /*top: 25px;*/
         left: 25px;
         align-items: center;
@@ -823,7 +826,7 @@ hr.memo {
         right: 0;
         max-width: 210px;
         margin: auto;
-        padding-left: 30px!important;
+        padding-left: 25px !important;
     }
     section {
         width: 100%;

@@ -44,11 +44,11 @@ https://github.com/fwd/nano-to
         <div>
           <h3 class="success-title">{{ success.title || 'Success' }}</h3>
           <p style="margin-bottom: 0">{{ success.message }}</p>
-          <button v-if="success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
+          <button v-if="checkout.fullscreen && success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
             <span>{{ success.button }}</span>
           </button>
-          <div class="redirecting" v-if="success.redirect && !success.button">{{ success.redirect_msg || 'Redirecting...' }}</div>
-          <div v-if="!success.button && !success.redirect" class="close" @click="checkout = false; success = false">Close</div>
+          <div v-if="checkout.fullscreen && success.redirect && !success.button" class="redirecting">{{ success.redirect_msg || 'Redirecting...' }}</div>
+          <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">Done</div>
         </div>
       </div>
 
@@ -183,6 +183,7 @@ https://github.com/fwd/nano-to
           <h3 :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">{{ checkout.cancel_text ? '← ' + checkout.cancel_text : '← Cancel' }}</h3>
         </div>
         <section v-if="checkout.plans" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
+
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
 
             <div class="name flex center justify">

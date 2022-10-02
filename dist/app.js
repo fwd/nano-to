@@ -31,6 +31,8 @@ new Vue({
     watch: {
       customAmount() {
         this.checkout.amount = this.customAmount
+        this.showQR()
+        this.$forceUpdate()
       },
       currency() {
         this._checkout()
@@ -78,8 +80,9 @@ new Vue({
           res.data.back = true
           this.checkout = res.data
           setTimeout(() => {
-            this.showQR()
             this.checkout.amount = this.checkout.plans[2].value
+            this.showQR()
+            this.$forceUpdate()
           }, 100)
         }).catch(e => {
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
@@ -110,11 +113,11 @@ new Vue({
           document.title = `${res.data.title ? res.data.title : '#' + path.split('_')[1] + ' - Nano Checkout' }`
           if (res.data.favicon) document.querySelector("link[rel*='icon']").href = res.data.favicon;
           setTimeout(() => {
-            this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
               var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
               this.checkout.amount = selected
             }
+            this.showQR()
           }, 100)
           if (res.data.error) {
             return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
@@ -154,9 +157,11 @@ new Vue({
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
           
           if (!plans || donation) custom = true
+
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Small:5,Medium:10,Large:25`
           
-          var success = query.success ||query.success_url
+          var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
+          var success_button = 'View Block'
 
           if (plans && typeof plans === 'string') {
             plans = plans.split(',').map(a => {
@@ -185,6 +190,7 @@ new Vue({
             fullscreen: item.back ? false : true,
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
+            history_count: query.history || query.history_count,
             goal,
             custom,
             amount,
@@ -207,15 +213,17 @@ new Vue({
                 hightlight: query.color,
               }
             },
-            success, 
+            success_url, 
+            success_button, 
             cancel: query.cancel || query.cancel_url || query.c, 
           }
+
           setTimeout(() => {
-            this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
               var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
               this.checkout.amount = selected
             }
+            this.showQR()
           }, 100)
           
           document.title = `@${item.name} - Nano Checkout`
@@ -232,7 +240,7 @@ new Vue({
           
           var plans = query.p
 
-          var success = item.success || query.success ||query.success_url || query.redirect || query.r
+          var success_url = query.success || query.success_url || query.redirect || query.r
 
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25`
 
@@ -263,6 +271,7 @@ new Vue({
             fullscreen: true,
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || path,
+            history_count: query.history || query.history_count,
             amount,
             plans,
             goal,
@@ -273,15 +282,16 @@ new Vue({
                 hightlight: query.hightlight,
               }
             },
-            success, 
+            success_url, 
+            success_button, 
             cancel: query.cancel || query.cancel_url || query.c, 
           }
           setTimeout(() => {
-            this.showQR()
             if (this.checkout && this.checkout.plans && this.checkout.plans[0]) {
               var selected = query.selected && this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()) ? this.checkout.plans.find(a => a.title.toLowerCase() === query.selected.toLowerCase()).value : this.checkout.plans[0].value
               this.checkout.amount = selected
             }
+            this.showQR()
           }, 100)
           document.title = `Pay ${path.slice(0, 12)} - Nano Checkout`
         }
@@ -317,9 +327,16 @@ new Vue({
         var currency = this.queryToObject().currency
         this.$forceUpdate()
       },
+      // used in index.html
       redirect() {
-        var redirect = this.checkout.redirect || this.checkout.checkout || this.success.redirect
-        if (checkout) return window.location.href = redirect
+        var redirect = this.checkout.redirect || this.checkout.success_url || this.success.redirect
+            redirect = redirect
+          .split('{{account}}').join(this.success.block.account)
+          .split('{{amount}}').join(this.convert(this.success.block.amount, 'RAW', 'NANO'))
+          .split('{{amount_raw}}').join(this.success.block.amount)
+          .split('{{hash}}').join(this.success.block.hash)
+          .split('{{block}}').join(this.success.block.hash)
+        window.location.href = redirect 
       },
       balance(address) {
          return new Promise((resolve) => {
@@ -343,7 +360,7 @@ new Vue({
             source: true,
           }).then((res) => {
             resolve(res.data.blocks == "" ? [] : Object.keys(res.data.blocks).map(key => {
-              return { block: key, address: res.data.blocks[key].source, amount: res.data.blocks[key].amount }
+              return { hash: key, account: res.data.blocks[key].source, amount: res.data.blocks[key].amount }
             }))
           })
         })
@@ -354,7 +371,7 @@ new Vue({
           axios.post(endpoint, { 
             action: 'account_history', 
             account: this.checkout.address,
-            count: "50",
+            count: this.checkout.history_count || "50",
             raw: true
           }).then((res) => {
             resolve(res.data.history)
@@ -365,11 +382,12 @@ new Vue({
           axios.get(this.checkout.checkout || this.checkout.check_url || this.checkout.check).then((res) => {
             if (res.data.error) return this.notify(res.data.message)
             if (res.data.message) {
+              this.checkout.fullscreen = true
               this.success = {
                 confetti: res.data.confetti || false,
                 title: res.data.title || false,
                 message: res.data.message || false,
-                confirm: res.data.confirm || false,
+                // confirm: res.data.confirm || false,
                 redirect_msg: res.data.redirect_msg || false,
                 button: res.data.button || false,
                 redirect: res.data.redirect || false,
@@ -378,19 +396,32 @@ new Vue({
             if (res.data.redirect && !res.data.button) {
               setTimeout(() => {
                 window.location.href = res.data.redirect
-              }, res.data.delay || 5000)
+              }, res.data.redirect_delay || 3000)
               return
             }
           })
       },
       show_success(block) {
         this.success = {
+          block,
           confetti: true,
-          title: 'Success',
-          message: 'Your payment was sent successfully.',
-          confirm: true,
-          button: 'View Block',
-          redirect: `https://nanolooker.com/block/${block.block}`
+          title: 'Complete',
+          message: 'Payment was sent successfully.',
+          // confirm: true,
+          button: this.checkout.fullscreen ? this.checkout.success_button : false,
+          redirect: this.checkout.fullscreen ? this.checkout.success_url : false,
+        }
+        if (this.checkout.fullscreen && this.checkout.success_url && !this.checkout.success_button) {
+          var success_url = this.checkout.success_url
+          .split('{{account}}').join(block.account)
+          .split('{{amount}}').join(this.convert(this.checkout.amount, 'RAW', 'NANO'))
+          .split('{{amount_raw}}').join(block.amount)
+          .split('{{hash}}').join(block.hash)
+          .split('{{block}}').join(block.hash)
+          setTimeout(() => {
+            window.location.href = success_url
+          }, this.checkout.redirect_delay || 3000)
+          return
         }
         return 
       },
@@ -465,7 +496,6 @@ new Vue({
         var item = this.usernames.find(a => this.isMatch(a, string))
         if ((string.includes('nano_') || string.includes('xrb_')) && NanocurrencyWeb.tools.validateAddress(string)) {
           var username = this.usernames.filter(a => a.address === string)
-          console.log( username[username.length - 1] )
           var suggestions = []
           if (username && username[username.length - 1]) {
             suggestions.push({

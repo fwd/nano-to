@@ -93,7 +93,7 @@ https://nano.to/@Keeri
 - **qrcode** (string) : Replace QR Code color. Ex white:black
 - **logo** (image/url) : Replace QR Code logo. Image URL.
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
-- **success** (string) : Redirect URL on success.
+- **redirect** (string) : Redirect URL on success.
 
 **In-Development:**
 - **currency** (string) : ISO Currency Symbol. Ex JPY
