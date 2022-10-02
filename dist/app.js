@@ -244,7 +244,7 @@ new Vue({
             this.showQR()
           }, 100)
           
-          document.title = `@${this.capitalizeFirstLetter(item.name)} - Nano Checkout`
+          document.title = `${this.capitalizeFirstLetter(item.name)} - Nano Blockchain`
 
         }
         
