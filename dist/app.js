@@ -35,7 +35,7 @@ new Vue({
         this.$forceUpdate()
       },
       currency() {
-        this._checkout()
+        // this._checkout()
       },
       string() {
         this.query()
@@ -148,7 +148,9 @@ new Vue({
         this.getRate()
         
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
-        var item = item || this.usernames.find(a => a.name.toLowerCase() === path) || {}
+
+        item = item || this.usernames.find(a => a.name.toLowerCase() === path) || {}
+        
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         
         if (path && checkout) {
@@ -197,6 +199,7 @@ new Vue({
             }
 
           }
+
 
           this.checkout = {
             title: item.title || query.name || query.title || (item.name ? ('@' + this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
@@ -600,7 +603,7 @@ new Vue({
           this.$forceUpdate()
         }, 100)
       },
-      doButton(button) {
+      async doButton(button) {
         if (button.checkout) {
           this._checkout(button.checkout, null, true)
           return 
@@ -642,7 +645,6 @@ new Vue({
           address: suggestion.address,
           back: true,
           amount: false
-          // fullscreen: true
         }
         self.prompt = {
           title: `${suggestion.name}`,
@@ -654,14 +656,14 @@ new Vue({
           buttons: [{
             label: `Send Payment`,
             link: "external",
-            checkout: checkout,
+            checkout,
           }, {
             label: 'Open Wallet',
             link: "external",
             url: `nano:${suggestion.address}`
           }, ]
         }
-        history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
+        // history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
       },
       stringToColour(str) {

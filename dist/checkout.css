@@ -187,6 +187,7 @@ section:first-child {
 .payment-methods, 
 .gallery, .name {
     margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .description {
