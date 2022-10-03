@@ -6,7 +6,7 @@
  _| |_        \  /\  /     _| |_.' / 
 |_____|        \/  \/     |______.'  
 Simplicity is soul of efficiency.
-https://github.com/fwd/nano-to
+https://github.com/fwd/nano
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +25,11 @@ https://github.com/fwd/nano-to
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="dist/checkout.css">
-    <link rel="stylesheet" href="dist/point-of-sale.css">
     <link rel="stylesheet" href="dist/goal-meter.css">
     <link rel="stylesheet" href="dist/confetti.css">
   </head>
   <body>
-    <p class="seo-hackz" style="display: none; opacity: 0;">Username and non-custodial checkout service for the Nano Blockchain. We're on a mission to accelerate the use of Nano around the world.</p>
+    <p class="seo-hackz" style="display: none; opacity: 0;">Non-custodial Checkout page and Username service for the Nano Blockchain. Nano.to is on a mission to accelerate the use of Nano currency around the world.</p>
     <div id="app" :class=" `on ${color}`">
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
@@ -51,42 +50,6 @@ https://github.com/fwd/nano-to
           <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">Done</div>
         </div>
       </div>
-
-      <!-- Work in Progress-->
-      <div v-if="point_of_sale" class="point-of-sale">
-          <div class="device">
-              <div class="products">
-                  <ul class="product-list">
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                      <li></li>
-                  </ul>
-              </div>
-              <div class="checkout">
-
-                  <ul class="checkout-list">
-                      <li v-for="i in 50">1 &times; Item #1</li> 
-                  </ul>
-
-                  <div class="checkout-footer">
-                    <div class="total">
-                      <div>Total</div>
-                      <div>$26</div>
-                    </div>
-
-                    <a href="#" >Checkout <i class="ion-ios-cart"></i></a>
-                  </div>
-
-              </div>
-          </div>
-      </div>
-
       <div v-if="!checkout" :class="`cyber blue`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">{{ title }}</h3>
