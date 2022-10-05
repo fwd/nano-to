@@ -28,7 +28,7 @@
   - [Live Fiat Price API](#price-api)
 
 - **PoW.Nano.To**
-  - [Proof of Work API](#pow-api)
+  - [Proof of Work API](/docs/pow)
   - [Get PoW API Key](https://pow.nano.to)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
