@@ -128,8 +128,8 @@ http.post('https://api.nano.to', {
 
 **POST Only Options**
 
-- **webhook_url** (number) : URL to receive succesful payment metadata.
-- **metadata** (number) : Object with any kind of JSON data.
+- **webhook_url** (string) : URL to receive succesful payment metadata.
+- **metadata** (object) : Object with any kind of JSON data.
 
 
 **Response**
