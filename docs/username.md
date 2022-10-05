@@ -6,7 +6,9 @@ To register a Username, visit https://nano.to and search for your desired Userna
 - Multiple Uernames w/ same Address is allowed.
 - Nano.to Faucet pays ~ 0.001 Nano, [every 24 hours](/faucet). 
 
-## Username Renewal 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Renewal 
 
 Add time to your lease by visting:
 
@@ -16,11 +18,11 @@ https://nano.to/:USERNAME/renew
 
 > Only original address may add time. If you need to change Username address, contact: [support@nano.to](mailto:support@nano.to)
 
-## Username Grace Period
+## Grace Period
 
 Usernames have **10 day** after expiration where only the original address may renew.
 
-## Username Dataset
+## Dataset API
 
 We actively encourage other developers to add [Nano.to Usernames](https://nano.to/known.json) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
 
@@ -29,7 +31,6 @@ https://nano.to/known.json
 ```
 
 > If privacy is your thing, don't get a Username for a particular address, and avoid the publicity.
-
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -47,6 +48,8 @@ Give a ⭐️ if this project helped you!
 
 Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## License
 
 **Limited Commercial Use:**
@@ -56,6 +59,8 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 - ❌ Commercial use where Nano.to Usernames and/or Checkout **IS** the end-product.
 
 Contact [@nano2dev](mailto:support@nano.to) for Usage/Licensing questions.
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Stargazers
 
