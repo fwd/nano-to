@@ -1,11 +1,11 @@
 # Nano Price API
 
-The price updates every 60 seconds. CoinMarketCap is used for price data.
+The price updates every 60 seconds. CoinGecko is used for price data.
 
 ## Get Request
 
 ```text
-https://nano.to/price
+https://api.nano.to/price
 ```
 
 ## JSON Response
@@ -22,8 +22,8 @@ https://nano.to/price
 
 ## Currencies
 
-```js
-https://nano.to/price?currency=CAD
+```text
+https://api.nano.to/price?currency=CAD
 ```
 
 ```json
