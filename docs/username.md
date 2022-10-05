@@ -18,9 +18,13 @@ https://nano.to/:USERNAME/renew
 
 > Only original address may add time. If you need to change Username address, contact: [support@nano.to](mailto:support@nano.to)
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## Grace Period
 
 Usernames have **10 day** after expiration where only the original address may renew.
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Dataset API
 
