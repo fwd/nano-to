@@ -6,11 +6,11 @@ Nano.to Usernames can be registered in-app from other applications. This makes i
 
 **NEW:**
 ```
-https://name.nano.to/:username
+https://name.nano.to/:USERNAME
 ```
 **OLD:**
 ```
-https://name.nano.to/:username
+https://api.nano.to/:USERNAME/lease
 ```
 
 ```js
