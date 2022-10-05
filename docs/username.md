@@ -46,13 +46,6 @@ https://nano.to/known.json
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Contributing
-
-Give a ⭐️ if this project helped you!
-
-Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## License
 
@@ -63,9 +56,3 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 - ❌ Commercial use where Nano.to Usernames and/or Checkout **IS** the end-product.
 
 Contact [@nano2dev](mailto:support@nano.to) for Usage/Licensing questions.
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-## Stargazers
-
-[![Stargazers over time](https://starchart.cc/fwd/nano-to.svg)](https://github.com/fwd/nano-to)
