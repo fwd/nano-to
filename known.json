@@ -117,24 +117,6 @@
     "expires_unix": 1664428080
   },
   {
-    "name": "askde",
-    "status": "active",
-    "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
-    "created": "September 26, 2022",
-    "expires": "September 28, 2022",
-    "created_unix": 1664245341,
-    "expires_unix": 1664418120
-  },
-  {
-    "name": "kiiki",
-    "status": "active",
-    "address": "nano_3u5ejwy5f6ts6xbco5oregywp4w1hfs6k4ncjp4rw7fupd7gy6oqp5b4ypsn",
-    "created": "September 26, 2022",
-    "expires": "September 28, 2022",
-    "created_unix": 1664242294,
-    "expires_unix": 1664415060
-  },
-  {
     "name": "god",
     "status": "active",
     "address": "nano_1qngeajg7w5wimaux733iyoqjszzcnsspzo6i5xxd6uujzdp879nfzbggh97",
@@ -142,15 +124,6 @@
     "expires": "September 26, 2023",
     "created_unix": 1664228465,
     "expires_unix": 1695764460
-  },
-  {
-    "name": "semikek",
-    "status": "active",
-    "address": "nano_3u5ejwy5f6ts6xbco5oregywp4w1hfs6k4ncjp4rw7fupd7gy6oqp5b4ypsn",
-    "created": "September 25, 2022",
-    "expires": "September 27, 2022",
-    "created_unix": 1664126370,
-    "expires_unix": 1664299140
   },
   {
     "name": "nudge",
