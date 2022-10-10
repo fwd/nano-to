@@ -93,11 +93,13 @@ axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
 })
 ```
 
-```js
+```json
 { 
 	"id": "CHECKOUT_ID",
-	"completed": true, 
-	"hash": "BLOCK_HASH"
+	"success": true, 
+	"block": "BLOCK_HASH",
+	"message": "Username purchase successful.",
+	"redirect": "https://nano.to/bank?nocache=true"
 }
 ```
 

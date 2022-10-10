@@ -90,6 +90,9 @@ new Vue({
       }
     },
     methods: {
+      nFormatter(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      },
       lease(name) {
         axios.get(`https://api.nano.to/${name}/lease`).then((res) => {
           res.data.back = true
@@ -173,7 +176,7 @@ new Vue({
           var donation = item.donate || query.custom
           var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
           
-          if (!plans || donation) custom = true
+          if (!amount && !plans || donation) custom = true
 
           if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Small:5,Medium:10,Large:25,Gigantic:100`
           
@@ -209,6 +212,7 @@ new Vue({
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
+            description: query.description || query.body || query.message,
             goal,
             custom,
             amount,
@@ -587,7 +591,9 @@ new Vue({
         })
       },
       showQR(string) {
-        document.getElementById("qrcode").innerHTML = "";
+        setTimeout(() => {
+          document.getElementById("qrcode").innerHTML = "";
+        }, 50)
         setTimeout(() => {
           var options = {
             text: string || `nano:${this.checkout.address}${this.checkout.amount ? '?amount=' + this.convert(this.checkout.amount, 'NANO', 'RAW') : ''}`,
