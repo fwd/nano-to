@@ -1,8 +1,8 @@
 # Nano.to PoW API
 
-Standalone, GPU powered proof of work API for the Nano blockchain.
-
 Easily scale any Nano application.
+
+Standalone, GPU powered proof of work API for the Nano blockchain.
 
 ## Basic Usage
 
@@ -11,6 +11,7 @@ https://pow.nano.to/:HASH
 ```
 
 **or POST request:**
+
 ```javascript
 axios.post('https://pow.nano.to', { 
     hash: 'HASH'
