@@ -1,4 +1,4 @@
-## Nano.to Checkout Page
+## Nano.to Checkout
 
 Nano.to is also a highly customizable hosted Checkout page. It works by checking the ```pending``` and ```history``` of any given Nano address and alerting your servers of payments when configured.
 
