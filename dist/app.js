@@ -175,7 +175,7 @@ new Vue({
           
           if (!plans || donation) custom = true
 
-          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Small:5,Medium:10,Large:25,Colossal:100`
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Small:5,Medium:10,Large:25,Gigantic:100`
           
           var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
           var success_button = 'View Block'
@@ -260,7 +260,7 @@ new Vue({
 
           var success_url = query.success || query.success_url || query.redirect || query.r
 
-          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25,Colossal:100`
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Small:5,Medium:10,Large:25,Gigantic:100`
 
           if (plans) {
             plans = plans.split(',').map(a => {
