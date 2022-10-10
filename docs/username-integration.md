@@ -101,7 +101,11 @@ axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
 }
 ```
 
-## Available @ /Known API
+## Dataset APIs
+
+```
+https://nano.to/known.json
+```
 
 ```js
 // npm install axios
@@ -113,7 +117,7 @@ axios.get('https://nano.to/known.json').then((res) => {
 })
 ```
 
-> Github takes up to 5 minutes to update dataset. Use ```https://api.nano.to/known.json``` for cache-less dataset. 
+> Github takes up to 5 minutes to update ```https://nano.to/known.json```. Use ```https://api.nano.to/known.json``` for cache-less instantly updated dataset. 
 
 ```js
 [
