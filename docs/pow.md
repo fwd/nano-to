@@ -1,4 +1,4 @@
-# Nano.to PoW API
+# Nano.to dPoW
 
 Easily scale any Nano application.
 
