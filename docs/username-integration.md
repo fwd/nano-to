@@ -1,110 +1,125 @@
 # Username Integration
 
-Nano.to Usernames can be registered in-app from other applications. This makes it easy to integrate into other projects. Common use case are offering a crypto 'search and pay' feature in websites, and even in-game currency with Nano.
+Nano.to Usernames can be registered in-app from other apps. Common use case is offering a Nano 'search and pay' feature in websites, and even in-game currency.
 
 ## Base URL
 
 **NEW:**
-```
-https://name.nano.to/:USERNAME
-```
-**OLD:**
+
 ```
 https://api.nano.to/:USERNAME/lease
 ```
+
+**OLD:**
+
+```
+https://name.nano.to/:USERNAME
+```
+
+**NodeJS:**
 
 ```js
 // npm install axios
 
 const axios = require('axios')
 
-axios.get('https://name.nano.to/fosse2').then((res) => {
+axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 	console.log(res.data)
 })
 ```
 
 ```js
 {
-	"available": true,
-	"username": "fosse2",
-	"premium": false,
-	"checkout": "https://api.nano.to/checkout/[HOSTED_CHECKOUT_ID]",
-	"plans": [
-		{
-			"name": "1 Day",
-			"amount": "0.4153219",
-			"address": "[NANO.TO ADDRESS]",
-			"rate": 2.41,
-			"price": 1,
-			"value": "2.41",
-			"amount_raw": "[RAW_AMOUNT]",
-			"href": "nano:[NANO.TO ADDRESS]?amount=[RAW_AMOUNT]",
-			"qrcode": "[QRCODE_URI]",
-			"expires": "April 11, 2022 10:02 PM",
-			"expires_unix": 1649714537,
-			"id": "[CHECKOUT_ID]",
-			"check_url": "https://api.nano.to/[NANO.TO ADDRESS]/history/0.4153219?check=[CHECKOUT_ID]"
-		},
-		// {...}
-	]
+  id: 'CHECKOUT_ID',
+  address: 'NANO_TO_ADDRESS_TO_PAY',
+  browser: 'http://nano.to/pay_CHECKOUT_ID',
+  check_url: 'https://api.nano.to/check/CHECKOUT_ID',
+  lease: 'USERNAME',
+  available: true,
+  history: 10,
+  plans: [
+    {
+      value: '0.105112',
+      title: '2 Days',
+      value_raw: '105112000000000000000000000000'
+    },
+    {
+      value: '6.07744',
+      title: '1 Month',
+      discount: 0,
+      value_raw: '6077440000000000000000000000000'
+    },
+    {
+      value: '10.04892',
+      title: '1 Year',
+      discount: 0,
+      value_raw: '10048920000000000000000000000000'
+    },
+    {
+      value: '20.03362',
+      title: '2 Years',
+      discount: 0,
+      value_raw: '20033620000000000000000000000000'
+    },
+    {
+      value: '100.09184',
+      title: '10 Years',
+      value_raw: '100091840000000000000000000000000'
+    }
+  ]
 }
 ```
-
-There's a lot to unpack. Essentially, use ```checkout``` if don't want to provide your own UI. Use ```plans``` to provide your own 'Dropdown' select UI. Every object inside ```plans``` is a unique Checkout. Each object brings a ```check_url``` which you can GET to check if payment went through.
-
-> We recommended you provide a 'Loading' UI, while the person waits. Check the ```check_url``` immediately, and then every 5 seconds, if first time is not successful. In most cases the payment is confirmed immediately.
 
 **Name is alreaddy taken, or not available:**
 
 ```
-{
-	"available": false,
-	"status": "leased"
+{ 
+	available: false, 
+	renew_url: 'https://api.nano.to/USERNAME/renew' 
 }
 ```
 
-## Send Funds & Lease Username
+## Send Funds & Check Payment
 
-If you're reading these docs, we assume you have your own means of programmatically sending funds to the provided address. Once you've done that use the ```check_url``` in the response to check if the payment was successful or not.
+Once you've sent funds, do a GET request on the ```check_url``` in the response, to confirm payment.
 
 ```js
 // npm install axios
 
 const axios = require('axios')
 
-axios.get('https://api.nano.to/[NANO.TO ADDRESS]/history/0.4153219?check=[CHECKOUT_ID]').then((res) => {
+axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
 	console.log(res.data)
 })
 ```
 
 ```js
 { 
-	"id": "6dd1f4o",
+	"id": "CHECKOUT_ID",
 	"completed": true, 
-	"hash": "[BLOCK_HASH]",
-	"success_url": "https://api.nano.to/hash/[BLOCK_HASH]"
+	"hash": "BLOCK_HASH"
 }
 ```
 
 ## Available @ /Known API
-
-After a successful purchase, your Username will be immediately available throughout Nano.to.
 
 ```js
 // npm install axios
 
 const axios = require('axios')
 
-axios.get('https://name.nano.to/known.json').then((res) => {
+axios.get('https://nano.to/known.json').then((res) => {
 	console.log(res.data)
 })
 ```
 
+> Github takes up to 5 minutes to update dataset. Use ```https://api.nano.to/known.json``` for cache-less dataset. 
+
 ```js
 [
 	{
-		"name": "fosse2",
-		"address": "[YOUR_ADDRESS]",
+		"name": "USERNAME",
+		"address": "YOUR_ADDRESS",
 		"created": "April 1, 2022",
 		"expires": "April 1, 2024",
 		"created_unix": 1648793880,
@@ -114,7 +129,8 @@ axios.get('https://name.nano.to/known.json').then((res) => {
 ]
 ```
 
-## Questions or Comments? 
+## Questions or Comments 
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
+- @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9) 
