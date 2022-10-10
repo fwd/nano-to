@@ -29,16 +29,19 @@ https://github.com/fwd/nano
     <link rel="stylesheet" href="dist/confetti.css">
   </head>
   <body>
-    <p class="seo-hackz" style="display: none; opacity: 0;">Username service and Non-custodial Checkout for the Nano Blockchain. Nano.to is on a mission to accelerate the use of Nano currency around the world.</p>
+    <p class="seo-hackz" style="display: none; opacity: 0;">Username service and non-custodial checkout page for the Nano Blockchain. Nano.to is on a mission to accelerate the use of Nano currency around the world.</p>
     <div id="app" :class=" `on ${color}`">
+      
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
+      
       <div v-if="loading" class="loader"></div>
-      <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
 
+      <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
+      
       <div v-if="success && success.confetti">
         <div v-for="i in 150" :class="`confetti-${i}`"></div>
       </div>
-
+      
       <div v-if="success" id="success">
         <div>
           <h3 class="success-title">{{ success.title || 'Success' }}</h3>
@@ -50,6 +53,7 @@ https://github.com/fwd/nano
           <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">Done</div>
         </div>
       </div>
+
       <div v-if="!checkout" :class="`cyber blue`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">{{ title }}</h3>
@@ -140,21 +144,24 @@ https://github.com/fwd/nano
       </div>
 
       <div v-if="checkout" id="checkout" class="flex">
+        
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
           <h3 :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">{{ checkout.cancel_text ? '← ' + checkout.cancel_text : '← Cancel' }}</h3>
         </div>
-        <section v-if="checkout.plans" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
+
+        <section v-if="checkout.plans || checkout.image" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
 
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
 
             <div class="name flex center justify">
-              <h2><span v-if="false">nano.to/</span>{{ checkout.title }}</h2>
-              <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount }}</p>
+              <h2>{{ checkout.title }}</h2>
+              <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}</p>
               <p v-if="checkout.amount && checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}</p>
             </div>
 
             <div v-if="checkout.goal" id="goal-meter">
-              <div id="countdown-wrap">
+
+              <div id="funding-wrap">
 
                 <div class="flex-item">
                   <div class="goal-stat">{{ checkout.goal.title || 'Funding Goal' }}</div>
@@ -179,12 +186,13 @@ https://github.com/fwd/nano
                 </div>
 
               </div>
+
             </div>
 
-            <img v-if="checkout.image" style="margin-bottom: 30px; border-radius: 5px;" :src="checkout.image" alt="">
-
+            <img v-if="checkout.image" class="checkout-image" :src="checkout.image" alt="">
             
             <p v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
+
             <div class="plans">
               <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
@@ -193,35 +201,32 @@ https://github.com/fwd/nano
                     <span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" v-if="plan.discount" class="discount">{{ Number(plan.discount) ? plan.discount + '% OFF' : plan.discount }}</span>
                   </h4>
                   <h4>{{ Number(plan.value) > 1 ? Math.floor(plan.value) : Number(plan.value).toFixed(3) }} {{ currency }}</h4>
-                  <!-- <h4>{{ checkout.random_int ? String(Number(plan.value).toFixed(1)).replace('.0', '') : String(Number(plan.value).toFixed(3)).replace('.000', '') }} NANO</h4> -->
                 </div>
               </div>
             </div>
-            <div class="plans custom" v-if="!checkout.plans || checkout.custom">
+
+            <div class="plans custom" v-if="checkout.custom">
               <div :class="`flex justify center`" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'};`">
                 <h4>Enter amount: </h4>
                 <div class="dinput">
                   <input type="number" inputmode="decimal" max="133248297" v-model="customAmount" >
-                  <!-- <div class="symbol">Ӿ</div> -->
-                  <!-- <select class="currency-select" v-model="currency">
-                    <option value="USD">USD</option>
-                    <option value="NANO">NANO</option>
-                  </select> -->
                 </div>
               </div>
             </div>
+
           </div>
         </section>
-        <section id="payment" :style="checkout.color && checkout.color.right ? `background-color: ${checkout.color.right}` : 'background-color: #009dff'" :class="checkout.plans ? '' : 'full'">
+
+        <section id="payment" :style="checkout.color && checkout.color.right ? `background-color: ${checkout.color.right}` : 'background-color: #009dff'" :class="checkout.plans || checkout.image ? '' : 'full'">
           <div class="details">
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
                 <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction || 'To complete, send:' }}</span>
-                <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.amount }}
+                <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ nFormatter( checkout.amount ) }}
                   <span class="blocky">{{ 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
-                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ (checkout.amount * rate).toFixed(2) }} {{ currency === 'NANO' ? 'USD' : currency }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${currency !== 'NANO' ? currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 10px;`">≈ {{ nFormatter( (checkout.amount * rate).toFixed(2) ) }} {{ currency === 'NANO' ? 'USD' : currency }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${currency !== 'NANO' ? currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
               </h4>
@@ -249,6 +254,7 @@ https://github.com/fwd/nano
             </div>
           </div>
         </section>
+
       </div>
     </div>
     <script src="dist/vue.min.js"></script>
