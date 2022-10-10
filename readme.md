@@ -24,10 +24,9 @@
   - [Funding Goal UI](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
   - [Backend Checkout](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
 
-- **More Nano.To Services**
-  - [Currency Conversion API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
-  - [Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
-  - [Free PoW API Key](https://pow.nano.to)
+- **Other Nano.To Services**
+  - [Free Currency Conversion API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
+  - [Free Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
