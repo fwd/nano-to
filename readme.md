@@ -14,22 +14,22 @@
 ## Quick Links
 
 - **Nano.to Usernames (Github)**
-  - [Register Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#register-username)
-  - [Renew Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#username-renewal)
-  - [Username Dataset](https://github.com/fwd/nano-to/blob/master/docs/username.md#username-dataset)
+  - [Register Username](https://github.com/fwd/nano-to/blob/master/docs/username.md)
+  - [Renew Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
+  - [Username Dataset](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
 
-- **Nano.to Checkout (Github)**
-  - [Non-Custodial Checkout](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#non-custodial-checkout-pages)
-  - [Customize Checkout Color](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-checkout)
-  - [Checkout Funding Meter](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
+- **Non-Custodial Checkout (Github)**
+  - [Get Started](https://github.com/fwd/nano-to/blob/master/docs/checkout.md)
+  - [Customize Colors](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
+  - [Funding Goal UI](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
+  - [Backend Checkout](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
 
 - **Api.Nano.To**
-  - [Checkout POST API](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
-  - [Live Fiat Price API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
+  - [Currency Conversion API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
 
 - **PoW.Nano.To**
   - [Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
-  - [Get PoW API Key](https://pow.nano.to)
+  - [Free PoW API Key](https://pow.nano.to)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 

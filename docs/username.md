@@ -1,4 +1,4 @@
-# Nano.to Usernames
+## Nano.to Usernames
 
 To register a Username, visit https://nano.to and search for your desired Username. 
 
@@ -26,7 +26,7 @@ Usernames have **10 day** after expiration where only the original address may r
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Dataset API
+## Dataset
 
 We actively encourage other developers to add [Nano.to Usernames](https://nano.to/known.json) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
 

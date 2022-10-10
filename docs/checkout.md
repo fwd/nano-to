@@ -14,7 +14,7 @@ https://nano.to/@Development
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-### Single Panel Checkout
+### Single Panel
 
 ```python
 https://nano.to/@Keeri?amount=50&random=true
@@ -22,7 +22,7 @@ https://nano.to/@Keeri?amount=50&random=true
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
 
-### Double Panel Checkout
+### Double Panel
 
 ```python
 https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
@@ -30,7 +30,7 @@ https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
 
-## Customize Checkout Color
+## Customize Colors
 
 ```python
 https://nano.to/@Keeri
