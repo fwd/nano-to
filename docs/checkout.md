@@ -1,8 +1,8 @@
 ## Nano.to Checkout Page
 
-Nano.to is not just a Username service. It's also a highly customizable hosted Checkout page. This works by checking the ```pending``` and ```history``` of any given Nano address. Works with any Address or Username.
+Nano.to is also a highly customizable hosted Checkout page. It works by checking the ```pending``` and ```history``` of any given Nano address and alerting your servers of payments when configured.
 
-**Any Address (Free):**
+**Any Address:**
 ```python
 https://nano.to/:ADDRESS
 ```
