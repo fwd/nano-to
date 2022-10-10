@@ -117,7 +117,7 @@ Proof of work is  ```fffffff800000000``` (or higher). Good for any Nano block.
 }
 ```
 
-## Questions or Comments? 
+## Questions or Comments
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)

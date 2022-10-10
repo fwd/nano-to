@@ -42,7 +42,7 @@ Faucet Balance: [NanoLooker](https://nanolooker.com/account/nano_1faucet7b6xjyha
 
 Simple Interface: [Nano.to/Faucet](https://nano.to/faucet)
 
-## Questions or Comments? 
+## Questions or Comments
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
