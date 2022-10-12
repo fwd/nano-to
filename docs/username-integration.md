@@ -1,6 +1,6 @@
 # Username Integration
 
-Nano.to Usernames can be registered in-app from other apps. Common use case is offering a Nano 'search and pay' feature in websites, and even in-game currency.
+Nano.to Usernames can be registered in-app. Common use case is offering a Nano 'search and pay' feature in wallets, websites, and even in-game crypto usernames.
 
 ## Base URL
 
@@ -131,6 +131,10 @@ axios.get('https://nano.to/known.json').then((res) => {
 	// { .. }
 ]
 ```
+
+## Earn Referral
+
+Coming soon. Earn up to 20% from Nano.to Username sale done through your app. 
 
 ## Questions or Comments 
 
