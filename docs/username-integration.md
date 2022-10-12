@@ -71,7 +71,7 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 
 ## Send Funds & Check Payment URL
 
-Once you've sent funds, do a GET request on the ```check_url``` in the response, to confirm payment. 
+Once you've sent funds for desired plan, do a GET request on the ```check_url``` in the response, to confirm payment. 
 
 ```js
 // npm install axios
