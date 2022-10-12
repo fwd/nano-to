@@ -1,5 +1,5 @@
-# Username Integration
-
+# Username Registration API
+ 
 Nano.to Usernames can can be registered from with-in your app. Common use case is offering Nano 'search and pay' in wallets, websites, and even in-game crypto usernames.
 
 ## Base URL
