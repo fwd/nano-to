@@ -89,17 +89,25 @@ Once you've sent funds, do a GET request on the ```check_url``` in the response,
 const axios = require('axios')
 
 axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
-	console.log(res.data)
+    console.log(res.data)
 })
 ```
 
 ```json
-{ 
-	"id": "CHECKOUT_ID",
-	"success": true, 
-	"block": "BLOCK_HASH",
-	"message": "Username purchase successful.",
-	"redirect": "https://nano.to/bank?nocache=true"
+{
+  id: 'CHECKOUT_ID',
+  success: true,
+  block: 'E94A1F4613801A21AC7BF2B9EBD783D3...',
+  json: 'https://api.nano.to/checkout/CHECKOUT_ID',
+  username: {
+    name: 'USERNAME',
+    status: 'active',
+    address: 'YOUR_ADDRESS',
+    created: 'October 12, 2022',
+    expires: 'October 14, 2022',
+    created_unix: 1665600244,
+    expires_unix: 1665773040
+  }
 }
 ```
 
@@ -119,7 +127,7 @@ axios.get('https://nano.to/known.json').then((res) => {
 })
 ```
 
-> Github takes up to 5 minutes to update ```https://nano.to/known.json```. Use ```https://api.nano.to/known.json``` for cache-less instantly updated dataset. 
+> Note: Github may take up to 5 minutes to update ```https://nano.to/known.json```.
 
 ```js
 [
