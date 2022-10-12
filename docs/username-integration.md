@@ -1,6 +1,6 @@
 # Username Integration
 
-Nano.to Usernames can be registered in-app. Common use case is offering a Nano 'search and pay' feature in wallets, websites, and even in-game crypto usernames.
+Nano.to Usernames can can be registered from with-in your app. Common use case is offering Nano 'search and pay' in wallets, websites, and even in-game crypto usernames.
 
 ## Base URL
 
@@ -61,10 +61,10 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 
 **Name is alreaddy taken, or not available:**
 
-```
+```js
 { 
-	available: false, 
-	renew_url: 'https://api.nano.to/USERNAME/renew' 
+  available: false, 
+  renew_url: 'https://api.nano.to/USERNAME/renew' 
 }
 ```
 
@@ -112,7 +112,7 @@ https://nano.to/known.json
 const axios = require('axios')
 
 axios.get('https://nano.to/known.json').then((res) => {
-    console.log(res.data)
+  console.log(res.data)
 })
 ```
 
@@ -120,21 +120,25 @@ axios.get('https://nano.to/known.json').then((res) => {
 
 ```js
 [
-	{
-		"name": "USERNAME",
-		"address": "YOUR_ADDRESS",
-		"created": "April 1, 2022",
-		"expires": "April 1, 2024",
-		"created_unix": 1648793880,
-		"expires_unix": 1711952280
-	},
-	// { .. }
+  {
+    "name": "USERNAME",
+    "address": "YOUR_ADDRESS",
+    "created": "April 1, 2022",
+    "expires": "April 1, 2024",
+    "created_unix": 1648793880,
+    "expires_unix": 1711952280
+  },
+  // { .. }
 ]
 ```
 
+## Weekend Discount
+
+Every weekend, certain Plans cost 50% less. Nano.to API automatically updates pricing. No code changes on your behalf necessary.
+
 ## Earn Referral
 
-Coming soon. Earn up to 20% from Nano.to Username sale done through your app. 
+Earn up to 20% from Nano.to Username sale done through your app. Coming soon ™ 
 
 ## Questions or Comments 
 
