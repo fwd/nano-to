@@ -20,7 +20,7 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 })
 ```
 
-**Response:**
+**Available:**
 
 ```js
 {
@@ -61,7 +61,7 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 }
 ```
 
-** Response if name is taken, or not available:**
+**Unavailable:**
 
 ```js
 { 
