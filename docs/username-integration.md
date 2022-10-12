@@ -176,7 +176,7 @@ Every weekend, certain plans cost 50% less. Nano.to API automatically updates pr
 
 ## Referral Payments
 
-Earn up to 20% from any Username sale done through your app. Coming soon ™ 
+Earn up to 20% from any Username sale done through your app. Coming soon. 
 
 ## Questions or Comments 
 
