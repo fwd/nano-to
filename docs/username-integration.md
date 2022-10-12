@@ -82,7 +82,7 @@ axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
 })
 ```
 
-```json
+```js
 {
   id: 'CHECKOUT_ID',
   success: true,
