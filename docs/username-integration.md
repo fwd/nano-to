@@ -1,6 +1,6 @@
 # Username Registration API
  
-Nano.to Usernames can can be registered from with-in your app. Common use case is offering Nano 'search and pay' in wallets, websites, and even in-game crypto usernames.
+You can provide Nano.to Username registration inside your apps. Common use case is offering Nano 'search and pay' in wallets, websites, and even in-game crypto usernames. 
 
 ## Base URL
 
@@ -132,16 +132,48 @@ axios.get('https://nano.to/known.json').then((res) => {
 ]
 ```
 
+## Username Renewals
+
+Renewals are just as easy. Lease can be extended at any time, but only the original address can pay for it.  
+
+```js
+// npm install axios
+
+const axios = require('axios')
+
+axios.get('https://api.nano.to/USERNAME/renew').then((res) => {
+    console.log(res.data)
+})
+```
+
+```json
+{
+    "id": "CHECKOUT_ID",
+    "address": "NANO_ADDRESS_TO_PAY",
+    "browser": "http://nano.to/pay_21071d51",
+    "check_url": "https://api.nano.to/check/CHECKOUT_ID",
+    "lease": "USERNAME",
+    "plans": [
+        {
+            "value": "0.107145",
+            "title": "2 Days",
+            "value_raw": "107145000000000000000000000000"
+        },
+        // { .. }
+    ],
+}
+```
+
 ## Weekend Discount
 
-Every weekend, certain Plans cost 50% less. Nano.to API automatically updates pricing. No code changes on your behalf necessary.
+Every weekend, certain plans cost 50% less. Nano.to API automatically updates pricing. No code changes required on your behalf.
 
-## Earn Referral
+## Referral Payments
 
-Earn up to 20% from Nano.to Username sale done through your app. Coming soon ™ 
+Earn up to 20% from any Username sale done through your app. Coming soon ™ 
 
 ## Questions or Comments 
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
-- @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9) 
+- @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9)
