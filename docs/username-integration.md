@@ -4,16 +4,8 @@ Nano.to Usernames can be registered in-app from other apps. Common use case is o
 
 ## Base URL
 
-**NEW:**
-
 ```
 https://api.nano.to/:USERNAME/lease
-```
-
-**OLD:**
-
-```
-https://name.nano.to/:USERNAME
 ```
 
 **NodeJS:**
@@ -24,14 +16,14 @@ https://name.nano.to/:USERNAME
 const axios = require('axios')
 
 axios.get('https://api.nano.to/fosse72/lease').then((res) => {
-	console.log(res.data)
+    console.log(res.data)
 })
 ```
 
 ```js
 {
   id: 'CHECKOUT_ID',
-  address: 'NANO_TO_ADDRESS_TO_PAY',
+  address: 'NANO_ADDRESS_TO_PAY',
   browser: 'http://nano.to/pay_CHECKOUT_ID',
   check_url: 'https://api.nano.to/check/CHECKOUT_ID',
   lease: 'USERNAME',
@@ -46,19 +38,16 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
     {
       value: '6.07744',
       title: '1 Month',
-      discount: 0,
       value_raw: '6077440000000000000000000000000'
     },
     {
       value: '10.04892',
       title: '1 Year',
-      discount: 0,
       value_raw: '10048920000000000000000000000000'
     },
     {
       value: '20.03362',
       title: '2 Years',
-      discount: 0,
       value_raw: '20033620000000000000000000000000'
     },
     {
@@ -123,11 +112,11 @@ https://nano.to/known.json
 const axios = require('axios')
 
 axios.get('https://nano.to/known.json').then((res) => {
-	console.log(res.data)
+    console.log(res.data)
 })
 ```
 
-> Note: Github may take up to 5 minutes to update ```https://nano.to/known.json```.
+> Note: Github may take up to 5 minutes to update dataset.
 
 ```js
 [
@@ -139,7 +128,7 @@ axios.get('https://nano.to/known.json').then((res) => {
 		"created_unix": 1648793880,
 		"expires_unix": 1711952280
 	},
-	// {..}
+	// { .. }
 ]
 ```
 
