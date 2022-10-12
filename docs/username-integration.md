@@ -83,7 +83,7 @@ axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
 })
 ```
 
-**Response:**
+**Success:**
 
 ```js
 {
@@ -100,6 +100,15 @@ axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
     created_unix: 1665600244,
     expires_unix: 1665773040
   }
+}
+```
+
+**Payment Not Found:**
+
+```js
+{ 
+   error: 404, 
+   message: 'Payment not found.'
 }
 ```
 
