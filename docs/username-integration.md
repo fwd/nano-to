@@ -1,6 +1,6 @@
 # Username Registration API
  
-You can register Usernames from inside your apps. Use case is offering Nano 'search and pay' in wallets, websites, and even in-game. 
+You can register Usernames from within your app. Use case is offering Nano 'search and pay' in wallets, websites, and even in-game. 
 
 ## Base URL
 
