@@ -5,10 +5,10 @@ You can register Usernames from inside your apps. Use case is offering Nano 'sea
 ## Base URL
 
 ```
-https://api.nano.to/:USERNAME/lease
+GET: https://api.nano.to/:USERNAME/lease
 ```
 
-**NodeJS:**
+**NodeJS Example:**
 
 ```js
 // npm install axios
@@ -19,6 +19,8 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
     console.log(res.data)
 })
 ```
+
+**Response:**
 
 ```js
 {
@@ -59,18 +61,17 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 }
 ```
 
-**Name is alreaddy taken, or not available:**
+** Response if name is taken, or not available:**
 
 ```js
 { 
-  available: false, 
-  renew_url: 'https://api.nano.to/USERNAME/renew' 
+  available: false
 }
 ```
 
-## Send Funds & Check Payment
+## Send Funds & Check Payment URL
 
-Once you've sent funds, do a GET request on the ```check_url``` in the response, to confirm payment.
+Once you've sent funds, do a GET request on the ```check_url``` in the response, to confirm payment. 
 
 ```js
 // npm install axios
@@ -81,6 +82,8 @@ axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
     console.log(res.data)
 })
 ```
+
+**Response:**
 
 ```js
 {
@@ -100,7 +103,7 @@ axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
 }
 ```
 
-## Dataset APIs
+## Dataset API
 
 ```
 https://nano.to/known.json
@@ -116,7 +119,8 @@ axios.get('https://nano.to/known.json').then((res) => {
 })
 ```
 
-> Note: Github may take up to 5 minutes to update dataset.
+
+**Response:**
 
 ```js
 [
@@ -131,6 +135,8 @@ axios.get('https://nano.to/known.json').then((res) => {
   // { .. }
 ]
 ```
+
+> Note: It may take up to 5 minutes for dataset to updated globally, when Usernames are purchased.
 
 ## Username Renewals
 
