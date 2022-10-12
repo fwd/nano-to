@@ -140,7 +140,7 @@ axios.get('https://nano.to/known.json').then((res) => {
 
 ## Username Renewals
 
-Renewals are just as easy. Lease can be extended at any time, but only the original address can pay for it.  
+Renewals are just as easy. Lease can be extended at any time, but only by original address.
 
 ```js
 // npm install axios
