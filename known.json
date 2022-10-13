@@ -3309,14 +3309,6 @@
     "expires_unix": 1669227360
   },
   {
-    "name": "valentina",
-    "address": "nano_3mydoc77bwpa9gskkce81i7sn6rx85ujunagjqzyroh9uqor4uo5querwnmh",
-    "created": "November 23, 2021",
-    "expires": "November 23, 2031",
-    "created_unix": 1637689020,
-    "expires_unix": 1953221820
-  },
-  {
     "name": "coinbase",
     "address": "nano_3krkwey4d97qofsfnjysgr5e44a643s6qumponib5e6dsowomfatux17s4hw",
     "created": "November 23, 2021",
