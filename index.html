@@ -222,7 +222,7 @@ https://github.com/fwd/nano
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
                 <span class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction || 'To complete, send:' }}</span>
-                <b class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.amount }}
+                <b @click="copy(checkout.amount)" class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor:pointer`">{{ checkout.amount }}
                   <span class="blocky">{{ 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
