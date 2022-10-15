@@ -118,8 +118,8 @@ http.post('https://api.nano.to', {
   "block": {
     "hash": ":PAYMENT_HASH",
     "account": ":SENDER_ADDRESS",
-    "amount": "10991300000000000000000000000",
-    "amount_nano": "0.0109913"
+    "amount": "0.0109913",
+    "amount_raw": "10991300000000000000000000000",
   },
   "plan": {
     "title": "Default",
