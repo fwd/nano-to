@@ -22,9 +22,9 @@
     "status": "active",
     "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
     "created": "October 10, 2022",
-    "expires": "October 12, 2022",
+    "expires": "October 14, 2023",
     "created_unix": 1665418910,
-    "expires_unix": 1665591660
+    "expires_unix": 1697332800
   },
   {
     "name": "nano2bot",
@@ -3307,6 +3307,14 @@
     "expires": "November 23, 2022",
     "created_unix": 1637691360,
     "expires_unix": 1669227360
+  },
+  {
+    "name": "valentina",
+    "address": "nano_3mydoc77bwpa9gskkce81i7sn6rx85ujunagjqzyroh9uqor4uo5querwnmh",
+    "created": "November 23, 2021",
+    "expires": "November 23, 2031",
+    "created_unix": 1637689020,
+    "expires_unix": 1953221820
   },
   {
     "name": "coinbase",
