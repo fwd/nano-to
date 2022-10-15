@@ -1,22 +1,14 @@
-# Username Integration
-
-Nano.to Usernames can be registered in-app from other apps. Common use case is offering a Nano 'search and pay' feature in websites, and even in-game currency.
+# Username Registration API
+ 
+You can register Usernames from within your app. Use case is offering Nano 'search and pay' in wallets, websites, and even in-game. 
 
 ## Base URL
 
-**NEW:**
-
 ```
-https://api.nano.to/:USERNAME/lease
+GET: https://api.nano.to/:USERNAME/lease
 ```
 
-**OLD:**
-
-```
-https://name.nano.to/:USERNAME
-```
-
-**NodeJS:**
+**NodeJS Example:**
 
 ```js
 // npm install axios
@@ -24,14 +16,16 @@ https://name.nano.to/:USERNAME
 const axios = require('axios')
 
 axios.get('https://api.nano.to/fosse72/lease').then((res) => {
-	console.log(res.data)
+    console.log(res.data)
 })
 ```
+
+**Available:**
 
 ```js
 {
   id: 'CHECKOUT_ID',
-  address: 'NANO_TO_ADDRESS_TO_PAY',
+  address: 'NANO_ADDRESS_TO_PAY',
   browser: 'http://nano.to/pay_CHECKOUT_ID',
   check_url: 'https://api.nano.to/check/CHECKOUT_ID',
   lease: 'USERNAME',
@@ -46,19 +40,16 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
     {
       value: '6.07744',
       title: '1 Month',
-      discount: 0,
       value_raw: '6077440000000000000000000000000'
     },
     {
       value: '10.04892',
       title: '1 Year',
-      discount: 0,
       value_raw: '10048920000000000000000000000000'
     },
     {
       value: '20.03362',
       title: '2 Years',
-      discount: 0,
       value_raw: '20033620000000000000000000000000'
     },
     {
@@ -70,18 +61,17 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 }
 ```
 
-**Name is alreaddy taken, or not available:**
+**Unavailable:**
 
-```
+```js
 { 
-	available: false, 
-	renew_url: 'https://api.nano.to/USERNAME/renew' 
+  available: false
 }
 ```
 
-## Send Funds & Check Payment
+## Send Funds & Check Payment URL
 
-Once you've sent funds, do a GET request on the ```check_url``` in the response, to confirm payment.
+Once you've sent funds for desired plan, do a GET request on the ```check_url``` in the response, to confirm payment. 
 
 ```js
 // npm install axios
@@ -89,21 +79,40 @@ Once you've sent funds, do a GET request on the ```check_url``` in the response,
 const axios = require('axios')
 
 axios.get('https://api.nano.to/check/CHECKOUT_ID').then((res) => {
-	console.log(res.data)
+    console.log(res.data)
 })
 ```
 
-```json
-{ 
-	"id": "CHECKOUT_ID",
-	"success": true, 
-	"block": "BLOCK_HASH",
-	"message": "Username purchase successful.",
-	"redirect": "https://nano.to/bank?nocache=true"
+**Success:**
+
+```js
+{
+  id: 'CHECKOUT_ID',
+  success: true,
+  block: 'E94A1F4613801A21AC7BF2B9EBD783D3...',
+  json: 'https://api.nano.to/checkout/CHECKOUT_ID',
+  username: {
+    name: 'USERNAME',
+    status: 'active',
+    address: 'YOUR_ADDRESS',
+    created: 'October 12, 2022',
+    expires: 'October 14, 2022',
+    created_unix: 1665600244,
+    expires_unix: 1665773040
+  }
 }
 ```
 
-## Dataset APIs
+**Payment Not Found:**
+
+```js
+{ 
+   error: 404, 
+   message: 'Payment not found.'
+}
+```
+
+## Dataset API
 
 ```
 https://nano.to/known.json
@@ -115,28 +124,71 @@ https://nano.to/known.json
 const axios = require('axios')
 
 axios.get('https://nano.to/known.json').then((res) => {
-	console.log(res.data)
+  console.log(res.data)
 })
 ```
 
-> Github takes up to 5 minutes to update ```https://nano.to/known.json```. Use ```https://api.nano.to/known.json``` for cache-less instantly updated dataset. 
+
+**Response:**
 
 ```js
 [
-	{
-		"name": "USERNAME",
-		"address": "YOUR_ADDRESS",
-		"created": "April 1, 2022",
-		"expires": "April 1, 2024",
-		"created_unix": 1648793880,
-		"expires_unix": 1711952280
-	},
-	// {..}
+  {
+    "name": "USERNAME",
+    "address": "YOUR_ADDRESS",
+    "created": "April 1, 2022",
+    "expires": "April 1, 2024",
+    "created_unix": 1648793880,
+    "expires_unix": 1711952280
+  },
+  // { .. }
 ]
 ```
+
+> Note: It may take up to 5 minutes for dataset to updated globally, when Usernames are purchased.
+
+## Username Renewals
+
+Renewals are just as easy. Lease can be extended at any time, but only by original address.
+
+```js
+// npm install axios
+
+const axios = require('axios')
+
+axios.get('https://api.nano.to/USERNAME/renew').then((res) => {
+    console.log(res.data)
+})
+```
+
+```json
+{
+    "id": "CHECKOUT_ID",
+    "address": "NANO_ADDRESS_TO_PAY",
+    "browser": "http://nano.to/pay_21071d51",
+    "check_url": "https://api.nano.to/check/CHECKOUT_ID",
+    "lease": "USERNAME",
+    "plans": [
+        {
+            "value": "0.107145",
+            "title": "2 Days",
+            "value_raw": "107145000000000000000000000000"
+        },
+        // { .. }
+    ],
+}
+```
+
+## Weekend Discount
+
+Every weekend, certain plans cost 50% less. Nano.to API automatically updates pricing. No code changes required on your behalf.
+
+## Referral Payments
+
+Earn up to 20% from any Username sale done through your app. Coming soon. 
 
 ## Questions or Comments 
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
-- @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9) 
+- @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9)
