@@ -44,6 +44,16 @@ Give a ⭐️ if this project helped you!
 
 Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
 
+## License
+
+**Limited Commercial Use:**
+
+- ✅ Personal & Open Source
+- ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end-product.
+- ❌ Commercial use where Nano.to Usernames and/or Checkout **IS** the end-product.
+
+Contact [@nano2dev](mailto:support@nano.to) for Usage/Licensing questions.
+
 ## Stargazers
 
 [![Stargazers over time](https://starchart.cc/fwd/nano-to.svg)](https://github.com/fwd/nano-to)
