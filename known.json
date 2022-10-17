@@ -27,24 +27,6 @@
     "expires_unix": 1697332800
   },
   {
-    "name": "nano2bot",
-    "status": "active",
-    "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
-    "created": "October 3, 2022",
-    "expires": "October 5, 2022",
-    "created_unix": 1664773784,
-    "expires_unix": 1664946540
-  },
-  {
-    "name": "ekd",
-    "status": "active",
-    "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
-    "created": "October 3, 2022",
-    "expires": "October 5, 2022",
-    "created_unix": 1664769971,
-    "expires_unix": 1664942760
-  },
-  {
     "name": "asdasd",
     "status": "active",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
