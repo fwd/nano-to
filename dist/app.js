@@ -671,7 +671,7 @@ new Vue({
             url: `nano:${suggestion.address}`
           }, ]
         }
-        // history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
+        history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
       },
       stringToColour(str) {
