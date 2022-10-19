@@ -11,7 +11,7 @@ https://github.com/fwd/nano
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Nano.to - Blockchain Username Service & Non-Custodial Checkout</title>
+    <title>Nano.to - Username Service & Non-Custodial Checkout</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
     <meta name="author" content="https://twitter.com/nano2dev"/>
@@ -96,6 +96,10 @@ https://github.com/fwd/nano
                         <h1 @click="dev_mode = !dev_mode" v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">{{ prompt.title }}</h1>
                         <p v-html="prompt.body"></p>
                       </div>
+                    </div>
+                    <div v-if="prompt && (dev_mode || queryToObject().nocache)" style="font-size: 16px;">
+                      <div style="margin-bottom: 5px"><span style="color: red;">Created:</span> {{ prompt.created }}</div>
+                      <div><span style="color: red;">Expires:</span> {{ prompt.expires }}</div>
                     </div>
                     <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div v-for="button in prompt.buttons">

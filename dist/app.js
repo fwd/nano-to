@@ -168,7 +168,7 @@ new Vue({
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ name: item.name, address: item.address })
+          if (!cache && query.nocache) return this.doSuggestion({ name: item.name, address: item.address, created: item.created, expires: item.expires })
           
           var custom = false
           var plans = item.plans || query.plans
@@ -655,6 +655,8 @@ new Vue({
         self.prompt = {
           title: `${suggestion.name}`,
           qrcode: `nano:${suggestion.address}`,
+          created: suggestion.created,
+          expires: suggestion.expires,
           body: `
 <p style="font-size: 26px; text-transform: lowercase; word-break: break-word; max-width: 430px; text-align: center; width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; text-shadow: rgb(49, 49, 49) 2px 2px 0px;">
 <span style="color: rgb(253, 0, 7);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span>
