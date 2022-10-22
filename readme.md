@@ -13,20 +13,25 @@
 
 ## Quick Links
 
-- **Nano.to Usernames (Github)**
-  - [Register Username](https://github.com/fwd/nano-to/blob/master/docs/username.md)
-  - [Renew Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
-  - [Username Dataset](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
+---
 
-- **Non-Custodial Checkout (Github)**
-  - [Get Started](https://github.com/fwd/nano-to/blob/master/docs/checkout.md)
-  - [Customize Colors](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
-  - [Funding Goal UI](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
-  - [Backend Checkout](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
+**Nano.to Usernames (Github Hosted)**
+  - [**Register New Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md)
+  - [Renew Existing Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
+  - [Add Usernames To Your App](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
+  - [Register Usernames On Your App](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
 
-- **Other Nano.To Services**
-  - [Free Currency Conversion API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
-  - [Free Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
+
+**Non-Custodial Checkout (Github Hosted)**
+- [Basic Checkkout Usage](https://github.com/fwd/nano-to/blob/master/docs/checkout.md)
+- [Customize Checkout](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
+- [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md)
+
+**Additional Nano.To Services**
+
+- [**Backend Request API**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
+- [Fiat Conversion API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
+- [GPU Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -44,15 +49,23 @@ Give a ⭐️ if this project helped you!
 
 Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+
 ## License
 
-**Limited Commercial Use:**
+---
+
+**Limited Commercial Use**
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames and/or Checkout is **NOT** the end-product.
 - ❌ Commercial use where Nano.to Usernames and/or Checkout **IS** the end-product.
 
 Contact [@nano2dev](mailto:support@nano.to) for Usage/Licensing questions.
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 
 ## Stargazers
 

@@ -1,10 +1,10 @@
 ## Nano.to Usernames
 
-To register a Username, visit https://nano.to and search for your desired Username. 
+Register a Usernames by visiting https://nano.to and searching for desired name. 
 
 - Letters, numbers, and up to 30 characters.
 - Multiple Uernames w/ same Address is allowed.
-- Nano.to Faucet pays ~ 0.001 Nano, [every 24 hours](/faucet). 
+- Nano.to Faucet pay each address ~ 0.001 Nano, [every 24 hours](/faucet). 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -28,7 +28,7 @@ Usernames have **10 day** after expiration where only the original address may r
 
 ## Dataset
 
-We actively encourage other developers to add [Nano.to Usernames](https://nano.to/known.json) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
+We encourage other developers to add [Nano.to Usernames](https://nano.to/known.json) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
 
 ```pthon
 https://nano.to/known.json
