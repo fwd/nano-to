@@ -13,8 +13,6 @@
 
 ## Quick Links
 
----
-
 **Nano.to Usernames (Github Hosted)**
   - [**Register New Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md)
   - [Renew Existing Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
@@ -29,7 +27,7 @@
 
 **Additional Nano.To Services**
 
-- [**Backend Request API**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
+- [**Backend Checkout API**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
 - [Fiat Conversion API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
 - [GPU Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
 
