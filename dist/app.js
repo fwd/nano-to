@@ -8,13 +8,11 @@ new Vue({
       convert: NanocurrencyWeb.tools.convert,
       error: false,
       status: '',
-      point_of_sale: false,
       user: false,
       loading: true,
       background: false,
       customAmount: '',
       rate: false,
-      params: {},
       success: false,
       prompt: false,
       search: true,
@@ -35,7 +33,6 @@ new Vue({
         this.$forceUpdate()
       },
       currency() {
-        // this._checkout()
       },
       string() {
         this.query()
@@ -673,18 +670,6 @@ new Vue({
         }
         history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
-      },
-      stringToColour(str) {
-        var hash = 0;
-        for (var i = 0; i < str.length; i++) {
-          hash = str.charCodeAt(i) + ((hash << 5) - hash);
-        }
-        var colour = '#';
-        for (var i = 0; i < 3; i++) {
-          var value = (hash >> (i * 8)) & 0xFF;
-          colour += ('00' + value.toString(16)).substr(-2);
-        }
-        return colour;
       },
     }
 })
