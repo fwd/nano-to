@@ -52,8 +52,6 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## License
 
----
-
 **Limited Commercial Use**
 
 - ✅ Personal & Open Source
