@@ -1,6 +1,6 @@
 ## Nano.to Checkout
 
-Nano.to is also a highly customizable hosted Checkout page. It works by checking the ```pending``` and ```history``` of any given Nano address and alerting your servers of payments when configured.
+Nano.to is a customizable non-custodial Checkout UI. It works by checking the ```pending``` and ```history``` of any given Nano address.
 
 **Any Address:**
 ```python
@@ -75,7 +75,15 @@ https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 
 ### Checkout via POST
 
-**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When you need to provide senstive information such as ```webhook_url``` and ```metadata```, thats were this API comes in handy.
+**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When providing private information such as ```webhook_url``` and ```metadata```, this API comes in handy.
+
+**Base URL:**
+
+```
+https://api.nano.to
+```
+
+**NodeJS Example:**
 
 ```js
 const http = require('axios')
@@ -91,13 +99,13 @@ http.post('https://api.nano.to', {
 })
 ```
 
-**POST Only Options**
+**Private Parameters**
 
 - **webhook_url** (string) : URL to receive succesful payment metadata.
 - **metadata** (object) : Object with any kind of JSON data.
 
 
-**Response**
+**Response:**
 
 ```json
 {
@@ -114,10 +122,10 @@ http.post('https://api.nano.to', {
 
 ```json
 {
-  "id": ":CHECKOUT_ID",
+  "id": "CHECKOUT_ID",
   "block": {
-    "hash": ":PAYMENT_HASH",
-    "account": ":SENDER_ADDRESS",
+    "hash": "PAYMENT_HASH",
+    "account": "SENDER_ADDRESS",
     "amount": "0.0109913",
     "amount_raw": "10991300000000000000000000000",
   },
@@ -130,7 +138,7 @@ http.post('https://api.nano.to', {
     "userId": "joe-mama",
     "password": "Slava Ukraini"
   },
-  "checkout": "https://api.nano.to/checkout/:CHECKOUT_ID"
+  "checkout": "https://api.nano.to/checkout/CHECKOUT_ID"
 }
 ```
 
