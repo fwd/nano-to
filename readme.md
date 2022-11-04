@@ -13,17 +13,16 @@
 
 ## Quick Links
 
+**Free, Non-Custodial Checkout (Github Hosted)**
+- [Checkout Usage](https://github.com/fwd/nano-to/blob/master/docs/checkout.md)
+- [Customize Checkout](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
+- [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md)
+
 **Nano.to Usernames (Github Hosted)**
   - [**Register New Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md)
   - [Renew Existing Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
   - [Add Usernames To Your App](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
   - [Register Usernames In-App](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md#username-registration-api)
-
-
-**Non-Custodial Checkout (Github Hosted)**
-- [Basic Checkkout Usage](https://github.com/fwd/nano-to/blob/master/docs/checkout.md)
-- [Customize Checkout](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
-- [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md)
 
 **Additional Nano.To Services**
 
