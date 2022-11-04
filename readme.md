@@ -17,7 +17,7 @@
   - [**Register New Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md)
   - [Renew Existing Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
   - [Add Usernames To Your App](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
-  - [Register Usernames In-App](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md)
+  - [Register Usernames In-App](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md#username-registration-api)
 
 
 **Non-Custodial Checkout (Github Hosted)**
