@@ -327,6 +327,11 @@ new Vue({
         if (this.checkout.cancel_url) {
           return window.location.href = this.checkout.cancel_url
         }
+        var query = this.queryToObject()
+            query = query.cancel || query.cancel_url || query.c
+        if (query) {
+          return window.location.href = query
+        }
         this.checkout = false
       },
       planValue(plan) {
