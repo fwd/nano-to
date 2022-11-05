@@ -1,6 +1,6 @@
 ## Nano.to Checkout
 
-Nano.to is a free, non-custodial Checkout UI for the Nano blockchain. It works by checking ```pending``` and ```history``` of any given address. 
+Nano.to is a free, non-custodial Checkout UI hosted on Github. It works by checking ```pending``` and ```history``` of any given address. Customizable with URL params. Optional, POST API available for secure checkouts.
 
 **Any Address:**
 ```python
@@ -9,7 +9,7 @@ https://nano.to/:ADDRESS
 
 **Nano.to Username:**
 ```python
-https://nano.to/@Development
+https://nano.to/@Keeri
 ```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
@@ -17,7 +17,7 @@ https://nano.to/@Development
 ### Single Panel
 
 ```python
-https://nano.to/@Keeri?amount=50&random=true
+https://nano.to/@Fosse?amount=50&random=true
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/single-ui.png" alt="Single Panel UI" />
@@ -25,7 +25,7 @@ https://nano.to/@Keeri?amount=50&random=true
 ### Double Panel
 
 ```python
-https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20
+https://nano.to/@Moon?plans=Tip:0.133,Small:1,Medium:10,Large:20,Gigantic:100
 ```
 
 <img src="https://github.com/fwd/nano/raw/master/dist/images/double-ui.png" alt="Single Panel UI" />
