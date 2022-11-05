@@ -1,6 +1,6 @@
 ## Nano.to Checkout
 
-Nano.to is a customizable non-custodial Checkout UI. It works by checking the ```pending``` and ```history``` of any given Nano address.
+Nano.to is a free, non-custodial Checkout UI for the Nano blockchain. It works by checking ```pending``` and ```history``` of any given address. 
 
 **Any Address:**
 ```python
@@ -60,7 +60,7 @@ https://nano.to/@Keeri
 - **cancel** (string) : Redirect URL when pressed 'Cancel'
 - **redirect** (string) : Redirect URL on success.
 
-**In-Development:**
+**Coming Soon:**
 - **currency** (string) : ISO Currency Symbol. Ex JPY
 
 ### Checkout Funding UI
@@ -75,12 +75,12 @@ https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 
 ### Checkout via POST
 
-**Nano.to Checkout UI** is hosted on Github, and can be used without a backend. When providing private information such as ```webhook_url``` and ```metadata```, this API comes in handy.
+**Nano.to Checkout UI** is hosted on Github, and does not require a server. When you need to providing senstive information such as ```webhook_url``` and ```metadata```, this backend API comes in handy.
 
 **Base URL:**
 
 ```
-https://api.nano.to
+POST: https://api.nano.to
 ```
 
 **NodeJS Example:**
@@ -89,8 +89,7 @@ https://api.nano.to
 const http = require('axios')
 
 http.post('https://api.nano.to', {
-  address: '@keeri',
-  background: '#0057b7,#ffd700',
+  address: '@keeri', // or address
   webhook_url: 'https://example.com/secret/endpoint',
   success_url: 'https://example.com/success?hash={{hash}}',
   metadata: { userId: 'joe-mama', password: "Slava Ukraini" },
@@ -99,7 +98,7 @@ http.post('https://api.nano.to', {
 })
 ```
 
-**Private Parameters**
+**Parameters:**
 
 - **webhook_url** (string) : URL to receive succesful payment metadata.
 - **metadata** (object) : Object with any kind of JSON data.
@@ -116,7 +115,7 @@ http.post('https://api.nano.to', {
 }
 ```
 
-> Perform a GET request on ```check``` URL to check for payment, or redirect user to ```browser```.
+> Perform a GET request on ```check``` URL to confirm payment, or redirect user to ```browser``` for included UI.
  
 **Webhook Body:**
 
@@ -124,7 +123,7 @@ http.post('https://api.nano.to', {
 {
   "id": "CHECKOUT_ID",
   "block": {
-    "hash": "PAYMENT_HASH",
+    "hash": "PAYMENT_BLOCK_HASH",
     "account": "SENDER_ADDRESS",
     "amount": "0.0109913",
     "amount_raw": "10991300000000000000000000000",
