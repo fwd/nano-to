@@ -75,7 +75,7 @@ https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 
 ### Checkout via POST
 
-**Nano.to Checkout UI** is hosted on Github, and does not require a server. When you need to providing senstive information such as ```webhook_url``` and ```metadata```, this backend API comes in handy.
+**Nano.to Checkout UI** is hosted on Github, and does not require a server. When you using sensitive information such as ```webhook_url``` and ```metadata```, this backend API comes in handy.
 
 **Base URL:**
 
