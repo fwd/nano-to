@@ -36,9 +36,8 @@ axios.post('https://pow.nano.to', {
 
 ## Rate Limit
 
-- Unlimited 5 PoW / Per Minute.
-- Unlimited 10 PoW / Per Minute with Free API Key.
-- [Prepaid PoW](https://pow.nano.to) @ Ӿ 0.01/PoW
+- 10 PoW / Per Minute.
+- Unlimited [Prepaid PoW](https://pow.nano.to) @ Ӿ 0.01/PoW
 
 ## Free API Key
 
