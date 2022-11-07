@@ -4214,14 +4214,6 @@
     "expires_unix": 1669122900
   },
   {
-    "name": "avigopal",
-    "address": "nano_1mz98gg1xnii9mo4aur6ax9xcpayyzexcejzpednpbyk4n1ztzznp635uy9f",
-    "created": "September 17, 2021",
-    "expires": "October 27, 2022",
-    "created_unix": 1631925300,
-    "expires_unix": 1666898940
-  },
-  {
     "name": "beer",
     "address": "nano_3banannooopfbie7zxbq75h9ug6gdxb5xugfpap78g65q6sxhfqfij9t4k54",
     "created": "September 17, 2021",
