@@ -26,9 +26,9 @@
 
 **Additional Nano.To Services**
 
-- [**Backend Checkout API**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
-- [Fiat Conversion API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
-- [GPU Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
+- [**Checkout API**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
+- [Nano Price API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
+- [Nano.to dPoW](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
