@@ -1,6 +1,6 @@
 ## Nano.to Checkout
 
-Nano.to is a free, non-custodial Checkout UI hosted on Github. It works by checking ```pending``` and ```history``` of any given address. Customizable with URL params. Optional, POST API available for secure checkouts.
+Free, non-custodial Checkout UI hosted on Github. It works by checking ```pending``` and ```history``` of any given address. Customizable with URL params. Optional, POST API available for secure checkouts.
 
 **Any Address:**
 ```python
@@ -75,7 +75,7 @@ https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 
 ### Checkout via POST
 
-**Nano.to Checkout UI** is hosted on Github, and does not require a server. When you using sensitive information such as ```webhook_url``` and ```metadata```, this backend API comes in handy.
+**Nano.to Checkout UI** is hosted on Github, and does not require a server. When using sensitive information such as ```webhook_url``` and ```metadata```, this backend API comes in handy.
 
 **Base URL:**
 
