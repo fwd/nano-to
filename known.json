@@ -410,9 +410,9 @@
     "name": "auz",
     "address": "nano_3wgxexgdawsgaiqyr8jsf38nrswdbk17iyyaa6c6xt638mcw4ig45qi348a4",
     "created": "January 18, 2022",
-    "expires": "January 18, 2023",
+    "expires": "January 18, 2024",
     "created_unix": 1642550820,
-    "expires_unix": 1674086820
+    "expires_unix": 1705554000
   },
   {
     "name": "Kyle",
