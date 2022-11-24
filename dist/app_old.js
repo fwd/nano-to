@@ -53,18 +53,13 @@ new Vue({
         if (document.body) document.body.classList.add('fullscreen');
       }
 
-      this.loading = true
-
       this.load((data) => {
-        
         if (window.location.pathname !== '/') {
           this._checkout(null, data)
         }
-
         setTimeout(() => {
           this.loading = false
-        }, 100)
-
+        }, 105)
       })
 
       document.onkeydown = function(evt) {
@@ -665,8 +660,8 @@ new Vue({
           created: suggestion.created,
           expires: suggestion.expires,
           body: `
-<p style="font-size: 36px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
-<span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
+<p style="font-size: 26px; text-transform: lowercase; word-break: break-word; max-width: 430px; text-align: center; width: 100%; display: inline-block; margin-top: 0px; margin-bottom: 0px; text-shadow: rgb(49, 49, 49) 2px 2px 0px;">
+<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(253, 0, 7);">${suggestion.address.slice(59, 99)}</span>
 </p>`,
           buttons: [{
             label: `Send Payment`,

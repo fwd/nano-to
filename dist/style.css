@@ -2,6 +2,25 @@
   box-sizing: border-box;
 }
 
+body {
+  transition: 0.5s all;
+}
+
+.light body {
+  filter: invert(1);
+}
+
+.light #checkout {
+  filter: invert(1) !important;
+}
+
+.light .blue .title:not(.error)::after, 
+.light .blue .title:not(.error)::before,
+.light .blue.screen:not(.error)::after,
+.light .blue .box--outer:not(.error) {
+  filter: hue-rotate(45deg) !important;
+}
+
 @font-face {
   font-family: Cyber;
   src: url("../dist/fonts/Cyber.otf");
@@ -369,7 +388,8 @@ body .cybr-btn + .cybr-btn {
   bottom: -5%;
   right: 5%;
   font-weight: normal;
-  color: hsl(0, 0%, 0%);
+  /*color: hsl(0, 0%, 0%);*/
+  color:  #FFF;
   font-size: var(--label-size);
 }
 
@@ -1201,9 +1221,12 @@ code {
     position: fixed;
     z-index: -1;
     filter: brightness(0.2);
-    background-size: 82%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+}
+.light #backdrop {
+  filter: brightness(0.08);
 }
 #backdrop.active {
   opacity: 0.2;
@@ -1392,12 +1415,16 @@ code {
 }
 
 #app .loader {
-    position: fixed;
-    z-index: 999999;
-    background: black;
-    width: 100%;
-    top: 0;
-    bottom: 0;
+  position: fixed;
+  z-index: 999999;
+  background: black;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  /*background-image: url(https://www.dni.gov/ncsc/e-Learning_CyberExplore/images/earth.gif);*/
+  /*background-size: 50%;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
 }
 
 #checkout h1 {
