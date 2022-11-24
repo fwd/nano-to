@@ -455,7 +455,7 @@ hr {
     border-radius: 5px;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 6px 9px rgb(37 37 37 / 8%);
+    box-shadow: 0 6px 9px rgb(37 37 37 / 1%);
 }
 #checkout .plans > div p {
     margin-top: 10px;
