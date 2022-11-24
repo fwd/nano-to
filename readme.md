@@ -29,6 +29,7 @@
 
 - [Fiat Price API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
 - [Nano Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
+- [1-Click Nano Node Install](https://github.com/fwd/nano-docker)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
