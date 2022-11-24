@@ -14,21 +14,21 @@
 ## Quick Links
 
 **Nano Checkout UI (Github Hosted)**
-- [Get Started](https://github.com/fwd/nano-to/blob/master/docs/checkout.md)
-- [Advanced Customization](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
-- [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md)
+- [**Get Started with Checkout**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#nanoto-checkout)
+- [Advanced Checkout Options](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
+- [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
+- [Backend Checkout API](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
 
 **Nano.to Usernames (Github Hosted)**
-  - [**Register Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md)
+  - [**Register Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md#nanoto-usernames)
   - [Renew Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
   - [Username Dataset](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
-  - [In-App Usernames](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md#username-registration-api)
+  - [In-App Usernames](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md#in-app-username-api)
 
 **Additional Nano.To Services**
 
-- [**Checkout API**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
-- [Nano Price API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
-- [Nano.to dPoW](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
+- [Fiat Price API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
+- [Nano Proof of Work API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
