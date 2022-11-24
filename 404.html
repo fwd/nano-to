@@ -11,7 +11,7 @@ https://github.com/fwd/nano
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Nano.to - Username Service & Non-Custodial Checkout UI</title>
+    <title>Nano.to - Blockchain Username Service & Non-Custodial Checkout</title>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="dist/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
@@ -24,6 +24,15 @@ https://github.com/fwd/nano
     <meta property="og:image" content="dist/images/cover.png">
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="stylesheet" href="dist/style.css">
+    <script>
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.className += ' dark'
+      } else {
+        document.documentElement.className += ' light'
+      }
+      const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || (window.navigator.standalone) || document.referrer.includes('android-app://')
+      if (isInStandaloneMode) document.documentElement.className += ' web-app'
+    </script>
   </head>
   <body>
     <p class="seo-hackz" style="display: none; opacity: 0;">Username service and non-custodial checkout UI for the Nano Blockchain. Nano.to is on a mission to accelerate the use of Nano currency around the world.</p>
@@ -68,7 +77,7 @@ https://github.com/fwd/nano
                       <div class="row centered">
                         <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; "> Search <span aria-hidden>_</span>
                           <span aria-hidden class="cybr-btn__glitch">NANO_</span>
-                          <span aria-hidden class="cybr-btn__tag">N2</span>
+                          <!-- <span aria-hidden class="cybr-btn__tag">N2</span> -->
                         </button>
                       </div>
                     </form>
@@ -92,13 +101,13 @@ https://github.com/fwd/nano
                     <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div v-for="button in prompt.buttons">
                         <a @click="doButton(button)">
-                          <button class="cybr-btn" style="zoom: 0.6;">
+                          <button class="cybr-btn" style="zoom: 0.65;">
                             {{ button.label }}
                             <span aria-hidden>_</span>
                             <span aria-hidden class="cybr-btn__glitch">{{ button.label }}
                               <span aria-hidden>_</span>
                             </span>
-                            <span aria-hidden class="cybr-btn__tag">R25</span>
+                            <!-- <span aria-hidden class="cybr-btn__tag">R25</span> -->
                           </button>
                           <a/>
                       </div>
@@ -112,7 +121,7 @@ https://github.com/fwd/nano
                             <span aria-hidden class="cybr-btn__glitch">Renew Lease
                               <span aria-hidden>_</span>
                             </span>
-                            <span aria-hidden class="cybr-btn__tag">R26</span>
+                            <!-- <span aria-hidden class="cybr-btn__tag">R26</span> -->
                           </button>
                           <a/>
                       </div>
@@ -123,7 +132,7 @@ https://github.com/fwd/nano
                       </p>
                     </a>
                     <a v-if="prompt" @click.prevent="prompt = false; search = true">
-                      <p style=" margin-top: 30px; font-size: 14px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;">
+                      <p style=" margin-top: 30px; font-size: 16px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;">
                         <span>{{ 'CANCEL' }}</span>
                       </p>
                     </a>
@@ -168,7 +177,7 @@ https://github.com/fwd/nano
             <img v-if="checkout.image" class="checkout-image" :src="checkout.image" alt="">
             <p v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
             <div class="plans">
-              <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
+            <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>
                     {{ plan.title || plan.name }}
