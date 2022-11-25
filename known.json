@@ -56,15 +56,6 @@
     "expires_unix": 1732105680
   },
   {
-    "name": "damien",
-    "status": "active",
-    "address": "nano_1wze5zu8rko3ab7ha88m63z9uii7q7z4j8h71e6pa3rsam9iwxe5xxb5fema",
-    "created": "November 12, 2022",
-    "expires": "November 14, 2022",
-    "created_unix": 1668237939,
-    "expires_unix": 1668410700
-  },
-  {
     "name": "keywordcrypto",
     "status": "active",
     "address": "nano_11wn64njybm6zy3zi7n7znpi5hfb3y3zb4srtot3nkikrknf4qohara8fxx6",
@@ -81,15 +72,6 @@
     "expires": "November 10, 2024",
     "created_unix": 1668117803,
     "expires_unix": 1731276180
-  },
-  {
-    "name": "prueba2",
-    "status": "active",
-    "address": "nano_3b1tgep5e6nzhc4osdpmmd5hs8z5i3591gxsj3tteibb4hsuupzmm9ux53c6",
-    "created": "November 10, 2022",
-    "expires": "November 12, 2022",
-    "created_unix": 1668095150,
-    "expires_unix": 1668267900
   },
   {
     "name": "avigopal",
