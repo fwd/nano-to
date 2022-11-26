@@ -77,21 +77,23 @@ https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 
 ### Checkout via POST
 
-**Nano.to Checkout UI** is hosted on Github, and does not require a server. When using sensitive information such as ```webhook_url``` and ```metadata```, this backend API comes in handy.
+**Nano.to Checkout UI** is hosted on Github, and does not require a server. 
+
+However, when you want to create more complex Checkouts, Nano.to has a secure API for this case.
 
 **Base URL:**
 
 ```
-POST: https://api.nano.to
+https://api.nano.to
 ```
 
-**NodeJS Example:**
+**POST Example:**
 
 ```js
 const http = require('axios')
 
 http.post('https://api.nano.to', {
-  address: '@keeri', // or address
+  address: '@moon', // or address
   webhook_url: 'https://example.com/secret/endpoint',
   success_url: 'https://example.com/success?hash={{hash}}',
   metadata: { userId: 'joe-mama', password: "Slava Ukraini" },
@@ -119,7 +121,7 @@ http.post('https://api.nano.to', {
 
 > Perform a GET request on ```check``` URL to confirm payment, or redirect user to ```browser``` for included UI.
  
-**Webhook Body:**
+**Webhook POST Body:**
 
 ```json
 {
@@ -128,7 +130,7 @@ http.post('https://api.nano.to', {
     "hash": "PAYMENT_BLOCK_HASH",
     "account": "SENDER_ADDRESS",
     "amount": "0.0109913",
-    "amount_raw": "10991300000000000000000000000",
+    "amount_raw": "10991300000000000000000000000"
   },
   "plan": {
     "title": "Default",
