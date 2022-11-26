@@ -65,6 +65,8 @@ https://nano.to/@Keeri
 
 ### Checkout Funding UI
 
+Easily show a meter of progress for any Nano fundraiser. 
+
 ```python
 https://nano.to/@Basedlemahieu?goal=100:Funding Goal
 ```
