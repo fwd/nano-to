@@ -39,7 +39,7 @@
 - ӿ.to (**Alias**)
 - xno.to (**Alias**)
 
-> Use any of these domains when sharing URLs.
+> Use any of these domains when sharing URLs. Example: https://xno.to/Moon
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
