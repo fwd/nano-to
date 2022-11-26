@@ -35,7 +35,7 @@
 
 ## Nano.to Domains
 
-- **nano.to** (Official)
+- **nano.to** (**Official**)
 - ӿ.to (Alias)
 - xno.to (Alias)
 
