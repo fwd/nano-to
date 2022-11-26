@@ -39,6 +39,11 @@
 - xno.to
 - ӿ.to
 
+Example:
+```
+https://ӿ.to/moon --> https://nano.to/moon
+```
+
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Support
