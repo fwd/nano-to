@@ -431,16 +431,19 @@ new Vue({
           })
       },
       show_success(block) {
+        var query = this.queryToObject()
+        // return console.log( block )
+        redirect = query.r || query.redirect || query.success || this.checkout.success_url || false
         this.success = {
           block,
           confetti: true,
           title: 'Complete',
           message: 'Payment was sent successfully.',
           // confirm: true,
-          button: this.checkout.fullscreen ? this.checkout.success_button : false,
-          redirect: this.checkout.fullscreen ? this.checkout.success_url : false,
+          button: !query.success && this.checkout.fullscreen ? this.checkout.success_button : false,
+          redirect: redirect,
         }
-        if (this.checkout.fullscreen && this.checkout.success_url && !this.checkout.success_button) {
+        if (redirect) {
           var success_url = this.checkout.success_url
           .split('{{account}}').join(block.account)
           .split('{{amount}}').join(this.convert(this.checkout.amount, 'RAW', 'NANO'))

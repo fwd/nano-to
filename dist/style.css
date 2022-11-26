@@ -10,6 +10,7 @@ body {
   filter: invert(1);
 }
 
+.light #success>div,
 .light #checkout {
   filter: invert(1) !important;
 }
@@ -1329,7 +1330,7 @@ code {
 /* Checkout  */
 
 .success-title {
-    color: rgb(46, 204, 113);
+    color: #ffffff;
     margin: 0px;
     font-size: 26px;
     margin-bottom: 25px;
@@ -1362,7 +1363,7 @@ code {
 }
 
 #success > div {
-    background: #FFF;
+    background: #039cff;
     color: #000;
     max-width: 340px;
     margin: 0 auto;
@@ -1372,6 +1373,7 @@ code {
     font-family: Arial;
     text-align: center;
     zoom: 1.1;
+    color: #FFF;
 }
 
 #success .btn {
