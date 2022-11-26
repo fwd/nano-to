@@ -58,7 +58,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 - ✅ Commercial use where Nano.to Username or Checkout is **NOT** the end-product.
 - ❌ Commercial use where Nano.to Username or Checkout **IS** the end-product.
 
-Contact [@nano2dev](mailto:support@nano.to) for Usage/Licensing questions.
+Contact [support@nano.to](mailto:support@nano.to) for licensing questions.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
