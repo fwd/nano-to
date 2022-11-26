@@ -173,9 +173,8 @@ axios.get('https://api.nano.to/USERNAME/renew').then((res) => {
             "value": "0.107145",
             "title": "2 Days",
             "value_raw": "107145000000000000000000000000"
-        },
-        // { .. }
-    ],
+        }
+    ]
 }
 ```
 
