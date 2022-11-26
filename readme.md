@@ -33,11 +33,11 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Domains
+## Nano.to Domains
 
-- nano.to
-- xno.to
 - ӿ.to
+- xno.to
+- nano.to
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
