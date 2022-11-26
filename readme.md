@@ -39,8 +39,6 @@
 - ӿ.to (**Alias**)
 - xno.to (**Alias**)
 
-> Example: https://xno.to/Moon
-
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Support
