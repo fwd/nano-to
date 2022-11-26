@@ -35,9 +35,9 @@
 
 ## Nano.to Domains
 
-- **nano.to** (**Official**)
-- ӿ.to (Alias)
-- xno.to (Alias)
+- nano.to (**Official**)
+- ӿ.to (**Alias**)
+- xno.to (**Alias**)
 
 You can use any of these domains when sharing URLs.
 
