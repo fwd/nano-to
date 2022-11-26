@@ -35,9 +35,11 @@
 
 ## Nano.to Domains
 
-- ӿ.to
-- xno.to
-- nano.to
+- **nano.to** (Official)
+- ӿ.to (Alias)
+- xno.to (Alias)
+
+You can use any of these domains when sharing URLs.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
