@@ -1742,7 +1742,7 @@ section:first-child {
     width: 100%;
 }
 .crypto .button {
-    max-width: 300px;
+    max-width: 270px;
     margin: 30px auto;
     min-height: 60px;
     display: flex;
