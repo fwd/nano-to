@@ -33,11 +33,13 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Supported Domains
+## Custom Domains
 
 - nano.to
 - xno.to
 - ӿ.to
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Support
 
