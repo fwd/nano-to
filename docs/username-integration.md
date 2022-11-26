@@ -1,6 +1,6 @@
 # In-App Username API
  
-Offer 'search and pay' in wallets, websites, or in-game. Receive 20% from every Username purchase.
+Offer crypto 'search and pay' in your apps. Receive 20% from Username purchases.
 
 ## Base URL
 
