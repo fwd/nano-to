@@ -5,7 +5,7 @@ Offer Nano 'search and pay' in your apps. Receive 20% from Username purchases.
 ## Base URL
 
 ```
-GET: https://api.nano.to/:USERNAME/lease
+https://api.nano.to/:USERNAME/lease
 ```
 
 **NodeJS Example:**
