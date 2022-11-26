@@ -55,8 +55,8 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 **Limited Commercial Use**
 
 - ✅ Personal & Open Source
-- ✅ Commercial use where Nano.to Username or Checkout is **NOT** the end-product.
-- ❌ Commercial use where Nano.to Username or Checkout **IS** the end-product.
+- ✅ Commercial use where Nano.to Usernames or Checkout is **NOT** the end-product.
+- ❌ Commercial use where Nano.to Usernames or Checkout **IS** the end-product.
 
 Contact [support@nano.to](mailto:support@nano.to) for licensing questions.
 
