@@ -35,9 +35,9 @@
 
 ## Nano.to Domains
 
-- https://nano.to (**Official**)
-- https://ӿ.to (**Alias**)
-- https://xno.to (**Alias**)
+- nano.to (**Official**)
+- ӿ.to (**Alias**)
+- xno.to (**Alias**)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
