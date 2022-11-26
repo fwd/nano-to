@@ -33,6 +33,12 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
+## Supported Domains
+
+- nano.to
+- xno.to
+- ӿ.to
+
 ## Support
 
 - Email: support@nano.to
