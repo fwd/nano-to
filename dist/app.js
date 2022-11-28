@@ -97,6 +97,7 @@ new Vue({
       },
       lease(name) {
         axios.get(`https://api.nano.to/${name}/lease`).then((res) => {
+          if (res.data.error) return alert(res.data.message)
           res.data.back = true
           this.checkout = res.data
           setTimeout(() => {
