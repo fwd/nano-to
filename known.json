@@ -3887,14 +3887,6 @@
     "expires_unix": 1950058800
   },
   {
-    "name": "kraken",
-    "address": "nano_3cpz7oh9qr5b7obbcb5867omqf8esix4sdd5w6mh8kkknamjgbnwrimxsaaf",
-    "created": "September 17, 2021",
-    "expires": "October 17, 2031",
-    "created_unix": 1631915940,
-    "expires_unix": 1950040740
-  },
-  {
     "name": "tally",
     "address": "nano_3spiffyfbcchbm6ftbzwk7cjcc9a3r3j3asccbew6p7tq3azu9eh5t47j3id",
     "created": "September 17, 2021",
