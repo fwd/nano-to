@@ -2983,252 +2983,12 @@
     "expires_unix": 1669602420
   },
   {
-    "name": "twitch",
-    "address": "nano_3krkwey4d97qofsfnjysgr5e44a643s6qumponib5e6dsowomfatux17s4hw",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637985780,
-    "expires_unix": 1669521780
-  },
-  {
-    "name": "mbg",
-    "address": "nano_3krkwey4d97qofsfnjysgr5e44a643s6qumponib5e6dsowomfatux17s4hw",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637985600,
-    "expires_unix": 1669521600
-  },
-  {
-    "name": "shop",
-    "address": "nano_1yen9ezi4cpaih8kghhr4cepdx8udg6jqc6nsgdis1gsohhuxbqhgtnwuuwc",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637983260,
-    "expires_unix": 1669519260
-  },
-  {
-    "name": "shopsmith",
-    "address": "nano_1yen9ezi4cpaih8kghhr4cepdx8udg6jqc6nsgdis1gsohhuxbqhgtnwuuwc",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637982480,
-    "expires_unix": 1669518480
-  },
-  {
-    "name": "smith",
-    "address": "nano_1yen9ezi4cpaih8kghhr4cepdx8udg6jqc6nsgdis1gsohhuxbqhgtnwuuwc",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637982420,
-    "expires_unix": 1669518420
-  },
-  {
-    "name": "testing",
-    "address": "nano_1yen9ezi4cpaih8kghhr4cepdx8udg6jqc6nsgdis1gsohhuxbqhgtnwuuwc",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637982000,
-    "expires_unix": 1669518000
-  },
-  {
-    "name": "mkipsas",
-    "address": "nano_1m1okz9cafmaq4qei5i13fqb5tdb4nyrrt37nco44jnzd6yym1q833m9tp7c",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637912700,
-    "expires_unix": 1669448700
-  },
-  {
-    "name": "portal",
-    "address": "nano_34po3gptqnzuqbpxwgfc67bdg5c36ajk6jxduuoa5cbk3cdb7y9exi47cf77",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637904000,
-    "expires_unix": 1669440000
-  },
-  {
-    "name": "rs",
-    "address": "nano_1gepkgm5cxwch4mbrhsfxdoea6xjrb4ztdrqa51p7cm6cenne8k5cw3edj5a",
-    "created": "November 26, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1637903100,
-    "expires_unix": 1669439100
-  },
-  {
-    "name": "weeb",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637892180,
-    "expires_unix": 1669428180
-  },
-  {
-    "name": "cum",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637892060,
-    "expires_unix": 1669428060
-  },
-  {
-    "name": "anime",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637891880,
-    "expires_unix": 1669427880
-  },
-  {
-    "name": "nanoa",
-    "address": "nano_3c3xc9hj9xuowo8sggy61b4f5371qa1hp4jdk1idr1n5dh7e71z3gm65bxcd",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637891760,
-    "expires_unix": 1669427760
-  },
-  {
-    "name": "manga",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637891580,
-    "expires_unix": 1669427580
-  },
-  {
-    "name": "mango",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637891580,
-    "expires_unix": 1669427580
-  },
-  {
-    "name": "tsundere",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637889000,
-    "expires_unix": 1669425000
-  },
-  {
-    "name": "waifu",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637889000,
-    "expires_unix": 1669425000
-  },
-  {
-    "name": "hentai",
-    "address": "nano_18c53kzmznq59rj3ftusfrma4g6mp3xi8zs8fbfwxkmaejisbraz1t7p8oer",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637888940,
-    "expires_unix": 1669424940
-  },
-  {
-    "name": "gateway",
-    "address": "nano_34po3gptqnzuqbpxwgfc67bdg5c36ajk6jxduuoa5cbk3cdb7y9exi47cf77",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637886300,
-    "expires_unix": 1669422300
-  },
-  {
     "name": "sash",
     "address": "nano_13fscd11jcnspza4hurru4uyj76pw93t35dya8o4rpm7odb3eqzf3ad3xdio",
     "created": "November 25, 2021",
     "expires": "November 25, 2023",
     "created_unix": 1637865660,
     "expires_unix": 1700937660
-  },
-  {
-    "name": "zib",
-    "address": "nano_1zibht4fa4cbxyc3jap5agqsqekjxyts85qwho45343ohfuwryxe8rkmayno",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637856360,
-    "expires_unix": 1669392360
-  },
-  {
-    "name": "steam",
-    "address": "nano_3krkwey4d97qofsfnjysgr5e44a643s6qumponib5e6dsowomfatux17s4hw",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637853660,
-    "expires_unix": 1669389660
-  },
-  {
-    "name": "m",
-    "address": "nano_3krkwey4d97qofsfnjysgr5e44a643s6qumponib5e6dsowomfatux17s4hw",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637853300,
-    "expires_unix": 1669389300
-  },
-  {
-    "name": "buy",
-    "address": "nano_3hfpw7s7xjiej5akd69g9s96wbbcauzxsy5i31iypeyfrwkdsiggc8eh5jg6",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637853240,
-    "expires_unix": 1669389240
-  },
-  {
-    "name": "kucoin",
-    "address": "nano_3hfpw7s7xjiej5akd69g9s96wbbcauzxsy5i31iypeyfrwkdsiggc8eh5jg6",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637853240,
-    "expires_unix": 1669389240
-  },
-  {
-    "name": "vesper",
-    "address": "nano_1das5czc7f7eadkg6d9u7jarsux8p6xn6ju9n9ywijz77qyp3zbry6pjxtmx",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637853180,
-    "expires_unix": 1669389180
-  },
-  {
-    "name": "mattg",
-    "address": "nano_3mattga85auwyyh9s388qmgqzkbo9z5aeicrx68dyjfdrpgqpu6chyhb54ar",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637835240,
-    "expires_unix": 1669371240
-  },
-  {
-    "name": "luno",
-    "address": "nano_1qcc7ukaqq7qht1cp54uophtucdsrped8bwmtgky8e6ytr48ruxych7hgbnr",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637831640,
-    "expires_unix": 1669367640
-  },
-  {
-    "name": "ftx",
-    "address": "nano_3hfpw7s7xjiej5akd69g9s96wbbcauzxsy5i31iypeyfrwkdsiggc8eh5jg6",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637826780,
-    "expires_unix": 1669362780
-  },
-  {
-    "name": "corican",
-    "address": "nano_1oqiq4pwx1yun94xg3zyzsnosep4ro7tzqud1wgc9w7osw9quuzuprnwkb4s",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637825040,
-    "expires_unix": 1669361040
-  },
-  {
-    "name": "jeff",
-    "address": "nano_3i8d7aapjbj4mnyt6hapg8o7dhn6yoba74iwhz5w78psdoo7q93inrgmxmxy",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1637823300,
-    "expires_unix": 1669359300
   },
   {
     "name": "bitcoin",
@@ -3663,14 +3423,6 @@
     "expires_unix": 1952209620
   },
   {
-    "name": "test",
-    "address": "nano_1yen9ezi4cpaih8kghhr4cepdx8udg6jqc6nsgdis1gsohhuxbqhgtnwuuwc",
-    "created": "November 8, 2021",
-    "expires": "November 26, 2022",
-    "created_unix": 1636383540,
-    "expires_unix": 1669518060
-  },
-  {
     "name": "miami",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
     "created": "November 7, 2021",
@@ -3887,20 +3639,20 @@
     "expires_unix": 1950058800
   },
   {
+    "name": "kraken",
+    "address": "nano_3cpz7oh9qr5b7obbcb5867omqf8esix4sdd5w6mh8kkknamjgbnwrimxsaaf",
+    "created": "September 17, 2021",
+    "expires": "October 17, 2031",
+    "created_unix": 1631915940,
+    "expires_unix": 1950040740
+  },
+  {
     "name": "tally",
     "address": "nano_3spiffyfbcchbm6ftbzwk7cjcc9a3r3j3asccbew6p7tq3azu9eh5t47j3id",
     "created": "September 17, 2021",
     "expires": "October 17, 2025",
     "created_unix": 1631908500,
     "expires_unix": 1760729520
-  },
-  {
-    "name": "shryder",
-    "address": "nano_3shrydersd7kpbmkhrd3bnqece5j86s34q7zjq5wtf3f5kqintzks5m93zz8",
-    "created": "September 17, 2021",
-    "expires": "November 25, 2022",
-    "created_unix": 1631907120,
-    "expires_unix": 1669360800
   },
   {
     "name": "martynas",
