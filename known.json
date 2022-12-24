@@ -1871,14 +1871,6 @@
     "expires_unix": 1947717120
   },
   {
-    "name": "jonas",
-    "address": "nano_146siqdu73mxdsaz3nm46r9zg6e49j1m1atoc3jezjs6ugskdxnzn3ccj9r5",
-    "created": "September 20, 2021",
-    "expires": "December 13, 2022",
-    "created_unix": 1632157080,
-    "expires_unix": 1670945220
-  },
-  {
     "name": "ai",
     "address": "nano_1turing7pygyaa9ozji5dwdh43rd8fyfkwbsq5ikua6ksaaoq761586yzpde",
     "created": "September 19, 2021",
