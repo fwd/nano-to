@@ -758,14 +758,6 @@
     "expires_unix": 1955155620
   },
   {
-    "name": "leg",
-    "address": "nano_15gb9hxr36z7wzrcqdooc781gabbfbpo57wp6o4r1cwopkp6d9oizcwfgfso",
-    "created": "December 15, 2021",
-    "expires": "December 15, 2022",
-    "created_unix": 1639611600,
-    "expires_unix": 1671147600
-  },
-  {
     "name": "wenanorep",
     "address": "nano_1wenanoqm7xbypou7x3nue1isaeddamjdnc3z99tekjbfezdbq8fmb659o7t",
     "created": "December 15, 2021",
@@ -804,14 +796,6 @@
     "expires": "December 15, 2023",
     "created_unix": 1639605600,
     "expires_unix": 1702677600
-  },
-  {
-    "name": "poverz",
-    "address": "nano_1pkhmonz7bgthmso89o11z11yrddhjpswy1hhxfenwo3o8y94ropnhwm3nqd",
-    "created": "December 15, 2021",
-    "expires": "December 15, 2022",
-    "created_unix": 1639605540,
-    "expires_unix": 1671141540
   },
   {
     "name": "trash",
