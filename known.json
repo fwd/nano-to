@@ -654,14 +654,6 @@
     "status": "active"
   },
   {
-    "name": "paul",
-    "address": "nano_1ziytc5eiqp8yr8usbes1kyjtn3jukqnx5xaswq6gu9icck7me9gf1ws6q55",
-    "created": "December 25, 2021",
-    "expires": "December 25, 2022",
-    "created_unix": 1640457300,
-    "expires_unix": 1671993300
-  },
-  {
     "name": "tomsharp",
     "address": "nano_3hfo8d1yoppygzapw5wgoo8d948jcbax3xz4699suc86x1n41efku1uf3dt4",
     "created": "December 21, 2021",
