@@ -637,14 +637,6 @@
     "expires_unix": 1956522000
   },
   {
-    "name": "rostik",
-    "address": "nano_3i5nrudua6fgwexdumb433npr5wjgeiywcsw7djk4juoph5nyk4kyy6nd3n3",
-    "created": "December 29, 2021",
-    "expires": "December 29, 2022",
-    "created_unix": 1640806500,
-    "expires_unix": 1672342500
-  },
-  {
     "name": "development",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
@@ -1463,28 +1455,12 @@
     "expires_unix": 1700705880
   },
   {
-    "name": "themoon",
-    "address": "nano_3xh4acx9tc5yrhzzspgeieqqfcfoxpkeadpkzpk61gu3nh748pymck6aikdg",
-    "created": "November 21, 2021",
-    "expires": "December 29, 2022",
-    "created_unix": 1637545980,
-    "expires_unix": 1672342260
-  },
-  {
     "name": "badwood",
     "address": "nano_1badwood79kh41qffyrx6yqdz17cd8qswjj63w7kue337h4kxgxuacjy64mt",
     "created": "November 21, 2021",
     "expires": "November 21, 2023",
     "created_unix": 1637545500,
     "expires_unix": 1700617500
-  },
-  {
-    "name": "jon",
-    "address": "nano_34zrktd6a5yk6jb4bhbud5aqjj75yng6e1dw11d5sxymemh6a3pwsrqijinq",
-    "created": "November 21, 2021",
-    "expires": "December 29, 2022",
-    "created_unix": 1637543700,
-    "expires_unix": 1672315800
   },
   {
     "name": "133",
@@ -1551,28 +1527,12 @@
     "expires_unix": 1700543160
   },
   {
-    "name": "nyanodotmoe",
-    "address": "nano_1ba7uuq9kt68jzzw51a5kt577xtzaq37cnj8otqbhhnkgjyhwu91wtsjacez",
-    "created": "November 20, 2021",
-    "expires": "December 29, 2022",
-    "created_unix": 1637465100,
-    "expires_unix": 1672358100
-  },
-  {
     "name": "fosse",
     "address": "nano_1i4fcujt49de3mio9eb9y5jakw8o9m1za6ntidxn4nkwgnunktpy54z1ma58",
     "created": "November 20, 2021",
     "expires": "November 20, 2023",
     "created_unix": 1637464860,
     "expires_unix": 1700536860
-  },
-  {
-    "name": "nyanomoe",
-    "address": "nano_1ba7uuq9kt68jzzw51a5kt577xtzaq37cnj8otqbhhnkgjyhwu91wtsjacez",
-    "created": "November 20, 2021",
-    "expires": "December 28, 2022",
-    "created_unix": 1637464800,
-    "expires_unix": 1672281660
   },
   {
     "name": "uwu",
