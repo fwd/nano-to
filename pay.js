@@ -104,7 +104,7 @@ var NanocurrencyWeb;(()=>{var e={4431:function(e,t,r){var n;!function(i){"use st
     }
 
     function qrcode(address, amount) {
-    	console.log("qrcode", address, amount)
+    	// console.log("qrcode", address, amount)
         return new Promise((resolve) => {
           var options = {
             text: `nano:${address}?amount=${amount}`,
@@ -179,7 +179,7 @@ var NanocurrencyWeb;(()=>{var e={4431:function(e,t,r){var n;!function(i){"use st
     <div style="margin: 0 0 20px 0;font-size: 38px; color:${data.color && data.color !== 'undefined' ? data.color : '#1f9ce9;'}">
         ${ data.title && data.title !== 'undefined' ? data.title : 'NanoPay'}
     </div>
-    <div id="qrcode" style="border: 14px solid ${window.nano.dark_mode ? '#FFF' : '#000'};margin-top: 20px;border-radius: 10px;display: flex;zoom: 0.5;">
+    <div id="qrcode" style="border: 14px solid ${window.nano.dark_mode ? '#FFF' : '#ebebeb61'};margin-top: 20px;border-radius: 10px;display: flex;zoom: 0.5;">
     </div>
     <div style="margin: 30px 0;opacity: 1;font-size: 27px;letter-spacing: 1px;color:${window.nano.dark_mode ? '#FFF' : '#000'}">
         ${data.amount}
@@ -228,7 +228,7 @@ var NanocurrencyWeb;(()=>{var e={4431:function(e,t,r){var n;!function(i){"use st
     <div style="margin: 0 0 20px 0;font-size: 38px; color:${color && color !== 'undefined' ? color : '#1f9ce9;'}">
         ${ title && title !== 'undefined' ? title : 'NanoPay'}
     </div>
-    <div id="qrcode" style="border: 14px solid ${window.nano.dark_mode ? '#FFF' : '#000'};margin-top: 20px;border-radius: 10px;display: flex;zoom: 0.5;">
+    <div id="qrcode" style="border: 14px solid #1f9ce9;margin-top: 20px;border-radius: 10px;display: flex;zoom: 0.5;">
     </div>
     <div style="margin: 30px 0;opacity: 1;font-size: 27px;letter-spacing: 1px;color:${window.nano.dark_mode ? '#FFF' : '#000'}">
         ${data.amount.replace(data.arbitrary, '')}
