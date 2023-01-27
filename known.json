@@ -670,14 +670,6 @@
     "expires_unix": 1702662540
   },
   {
-    "name": "scapegoat",
-    "address": "nano_3ar61969fdw3poz5juqzbai4diqn9uf7ejixk9hn1pbymym6uyg3sqpxiaoi",
-    "created": "December 14, 2021",
-    "expires": "January 16, 2023",
-    "created_unix": 1639464600,
-    "expires_unix": 1673898120
-  },
-  {
     "name": "xcadaverx",
     "address": "nano_3pr1f5wds4yitbo5uqsqoo6ebdu5jfgi7c9dqqdfw5476tt4qf6hhoumtuxx",
     "created": "December 13, 2021",
