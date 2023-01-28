@@ -3,32 +3,31 @@
 Register a Usernames by visiting https://nano.to and searching for desired name. 
 
 - Letters, numbers, and up to 30 characters.
-- Multiple Uernames w/ same Address is allowed.
-- Nano.to Faucet pay each address ~ 0.001 Nano, [every 24 hours](/faucet). 
+- Multiple Usernames w/ same Address is allowed.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Renewal 
 
-Add time to your lease by visting:
+Extend registration at anytime.
 
 ```python
 https://nano.to/:USERNAME/renew
 ```
 
-> Only original address may add time. If you need to change Username address, contact: [support@nano.to](mailto:support@nano.to)
+> Only original address may add time. If you need assistance, contact: [support@nano.to](mailto:support@nano.to)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Grace Period
 
-Usernames have **10 day** after expiration where only the original address may renew.
+Usernames have **10 day** after expiration, regardless of duration leased. Only the original address may renew.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Dataset
 
-We encourage other developers to add [Nano.to Usernames](https://nano.to/known.json) to their apps. This makes your Nano address "findable by Username" on a growing list of applications & games. 
+We encourage other to add support for [Nano.to Usernames](https://nano.to/known.json) on their apps. This makes your Nano address "findable by Username" on a growing list of applications, games and sercices. 
 
 ```pthon
 https://nano.to/known.json
