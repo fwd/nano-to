@@ -287,6 +287,7 @@ var NanocurrencyWeb;(()=>{var e={4431:function(e,t,r){var n;!function(i){"use st
 
             item.style['min-height'] = item.offsetHeight; 
             item.style.position = "relative"; 
+            item.style.opacity = "1"; // set opacity to 0 on your website for no flash of unstyled text, FOUC)
 
             all[i].innerHTML = ''
             
