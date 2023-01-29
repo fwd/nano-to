@@ -151,6 +151,8 @@ var NanocurrencyWeb;(()=>{var e={4431:function(e,t,r){var n;!function(i){"use st
 	            all[i].querySelector('.nano-locked').remove()
 	            all[i].innerHTML = window.nano[i]
 	            all[i].style.position = null; 
+				var id = all[i].getAttribute('data-id')
+				if (id) localStorage.setItem(`purchased-${id}`, true)
 	        }
 
         }
@@ -300,7 +302,9 @@ var NanocurrencyWeb;(()=>{var e={4431:function(e,t,r){var n;!function(i){"use st
         ${ config.button || 'Purchase' }
     </div>
 `
-            if (config.free) {
+			var id = item.getAttribute('data-id')
+
+            if (config.free || ( !config.repurchase && localStorage.getItem(`purchased-${id}`) ) ) {
                 code += `<div onclick="window.nano.success('${config.element}')" style="opacity: 0.6; zoom: 0.8; "> <hr style=" opacity: 0.3; margin: 20px 0 30px 0; "> ${ config.free && typeof config.free === 'string' ? config.free : 'Unlock for Free' }</div>`
             }
 
