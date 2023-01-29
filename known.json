@@ -485,22 +485,6 @@
     "expires_unix": 1705554000
   },
   {
-    "name": "Kyle",
-    "address": "nano_1ytwx8j6py8obnt3gtakwhzjkanswwzaqzhfs4bcrgcsu8stryiwz1jujf6a",
-    "created": "January 18, 2022",
-    "expires": "January 18, 2023",
-    "created_unix": 1642513980,
-    "expires_unix": 1674049980
-  },
-  {
-    "name": "Seba",
-    "address": "nano_1fpo974zncw1mdhfhpaseypbfzzacghzd4wiq4khqa6ne6sf6rb814nzfpfk",
-    "created": "January 18, 2022",
-    "expires": "January 18, 2023",
-    "created_unix": 1642503540,
-    "expires_unix": 1674039540
-  },
-  {
     "name": "mix",
     "address": "nano_1ki9wxbuj6ymy3ztk5xzsrnjghfixpft1cddbjgku7gydz1hemxq6iwpr5u1",
     "created": "January 15, 2022",
