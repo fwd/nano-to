@@ -25,6 +25,7 @@ new Vue({
       checkout: false,
       suggestions: [],
       buttons: [],
+      headers: { 'nano-app': 'nano.to-checkout' }
     },
     watch: {
       customAmount() {
@@ -374,7 +375,7 @@ new Vue({
           axios.post(endpoint, { 
             action: 'account_info', 
             account: address,
-          }).then((res) => {
+          }, { headers: this.headers }).then((res) => {
             resolve({ balance: this.convert(res.data.balance, 'RAW', 'NANO'), balance_raw: res.data.balance })
           })
         })
@@ -388,7 +389,7 @@ new Vue({
             count: "50",
             json_block: true,
             source: true,
-          }).then((res) => {
+          }, { headers: this.headers }).then((res) => {
             resolve(res.data.blocks == "" ? [] : Object.keys(res.data.blocks).map(key => {
               return { hash: key, account: res.data.blocks[key].source, amount: res.data.blocks[key].amount }
             }))
@@ -403,7 +404,7 @@ new Vue({
             account: this.checkout.address,
             count: this.checkout.history_count || "50",
             raw: true
-          }).then((res) => {
+          }, { headers: this.headers }).then((res) => {
             resolve(res.data.history)
           })
         })
