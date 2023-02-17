@@ -14,7 +14,7 @@ var NanocurrencyWeb;(()=>{var e={4431:function(e,t,r){var n;!function(i){"use st
 	window.nano.rpc = {
 
 		   // looking for sugar nodes
-	       endpoint: 'https://nanolooker.com/api/rpc',
+	       endpoint: 'https://rpc.nano.to',
 
 			post(endpoint, data) {
 				return new Promise((resolve) => {
