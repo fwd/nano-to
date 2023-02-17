@@ -370,7 +370,7 @@ new Vue({
       },
       balance(address) {
          return new Promise((resolve) => {
-          var endpoint = 'https://nanolooker.com/api/rpc'
+          var endpoint = 'https://rpc.nano.to'
           axios.post(endpoint, { 
             action: 'account_info', 
             account: address,
@@ -381,7 +381,7 @@ new Vue({
       },
       pending() {
          return new Promise((resolve) => {
-          var endpoint = 'https://nanolooker.com/api/rpc'
+          var endpoint = 'https://rpc.nano.to'
           axios.post(endpoint, { 
             action: 'pending', 
             account: this.checkout.address,
@@ -397,7 +397,7 @@ new Vue({
        },
        history() {
         return new Promise((resolve) => {
-          var endpoint = 'https://nanolooker.com/api/rpc'
+          var endpoint = 'https://rpc.nano.to'
           axios.post(endpoint, { 
             action: 'account_history', 
             account: this.checkout.address,
