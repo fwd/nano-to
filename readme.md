@@ -1,7 +1,7 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 <h1 align="center">Nano Name Service</h1>
-<h3 align="center">Git Hosted</h3>
+<h3 align="center">Hosted on Github</h3>
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -14,7 +14,7 @@
 ## Quick Links
 
 **Nano.to Usernames (Github Hosted)**
-  - [**Register New Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md#nanoto-usernames)
+  - [**Register Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md#nanoto-usernames)
   - [Renew Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
   - [Username API](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
   - [In-App Purchases](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md#in-app-username-api)
@@ -25,16 +25,15 @@
 - [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
 - [Backend Checkout API](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
 
-**Additional Nano.To Services**
+**More Services:**
 
-- [USD Price API](https://github.com/fwd/nano-to/blob/master/docs/price.md#price-api)
-- [Nano Proof of Work (PoW) API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
-- [NanoPay.js - Monetize any DOM element.](https://github.com/fwd/nano-js)
-- [1-Click Personal Nano Node](https://github.com/fwd/nano-docker)
+- [Nano RPC API](https://github.com/fwd/nano-to/blob/master/docs/rpc.md)
+- [Nano Browser Library](https://github.com/fwd/nano-js)
+- [1-Click Nano Node](https://github.com/fwd/nano-docker)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Nano.to Domains
+## Checkout Domains
 
 - nano.to (**Official**)
 - ӿ.to (**Alias**)
@@ -42,7 +41,7 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Support
+## Nano.to Support
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
@@ -54,7 +53,7 @@
 
 Give a ⭐️ if this project helped you!
 
-Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano-to/issues).
+Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano/issues).
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
