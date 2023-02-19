@@ -1,7 +1,7 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 <h1 align="center">Nano Name Service</h1>
-<h3 align="center">Publicy Git Hosted</h3>
+<h3 align="center">Hosted on Github</h3>
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -25,12 +25,10 @@
 - [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
 - [Backend Checkout API](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
 
-**Additional Nano.To Services**
+**More Services:**
 
-- [USD Price API](https://github.com/fwd/nano-to/blob/master/docs/price.md)
-- [Nano.to RPC API](https://github.com/fwd/nano-to/blob/master/docs/rpc.md)
-- [Nano.to PoW API](https://github.com/fwd/nano-to/blob/master/docs/pow.md)
-- [NanoPay.js - Monetize any DOM element.](https://github.com/fwd/nano-js)
+- [Nano RPC API](https://github.com/fwd/nano-to/blob/master/docs/rpc.md)
+- [Nano Browser Library](https://github.com/fwd/nano-js)
 - [1-Click Nano Node](https://github.com/fwd/nano-docker)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
