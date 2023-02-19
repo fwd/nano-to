@@ -27,7 +27,7 @@
 
 **More Services:**
 
-- [Nano RPC API](https://github.com/fwd/nano-to/blob/master/docs/rpc.md)
+- [Public RPC API](https://docs.nano.to/rpc-api)
 - [Nano Browser Library](https://github.com/fwd/nano-js)
 - [1-Click Nano Node](https://github.com/fwd/nano-docker)
 
