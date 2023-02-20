@@ -485,14 +485,6 @@
     "expires_unix": 1676219280
   },
   {
-    "name": "bobstar",
-    "address": "nano_365p7c1hahi5bu6hrcpewsfns4rnaw531g5rfhq5ajpfenbdfztancxktqpf",
-    "created": "February 8, 2022",
-    "expires": "February 8, 2023",
-    "created_unix": 1644360480,
-    "expires_unix": 1675896480
-  },
-  {
     "name": "auz",
     "address": "nano_3wgxexgdawsgaiqyr8jsf38nrswdbk17iyyaa6c6xt638mcw4ig45qi348a4",
     "created": "January 18, 2022",
