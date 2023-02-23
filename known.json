@@ -16,14 +16,6 @@
     "expires_unix": 1676818860
   },
   {
-    "name": "thenamepim",
-    "address": "nano_3b8eao38wjchid1aoz5p86wykcrgf881pnci1ohzgxfsbku64tbyu1ee55nb",
-    "created": "February 10, 2023",
-    "expires": "February 12, 2023",
-    "created_unix": 1676068134,
-    "expires_unix": 1676240880
-  },
-  {
     "name": "gustav",
     "address": "nano_1iawmcfwmmdyr7xmnordt71gpnhnao8rsk4nywq5khtmedocaj6bafk4fb8h",
     "created": "January 30, 2023",
@@ -475,14 +467,6 @@
     "expires": "March 16, 2023",
     "created_unix": 1644896460,
     "expires_unix": 1678946700
-  },
-  {
-    "name": "Kidamogus",
-    "address": "nano_3bd38q495pnfa7tgokio8nt7nc5wch6e59h4arfaqcn1udptu9mdqf6re6zp",
-    "created": "February 12, 2022",
-    "expires": "February 12, 2023",
-    "created_unix": 1644683280,
-    "expires_unix": 1676219280
   },
   {
     "name": "auz",
