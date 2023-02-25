@@ -13,22 +13,10 @@
 
 ## Quick Links
 
-**Nano.to Usernames (Github Hosted)**
-  - [**Register Username**](https://github.com/fwd/nano-to/blob/master/docs/username.md#nanoto-usernames)
-  - [Renew Username](https://github.com/fwd/nano-to/blob/master/docs/username.md#renewal)
-  - [Username API](https://github.com/fwd/nano-to/blob/master/docs/username.md#dataset)
-  - [In-App Purchases](https://github.com/fwd/nano-to/blob/master/docs/username-integration.md#in-app-username-api)
-
-**Nano Checkout UI (Github Hosted)**
-- [**Get Started with Checkout**](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#nanoto-checkout)
-- [Advanced Checkout Options](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#customize-colors)
-- [Funding Meter/Goal UI](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-funding-ui)
-- [Backend Checkout API](https://github.com/fwd/nano-to/blob/master/docs/checkout.md#checkout-via-post)
-
-**More Services:**
-
-- [Public RPC API](https://docs.nano.to/rpc-api)
-- [Nano Browser Library](https://github.com/fwd/nano-js)
+**Usernames (Github Hosted)**
+- [Public RPC API](https://rpc.nano.to)
+- [Public RPC-2 API](https://api.nano.to)
+- [Browser.js Library](https://github.com/fwd/nano-js)
 - [1-Click Nano Node](https://github.com/fwd/nano-docker)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
@@ -49,7 +37,7 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Contributing
+## Contribute
 
 Give a ⭐️ if this project helped you!
 
