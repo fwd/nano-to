@@ -1,3 +1,33 @@
+;(async () => {
+    // register service worker
+  window.addEventListener('load', () => {
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('offline.js', { scope: '/' });
+      }
+  });
+
+  // helper method to get variables from the service worker
+  // example: await getValueFromServiceWorker('VERSION')
+  async function getValueFromServiceWorker(key) {
+      return new Promise(async (resolve) => {
+          // wait until the controller is ready (this is important especially on first load)
+          while (navigator.serviceWorker.controller === null) {
+              await new Promise((resolve) => setTimeout(() => resolve(), 1000));
+          }
+          navigator.serviceWorker.controller.postMessage({ type: 'request-val', key: key });
+          let fn = (event) => {
+              if (event.data.type === 'receive-val' && event.data.key === key) {
+                  navigator.serviceWorker.removeEventListener('message', fn, false);
+                  resolve(event.data.value);
+              }
+          };
+          navigator.serviceWorker.addEventListener('message', fn);
+      });
+  }
+})();
+
+;(() => {
+
 new Vue({
     el: '#app',
     data: {
@@ -687,3 +717,5 @@ new Vue({
       },
     }
 })
+
+})()
