@@ -1,0 +1,41 @@
+{
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/index.html",
+    "dir": "ltr",
+    "lang": "de",
+    "name": "Nano.to",
+    "short_name": "Nano.to",
+    "description": "Nano.to",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/dist/images/new_icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/dist/images/new_icon.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/dist/images/new_icon.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/dist/images/new_icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/dist/images/new_icon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
