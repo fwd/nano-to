@@ -405,14 +405,6 @@
     "expires_unix": 1804469640
   },
   {
-    "name": "john",
-    "address": "nano_3p563ggyw7cf6yqggf1sd78kwjf4mfhifrko44qo16wtgseb1z4p5i3kcydm",
-    "created": "February 23, 2022",
-    "expires": "February 23, 2023",
-    "created_unix": 1645646640,
-    "expires_unix": 1677182640
-  },
-  {
     "name": "ipad",
     "address": "nano_3xim348bnmp3caqhhmdqorzdzmj1qjmsptjne9idgaecb5xorbrnm36o65hd",
     "created": "February 16, 2022",
