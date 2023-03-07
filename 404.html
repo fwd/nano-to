@@ -9,7 +9,7 @@ Simplicity is soul of efficiency.
 https://github.com/fwd/nano
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="appcache">
   <head>
     <title>Nano.to - Nano Username Service & Non-Custodial Checkout</title>
     <meta charset="utf-8">
@@ -24,7 +24,7 @@ https://github.com/fwd/nano
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
     <link rel="stylesheet" href="dist/style.css?v=1.0.1">
-    <!-- <link rel="manifest" href="dist/manifest.json"> -->
+    <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.className += ' dark'
@@ -237,6 +237,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=1.0.2"></script>
+    <script src="dist/app.js?v=1.0.3"></script>
   </body>
 </html>
