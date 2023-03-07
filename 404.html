@@ -231,7 +231,7 @@ https://github.com/fwd/nano
                 <span>{{ checkout.buttonText || 'Check Payment' }}</span>
               </button>
               <div class="security-notice shrink">
-                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.note || 'Verify the recipient address, and only send NANO (XNO) to this address.' }}</div>
+                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.note || lang('note') }}</div>
               </div>
             </div>
           </div>
