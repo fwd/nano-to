@@ -53,7 +53,7 @@ https://github.com/fwd/nano
             <span>{{ success.button }}</span>
           </button>
           <div v-if="checkout.fullscreen && success.redirect && !success.button" class="redirecting">{{ success.redirect_msg || (strings[lang] ? strings[lang].redirecting : strings['en'].redirecting) }}</div>
-          <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">Done</div>
+          <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">OK</div>
         </div>
       </div>
       <div v-if="!checkout" :class="`cyber blue`">
