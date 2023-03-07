@@ -37,6 +37,7 @@ new Vue({
       doc_title: 'Nano.to - Nano Username & Checkout UI',
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
+      lang: '',
       error: false,
       status: '',
       user: false,
@@ -56,6 +57,98 @@ new Vue({
       checkout: false,
       suggestions: [],
       buttons: [],
+      strings: {
+        'en': { 
+          note: 'Verify the recipient address, and only send NANO (XNO) to this address.',
+          intro: 'Search Blockchain',
+          guide: 'To complete, send:',
+          button: 'Check Payment',
+          tap: 'Tap to open Wallet',
+          custom: 'Enter Amount:',
+          search: 'Search',
+          send: 'Send Payment',
+          open: 'Open Wallet',
+          available: 'Username Available',
+          success: 'Success',
+          redirecting: 'Redirecting..',
+          created: 'Created:',
+          expires: 'Expires:',
+          renew: 'Renew',
+          cancel: 'Cancel'
+        },
+        'uk': { 
+          note: 'Перевірте адресу одержувача та надсилайте NANO (XNO) лише на цю адресу.',
+          intro: 'Пошук Blockchain',
+          guide: 'Для завершення надішліть:',
+          button: 'Оплата чеком',
+          tap: 'Торкніться, щоб відкрити Wallet',
+          custom: 'Введіть суму:',
+          search: 'Пошук',
+          send: 'Оплата',
+          open: 'Wallet',
+          available: 'Ім\'я доступне',
+          success: 'Success',
+          redirecting: 'Redirecting..',
+          created: 'Created:',
+          expires: 'Expires:',
+          renew: 'Renew',
+          cancel: 'Cancel'
+        },
+        'pt': { 
+          note: 'Verifique o endereço do destinatário e envie apenas NANO (XNO) para este endereço.',
+          intro: 'Pesquisar Blockchain',
+          guide: 'Para preencher, envie:',
+          button: 'Cheque Pagamento',
+          tap: 'Toque para abrir a Carteira',
+          custom: 'Digite o valor:',
+          search: 'Procurar',
+          send: 'Pagar',
+          open: 'Carteira',
+          available: 'Nome disponível',
+          success: 'Success',
+          redirecting: 'Redirecting..',
+          created: 'Created:',
+          expires: 'Expires:',
+          renew: 'Renew',
+          cancel: 'Cancel'
+        },
+        'es': { 
+          note: 'Verifica la direccion y solo manda NANO (XNO) a esta direccion.',
+          intro: 'Nano Blockchain',
+          guide: 'Para completar, envie:',
+          button: 'Confirmar',
+          tap: 'Tap para abrir Wallet',
+          custom: 'Entre Monto:',
+          search: 'Buscar',
+          send: 'Pagar',
+          open: 'Wallet',
+          available: 'Usuario Disponible',
+          success: 'Success',
+          redirecting: 'Redirecting..',
+          created: 'Creado:',
+          expires: 'Vence:',
+          renew: 'Renueva',
+          cancel: 'Cancelar'
+        },
+        'de': { 
+          note: 'Überprüfen Sie die Empfängeradresse und senden Sie NANO (XNO) nur an diese Adresse.',
+          intro: 'Blockchain suchen',
+          guide: 'Senden Sie zum Abschluss:',
+          button: 'Scheckzahlung',
+          tap: 'Tippen Sie hier, um Wallet zu öffnen',
+          custom: 'Menge eingeben:',
+          search: 'Suchen',
+          send: 'Zahlung',
+          open: 'Geldbörse',
+          available: 'Name verfügbar',
+          success: 'Success',
+          redirecting: 'Redirecting..',
+          created: 'Erstellt:',
+          expires: 'Läuft ab:',
+          renew: 'Erneuern',
+          cancel: 'Stornieren'
+        },
+      }
     },
     watch: {
       customAmount() {
@@ -73,6 +166,8 @@ new Vue({
       }
     },
     mounted() {
+
+      this.lang = window.navigator.language.split('-')[0]
 
       var self = this
 
@@ -123,6 +218,9 @@ new Vue({
       }
     },
     methods: {
+      // lang() {
+      //   return this.string[this.lang].note
+      // },
       nFormatter(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       },
@@ -594,7 +692,7 @@ new Vue({
         if ((!item || item.name.toLowerCase() !== string.toLowerCase()) && !this.invalidUsername(string) && !this.suggestions.find(a => a.name.toLowerCase() === string.toLowerCase())) {
           if (this.suggestions.length > 5) {
             this.suggestions.unshift({
-              name: `${string} (Username Available)`,
+              name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
               color: '#cf94ff',
               checkout: {
@@ -603,7 +701,7 @@ new Vue({
             })
           } else {
             this.suggestions.push({
-              name: `${string} (Username Available)`,
+              name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
               color: '#cf94ff',
               checkout: {
@@ -704,11 +802,11 @@ new Vue({
 <span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
 </p>`,
           buttons: [{
-            label: `Send Payment`,
+            label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
             link: "external",
             checkout,
           }, {
-            label: 'Open Wallet',
+            label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
             link: "external",
             url: `nano:${suggestion.address}`
           }, ]
