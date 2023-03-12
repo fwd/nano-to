@@ -131,6 +131,22 @@ new Vue({
           cancel: 'Cancelar'
         },
         'de': { 
+<<<<<<< HEAD
+          note: 'Überprüfe die Empfängeradresse. Sende NANO (XNO) nur an diese Adresse.',
+          intro: 'Blockchain durchsuchen',
+          guide: 'Sende zum Abschluss:',
+          button: 'Zahlung überprüfen',
+          tap: 'Tippe hier, um das Wallet zu öffnen',
+          custom: 'Betrag eingeben:',
+          search: 'Suchen',
+          send: 'Zahlung ausführen',
+          open: 'Wallet öffnen',
+          available: 'Username verfügbar',
+          success: 'Aktion erfolgreich',
+          redirecting: 'Weiterleitung..',
+          created: 'Erstellt am:',
+          expires: 'Läuft ab am:',
+=======
           note: 'Überprüfen Sie die Empfängeradresse und senden Sie NANO (XNO) nur an diese Adresse.',
           intro: 'Blockchain suchen',
           guide: 'Senden Sie zum Abschluss:',
@@ -145,6 +161,7 @@ new Vue({
           redirecting: 'Redirecting..',
           created: 'Erstellt:',
           expires: 'Läuft ab:',
+>>>>>>> d5ee83784fa0e411f0d35dd2ea1d7d8a715bd57e
           renew: 'Erneuern',
           cancel: 'Stornieren'
         },

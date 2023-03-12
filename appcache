@@ -6,4 +6,4 @@ dist/vue.min.js
 dist/axios.min.js
 dist/easy.qrcode.min.js
 dist/nanocurrency.min.js
-dist/app.js?v=1.0.8
+dist/app.js?v=1.0.10
