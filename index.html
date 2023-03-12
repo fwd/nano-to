@@ -41,7 +41,7 @@ https://github.com/fwd/nano
     <div id="app" :class=" `on ${color}`">
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
-      <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/unnamed.gif' }')` " id="backdrop"></div>
+      <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/latest.gif' }')` " id="backdrop"></div>
       <div v-if="success && success.confetti">
         <div v-for="i in 150" :class="`confetti-${i}`"></div>
       </div>
