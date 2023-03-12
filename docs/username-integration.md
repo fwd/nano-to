@@ -27,7 +27,7 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
   id: 'CHECKOUT_ID',
   address: 'NANO_ADDRESS_TO_PAY',
   browser: 'http://nano.to/pay_CHECKOUT_ID',
-  check_url: 'https://api.nano.to/check/CHECKOUT_ID',
+  check: 'https://api.nano.to/check/CHECKOUT_ID',
   lease: 'USERNAME',
   available: true,
   history: 10,
@@ -71,7 +71,7 @@ axios.get('https://api.nano.to/fosse72/lease').then((res) => {
 
 ## Send Funds & Check Payment URL
 
-Once you've sent funds for desired plan, do a GET request on the ```check_url``` in the response, to confirm payment. 
+Once you've sent funds for desired plan, do a GET request on the ```check``` in the response, to confirm payment. 
 
 ```js
 // npm install axios

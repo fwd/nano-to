@@ -9,21 +9,22 @@ Simplicity is soul of efficiency.
 https://github.com/fwd/nano
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" manifest="appcache">
   <head>
-    <title>Nano.to - Blockchain Username Service & Non-Custodial Checkout</title>
+    <title>Nano.to - Nano Username Service & Non-Custodial Checkout</title>
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="dist/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
     <meta name="author" content="https://twitter.com/nano2dev"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
     <meta name="apple-mobile-web-app-title" content="Nano.to">
-    <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <meta property="og:title" content="Nano.to">
     <meta property="og:image" content="dist/images/cover.png">
     <meta property="twitter:image" content="dist/images/cover.png">
-    <link rel="stylesheet" href="dist/style.css">
+    <link rel="apple-touch-icon" href="dist/images/new_icon.png">
+    <link rel="icon" type="image/png" href="dist/favicon.png">
+    <link rel="stylesheet" href="dist/style.css?v=1.0.1">
+    <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.className += ' dark'
@@ -46,13 +47,13 @@ https://github.com/fwd/nano
       </div>
       <div v-if="success" id="success">
         <div>
-          <h3 class="success-title">{{ success.title || 'Success' }}</h3>
+          <h3 class="success-title">{{ success.title || (strings[lang] ? strings[lang].success : strings['en'].success) }}</h3>
           <p style="margin-bottom: 0">{{ success.message }}</p>
           <button v-if="checkout.fullscreen && success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
             <span>{{ success.button }}</span>
           </button>
-          <div v-if="checkout.fullscreen && success.redirect && !success.button" class="redirecting">{{ success.redirect_msg || 'Redirecting...' }}</div>
-          <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">Done</div>
+          <div v-if="checkout.fullscreen && success.redirect && !success.button" class="redirecting">{{ success.redirect_msg || (strings[lang] ? strings[lang].redirecting : strings['en'].redirecting) }}</div>
+          <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">OK</div>
         </div>
       </div>
       <div v-if="!checkout" :class="`cyber blue`">
@@ -66,7 +67,7 @@ https://github.com/fwd/nano
                 <div v-if="suggestions.length" id="search-screen" @click="suggestions = []"></div>
                 <div class="holder" style="max-width: 440px">
                   <div v-if="search">
-                    <p style="font-size: 20px; margin-bottom: 30px; margin-top: 0;">Search Blockchain</p>
+                    <p style="font-size: 20px; margin-bottom: 30px; margin-top: 0;">{{ strings[lang] ? strings[lang].intro : strings['en'].intro }}</p>
                     <form @submit.prevent="query()">
                       <input type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
                       <div class="suggest" v-if="suggestions.length">
@@ -76,15 +77,15 @@ https://github.com/fwd/nano
                       </div>
                       <div style="display: block; height: 15px;"></div>
                       <div class="row centered">
-                        <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; "> Search <span aria-hidden>_</span>
+                        <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; "> {{ (strings[lang] ? strings[lang].search : strings['en'].search) }} <span aria-hidden>_</span>
                           <span aria-hidden class="cybr-btn__glitch">NANO_</span>
                           <!-- <span aria-hidden class="cybr-btn__tag">N2</span> -->
                         </button>
                       </div>
                     </form>
                     <div class="footer-icon">
-                      <a href="http://github.com/fwd/nano" target="_blank" style="font-size: 15px; opacity: 0.7; text-transform: uppercase; filter: invert(1); display: block; max-width: 32px;">
-                        <img src="dist/svg/github.svg" style="width: 100%">
+                      <a href="https://rpc.nano.to" target="_blank" style="opacity: 0.7; filter: invert(1); display: block; max-width: 80px;">
+                        <div style="color: rgb(0, 0, 0);border: 4px solid;padding: 0px 9px 0 12px;width: fit-content;border-radius: 5px;zoom: 0.5;font-size: 28px;font-family: Cyber;text-align: center;">RPC</div>
                       </a>
                     </div>
                   </div>
@@ -96,8 +97,8 @@ https://github.com/fwd/nano
                       </div>
                     </div>
                     <div v-if="prompt && (dev_mode || queryToObject().nocache)" style="font-size: 16px;">
-                      <div style="margin-bottom: 5px"><span style="color: red;">Created:</span> {{ prompt.created }}</div>
-                      <div><span style="color: red;">Expires:</span> {{ prompt.expires }}</div>
+                      <div style="margin-bottom: 5px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}:</span> {{ prompt.created }}</div>
+                      <div><span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}:</span> {{ prompt.expires }}</div>
                     </div>
                     <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div v-for="button in prompt.buttons">
@@ -117,9 +118,9 @@ https://github.com/fwd/nano
                       <div>
                         <a target="_blank" :href="`https://nano.to/${prompt.title}/renew`">
                           <button class="cybr-btn" style="zoom: 0.6;">
-                            Renew Lease
+                            {{ (strings[lang] ? strings[lang].renew : strings['en'].renew) }}
                             <span aria-hidden>_</span>
-                            <span aria-hidden class="cybr-btn__glitch">Renew Lease
+                            <span aria-hidden class="cybr-btn__glitch">{{ (strings[lang] ? strings[lang].renew : strings['en'].renew) }}
                               <span aria-hidden>_</span>
                             </span>
                             <!-- <span aria-hidden class="cybr-btn__tag">R26</span> -->
@@ -127,14 +128,9 @@ https://github.com/fwd/nano
                           <a/>
                       </div>
                     </div>
-                    <a v-if="prompt.more" :href="prompt.more" target="_blank">
-                      <p style=" margin-top: 20px; font-size: 15px; opacity: 0.7; margin-bottom: 15px; text-transform: uppercase;">
-                        <span>{{ 'LEARN MORE' }}</span>
-                      </p>
-                    </a>
                     <a v-if="prompt" @click.prevent="prompt = false; search = true">
                       <p style=" margin-top: 30px; font-size: 16px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;">
-                        <span>{{ 'CANCEL' }}</span>
+                        <span>{{ (strings[lang] ? strings[lang].cancel : strings['en'].cancel) }}</span>
                       </p>
                     </a>
                   </div>
@@ -146,7 +142,7 @@ https://github.com/fwd/nano
       </div>
       <div v-if="checkout" id="checkout" class="flex">
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
-          <h3 :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">{{ checkout.cancel_text ? '← ' + checkout.cancel_text : '← Cancel' }}</h3>
+          <h3 :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">{{ checkout.cancel_text ? '← ' + checkout.cancel_text : `← ${ (strings[lang] ? strings[lang].cancel : strings['en'].cancel) }` }}</h3>
         </div>
         <section v-if="checkout.plans || checkout.image" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
@@ -190,7 +186,7 @@ https://github.com/fwd/nano
             </div>
             <div class="plans custom" v-if="checkout.custom">
               <div :class="`flex justify center`" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'};`">
-                <h4>Enter amount: </h4>
+                <h4>{{ (strings[lang] ? strings[lang].custom : strings['en'].custom) }}</h4>
                 <div class="dinput">
                   <input type="number" inputmode="decimal" max="133248297" v-model="customAmount" >
                 </div>
@@ -202,7 +198,7 @@ https://github.com/fwd/nano
           <div class="details">
             <div class="crypto">
               <h4 v-if="checkout.amount" class="instructions">
-                <span v-if="checkout.instruction !== false" class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction || 'To complete, send:' }}</span>
+                <span v-if="checkout.instruction !== false" class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction || (strings[lang] ? strings[lang].guide : strings['en'].guide) }}</span>
                 <b @click="copy(checkout.amount)" class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor:pointer`">{{ checkout.amount }}
                   <span class="blocky">{{ 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(1)' : 'invert(0)'}`"src="./dist/images/clipboard.png" alt=""></span>
@@ -222,15 +218,15 @@ https://github.com/fwd/nano
                     <div id="qrcode"></div>
                   </div>
                   <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`">
-                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> {{ checkout.tip || 'Tap to open Wallet' }}
+                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> {{ checkout.tip || (strings[lang] ? strings[lang].tap : strings['en'].tap) }}
                   </div>
                 </a>
               </div>
               <button v-if="checkout.amount || checkout.plans.length" class="button" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="check()">
-                <span>{{ checkout.buttonText || 'Check Payment' }}</span>
+                <span>{{ checkout.buttonText || (strings[lang] ? strings[lang].button : strings['en'].button) }}</span>
               </button>
               <div class="security-notice shrink">
-                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.note || 'Verify the recipient address, and only send NANO (XNO) to this address.' }}</div>
+                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.note || (strings[lang] ? strings[lang].note : strings['en'].note) }}</div>
               </div>
             </div>
           </div>
@@ -241,6 +237,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js"></script>
+    <script src="dist/app.js?v=1.0.10"></script>
   </body>
 </html>
