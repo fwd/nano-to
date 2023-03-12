@@ -5,7 +5,7 @@
     "scope": "/",
     "start_url": "/index.html",
     "dir": "ltr",
-    "lang": "de",
+    "lang": "en",
     "name": "Nano.to",
     "short_name": "Nano.to",
     "description": "Nano.to",
@@ -38,4 +38,8 @@
             "purpose": "any maskable"
         }
     ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d5ee83784fa0e411f0d35dd2ea1d7d8a715bd57e
