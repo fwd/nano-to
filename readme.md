@@ -12,12 +12,10 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Quick Links
-
-**Usernames (Github Hosted)**
-- [Public RPC API](https://rpc.nano.to)
-- [Public RPC-2 API](https://api.nano.to)
-- [Browser.js Library](https://github.com/fwd/nano-js)
-- [1-Click Nano Node](https://github.com/fwd/nano-docker)
+- [Public Node RPC](https://rpc.nano.to)
+- [Public Node RPC-2](https://api.nano.to)
+- [Browser - Javascript Paywall](https://github.com/fwd/nano-js)
+- [1-Click Node Installer](https://github.com/fwd/nano-docker)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
