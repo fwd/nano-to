@@ -1,3 +1,34 @@
+// Coming soon Offline ✨
+// ;(async () => {
+//     // register service worker
+//   window.addEventListener('load', () => {
+//       if ('serviceWorker' in navigator) {
+//           navigator.serviceWorker.register('offline.js', { scope: '/' });
+//       }
+//   });
+
+//   // helper method to get variables from the service worker
+//   // example: await getValueFromServiceWorker('VERSION')
+//   async function getValueFromServiceWorker(key) {
+//       return new Promise(async (resolve) => {
+//           // wait until the controller is ready (this is important especially on first load)
+//           while (navigator.serviceWorker.controller === null) {
+//               await new Promise((resolve) => setTimeout(() => resolve(), 1000));
+//           }
+//           navigator.serviceWorker.controller.postMessage({ type: 'request-val', key: key });
+//           let fn = (event) => {
+//               if (event.data.type === 'receive-val' && event.data.key === key) {
+//                   navigator.serviceWorker.removeEventListener('message', fn, false);
+//                   resolve(event.data.value);
+//               }
+//           };
+//           navigator.serviceWorker.addEventListener('message', fn);
+//       });
+//   }
+// })();
+
+// ;(() => {
+
 new Vue({
     el: '#app',
     data: {
@@ -6,6 +37,7 @@ new Vue({
       doc_title: 'Nano.to - Nano Username & Checkout UI',
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
+      lang: '',
       error: false,
       status: '',
       user: false,
@@ -25,7 +57,98 @@ new Vue({
       checkout: false,
       suggestions: [],
       buttons: [],
-      headers: { 'nano-app': 'nano.to-checkout' }
+      strings: {
+        'en': { 
+          note: 'Verify the recipient address, and only send NANO (XNO) to this address.',
+          intro: 'Search Blockchain',
+          guide: 'To complete, send:',
+          button: 'Check Payment',
+          tap: 'Tap to open Wallet',
+          custom: 'Enter Amount:',
+          search: 'Search',
+          send: 'Send Payment',
+          open: 'Open Wallet',
+          available: 'Username Available',
+          success: 'Success',
+          redirecting: 'Redirecting..',
+          created: 'Created:',
+          expires: 'Expires:',
+          renew: 'Renew',
+          cancel: 'Cancel'
+        },
+        'uk': { 
+          note: 'Перевірте адресу одержувача і надсилайте тільки NANO (XNO) на цю адресу.',
+          intro: 'Пошук Blockchain',
+          guide: 'Для завершення надішліть:',
+          button: 'Перевірити стан',
+          tap: 'Торкніться, щоб відкрити Wallet',
+          custom: 'Введіть суму:',
+          search: 'Пошук',
+          send: 'Оплата',
+          open: 'Wallet',
+          available: 'Ім\'я доступне',
+          success: 'Успіх',
+          redirecting: 'Перенаправлення..',
+          created: 'Створено:',
+          expires: 'Термін дії:',
+          renew: 'Поновити',
+          cancel: 'Скасувати'
+        },
+        'pt': { 
+          note: 'Verifique o endereço do destinatário e envie apenas NANO (XNO) para este endereço.',
+          intro: 'Pesquisar na Blockchain',
+          guide: 'Para concluir, envie:',
+          button: 'Verifique o Pagamento',
+          tap: 'Clique para abrir a Carteira',
+          custom: 'Digite o valor:',
+          search: 'Pesquisar',
+          send: 'Enviar Pagamento',
+          open: 'Abrir Carteira',
+          available: 'Nome disponível',
+          success: 'Pronto!',
+          redirecting: 'Redirecionando..',
+          created: 'Criado em:',
+          expires: 'Válido até:',
+          renew: 'Renovar',
+          cancel: 'Cancelar'
+        },
+        'es': { 
+          note: 'Verifica la direccion y solo manda NANO (XNO) a esta direccion.',
+          intro: 'Cadena Nano',
+          guide: 'Para completar, envie:',
+          button: 'Confirmar',
+          tap: 'Tap para abrir Wallet',
+          custom: 'Entre Monto:',
+          search: 'Buscar',
+          send: 'Envia Pago',
+          open: 'Abrir Wallet',
+          available: 'Usuario Disponible',
+          success: 'Done.',
+          redirecting: 'Un segundo..',
+          created: 'Creado:',
+          expires: 'Vence:',
+          renew: 'Renueva',
+          cancel: 'Cancelar'
+        },
+        'de': { 
+          note: 'Überprüfe die Empfängeradresse. Sende NANO (XNO) nur an diese Adresse.',
+          intro: 'Blockchain durchsuchen',
+          guide: 'Sende zum Abschluss:',
+          button: 'Zahlung überprüfen',
+          tap: 'Tippe hier, um das Wallet zu öffnen',
+          custom: 'Betrag eingeben:',
+          search: 'Suchen',
+          send: 'Zahlung ausführen',
+          open: 'Wallet öffnen',
+          available: 'Username verfügbar',
+          success: 'Aktion erfolgreich',
+          redirecting: 'Weiterleitung..',
+          created: 'Erstellt am:',
+          expires: 'Läuft ab am:',
+          renew: 'Erneuern',
+          cancel: 'Stornieren'
+        },
+      }
     },
     watch: {
       customAmount() {
@@ -43,6 +166,8 @@ new Vue({
       }
     },
     mounted() {
+
+      this.lang = window.navigator.language.split('-')[0]
 
       var self = this
 
@@ -93,6 +218,9 @@ new Vue({
       }
     },
     methods: {
+      // lang() {
+      //   return this.string[this.lang].note
+      // },
       nFormatter(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       },
@@ -371,25 +499,25 @@ new Vue({
       },
       balance(address) {
          return new Promise((resolve) => {
-          var endpoint = 'https://nanolooker.com/api/rpc'
+          var endpoint = 'https://rpc.nano.to'
           axios.post(endpoint, { 
             action: 'account_info', 
             account: address,
-          }, { headers: this.headers }).then((res) => {
+          }).then((res) => {
             resolve({ balance: this.convert(res.data.balance, 'RAW', 'NANO'), balance_raw: res.data.balance })
           })
         })
       },
       pending() {
          return new Promise((resolve) => {
-          var endpoint = 'https://nanolooker.com/api/rpc'
+          var endpoint = 'https://rpc.nano.to'
           axios.post(endpoint, { 
             action: 'pending', 
             account: this.checkout.address,
             count: "50",
             json_block: true,
             source: true,
-          }, { headers: this.headers }).then((res) => {
+          }).then((res) => {
             resolve(res.data.blocks == "" ? [] : Object.keys(res.data.blocks).map(key => {
               return { hash: key, account: res.data.blocks[key].source, amount: res.data.blocks[key].amount }
             }))
@@ -398,13 +526,13 @@ new Vue({
        },
        history() {
         return new Promise((resolve) => {
-          var endpoint = 'https://nanolooker.com/api/rpc'
+          var endpoint = 'https://rpc.nano.to'
           axios.post(endpoint, { 
             action: 'account_history', 
             account: this.checkout.address,
             count: this.checkout.history_count || "50",
             raw: true
-          }, { headers: this.headers }).then((res) => {
+          }).then((res) => {
             resolve(res.data.history)
           })
         })
@@ -564,7 +692,7 @@ new Vue({
         if ((!item || item.name.toLowerCase() !== string.toLowerCase()) && !this.invalidUsername(string) && !this.suggestions.find(a => a.name.toLowerCase() === string.toLowerCase())) {
           if (this.suggestions.length > 5) {
             this.suggestions.unshift({
-              name: `${string} (Username Available)`,
+              name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
               color: '#cf94ff',
               checkout: {
@@ -573,7 +701,7 @@ new Vue({
             })
           } else {
             this.suggestions.push({
-              name: `${string} (Username Available)`,
+              name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
               color: '#cf94ff',
               checkout: {
@@ -670,15 +798,15 @@ new Vue({
           created: suggestion.created,
           expires: suggestion.expires,
           body: `
-<p style="font-size: 36px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
+<p style="font-size: 34px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
 <span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
 </p>`,
           buttons: [{
-            label: `Send Payment`,
+            label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
             link: "external",
             checkout,
           }, {
-            label: 'Open Wallet',
+            label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
             link: "external",
             url: `nano:${suggestion.address}`
           }, ]
@@ -688,3 +816,5 @@ new Vue({
       },
     }
 })
+
+// })()
