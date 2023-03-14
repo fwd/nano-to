@@ -1717,6 +1717,7 @@
     "expires": "October 7, 2024",
     "created_unix": 1631584140,
     "expires_unix": 1728273600,
-    "status": "active"
+    "status": "active",
+    "github": "nano2dev"
   }
 ]
