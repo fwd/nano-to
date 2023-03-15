@@ -12,8 +12,8 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Quick Links
-- [Public Node RPC](https://rpc.nano.to)
-- [Public Node RPC-2](https://api.nano.to)
+- [Public Node RPC (Talk to a Live Nano Node)](https://rpc.nano.to)
+- [Public Node RPC-2 (Price, Checkouts, Usernames.. etc)](https://api.nano.to)
 - [Browser - Javascript Paywall](https://github.com/fwd/nano-js)
 - [1-Click Node Installer](https://github.com/fwd/nano-docker)
 
