@@ -93,8 +93,8 @@ https://github.com/fwd/nano
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
                       <div>
-                        <h1 @click="dev_mode = !dev_mode" v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">
-                          {{ prompt.title }}
+                        <h1  v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">
+                          <span @click="dev_mode = !dev_mode">{{ prompt.title }}</span>
                           <img @click="alert(`Verified as @${prompt.github} on Github.`)" v-if="prompt.github" src="dist/images/verified.png" class="verified" alt="">
                           </h1>
                         <p v-html="prompt.body"></p>
