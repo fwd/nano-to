@@ -73,6 +73,7 @@ new Vue({
           redirecting: 'Redirecting..',
           created: 'Created:',
           expires: 'Expires:',
+          github: 'Github:',
           renew: 'Renew',
           cancel: 'Cancel'
         },
@@ -300,7 +301,7 @@ new Vue({
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ name: item.name, address: item.address, created: item.created, expires: item.expires })
+          if (!cache && query.nocache) return this.doSuggestion({ github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires })
           
           var custom = false
           var plans = item.plans || query.plans
@@ -337,7 +338,7 @@ new Vue({
 
 
           this.checkout = {
-            title: item.title || query.name || query.title || (item.name ? ('@' + this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
+            title: item.title || query.name || query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.expires ? true : false,
@@ -345,6 +346,7 @@ new Vue({
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
             description: query.description || query.body || query.message,
+            github: item.github,
             goal,
             custom,
             amount,
@@ -662,6 +664,7 @@ new Vue({
           if (username && username[username.length - 1]) {
             suggestions.push({
               name: username[username.length - 1].name,
+              github: username[username.length - 1].github,
               checkout: {
                 back: true,
                 name: username[username.length - 1].name,
@@ -696,7 +699,7 @@ new Vue({
               lease: string,
               color: '#cf94ff',
               checkout: {
-                title: '@' + string
+                title: string
               }
             })
           } else {
@@ -705,7 +708,7 @@ new Vue({
               lease: string,
               color: '#cf94ff',
               checkout: {
-                title: '@' + string
+                title: string
               }
             })
           }
@@ -789,6 +792,7 @@ new Vue({
           currency: 'NANO',
           name: suggestion.name,
           address: suggestion.address,
+          github: suggestion.github,
           back: true,
           amount: false
         }
@@ -797,6 +801,9 @@ new Vue({
           qrcode: `nano:${suggestion.address}`,
           created: suggestion.created,
           expires: suggestion.expires,
+          github: suggestion.github,
+          twitter: suggestion.twitter,
+          nanogram: suggestion.nanogram,
           body: `
 <p style="font-size: 34px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
 <span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>

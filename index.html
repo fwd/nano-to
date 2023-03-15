@@ -73,6 +73,7 @@ https://github.com/fwd/nano
                       <div class="suggest" v-if="suggestions.length">
                         <div v-for="suggestion in suggestions" :style="`color: ${suggestion.color || ''}`" @click="doSuggestion(suggestion)">
                           {{ capitalizeFirstLetter(suggestion.name) }}
+                          <img v-if="suggestion.github" src="dist/images/verified.png" class="verified" alt="">
                         </div>
                       </div>
                       <div style="display: block; height: 15px;"></div>
@@ -92,13 +93,21 @@ https://github.com/fwd/nano
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
                       <div>
-                        <h1 @click="dev_mode = !dev_mode" v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">{{ prompt.title }}</h1>
+                        <h1 @click="dev_mode = !dev_mode" v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">
+                          {{ prompt.title }}
+                          <img @click="alert(`Verified as @${prompt.github} on Github.`)" v-if="prompt.github" src="dist/images/verified.png" class="verified" alt="">
+                          </h1>
                         <p v-html="prompt.body"></p>
                       </div>
                     </div>
                     <div v-if="prompt && (dev_mode || queryToObject().nocache)" style="font-size: 16px;">
-                      <div style="margin-bottom: 5px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}:</span> {{ prompt.created }}</div>
-                      <div><span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}:</span> {{ prompt.expires }}</div>
+                      <div style="margin-bottom: 10px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}:</span> {{ prompt.created }}</div>
+                      <div style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}:</span> {{ prompt.expires }}
+                      </div>
+                      <div>
+                        <span style="color: red;">{{ (strings[lang] ? strings[lang].github : strings['en'].github) }}:</span> 
+                        <a target="_blank" :href="'https://github.com/' + prompt.github">github.com/{{ prompt.github }}</a></div>
                     </div>
                     <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div v-for="button in prompt.buttons">
@@ -147,7 +156,10 @@ https://github.com/fwd/nano
         <section v-if="checkout.plans || checkout.image" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
-              <h2>{{ checkout.title }}</h2>
+              <h2>
+                {{ checkout.title }}
+                <img @click="alert(`Verified as @${checkout.github} on Github.`)" v-if="checkout.github" src="dist/images/verified.png" class="verified" alt="">
+              </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}</p>
               <p v-if="checkout.amount && checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}</p>
             </div>

@@ -6168,3 +6168,30 @@ hr.memo {
     font-size: 33px;
     justify-content: space-between;
 }
+
+.verified {
+
+  max-width: 20px;
+  vertical-align: middle;
+/*  filter: hue-rotate(412deg);*/
+  margin-bottom: 3px;
+
+}
+
+.small-mobile .verified {
+    max-width: 29px;
+    vertical-align: middle;
+    filter: hue-rotate(117deg);
+    margin-bottom: 7px;
+    margin-left: -11px;
+}
+
+.suggest .verified {
+
+    max-width: 20px;
+    vertical-align: middle;
+    filter: hue-rotate(462deg);
+    margin-bottom: 4px;
+    margin-left: -2px;
+
+}
