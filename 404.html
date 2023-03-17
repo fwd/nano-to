@@ -105,7 +105,7 @@ https://github.com/fwd/nano
                       <div style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}:</span> {{ prompt.expires }}
                       </div>
-                      <div>
+                      <div v-if="prompt.github">
                         <span style="color: red;">{{ (strings[lang] ? strings[lang].github : strings['en'].github) }}:</span> 
                         <a target="_blank" :href="'https://github.com/' + prompt.github">github.com/{{ prompt.github }}</a></div>
                     </div>
