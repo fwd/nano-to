@@ -1,5 +1,13 @@
 [
   {
+    "name": "bot",
+    "address": "nano_1bot18r7zy58qom5y4byk9pgj31ofn5oedeuf8ninuzyjgunkp68rbyg5d5p",
+    "created": "March 17, 2023",
+    "expires": "March 17, 2024",
+    "created_unix": 1679060334,
+    "expires_unix": 1710668280
+  },
+  {
     "name": "gustav",
     "address": "nano_1iawmcfwmmdyr7xmnordt71gpnhnao8rsk4nywq5khtmedocaj6bafk4fb8h",
     "created": "January 30, 2023",
@@ -141,9 +149,8 @@
     "expires_unix": 1697619180
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "bank",
+    "status": "active",
     "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
     "created": "October 10, 2022",
     "expires": "October 14, 2023",
@@ -494,14 +501,13 @@
     "expires_unix": 1956522000
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "development",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
     "created_unix": 1640552100,
-    "expires_unix": 2019099600
+    "expires_unix": 2019099600,
+    "status": "active"
   },
   {
     "name": "tomsharp",
@@ -544,8 +550,6 @@
     "expires_unix": 1955234460
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "reps",
     "address": "nano_1reason1q976g9wkrt69nux7konww46ux73c7xzm7jrm3w4kqdtigym6btq3",
     "created": "December 15, 2021",
@@ -1275,8 +1279,6 @@
     "expires_unix": 1953094320
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "faucet",
     "address": "nano_1faucet7b6xjyha7m13objpn5ubkquzd6ska8kwopzf1ecbfmn35d1zey3ys",
     "created": "November 21, 2021",
@@ -1453,8 +1455,6 @@
     "expires_unix": 1700370000
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "eats",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
     "created": "November 10, 2021",
@@ -1463,8 +1463,6 @@
     "expires_unix": 1952209620
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "miami",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
     "created": "November 7, 2021",
@@ -1481,8 +1479,6 @@
     "expires_unix": 1951712820
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "formsend",
     "address": "nano_1form6qya137cg96u8tfp8feggp8wghomf6epfaxgsg95zkiuh18gqpdgds3",
     "created": "October 28, 2021",
@@ -1707,8 +1703,6 @@
     "expires_unix": 1758181740
   },
   {
-    "status": "active",
-    "github": "nano2dev",
     "name": "moon",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "September 15, 2021",
@@ -1731,7 +1725,6 @@
     "expires": "October 7, 2024",
     "created_unix": 1631584140,
     "expires_unix": 1728273600,
-    "status": "active",
-    "github": "nano2dev"
+    "status": "active"
   }
 ]
