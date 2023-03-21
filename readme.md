@@ -87,7 +87,21 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ## Verification ⭐️
 
-Verification on Nano.to is free, and done via Github. [Fork](https://github.com/fwd/nano-to/fork) this repo and change ```known.json``` to reflect your changes. Submit a PR to main branch.
+Verification on Nano.to is free, and done via Github. [Fork](https://github.com/fwd/nano-to/fork) this repo and change ```known.json```. Submit a PR to main branch.
+
+Accepted Values: 
+```js
+{
+  "status": "active", // "active", "inactive"
+  "github" "GITHUB_USERNAME",
+  "nostr" "NOSTR_URI",
+  "twitter" "TWITER_USERNAME",
+  "public_key" "PUBLIC_KEY",
+  "address": "UPDATED_ADDRESS",
+}
+```
+
+> Address changes require proof of ownership. 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
