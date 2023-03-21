@@ -75,11 +75,21 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 ]
 ```
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## Nano.to Support
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
 - @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9) 
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Verification
+
+Verification on Nano.to is free, and done via Github. Simply Fork this repo and change ```known.json``` correctly. Submit A PR and we will advise if any corrections must be made. 
+
+Forks welcomed at [issues page](https://github.com/fwd/nano/forks).
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
