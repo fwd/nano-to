@@ -12,20 +12,68 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Quick Links
-- [Public Node RPC (Talk to a Live Nano Node)](https://rpc.nano.to)
-- [Public Node RPC-2 (Price, Checkouts, Usernames.. etc)](https://api.nano.to)
-- [Browser - Javascript Paywall](https://github.com/fwd/nano-js)
-- [1-Click Node Installer](https://github.com/fwd/nano-docker)
+- [Free Node RPC (Talk to Live Nano Node)](https://rpc.nano.to)
+- [Nano.to RPC-2 (Price, Checkouts, Usernames.. etc)](https://api.nano.to)
+- [NanoWall.js - Monetize Websites with Nano](https://github.com/fwd/nano-js)
+- [NanoGoal.js - Visualize Nano funding foals](https://github.com/fwd/nano-js)
+- [NanoDocker - 1-Click Live Node Installer](https://github.com/fwd/nano-docker)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Checkout Domains
+## Alias Domains
 
 - nano.to (**Official**)
-- ӿ.to (**Alias**)
-- xno.to (**Alias**)
+- xno.to (**Reidrect**)
+- ӿ.to (**Reidrect**)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Username API
+
+```
+GET: https://nano.to?nostr=esteban,atxmj
+```
+
+```
+[
+    {
+      "status": "active",
+      "github": "nano2dev",
+      "name": "esteban",
+      "address": "nano_1m747htgqw5f...hmz1zaqoj1puj7h96oj",
+      "created": "September 13, 2021",
+      "expires": "October 7, 2024",
+      "created_unix": 1631584140,
+      "expires_unix": 1728273600
+    },
+    {
+      "name": "atxmj",
+      "address": "nano_1dctqbmqxf....91aurmuho48jx3c",
+      "created": "November 29, 2021",
+      "expires": "November 29, 2023",
+      "created_unix": 1638200760,
+      "expires_unix": 1701234000
+    }
+]
+```
+
+```
+GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
+```
+
+```
+[
+  {
+    "name": "bank",
+    "status": "active",
+    "address": "nano_1bank1q3q7x8rim...r51qsdkm8g45",
+    "created": "October 10, 2022",
+    "expires": "October 14, 2023",
+    "created_unix": 1665418910,
+    "expires_unix": 1697332800
+  }
+]
+```
 
 ## Nano.to Support
 
