@@ -98,7 +98,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames / Checkout is a means of business.
-- ❌ Commercial use where Nano.to Usernames / Checkout is re-branded & re-sold.
+- ❌ Commercial use where Nano.to Usernames / Checkout is re-branded & offered as a service.
 
 Contact [support@nano.to](mailto:support@nano.to) for licensing questions.
 
