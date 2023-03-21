@@ -23,8 +23,8 @@
 ## Alias Domains
 
 - nano.to (**Official**)
-- xno.to (**Reidrect**)
-- ӿ.to (**Reidrect**)
+- xno.to (**Redirect**)
+- ӿ.to (**Redirect**)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -101,7 +101,7 @@ Accepted Values:
 }
 ```
 
-> Address changes require proof of ownership. 
+> changes require proof of ownership. 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
