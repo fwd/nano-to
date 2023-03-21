@@ -15,8 +15,8 @@
 - [Free Node RPC (Talk to Live Nano Node)](https://rpc.nano.to)
 - [Nano.to RPC-2 (Price, Checkouts, Usernames.. etc)](https://api.nano.to)
 - [NanoWall.js - Monetize Websites with Nano](https://github.com/fwd/nano-js)
-- [NanoGoal.js - Visualize Nano funding foals](https://github.com/fwd/nano-js)
-- [NanoDocker - 1-Click Live Node Installer](https://github.com/fwd/nano-docker)
+- [NanoGoal.js - Visualize Nano Funding Goals](https://github.com/fwd/nano-js)
+- [NanoDocker - 1-Click Nano Node Install](https://github.com/fwd/nano-docker)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
