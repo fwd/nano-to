@@ -658,10 +658,20 @@ var nano = new Vue({
         })
       },
       invalidUsername(name) {
-        return !name || name.length > 60 || name.includes('_') || name.includes('nano_') || name.includes('xrb_') || !(/^\w+$/.test(name)) || name.includes('%5C')
+        return !name || 
+        name.length > 60 || 
+        name.includes('_') || 
+        name.includes('nano_') || 
+        name.includes('xrb_') || 
+        !(/^\w+$/.test(name)) || 
+        (this.usernames && this.usernames.find(a => a.github === name)) || 
+        name.includes('%5C')
       },
       isMatch(item, string) {
-        if (item.name.toLowerCase().includes(string.toLowerCase())) return true
+        if (
+          item.name.toLowerCase().includes(string.toLowerCase()) ||
+          (item.github && item.github.toLowerCase().includes(string.toLowerCase()))
+          ) return true
         return false
       },
       query() {
@@ -695,13 +705,13 @@ var nano = new Vue({
               url: `https://nanolooker.com/block/${string}`
             }]
         }
-        if (!string.includes('nano_') && this.invalidUsername(string)) {
+        this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase()) || (a.github && a.github.toLowerCase().includes(string.toLowerCase()))).reverse()
+        if (!this.suggestions.length && !string.includes('nano_') && this.invalidUsername(string)) {
           return this.suggestions = [{
             name: 'Invalid Search',
             error: true
           }]
         }
-        this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase())).reverse()
         if ((!item || item.name.toLowerCase() !== string.toLowerCase()) && !this.invalidUsername(string) && !this.suggestions.find(a => a.name.toLowerCase() === string.toLowerCase())) {
           if (this.suggestions.length > 5) {
             this.suggestions.unshift({
