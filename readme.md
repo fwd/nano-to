@@ -15,7 +15,7 @@
 
 - [**Public Node RPC**](https://rpc.nano.to)
 - [**Nano.to RPC-2**](https://api.nano.to) 
-- [**Offline.js**](https://github.com/fwd/nano-js) - Non-custodial JavaScript Nano Wallet
+- [**NanoOffline.js**](https://github.com/fwd/nano-js) - Non-custodial JavaScript Nano Wallet
 - [**NanoWall.js**](https://github.com/fwd/nano-js) - Non-custodial Nano Paywall Plugin
 - [**NanoGoal.js**](https://github.com/fwd/nano-js) - Visualize Nano Funding On Websites
 - [**NanoDocker**](https://github.com/fwd/nano-docker) - 1 Click Live Nano Node
