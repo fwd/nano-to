@@ -29,9 +29,19 @@
 
 // ;(() => {
 
-new Vue({
+window.copy = function(text) {
+  var self = this
+  navigator.clipboard.writeText(text).then(function() {
+    nano.notify('Copied to clipboard.')
+  }, function() {
+    document.execCommand("copy");
+  })
+}
+
+var nano = new Vue({
     el: '#app',
     data: {
+      copy,
       confetti: true,
       known: 'known.json',
       doc_title: 'Nano.to - Nano Username & Checkout UI',
@@ -725,14 +735,6 @@ new Vue({
           window.alert('Could not copy.')
         }
       },
-      copy(text) {
-        var self = this
-        navigator.clipboard.writeText(text).then(function() {
-          self.notify('Copied to clipboard.')
-        }, function() {
-          document.execCommand("copy");
-        })
-      },
       showQR(string) {
         setTimeout(() => {
           document.getElementById("qrcode").innerHTML = "";
@@ -805,7 +807,7 @@ new Vue({
           twitter: suggestion.twitter,
           nanogram: suggestion.nanogram,
           body: `
-<p style="font-size: 34px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
+<p onclick="window.copy('${suggestion.address}')" style="font-size: 34px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
 <span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
 </p>`,
           buttons: [{
