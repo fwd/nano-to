@@ -12,11 +12,13 @@
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Quick Links
-- [Free Node RPC (Talk to Live Nano Node)](https://rpc.nano.to)
-- [Nano.to RPC-2 (Price, Checkouts, Usernames.. etc)](https://api.nano.to)
-- [NanoWall.js - Monetize Websites with Nano](https://github.com/fwd/nano-js)
-- [NanoGoal.js - Visualize Nano Funding Goals](https://github.com/fwd/nano-js)
-- [NanoDocker - 1-Click Nano Node Install](https://github.com/fwd/nano-docker)
+
+- [**Public Node RPC**](https://rpc.nano.to)
+- [**Nano.to RPC-2**](https://api.nano.to) 
+- [**Offline.js**](https://github.com/fwd/nano-js) - Non-custodial JavaScript Nano Wallet
+- [**NanoWall.js**](https://github.com/fwd/nano-js) - Non-custodial Nano Paywall Plugin
+- [**NanoGoal.js**](https://github.com/fwd/nano-js) - Visualize Nano Funding On Websites
+- [**NanoDocker**](https://github.com/fwd/nano-docker) - 1 Click Live Nano Node
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -77,14 +79,6 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Nano.to Support
-
-- Email: support@nano.to
-- Twitter: [@nano2dev](https://twitter.com/nano2dev)
-- @nano2dev on [Nano's Discord](https://discord.com/invite/RNAE2R9) 
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
 ## Verification ⭐️
 
 Verification on Nano.to is free, and done via Github. [Fork](https://github.com/fwd/nano-to/fork) this repo and change ```known.json```. Submit a PR to main branch.
@@ -92,7 +86,7 @@ Verification on Nano.to is free, and done via Github. [Fork](https://github.com/
 Accepted Values: 
 ```js
 {
-  "status": "active", // "active", "inactive"
+  "status": "active",
   "github" "GITHUB_USERNAME",
   "nostr" "NOSTR_URI",
   "twitter" "TWITER_USERNAME",
@@ -113,13 +107,21 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
+## Nano.to Support
+
+- Email: support@nano.to
+- Twitter: [@nano2dev](https://twitter.com/nano2dev)
+- @nano2dev on [Nano’s Discord](https://discord.com/invite/RNAE2R9) 
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## License
 
 **Limited Commercial Use**
 
 - ✅ Personal & Open Source
-- ✅ Commercial use where Nano.to Usernames / Checkout is a means of business.
-- ❌ Commercial use where Nano.to Usernames / Checkout is re-branded & sold.
+- ✅ Commercial use where Nano.to Usernames / Checkout is a means to an end.
+- ❌ Commercial use where Nano.to Usernames / Checkout is re-branded and monetized.
 
 Contact [support@nano.to](mailto:support@nano.to) for licensing questions.
 
