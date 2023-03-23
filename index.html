@@ -157,7 +157,7 @@ https://github.com/fwd/nano
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
               <h2>
-                {{ checkout.title }}
+                {{ checkout.title || checkout.lease }}
                 <img @click="alert(`Verified as @${checkout.github} on Github.`)" v-if="checkout.github" src="dist/images/verified.png" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}</p>
