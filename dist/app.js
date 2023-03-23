@@ -144,21 +144,21 @@ var nano = new Vue({
           cancel: 'Cancelar'
         },
         'es': { 
-          note: 'Verifica la direccion y solo manda NANO (XNO) a esta direccion.',
-          intro: 'Descubre Nano',
+          note: 'Verifique la direccion y solo mande NANO ($XNO) a esta direccion digital.',
+          intro: 'Cadena Nano',
           guide: 'Para completar, envie:',
           button: 'Confirmar',
-          tap: 'Tap para abrir Wallet',
-          custom: 'Entre Monto:',
+          tap: 'Tap para abrir Natrium',
+          custom: 'Monto:',
           search: 'Buscar',
           send: 'Envia Pago',
           open: 'Abrir Wallet',
-          available: 'Usuario Disponible',
+          available: 'Disponible',
           success: 'Done.',
           redirecting: 'Un segundo..',
           created: 'Creado:',
           expires: 'Vence:',
-          renew: 'Renueva',
+          renew: 'Renovar',
           cancel: 'Cancelar'
         },
         'de': { 
