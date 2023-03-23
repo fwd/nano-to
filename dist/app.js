@@ -1,4 +1,5 @@
 // Coming soon Offline ✨
+
 // ;(async () => {
 //     // register service worker
 //   window.addEventListener('load', () => {
@@ -105,6 +106,25 @@ var nano = new Vue({
           renew: 'Поновити',
           cancel: 'Скасувати'
         },
+        // RU can view UK version
+        'ru': { 
+          note: 'Перевірте адресу одержувача і надсилайте тільки NANO (XNO) на цю адресу.',
+          intro: 'Пошук Blockchain',
+          guide: 'Для завершення надішліть:',
+          button: 'Перевірити стан',
+          tap: 'Торкніться, щоб відкрити Wallet',
+          custom: 'Введіть суму:',
+          search: 'Пошук',
+          send: 'Оплата',
+          open: 'Wallet',
+          available: 'Ім\'я доступне',
+          success: 'Успіх',
+          redirecting: 'Перенаправлення..',
+          created: 'Створено:',
+          expires: 'Термін дії:',
+          renew: 'Поновити',
+          cancel: 'Скасувати'
+        },
         'pt': { 
           note: 'Verifique o endereço do destinatário e envie apenas NANO (XNO) para este endereço.',
           intro: 'Pesquisar na Blockchain',
@@ -158,6 +178,44 @@ var nano = new Vue({
           expires: 'Läuft ab am:',
           renew: 'Erneuern',
           cancel: 'Stornieren'
+        },
+        'ja': { 
+          note: '受信者アドレスを確認し、NANO (XNO) のみをこのアドレスに送信します。',
+          intro: 'ブロックチェーンを検索',
+          guide: '完了するには、次を送信します。',
+          button: '小切手支払い',
+          tap: 'タップしてウォレットを開きます',
+          custom: '金額を入力します:',
+          search: '検索',
+          send: '支払いを送る',
+          open: 'ウォレットを開く',
+          available: '利用可能なユーザー名',
+          success: '成功',
+          redirecting: 'リダイレクト中..',
+          created: '作成した:',
+          expires: '有効期限:',
+          github: 'ギットハブ:',
+          renew: '更新する',
+          cancel: 'キャンセル'
+        },
+        'ko': { 
+          note: '받는 사람 주소를 확인하고 이 주소로 NANO(XNO)만 보내세요.',
+          intro: '블록체인 검색',
+          guide: '완료하려면 다음을 보내십시오:',
+          button: '결제 확인',
+          tap: '월렛을 열려면 탭하세요',
+          custom: '금액을 입력하세요:',
+          search: '찾다',
+          send: '송금',
+          open: '지갑 열기',
+          available: '사용 가능한 사용자 이름',
+          success: '성공',
+          redirecting: '리디렉션 중..',
+          created: '만들어진:',
+          expires: '만료:',
+          github: 'Github:',
+          renew: '고쳐 쓰다',
+          cancel: '취소'
         },
       }
     },
@@ -235,8 +293,8 @@ var nano = new Vue({
       nFormatter(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       },
-      lease(name) {
-        axios.get(`https://api.nano.to/${name}/lease`).then((res) => {
+      lease(username) {
+        axios.post(`https://api.nano.to`, { action: "lease", username }).then((res) => {
           if (res.data.error) return alert(res.data.message)
           res.data.back = true
           this.checkout = res.data
@@ -288,7 +346,6 @@ var nano = new Vue({
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
-
       async _checkout(item, data, cache) {
 
         this.getRate()
@@ -345,7 +402,6 @@ var nano = new Vue({
             }
 
           }
-
 
           this.checkout = {
             title: item.title || query.name || query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
@@ -657,15 +713,23 @@ var nano = new Vue({
           if (cb) cb(res.data)
         })
       },
+      validUsername(name) {
+        const regex = /^[\p{L}\p{N}][\p{L}\p{N}._-]*$/gmu;
+        return ( 
+          (name.length > 0 && name.length < 25) && 
+          regex.test(name) && 
+          !(this.usernames && this.usernames.find(a => a.github === name))
+        )
+      },
       invalidUsername(name) {
-        return !name || 
-        name.length > 60 || 
-        name.includes('_') || 
-        name.includes('nano_') || 
-        name.includes('xrb_') || 
-        !(/^\w+$/.test(name)) || 
-        (this.usernames && this.usernames.find(a => a.github === name)) || 
-        name.includes('%5C')
+        return !(this.validUsername(name))
+        // let validRegex = /(?<![\p{L}0-9])([_0-9０-９a-zA-Zａ-ｚＡ-Ｚぁ-んァ-ン一龠]{1,30})(?![\p{L}0-9])/gm;
+        // return ( 
+        //   (!name) || 
+        //   (/\s/).test(name) || 
+        //   (this.usernames && this.usernames.find(a => a.github === name)) || 
+        //   name.includes('%5C')
+        // )
       },
       isMatch(item, string) {
         if (
@@ -675,7 +739,7 @@ var nano = new Vue({
         return false
       },
       query() {
-        var string = this.string ? this.string.toLowerCase() : this.string
+        var string = this.string ? this.string : this.string
         if (!string) return
         var item = this.usernames.find(a => this.isMatch(a, string))
         if ((string.includes('nano_') || string.includes('xrb_')) && NanocurrencyWeb.tools.validateAddress(string)) {
@@ -707,10 +771,7 @@ var nano = new Vue({
         }
         this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase()) || (a.github && a.github.toLowerCase().includes(string.toLowerCase()))).reverse()
         if (!this.suggestions.length && !string.includes('nano_') && this.invalidUsername(string)) {
-          return this.suggestions = [{
-            name: 'Invalid Search',
-            error: true
-          }]
+          return this.suggestions = []
         }
         if ((!item || item.name.toLowerCase() !== string.toLowerCase()) && !this.invalidUsername(string) && !this.suggestions.find(a => a.name.toLowerCase() === string.toLowerCase())) {
           if (this.suggestions.length > 5) {
