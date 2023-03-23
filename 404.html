@@ -34,7 +34,7 @@ https://github.com/fwd/nano
       const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || (window.navigator.standalone) || document.referrer.includes('android-app://')
       if (isInStandaloneMode) document.documentElement.className += ' web-app'
     </script>
-    <script src="https://metrics.bar/js/script.js" id="metrics" async defer></script>
+    <!-- No Google Analytics here. -->
   </head>
   <body>
     <p class="seo-hackz" style="display: none; opacity: 0;">Username service and non-custodial checkout UI for the Nano Blockchain. Nano.to is on a mission to accelerate the use of Nano currency around the world.</p>
@@ -249,6 +249,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=1.1.0"></script>
+    <script src="dist/app.js?v=1.1.5"></script>
   </body>
 </html>
