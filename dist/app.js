@@ -352,7 +352,7 @@ var nano = new Vue({
         
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
 
-        item = item || this.usernames.find(a => a.name.toLowerCase() === path) || {}
+        item = item || this.usernames.find(a => a.name.toLowerCase() === decodeURIComponent(path)) || {}
         
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         
