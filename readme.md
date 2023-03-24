@@ -85,7 +85,7 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ## Verification ✅
 
-Verification is done with your Github username. [Fork](https://github.com/fwd/nano-to/fork) Nano.to and change ```known.json```. Finally, submit a PR to main branch.
+Verify with your Github username, and more optional metadata. [Fork](https://github.com/fwd/nano-to/fork) Nano.to and change ```known.json```. Finally, submit a PR to main branch.
 
 Accepted Values: 
 ```js
