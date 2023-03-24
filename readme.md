@@ -97,7 +97,7 @@ Accepted Values:
 }
 ```
 
-> Changes require proof of ownership. Send XXXX amount to yourself. 
+> Changes require proof of ownership. Ex. Send 0.XXXX amount to yourself. 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
