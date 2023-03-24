@@ -15,7 +15,7 @@
 
 ## Quick Links
 
-- [**Public Node RPC**](https://rpc.nano.to)
+- [**Live Node RPC**](https://rpc.nano.to)
 - [**Nano.to RPC-2**](https://api.nano.to) 
 - [**NanoOffline.js**](https://github.com/fwd/nano-js) - Non-custodial JavaScript Nano Wallet
 - [**NanoWall.js**](https://github.com/fwd/nano-js) - Non-custodial Nano Paywall Plugin
