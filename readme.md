@@ -16,7 +16,7 @@
 ## Quick Links
 
 - [**Live Nano Node**](https://rpc.nano.to)
-  - [**Wallet.js**](https://github.com/fwd/nano-offline#offlinejs) - Non-custodial, back-end agnostic JS Nano Wallet.
+  - [**Offline.js**](https://github.com/fwd/nano-offline#offlinejs) - Non-custodial, back-end agnostic JS Nano Wallet.
   - [**Paywall.js**](https://github.com/fwd/nano-wall#nanowalljs) - Non-custodial Nano Paywall Plugin
   - [**Goal.js**](https://github.com/fwd/nano-goal#nanogoaljs) - Visualize Nano Funding On Websites
 - [**Nano.to RPC-2**](https://api.nano.to) 
