@@ -180,7 +180,7 @@ var nano = new Vue({
           cancel: 'Stornieren'
         },
         'ja': {
-          note: '支払い先のアドレスが正しいことを確認し、NANO (XNO) 以外の通貨を送金しないでください。',
+          note: '支払い先のアドレスが正しいことを確認し、NANO (XNO) 以外を送金しないでください。',
           intro: 'ブロックチェーンを検索',
           guide: '支払う金額：',
           button: '支払いを確認',
@@ -188,8 +188,8 @@ var nano = new Vue({
           custom: '金額を入力してください:',
           search: '検索',
           send: '送金',
-          open: 'ウォレットを開く',
-          available: 'このユーザー名は利用可能です',
+          open: 'ウォレット',
+          available: '利用可能',
           success: '成功',
           redirecting: 'リダイレクト中..',
           created: '作成日:',
