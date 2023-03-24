@@ -81,7 +81,7 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Verification ⭐️
+## Verification ✅
 
 Verification on Nano.to is free, and done via Github. [Fork](https://github.com/fwd/nano-to/fork) this repo and change ```known.json```. Submit a PR to main branch.
 
@@ -101,7 +101,7 @@ Accepted Values:
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Issues
+## Github ⭐️
 
 Give a star if this project helped you!
 
