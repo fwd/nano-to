@@ -21,7 +21,7 @@
   - [**Goal.js**](https://github.com/fwd/nano-goal#nanogoaljs) - Visualize Nano Funding
 - [**Nano.to RPC-2**](https://api.nano.to) 
   - [**Usernames**](https://docs.nano.to/usernames#getting-started) 
-  - [**Checkout UI**](https://docs.nano.to/checkout-ui#getting-started) 
+  - [**Checkout UI**](https://docs.nano.to/checkout#getting-started) 
 - [**NanoDocker**](https://github.com/fwd/nano-docker) - 1 Click Live Nano Node
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
