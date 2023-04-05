@@ -75,7 +75,7 @@ var nano = new Vue({
           guide: 'To complete, send:',
           button: 'Check Payment',
           tap: 'Tap to open Wallet',
-          custom: 'Enter Amount:',
+          custom: 'Custom Amount:',
           search: 'Search',
           send: 'Send Payment',
           open: 'Open Wallet',
@@ -85,6 +85,8 @@ var nano = new Vue({
           created: 'Created:',
           expires: 'Expires:',
           github: 'Github:',
+          twitter: 'Twitter:',
+          nostr: 'Nostr:',
           renew: 'Renew',
           cancel: 'Cancel'
         },
@@ -368,7 +370,7 @@ var nano = new Vue({
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires })
+          if (!cache && query.nocache) return this.doSuggestion({ twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires })
           
           var custom = false
           var plans = item.plans || query.plans
@@ -412,6 +414,7 @@ var nano = new Vue({
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
             description: query.description || query.body || query.message,
+            twitter: item.twitter,
             github: item.github,
             goal,
             custom,
@@ -749,6 +752,8 @@ var nano = new Vue({
             suggestions.push({
               name: username[username.length - 1].name,
               github: username[username.length - 1].github,
+              twitter: username[username.length - 1].twitter,
+              nostr: username[username.length - 1].nostr,
               checkout: {
                 back: true,
                 name: username[username.length - 1].name,
@@ -866,6 +871,7 @@ var nano = new Vue({
           name: suggestion.name,
           address: suggestion.address,
           github: suggestion.github,
+          twitter: suggestion.twitter,
           back: true,
           amount: false
         }

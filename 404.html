@@ -93,9 +93,9 @@ https://github.com/fwd/nano
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
                       <div>
-                        <h1  v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px">
+                        <h1  v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px; margin-top: 20px">
                           <span @click="dev_mode = !dev_mode">{{ prompt.title }}</span>
-                          <img @click="alert(`Verified as @${prompt.github} on Github.`)" v-if="prompt.github" src="dist/images/verified.png" class="verified" alt="">
+                          <img @click="alert(`Verified as @${prompt.github} on Github. ${prompt.twitter ? 'And @' + prompt.twitter + ' on Twitter.' : ''}`)" v-if="prompt.github" src="dist/images/verified.png" class="verified" alt="">
                           </h1>
                         <p v-html="prompt.body"></p>
                       </div>
@@ -105,9 +105,14 @@ https://github.com/fwd/nano
                       <div style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}:</span> {{ prompt.expires }}
                       </div>
-                      <div v-if="prompt.github">
+                      <div v-if="prompt.github" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] ? strings[lang].github : strings['en'].github) }}:</span> 
-                        <a target="_blank" :href="'https://github.com/' + prompt.github">github.com/{{ prompt.github }}</a></div>
+                        <a target="_blank" :href="'https://github.com/' + prompt.github">@{{ prompt.github }}</a>
+                      </div>
+                      <div v-if="prompt.twitter" style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] ? strings[lang].twitter : strings['en'].twitter) }}:</span> 
+                        <a target="_blank" :href="'https://twitter.com/' + prompt.twitter">@{{ prompt.twitter }}</a>
+                      </div>
                     </div>
                     <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div v-for="button in prompt.buttons">
@@ -158,7 +163,7 @@ https://github.com/fwd/nano
             <div class="name flex center justify">
               <h2>
                 {{ checkout.title || checkout.lease }}
-                <img @click="alert(`Verified as @${checkout.github} on Github.`)" v-if="checkout.github" src="dist/images/verified.png" class="verified" alt="">
+                <img @click="alert(`Verified as @${checkout.github} on Github. ${checkout.twitter ? 'And @' + checkout.twitter + ' on Twitter.' : ''}`)" v-if="checkout.github" src="dist/images/verified.png" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}</p>
               <p v-if="checkout.amount && checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}</p>
