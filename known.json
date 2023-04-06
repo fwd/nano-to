@@ -1,6 +1,8 @@
 [
   {
     "name": "gpernelle",
+    "status": "active",
+    "github" "gpernelle", // required for checkmark
     "address": "nano_1sg1znsh1814aumtxkjcdy4g4xkb77wmfeijyh3i1t84ohn34gesnr33areg",
     "created": "April 6, 2023",
     "expires": "April 8, 2023",
