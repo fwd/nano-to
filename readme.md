@@ -100,7 +100,9 @@ Accepted Changes:
 
 Submit a Github PR to ```master``` branch.
 
-> Address changes require proof of ownership. ex. Send 0.XXX to yourself. 
+Changes require proof of ownership.
+
+> Send 0.XXX to yourself
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
