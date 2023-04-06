@@ -87,7 +87,7 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 Verify your Nano.to Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to and changing ```known.json```. 
 
-> Verified names are protected from deletion.
+**Verified names don't expire.**
 
 Accepted Changes:
 ```js
