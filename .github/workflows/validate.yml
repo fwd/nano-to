@@ -1,4 +1,4 @@
-name: JSON check
+name: Validate JSON
 
 on:
   pull_request:
