@@ -85,7 +85,7 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ## Verification
 
-Verify your Nano.to Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to and changing ```known.json```. Verified Usernames are not removed when expired.
+Verify your Nano.to Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to and changing ```known.json```. Verified names are not removed when they expired.
 
 Accepted Changes:
 ```js
@@ -130,7 +130,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 - ✅ Commercial use where Nano.to Usernames / Checkout is a means.
 - ❌ Commercial use where Nano.to Usernames / Checkout is re-sold.
 
-Contact [support@nano.to](mailto:support@nano.to) for licensing questions.
+Contact [support@nano.to](mailto:support@nano.to) for questions.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
