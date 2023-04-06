@@ -370,7 +370,7 @@ var nano = new Vue({
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires })
+          if (!cache && query.nocache) return this.doSuggestion({ twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires, expires_unix: item.expires_unix, expired: item.expired })
           
           var custom = false
           var plans = item.plans || query.plans
@@ -416,6 +416,7 @@ var nano = new Vue({
             description: query.description || query.body || query.message,
             twitter: item.twitter,
             github: item.github,
+            expired: item.expired || this.expired(item.expires_unix),
             goal,
             custom,
             amount,
@@ -741,6 +742,13 @@ var nano = new Vue({
           ) return true
         return false
       },
+      timestamp(timestamp) {
+        return (new Date(timestamp * 1000)).getTime()
+      },
+      expired(timestamp) {
+        var today = (new Date).getTime()
+        return this.timestamp(timestamp) === today || today > this.timestamp(timestamp)
+      },
       query() {
         var string = this.string ? this.string : this.string
         if (!string) return
@@ -754,10 +762,13 @@ var nano = new Vue({
               github: username[username.length - 1].github,
               twitter: username[username.length - 1].twitter,
               nostr: username[username.length - 1].nostr,
+              // expired: this.expired(username[username.length - 1].expires_unix),
+              expires_unix: username[username.length - 1].expires_unix,
               checkout: {
                 back: true,
                 name: username[username.length - 1].name,
-                address: username[username.length - 1].address
+                address: username[username.length - 1].address,
+                // expired: this.expired(username[username.length - 1].expires_unix),
               }
             })
             suggestions.push({
@@ -765,7 +776,10 @@ var nano = new Vue({
               url: `https://nanolooker.com/account/${string}`
             })
           }
-          this.suggestions = suggestions
+          this.suggestions = suggestions.map(a => {
+            a.expired = this.expired(a.expires_unix)
+            return a
+          })
           return
         }
         if (!string.includes('nano_') && string.length >= 60) {
@@ -775,6 +789,10 @@ var nano = new Vue({
             }]
         }
         this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase()) || (a.github && a.github.toLowerCase().includes(string.toLowerCase()))).reverse()
+        this.suggestions = this.suggestions.map(a => {
+          a.expired = this.expired(a.expires_unix)
+          return a
+        })
         if (!this.suggestions.length && !string.includes('nano_') && this.invalidUsername(string)) {
           return this.suggestions = []
         }
@@ -872,6 +890,7 @@ var nano = new Vue({
           address: suggestion.address,
           github: suggestion.github,
           twitter: suggestion.twitter,
+          expired: suggestion.expired || this.expired(suggestion.expires_unix),
           back: true,
           amount: false
         }
@@ -880,6 +899,7 @@ var nano = new Vue({
           qrcode: `nano:${suggestion.address}`,
           created: suggestion.created,
           expires: suggestion.expires,
+          expired: suggestion.expired || this.expired(suggestion.expires_unix),
           github: suggestion.github,
           twitter: suggestion.twitter,
           nanogram: suggestion.nanogram,
