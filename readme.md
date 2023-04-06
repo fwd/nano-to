@@ -83,9 +83,9 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Verification ✅
+## Verification
 
-Verify your Nano.to Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to and changing ```known.json```.
+Verify your Nano.to Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to and changing ```known.json```. Verified Usernames are not removed when expired.
 
 Accepted Changes:
 ```js
@@ -94,10 +94,11 @@ Accepted Changes:
   "github" "GITHUB_USERNAME", // required for checkmark
   "nostr" "NOSTR_URI",
   "twitter" "TWITER_USERNAME"
+  ...
 }
 ```
 
-Then submit a Github PR to ```master``` branch.
+Submit a Github PR to ```master``` branch.
 
 > Address changes require proof of ownership. ex. Send 0.XXX to yourself. 
 
@@ -124,8 +125,8 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 **Limited Commercial Use**
 
 - ✅ Personal & Open Source
-- ✅ Commercial use where Nano.to Usernames / Checkout is a means to an end.
-- ❌ Commercial use where Nano.to Usernames / Checkout is re-branded and monetized.
+- ✅ Commercial use where Nano.to Usernames / Checkout is a means.
+- ❌ Commercial use where Nano.to Usernames / Checkout is re-sold.
 
 Contact [support@nano.to](mailto:support@nano.to) for licensing questions.
 
