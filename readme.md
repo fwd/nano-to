@@ -9,7 +9,7 @@
   <img src="https://github.com/fwd/nano/raw/master/dist/images/funding.png" alt="Nano.to" />
 </p>
 
-<h1 align="center">🇺🇸 · 🇲🇽 · 🇵🇹 · 🇨🇺 · 🇸🇻 · 🇵🇷 · 🇳🇮 · 🇨🇴 · 🇵🇪 · 🇪🇸 · 🇩🇪 · 🇯🇵 · 🇺🇦 · 🇰🇷 · 🇧🇷</h1>
+<h1 align="center">🇺🇸 · 🇲🇽 · 🇨🇺 · 🇸🇻 · 🇳🇮 · 🇨🇴 · 🇵🇪 · 🇪🇸 · 🇩🇪 · 🇯🇵 · 🇺🇦 · 🇰🇷 · 🇧🇷</h1>
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
