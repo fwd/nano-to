@@ -1374,6 +1374,7 @@ code {
     text-align: center;
     zoom: 1.1;
     color: #FFF;
+    min-width: 320px;
 }
 
 #success .btn {

@@ -1,35 +1,3 @@
-// Coming soon Offline ✨
-
-// ;(async () => {
-//     // register service worker
-//   window.addEventListener('load', () => {
-//       if ('serviceWorker' in navigator) {
-//           navigator.serviceWorker.register('offline.js', { scope: '/' });
-//       }
-//   });
-
-//   // helper method to get variables from the service worker
-//   // example: await getValueFromServiceWorker('VERSION')
-//   async function getValueFromServiceWorker(key) {
-//       return new Promise(async (resolve) => {
-//           // wait until the controller is ready (this is important especially on first load)
-//           while (navigator.serviceWorker.controller === null) {
-//               await new Promise((resolve) => setTimeout(() => resolve(), 1000));
-//           }
-//           navigator.serviceWorker.controller.postMessage({ type: 'request-val', key: key });
-//           let fn = (event) => {
-//               if (event.data.type === 'receive-val' && event.data.key === key) {
-//                   navigator.serviceWorker.removeEventListener('message', fn, false);
-//                   resolve(event.data.value);
-//               }
-//           };
-//           navigator.serviceWorker.addEventListener('message', fn);
-//       });
-//   }
-// })();
-
-// ;(() => {
-
 window.copy = function(text) {
   var self = this
   navigator.clipboard.writeText(text).then(function() {
@@ -45,7 +13,7 @@ var nano = new Vue({
       copy,
       confetti: true,
       known: 'known.json',
-      doc_title: 'Nano.to - Nano Username & Checkout UI',
+      doc_title: 'Nano.to - Nano Name Service',
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
       lang: '',
@@ -584,7 +552,7 @@ var nano = new Vue({
          return new Promise((resolve) => {
           var endpoint = 'https://rpc.nano.to'
           axios.post(endpoint, { 
-            action: 'pending', 
+            action: 'receivable', 
             account: this.checkout.address,
             count: "50",
             json_block: true,
@@ -639,10 +607,10 @@ var nano = new Vue({
         this.success = {
           block,
           confetti: true,
-          title: 'Complete',
-          message: 'Payment was sent successfully.',
+          title: 'Success',
+          message: 'Payment was sent.',
           // confirm: true,
-          button: !query.success && this.checkout.fullscreen ? this.checkout.success_button : false,
+          // button: !query.success && this.checkout.fullscreen ? this.checkout.success_button : false,
           redirect: redirect,
         }
         if (redirect) {
@@ -727,13 +695,6 @@ var nano = new Vue({
       },
       invalidUsername(name) {
         return !(this.validUsername(name))
-        // let validRegex = /(?<![\p{L}0-9])([_0-9０-９a-zA-Zａ-ｚＡ-Ｚぁ-んァ-ン一龠]{1,30})(?![\p{L}0-9])/gm;
-        // return ( 
-        //   (!name) || 
-        //   (/\s/).test(name) || 
-        //   (this.usernames && this.usernames.find(a => a.github === name)) || 
-        //   name.includes('%5C')
-        // )
       },
       isMatch(item, string) {
         if (
@@ -922,5 +883,3 @@ var nano = new Vue({
       },
     }
 })
-
-// })()
