@@ -164,7 +164,6 @@ var nano = new Vue({
           redirecting: 'リダイレクト中..',
           created: '作成日:',
           expires: '有効期限:',
-          github: 'Github:',
           renew: '更新する',
           cancel: 'キャンセル'
         },
@@ -183,7 +182,6 @@ var nano = new Vue({
           redirecting: '리디렉션 중..',
           created: '만들어진:',
           expires: '만료:',
-          github: 'Github:',
           renew: '고쳐 쓰다',
           cancel: '취소'
         },
@@ -202,7 +200,6 @@ var nano = new Vue({
           redirecting: 'Przekierowywanie..',
           created: 'Utworzony:',
           expires: 'Wygasa:',
-          github: 'Github:',
           renew: 'Odnów',
           cancel: 'Anuluj'
         }
