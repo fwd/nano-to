@@ -86,7 +86,7 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ## Verification
 
-Verify your Nano.to Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to and changing ```known.json```. 
+Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. 
 
 **Verified names don't expire.**
 
@@ -101,11 +101,9 @@ Accepted Changes:
 }
 ```
 
-Submit a Github PR to ```master``` branch.
+Submit a Github PR to ```master``` branch. Changes require proof of ownership. 
 
-Changes require proof of ownership.
-
-> Send 0.XXX to yourself
+> Ex. Send 0.XXX to yourself
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
@@ -127,7 +125,7 @@ Contributions, issues and feature requests are welcome at [issues page](https://
 
 ## License
 
-**Limited Commercial Use**
+**Limited Commercial**
 
 - ✅ Personal & Open Source
 - ✅ Commercial use where Nano.to Usernames / Checkout is a means.
