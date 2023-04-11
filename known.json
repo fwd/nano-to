@@ -1493,7 +1493,10 @@
     "expires_unix": 1984539600
   },
   {
+    "status": "active",
+    "github": "humble-nano",
     "name": "humblenano",
+    "twitter": "humblenano",
     "address": "nano_3fq1wt45hpe9a6phqh3ht5y9xusa46z1mszduw6nq47opcxhfa71cnfo1maa",
     "created": "November 20, 2021",
     "expires": "November 20, 2023",
