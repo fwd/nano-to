@@ -187,6 +187,25 @@ var nano = new Vue({
           renew: '고쳐 쓰다',
           cancel: '취소'
         },
+        'pl': { 
+          note: 'Zweryfikuj adres odbiorcy i prześlij NANO (XNO) tylko na ten adres.',
+          intro: 'Przeszukaj Blockchain',
+          guide: 'Aby ukończyć, wyślij:',
+          button: 'Sprawdź Płatność',
+          tap: 'Kliknij aby otworzyć Portfel',
+          custom: 'Wpisz ilość:',
+          search: 'Szukaj',
+          send: 'Wyślij Płatność',
+          open: 'Otwórz Portfel',
+          available: 'Nazwa użytkownika dostępna',
+          success: 'Sukces',
+          redirecting: 'Przekierowywanie..',
+          created: 'Utworzony:',
+          expires: 'Wygasa:',
+          github: 'Github:',
+          renew: 'Odnów',
+          cancel: 'Anuluj'
+        }
       }
     },
     watch: {
