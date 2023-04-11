@@ -436,7 +436,7 @@ var nano = new Vue({
             this.showQR()
           }, 100)
           
-          document.title = `${this.capitalizeFirstLetter(item.name)} - Nano Blockchain`
+          document.title = `${this.capitalizeFirstLetter(item.name)} - Nano`
 
         }
         
