@@ -47,7 +47,7 @@ var nano = new Vue({
           search: 'Search',
           send: 'Send Payment',
           open: 'Open Wallet',
-          available: 'Username Available',
+          available: 'Available',
           success: 'Success',
           redirecting: 'Redirecting..',
           created: 'Created:',
@@ -195,7 +195,7 @@ var nano = new Vue({
           search: 'Szukaj',
           send: 'Wyślij Płatność',
           open: 'Otwórz Portfel',
-          available: 'Nazwa użytkownika dostępna',
+          available: 'Dostępne',
           success: 'Sukces',
           redirecting: 'Przekierowywanie..',
           created: 'Utworzony:',
@@ -778,18 +778,22 @@ var nano = new Vue({
             this.suggestions.unshift({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.7,
+              opacity: 0.8,
+              color: 'cyan',
+              available: true,
               checkout: {
-                title: string
+                title: '@' + string
               }
             })
           } else {
             this.suggestions.push({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.7,
+              opacity: 0.8,
+              color: 'cyan',
+              available: true,
               checkout: {
-                title: string
+                title: '@' + string
               }
             })
           }
