@@ -1012,11 +1012,17 @@ body.off::after {
     font-size: 28px;
 }
 .dark .suggest div {
-
     color: #FFF;
-
     text-shadow: 2px 1px 1px #0000007d;
-
+}
+.dark .available {
+    color: #ff00f5 !important;
+    filter: brightness(3.5) !important;
+}
+.light .available {
+    color: #37ff85 !important;
+    filter: invert(1);
+    text-shadow: 1px 1px 1px #00000045;
 }
 .suggest {
   position: fixed;

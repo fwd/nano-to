@@ -71,7 +71,7 @@ https://github.com/fwd/nano
                     <form @submit.prevent="query()">
                       <input type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
                       <div class="suggest" v-if="suggestions.length">
-                        <div v-for="suggestion in suggestions" :style="`color: ${suggestion.color || ''};opacity: ${suggestion.opacity || ''}`" @click="doSuggestion(suggestion)">
+                        <div v-for="suggestion in suggestions" :class="`${suggestion.available ? 'available' : ''}`" :style="`color:${suggestion.color || ''};opacity:${suggestion.opacity || ''}`" @click="doSuggestion(suggestion)">
                           {{ capitalizeFirstLetter(suggestion.name) }}
                           <img v-if="suggestion.github && !suggestion.expired" src="dist/images/verified.png" class="verified" alt="">
                         </div>
