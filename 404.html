@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=1.0.3">
+    <link rel="stylesheet" href="dist/style.css?v=1.1.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -71,7 +71,7 @@ https://github.com/fwd/nano
                     <form @submit.prevent="query()">
                       <input type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2;background: #00000078;color: #FFF;">
                       <div class="suggest" v-if="suggestions.length">
-                        <div v-for="suggestion in suggestions" :style="`color: ${suggestion.color || ''};opacity: ${suggestion.opacity || ''}`" @click="doSuggestion(suggestion)">
+                        <div v-for="suggestion in suggestions" :class="`${suggestion.available ? 'available' : ''}`" :style="`color:${suggestion.color || ''};opacity:${suggestion.opacity || ''}`" @click="doSuggestion(suggestion)">
                           {{ capitalizeFirstLetter(suggestion.name) }}
                           <img v-if="suggestion.github && !suggestion.expired" src="dist/images/verified.png" class="verified" alt="">
                         </div>
@@ -254,6 +254,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=1.3.5"></script>
+    <script src="dist/app.js?v=1.4.0"></script>
   </body>
 </html>
