@@ -23,7 +23,8 @@
 - [**Nano.to RPC-2**](https://api.nano.to) 
   - [**Usernames**](https://docs.nano.to/usernames#getting-started) 
   - [**Checkout**](https://docs.nano.to/checkout#getting-started) 
-- [**NanoDocker**](https://github.com/fwd/nano-docker) - 1 Click Live Nano Node
+- [**NanoDocker**](https://github.com/fwd/nano-docker) - 1-Click Nano Node w/ Docker
+- [**Nano.to Blog**](https://blog.nano.to) - Quality Nano Content
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
