@@ -53,6 +53,7 @@ var nano = new Vue({
           created: 'Created:',
           expires: 'Expires:',
           github: 'Github:',
+          discord: 'Discord:',
           twitter: 'Twitter:',
           nostr: 'Nostr:',
           renew: 'Renew',
@@ -273,9 +274,25 @@ var nano = new Vue({
       }
     },
     methods: {
-      // lang() {
-      //   return this.string[this.lang].note
-      // },
+      whois(prompt) {
+        var string = `Verified as @${prompt.github} on Github.` 
+        if (
+          prompt.github && 
+          prompt.discord && 
+          prompt.twitter && 
+          (prompt.github === prompt.twitter && prompt.github === prompt.discord )
+          ) {
+          return window.alert(`Verified as @${prompt.github} on Github, Twitter and Discord.`)
+        }
+        if (
+          prompt.github && 
+          prompt.twitter && 
+          (prompt.github === prompt.twitter )
+          ) {
+          return window.alert(`Verified as @${prompt.github} on Github and Twitter.`)
+        }
+        return window.alert(string)
+      },
       nFormatter(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       },
@@ -354,7 +371,7 @@ var nano = new Vue({
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires, expires_unix: item.expires_unix, expired: item.expired })
+          if (!cache && query.nocache) return this.doSuggestion({ discord: item.discord, twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires, expires_unix: item.expires_unix, expired: item.expired })
           
           var custom = false
           var plans = item.plans || query.plans
@@ -398,6 +415,7 @@ var nano = new Vue({
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
             description: query.description || query.body || query.message,
+            discord: item.discord,
             twitter: item.twitter,
             github: item.github,
             expired: item.expired || this.expired(item.expires_unix),
@@ -738,8 +756,8 @@ var nano = new Vue({
               name: username[username.length - 1].name,
               github: username[username.length - 1].github,
               twitter: username[username.length - 1].twitter,
+              discord: username[username.length - 1].discord,
               nostr: username[username.length - 1].nostr,
-              // expired: this.expired(username[username.length - 1].expires_unix),
               expires_unix: username[username.length - 1].expires_unix,
               checkout: {
                 back: true,
@@ -871,6 +889,7 @@ var nano = new Vue({
           address: suggestion.address,
           github: suggestion.github,
           twitter: suggestion.twitter,
+          discord: suggestion.discord,
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
           back: true,
           amount: false
@@ -883,6 +902,7 @@ var nano = new Vue({
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
           github: suggestion.github,
           twitter: suggestion.twitter,
+          discord: suggestion.discord,
           nanogram: suggestion.nanogram,
           body: `
 <p onclick="window.copy('${suggestion.address}')" style="font-size: 34px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
