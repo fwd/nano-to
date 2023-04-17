@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=1.5.0">
+    <link rel="stylesheet" href="dist/style.css?v=1.7.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
@@ -95,7 +95,7 @@ https://github.com/fwd/nano
                       <div>
                         <h1  v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px; margin-top: 20px; letter-spacing: 4px;">
                           <span @click="dev_mode = !dev_mode">{{ prompt.title }}</span>
-                          <img @click="alert(`Verified as @${prompt.github} on Github. ${prompt.twitter ? 'And @' + prompt.twitter + ' on Twitter.' : ''}`)" v-if="prompt.github && !prompt.expired" src="dist/images/verified.png" class="verified" alt="">
+                          <img @click="whois(prompt)" v-if="prompt.github && !prompt.expired" src="dist/images/verified.png" class="verified" alt="">
                           </h1>
                         <p v-html="prompt.body"></p>
                       </div>
@@ -162,7 +162,7 @@ https://github.com/fwd/nano
             <div class="name flex center justify">
               <h2>
                 {{ checkout.title || checkout.lease }}
-                <img style="margin-left: -2px;" @click="alert(`Verified as @${checkout.github} on Github. ${checkout.twitter ? 'And @' + checkout.twitter + ' on Twitter.' : ''}`)" v-if="!checkout.expired && checkout.github" src="dist/images/verified.png" class="verified" alt="">
+                <img style="margin-left: -4px; zoom: 0.8;" @click="whois(checkout)" v-if="!checkout.expired && checkout.github" src="dist/images/verified.png" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}</p>
               <p v-if="checkout.amount && checkout.random_int" class="price">{{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}</p>
@@ -253,6 +253,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=1.5.0"></script>
+    <script src="dist/app.js?v=1.7.0"></script>
   </body>
 </html>

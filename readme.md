@@ -85,7 +85,7 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Verification
+## Verified ✅
 
 Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. 
 
@@ -95,24 +95,20 @@ Accepted Changes:
 ```js
 {
   "status": "active",
-  "github" "GITHUB_USERNAME", // required for checkmark
+  "github" "GITHUB_USERNAME",
   "nostr" "NOSTR_URI",
   "twitter" "TWITER_USERNAME"
   ...
 }
 ```
 
-Submit a Github PR to ```master``` branch. Changes require proof of ownership. 
-
-> Ex. Send 0.XXX to yourself
+Submit a Github PR to ```master``` branch. Changes require proof of ownership. *Ex. Send 0.XXX to yourself*
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Github ⭐️
+## Issues & Features ⭐️
 
-Give a star if this project helped you!
-
-Contributions, issues and feature requests are welcome at [issues page](https://github.com/fwd/nano/issues).
+Give a star if this project helped you. Contributions, issues and features are welcome at [issues page](https://github.com/fwd/nano/issues).
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
