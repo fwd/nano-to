@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=1.7.0">
+    <link rel="stylesheet" href="dist/style.css?v=1.7.5">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
@@ -93,7 +93,7 @@ https://github.com/fwd/nano
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
                       <div>
-                        <h1  v-if="prompt.title" style="color: red; font-size: 40px !important; word-break: break-all; margin-top: 0px; margin-top: 20px; letter-spacing: 4px;">
+                        <h1  v-if="prompt.title" style=" margin-bottom: -10px; color: #ff2323; font-size: 40px !important; word-break: break-all; margin-top: 0px; margin-top: 20px; letter-spacing: 4px;">
                           <span @click="dev_mode = !dev_mode">{{ prompt.title }}</span>
                           <img @click="whois(prompt)" v-if="prompt.github && !prompt.expired" src="dist/images/verified.png" class="verified" alt="">
                           </h1>
@@ -253,6 +253,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=1.7.0"></script>
+    <script src="dist/app.js?v=1.7.5"></script>
   </body>
 </html>
