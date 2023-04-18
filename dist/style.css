@@ -1006,7 +1006,7 @@ body.off::after {
     color: #000;
     padding: 5px;
     letter-spacing: 2px;
-    text-shadow: 2px 1px 1px #ffffff7d;
+    text-shadow: 2px 1px 1px #ffffff33;
     font-family: cyber;
     text-transform: initial;
     font-size: 28px;
@@ -1016,17 +1016,17 @@ body.off::after {
     text-shadow: 2px 1px 1px #0000007d;
 }
 .dark .available {
-    color: #ff00f5 !important;
+    color: #00535d !important
     filter: brightness(3.5) !important;
 }
 .light .available {
-    color: #bfff02!important;
-    filter: invert(1);
-    text-shadow: 1px 1px 1px #00000045;
+  color: #1310ff !important;
+  filter: invert(0);
+  text-shadow: 1px 1px 1px #00000045;
 }
 .suggest {
   position: fixed;
-  background: #d32121f5;
+  background: #ff1e1e;
   width: 98%;
   text-align: left;
   padding: 10px;
@@ -1195,6 +1195,9 @@ code {
 }
 .button-group .cybr-btn {
   margin-bottom: 30px !important;
+}
+.light .button-group .cybr-btn {
+    color: #000;
 }
 .showQR {
   position: fixed;
@@ -6188,17 +6191,17 @@ hr.memo {
 }
 
 .small-mobile .verified {
-  max-width: 27px;
-  vertical-align: middle;
-  filter: hue-rotate(488deg);
-  margin-bottom: 9px;
-  margin-left: -22px;
+    max-width: 24px;
+    vertical-align: middle;
+    filter: hue-rotate(488deg);
+    margin-bottom: 9px;
+    margin-left: -22px;
 }
 
 .suggest .verified {
-  max-width: 17px;
+  max-width: 16px;
   vertical-align: middle;
-  filter: hue-rotate(472deg);
-  margin-bottom: 1px;
-  margin-left: -5px;
+  filter: hue-rotate(130deg);
+  margin-bottom: 0px;
+  margin-left: -4px;
 }
