@@ -419,8 +419,9 @@ body .cybr-btn + .cybr-btn {
   bottom: calc(var(--border) * 1);
   left: calc(var(--border) * 1);
   clip-path: var(--clip);
-  background: var(--primary);
+  background: #FFF;
   z-index: -1;
+/*  filter: invert(1);*/
 }
 
 @keyframes glitch {
@@ -1016,11 +1017,11 @@ body.off::after {
     text-shadow: 2px 1px 1px #0000007d;
 }
 .dark .available {
-    color: #00535d !important
+    color: #c41578 !important;
     filter: brightness(3.5) !important;
 }
 .light .available {
-  color: #0200c3 !important;
+  color: #ff8a8a !important;
   filter: invert(0);
   text-shadow: 1px 1px 1px #00000045;
 }
@@ -6191,7 +6192,7 @@ hr.memo {
 }
 
 .small-mobile .verified {
-    max-width: 24px;
+    max-width: 28px;
     vertical-align: middle;
     filter: hue-rotate(488deg);
     margin-bottom: 9px;
@@ -6211,5 +6212,5 @@ hr.memo {
 }
 
 .dark .suggest .verified {
-    filter: hue-rotate(394deg);
+    filter: hue-rotate(444deg);
 }
