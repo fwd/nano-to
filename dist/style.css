@@ -1020,7 +1020,7 @@ body.off::after {
     filter: brightness(3.5) !important;
 }
 .light .available {
-  color: #1310ff !important;
+  color: #0200c3 !important;
   filter: invert(0);
   text-shadow: 1px 1px 1px #00000045;
 }
@@ -6199,9 +6199,17 @@ hr.memo {
 }
 
 .suggest .verified {
-  max-width: 16px;
-  vertical-align: middle;
+/*  max-width: 16px;*/
+/*  vertical-align: middle;*/
   filter: hue-rotate(130deg);
-  margin-bottom: 0px;
+/*  margin-bottom: 0px;*/
+/*  margin-left: -4px;*/
+  max-width: 18px;
+  vertical-align: middle;
+  margin-bottom: 1px;
   margin-left: -4px;
+}
+
+.dark .suggest .verified {
+    filter: hue-rotate(394deg);
 }
