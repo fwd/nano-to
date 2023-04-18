@@ -419,7 +419,7 @@ body .cybr-btn + .cybr-btn {
   bottom: calc(var(--border) * 1);
   left: calc(var(--border) * 1);
   clip-path: var(--clip);
-  background: #FFF;
+  background: red;
   z-index: -1;
 /*  filter: invert(1);*/
 }
