@@ -1017,7 +1017,7 @@ body.off::after {
     text-shadow: 2px 1px 1px #0000007d;
 }
 .dark .available {
-    color: #c41578 !important;
+    color: #f7229a!important;
     filter: brightness(3.5) !important;
 }
 .light .available {
