@@ -160,10 +160,10 @@ https://github.com/fwd/nano
             <div class="name flex center justify">
               <h2>
                 {{ checkout.lease ? '@' + checkout.lease : checkout.title }}
-                <img style="margin-left: -4px; zoom: 0.8;" @click="whois(checkout)" v-if="!checkout.expired && checkout.github" src="dist/images/verified.png" class="verified" alt="">
+                <img style="margin-left:-4px;zoom:0.8;" @click="whois(checkout)" v-if="!checkout.expired && checkout.github" src="dist/images/verified.png" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">
-              <img src="dist/svg/xno.svg" alt="" style=" max-width: 14px;margin-right: 3px;margin-bottom: -1px;opacity: 0.3; ">
+              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:3px;margin-bottom:-1px;opacity:0.3;">
               {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
               </p>
               <p v-if="checkout.amount && checkout.random_int" class="price">
