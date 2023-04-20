@@ -163,7 +163,7 @@ https://github.com/fwd/nano
                 <img style="margin-left:-4px;zoom:0.8;" @click="whois(checkout)" v-if="!checkout.expired && checkout.github" src="dist/images/verified.png" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">
-              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:12.3px;margin-right: 1px;margin-bottom: -1px;opacity: 0.3;">
+              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.3;zoom: 0.9;">
               {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
               </p>
               <p v-if="checkout.amount && checkout.random_int" class="price">
