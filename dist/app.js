@@ -796,7 +796,7 @@ var nano = new Vue({
             this.suggestions.unshift({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.8,
+              opacity: 0.5,
               color: 'cyan',
               available: true,
               checkout: {
@@ -807,7 +807,7 @@ var nano = new Vue({
             this.suggestions.push({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.8,
+              opacity: 0.5,
               color: 'cyan',
               available: true,
               checkout: {
