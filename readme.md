@@ -20,14 +20,13 @@
 
 ## Quick Links
 
-- [**Live Nano Node**](https://rpc.nano.to)
-  - [**Node RPC/API**](https://rpc.nano.to) - Talk to a Live Nano Node
-  - [**Offline.js**](https://github.com/fwd/nano-offline#offlinejs) - Javascript Nano Wallet
-  - [**Paywall.js**](https://github.com/fwd/nano-wall#nanowalljs) - Non-custodial Nano Paywall
-  - [**Goal.js**](https://github.com/fwd/nano-goal#nanogoaljs) - Visualize Nano Funding
-- [**Nano.to RPC-2**](https://api.nano.to) 
-  - [**Usernames**](https://docs.nano.to/usernames#getting-started) 
-  - [**Checkout**](https://docs.nano.to/checkout#getting-started) 
+- **Live Nano Node**
+  - [**Public Nano RPC**](https://rpc.nano.to) - Talk to a Live Nano Node
+  - [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline#offlinejs) - Javascript Nano Wallet
+  - [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall#nanowalljs) - Non-custodial Nano Paywall
+  - [**Javascript - goal.js**](https://github.com/fwd/nano-goal#nanogoaljs) - Visualize Nano Funding
+  - [**Nano.to Usernames**](https://docs.nano.to/usernames#getting-started) 
+  - [**Nano.to Checkout**](https://docs.nano.to/checkout#getting-started) 
 - [**Nano Docker**](https://github.com/fwd/nano-docker) - 1-Click Nano Node w/ Docker
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
@@ -89,11 +88,10 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Verified ✅
+## Permanent Name ✅
 
-Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. 
+**Verified names don't expire.** 
 
-**Verified names don't expire.**
 
 Accepted Changes:
 ```js
@@ -106,7 +104,7 @@ Accepted Changes:
 }
 ```
 
-Submit a Github PR to ```master``` branch. Changes require proof of ownership. *Ex. Send 0.XXX to yourself*
+Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. Submit a Github PR to ```master``` branch. Changes require proof of ownership. *Ex. Send 0.XXX to yourself*
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
