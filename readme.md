@@ -82,8 +82,6 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
 ## Username Dataset
 
 Download the [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use CDN. 
@@ -91,7 +89,6 @@ Download the [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/m
 - RPC changes reflect instantly: https://api.nano.to/known.json
 - Updated every 24 hours: https://nano.to/known.json
 - Yearly snapshot (immutable): https://nano.to/2023/known.json
-
 
 ## Verification ✅
 
@@ -124,7 +121,7 @@ Optional Values:
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Issues & Features ⭐️
+## Bugs & Features ⭐️
 
 Give a star if this project helped you. Contributions, issues and features are welcome at [issues page](https://github.com/fwd/nano/issues).
 
