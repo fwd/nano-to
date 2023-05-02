@@ -20,13 +20,12 @@
 
 ## Quick Links
 
-- **Live Nano Node**
-  - [**Public Nano RPC**](https://rpc.nano.to) - Talk to a Live Nano Node
-  - [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline#offlinejs) - Javascript Nano Wallet
-  - [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall#nanowalljs) - Non-custodial Nano Paywall
-  - [**Javascript - goal.js**](https://github.com/fwd/nano-goal#nanogoaljs) - Visualize Nano Funding
-  - [**Nano.to Usernames**](https://docs.nano.to/usernames#getting-started) 
-  - [**Nano.to Checkout**](https://docs.nano.to/checkout#getting-started) 
+- [**Public Nano RPC**](https://rpc.nano.to) - Talk to a Live Nano Node
+- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline#offlinejs) - Javascript Nano Wallet
+- [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall#nanowalljs) - Non-custodial Nano Paywall
+- [**Javascript - goal.js**](https://github.com/fwd/nano-goal#nanogoaljs) - Visualize Nano Funding
+- [**Nano.to Usernames**](https://docs.nano.to/usernames#getting-started) 
+- [**Nano.to Checkout**](https://docs.nano.to/checkout#getting-started) 
 - [**Nano Docker**](https://github.com/fwd/nano-docker) - 1-Click Nano Node w/ Docker
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
