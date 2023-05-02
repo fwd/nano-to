@@ -87,16 +87,6 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Caching Strageties
-
-Download [dataset](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) and parse locally or use CDN. 
-
-- Changes Instantly: https://api.nano.to/known.json
-- Updated Every 10 Minutes: https://nano.to/known.json
-- Yearly Snapshot (Immutable): https://nano.to/2023/known.json
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
 ## Permanent Name ✅
 
 **Verified names don't expire.** 
@@ -126,6 +116,16 @@ Optional Values:
 ```
 
 Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. Submit a Github PR to ```master``` branch. **Yes, we want you to learn Github minimum.** Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Username Dataset
+
+Download the [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use CDN. 
+
+- RPC changes reflect instantly: https://api.nano.to/known.json
+- Updated every 24 hours: https://nano.to/known.json
+- Yearly snapshot (immutable): https://nano.to/2023/known.json
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
