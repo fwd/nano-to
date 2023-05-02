@@ -87,10 +87,9 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Permanent Name ✅
+## Verification ✅
 
-**Verified names don't expire.** 
-
+**Verified names don't expire.** And more.
 
 Optional Values:
 ```js
@@ -115,7 +114,7 @@ Optional Values:
 }
 ```
 
-Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. Submit a Github PR to ```master``` branch. **Yes, we want you to learn Github minimum.** Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
+> Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. Submit a Github PR to ```master``` branch. **Yes, we want you to learn Github minimum.** Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
