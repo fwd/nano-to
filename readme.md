@@ -92,14 +92,26 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 **Verified names don't expire.** 
 
 
-Accepted Changes:
+Optional Values:
 ```js
 {
-  "status": "active",
-  "github" "GITHUB_USERNAME",
-  "nostr" "NOSTR_URI",
-  "twitter" "TWITER_USERNAME"
-  ...
+  "action": "update_name",
+  "name": "NanoBull",
+  "title": "Software Developer",
+  "full_name": "Leroy Jenkins",
+  "twitter": "NanoBull",
+  "github": "NanoBull",
+  "nostr": "NanoBull",
+  "mastodon": "nanobull.mastodon.org",
+  "location": "Place Name or Lat, Lon",
+  "freelance": "80 NANO / hr",
+  "website": "https://fwd.dev",
+  "name_for_sale": 500,
+  "address": "NEW_NANO_ADDRESS",
+  "donation_address": "OPTIONAL_NANO_ADDRESS",
+  "metadata": {
+    "something-custom": true
+  }
 }
 ```
 
