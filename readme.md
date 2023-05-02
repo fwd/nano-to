@@ -111,6 +111,7 @@ Optional Values:
   "name_for_sale": 500,
   "address": "NEW_NANO_ADDRESS",
   "donation_address": "OPTIONAL_NANO_ADDRESS",
+  "planet": "Earth",
   "metadata": {
     "something-custom": true
   }
