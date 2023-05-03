@@ -124,7 +124,7 @@ cd nano && php -S localhost:8080
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Download Dataset
+## Download Username Dataset
 
 [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use a CDN. 
 
