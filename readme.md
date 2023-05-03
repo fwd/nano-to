@@ -33,7 +33,30 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Username API
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Download Dataset
+
+[Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use a CDN. 
+
+- User changes reflect instantly: https://api.nano.to/known.json
+- Updated every 24 hours: https://nano.to/known.json
+- Yearly snapshot (immutable): https://nano.to/2023/known.json
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Nano.to Localy
+
+```bash
+git clone git@github.com:fwd/nano.git
+cd nano && php -S localhost:8080
+```
+
+> Nano.to includes a ```/index.html``` that can be served easily.
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Developer API
 
 ```
 GET: https://nano.to?nostr=esteban,atxmj
@@ -82,17 +105,9 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Username Dataset
-
-Download the [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use CDN. 
-
-- User changes reflect instantly: https://api.nano.to/known.json
-- Updated every 24 hours: https://nano.to/known.json
-- Yearly snapshot (immutable): https://nano.to/2023/known.json
-
 ## Verification ✅
 
-**Verified names don't expire.** And more.
+**Verified names don't expire.** 
 
 Optional Values:
 ```js
