@@ -33,28 +33,38 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+## Verification ✅
 
-## Download Dataset
+**Verified names don't expire.** 
 
-[Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use a CDN. 
-
-- User changes reflect instantly: https://api.nano.to/known.json
-- Updated every 24 hours: https://nano.to/known.json
-- Yearly snapshot (immutable): https://nano.to/2023/known.json
-
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-## Nano.to Localy
-
-```bash
-git clone git@github.com:fwd/nano.git
-cd nano && php -S localhost:8080
+Optional Values:
+```js
+{
+  "action": "update_name",
+  "name": "NanoBull",
+  "title": "Software Developer",
+  "full_name": "Leroy Jenkins",
+  "twitter": "NanoBull",
+  "github": "NanoBull",
+  "nostr": "NanoBull",
+  "mastodon": "nanobull.mastodon.org",
+  "location": "Place Name or Lat, Lon",
+  "freelance": "80 NANO / hr",
+  "website": "https://fwd.dev",
+  "name_for_sale": 500,
+  "address": "NEW_NANO_ADDRESS",
+  "donation_address": "OPTIONAL_NANO_ADDRESS",
+  "planet": "Earth",
+  "metadata": {
+    "something-custom": true
+  }
+}
 ```
 
-> Nano.to includes a ```/index.html``` that can be served easily.
+> Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. Submit a Github PR to ```master``` branch. **Yes, we want you to learn Github minimum.** Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 
 ## Developer API
 
@@ -105,35 +115,24 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Verification ✅
+## Host Nano.to Localy
 
-**Verified names don't expire.** 
-
-Optional Values:
-```js
-{
-  "action": "update_name",
-  "name": "NanoBull",
-  "title": "Software Developer",
-  "full_name": "Leroy Jenkins",
-  "twitter": "NanoBull",
-  "github": "NanoBull",
-  "nostr": "NanoBull",
-  "mastodon": "nanobull.mastodon.org",
-  "location": "Place Name or Lat, Lon",
-  "freelance": "80 NANO / hr",
-  "website": "https://fwd.dev",
-  "name_for_sale": 500,
-  "address": "NEW_NANO_ADDRESS",
-  "donation_address": "OPTIONAL_NANO_ADDRESS",
-  "planet": "Earth",
-  "metadata": {
-    "something-custom": true
-  }
-}
+```bash
+git clone git@github.com:fwd/nano.git
+cd nano && php -S localhost:8080
 ```
 
-> Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. Submit a Github PR to ```master``` branch. **Yes, we want you to learn Github minimum.** Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
+> Nano.to includes a ```/index.html``` that can be served easily.
+
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
+## Download Dataset
+
+[Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use a CDN. 
+
+- User changes reflect instantly: https://api.nano.to/known.json
+- Updated every 24 hours: https://nano.to/known.json
+- Yearly snapshot (immutable): https://nano.to/2023/known.json
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
