@@ -117,10 +117,10 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ```bash
 git clone git@github.com:fwd/nano.git
+```
+```bash
 cd nano && php -S localhost:8080
 ```
-
-> Nano.to includes a ```/index.html``` that can be served easily.
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
