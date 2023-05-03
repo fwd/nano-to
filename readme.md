@@ -116,10 +116,10 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 ## Host Your Own Nano.to
 
 ```bash
-git clone git@github.com:fwd/nano.git
+git clone git@github.com:fwd/nano.git && cd nano
 ```
 ```bash
-cd nano && php -S localhost:8080
+php -S localhost:8080
 ```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
