@@ -113,7 +113,7 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Host Nano.to Localy
+## Host Nano.to Locally
 
 ```bash
 git clone git@github.com:fwd/nano.git
