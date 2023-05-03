@@ -115,6 +115,8 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ## Host Your Own Nano.to
 
+Serve the included ```index.html``` file with any web server.
+
 ```bash
 git clone git@github.com:fwd/nano.git && cd nano
 ```
@@ -166,7 +168,6 @@ Contact [support@nano.to](mailto:support@nano.to) for questions.
     max-width: 100%;" src="https://files.simpleswap.io/banners/970x90_EN_fast-and-secure.png" width="970" /></a>
     
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
 
 ## Stargazers
 
