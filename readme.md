@@ -61,7 +61,7 @@ Optional Values:
 }
 ```
 
-> Verify Username by **[Forking](https://github.com/fwd/nano-to/fork)** Nano.to, and update ```known.json```. Submit a Github PR to ```master``` branch. **Yes, we want you to learn Github minimum.** Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
+> **[Fork](https://github.com/fwd/nano-to/fork)** this repo and update ```known.json```. Submit a Github PR to ```master``` branch. Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
