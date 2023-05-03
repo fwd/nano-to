@@ -35,9 +35,9 @@
 
 ## Verification ✅
 
-**Verified names don't expire.** 
+**Verified names don't expire.** **[Fork](https://github.com/fwd/nano-to/fork)** this repo and update ```known.json```. Submit a Github PR to ```master``` branch. Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
 
-Optional Values:
+**Accepted Values**:
 ```js
 {
   "action": "update_name",
@@ -60,8 +60,6 @@ Optional Values:
   }
 }
 ```
-
-> **[Fork](https://github.com/fwd/nano-to/fork)** this repo and update ```known.json```. Submit a Github PR to ```master``` branch. Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
