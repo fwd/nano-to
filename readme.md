@@ -142,7 +142,12 @@ Give a star if this project helped you. Contributions, issues and features are w
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Support
+## Sponsor (SimpleSwap)
+
+<a align="center" target="_blank" href="https://simpleswap.io/?ref=ecc1985b556a"><img style="object-fit: contain;
+    max-width: 100%;" src="https://github.com/fwd/fwd/raw/master/ads/simpleswap.png" width="970" /></a>
+
+## Nano.to Support
 
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
@@ -150,7 +155,7 @@ Give a star if this project helped you. Contributions, issues and features are w
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## License
+## Usage License
 
 **Limited Commercial**
 
@@ -160,12 +165,7 @@ Give a star if this project helped you. Contributions, issues and features are w
 
 Contact [support@nano.to](mailto:support@nano.to) for questions.
 
-## Sponsor (SimpleSwap)
-
-<a align="center" target="_blank" href="https://simpleswap.io/?ref=ecc1985b556a"><img style="object-fit: contain;
-    max-width: 100%;" src="https://github.com/fwd/fwd/raw/master/ads/simpleswap.png" width="970" /></a>
     
-
 ## Stargazers
 
 [![Stargazers over time](https://starchart.cc/fwd/nano-to.svg)](https://github.com/fwd/nano-to)
