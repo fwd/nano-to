@@ -35,7 +35,7 @@
 
 ## Verification ✅
 
-**Verified names don't expire.** **[Fork](https://github.com/fwd/nano-to/fork)** this repo and update ```known.json```. Submit a Github PR to ```master``` branch. Changes require proof of ownership. *Ex. Send 0.XXX to yourself.*
+**Verified names don't expire.** **[Fork](https://github.com/fwd/nano-to/fork)** this repo and update ```known.json```. 
 
 **Accepted Values**:
 ```js
