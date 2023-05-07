@@ -152,6 +152,7 @@ Give a star if this project helped you. Contributions, issues and features are w
 - Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
 - @nano2dev on [Nano’s Discord](https://discord.com/invite/RNAE2R9) 
+- [Schedule 30-Minute Meeting](https://calendly.com/nano2dev)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
