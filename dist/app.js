@@ -358,10 +358,9 @@ var nano = new Vue({
 
         item = item || this.usernames.find(a => a.name.toLowerCase() === name) || {}
         
-        if ( path && !this.usernames.find(a => a.name.toLowerCase() === name) ) {
-          return alert('Name not known.')
-        }
-        
+        if ( name === 'DESIRED_USERNAME' ) return alert('Reading the docs? Try searching for desired name instead.')
+        if ( path && !this.usernames.find(a => a.name.toLowerCase() === name) ) return alert('Name not registered.')
+
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         
         if (path && checkout) {
