@@ -15,8 +15,8 @@
 
 ## Quick Links
 
-- [**Public Nano RPC**](https://rpc.nano.to) - Talk to a Live Nano Node
-- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline) - Javascript Nano Wallet
+- [**Public Nano RPC**](https://rpc.nano.to) - Talk to Live Nano Node
+- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline) - JS Nano Wallet
 - [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall) - Non-custodial Nano Paywall
 - [**Javascript - goal.js**](https://github.com/fwd/nano-goal) - Visualize Nano Funding
 - [**Web App - Nano.to Usernames**](https://github.com/fwd/nano-to) 
@@ -33,7 +33,7 @@
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Verification ✅
+## PR based Verification ✅
 
 **Verified names don't expire.** **[Fork](https://github.com/fwd/nano-to/fork)** this repo and update ```known.json```. 
 
@@ -62,7 +62,6 @@
 ```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
 
 ## Developer API
 

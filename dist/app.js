@@ -354,8 +354,13 @@ var nano = new Vue({
         this.getRate()
         
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
+        var name = decodeURIComponent(path).replace('@', '')
 
-        item = item || this.usernames.find(a => a.name.toLowerCase() === decodeURIComponent(path)) || {}
+        item = item || this.usernames.find(a => a.name.toLowerCase() === name) || {}
+        
+        if ( path && !this.usernames.find(a => a.name.toLowerCase() === name) ) {
+          return alert('Name not known.')
+        }
         
         var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_') 
         
