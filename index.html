@@ -100,16 +100,16 @@ https://github.com/fwd/nano
                       </div>
                     </div>
                     <div v-if="prompt && (dev_mode || queryToObject().nocache)" style="font-size: 16px;">
-                      <div style="margin-bottom: 10px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}:</span> {{ prompt.created }}</div>
+                      <div style="margin-bottom: 10px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}</span> {{ prompt.created }}</div>
                       <div style="margin-bottom: 10px;">
-                        <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}:</span> {{ prompt.expires }} <span>{{ prompt.expired ? '[EXPIRED]' : '' }}</span>
+                        <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}</span> {{ prompt.expires }} <span>{{ prompt.expired ? '[EXPIRED]' : '' }}</span>
                       </div>
                       <div v-if="prompt.github" style="margin-bottom: 10px;">
-                        <span style="color: red;">{{ (strings[lang] && strings[lang].github ? strings[lang].github : strings['en'].github) }}:</span> 
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].github ? strings[lang].github : strings['en'].github) }}</span> 
                         <a target="_blank" :href="'https://github.com/' + prompt.github">@{{ prompt.github }}</a>
                       </div>
                       <div v-if="prompt.twitter" style="margin-bottom: 10px;">
-                        <span style="color: red;">{{ (strings[lang] && strings[lang].twitter ? strings[lang].twitter : strings['en'].twitter) }}:</span> 
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].twitter ? strings[lang].twitter : strings['en'].twitter) }}</span> 
                         <a target="_blank" :href="'https://twitter.com/' + prompt.twitter">@{{ prompt.twitter }}</a>
                       </div>
                     </div>
