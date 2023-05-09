@@ -355,6 +355,7 @@ var nano = new Vue({
         await this.getRate()
         
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
+
         var name = decodeURIComponent(path).replace('@', '')
 
         item = item || this.usernames.find(a => a.name.toLowerCase() === name) || {}
@@ -370,7 +371,7 @@ var nano = new Vue({
         
         var query = this.queryToObject()
 
-        var amount = query.price || query.amount || query.cost || query.p || false 
+        var amount = query.price || query.amount || query.cost || query.p || item.amount || item.price || false 
 
         if (query.currency && query.currency.toLowerCase() === 'usd') {
           amount = (amount / this.rate).toFixed(2)
@@ -403,7 +404,7 @@ var nano = new Vue({
             })
           }
 
-          if ((!plans || !plans.length) && (query.random || query.r)) {
+          if ((!plans || !plans.length) && (query.random || query.r || item.random)) {
             amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary2(10000, 100000)
           }
 
@@ -432,7 +433,7 @@ var nano = new Vue({
             discord: item.discord,
             twitter: item.twitter,
             github: item.github,
-            buttonText: query.button,
+            buttonText: item.button || query.button,
             note: item.note || query.note,
             expired: item.expired || this.expired(item.expires_unix),
             goal,
@@ -936,12 +937,25 @@ var nano = new Vue({
           }
         ]
         if (suggestion.calendly) {
-          buttons.push({
+          var calendly_checkout = {
             label: 'Nano Meeting',
-            link: "iframe",
-            // url: `https://calendly.com/nano2dev/30min?embed_domain=nano.to&embed_type=PopupText`
-            url: `https://calendly.com/${suggestion.calendly.replace('https://calendly.com/', '')}?embed_domain=nano.to&embed_type=PopupText&month=2023-05`
-          })
+            link: "iframe"
+          }
+          if ( Number(suggestion.calendly_rate) ) {
+            calendly_checkout.checkout = {
+              name: suggestion.name,
+              address: suggestion.address,
+              price: suggestion.calendly_rate,
+              random: true,
+              redirect: 'calendly',
+              title: 'To Book Meeting, Send',
+              button: "Book Meeting",
+              back: false
+            }
+          } else {
+            calendly_checkout.url = 'https://calendly.com/' + suggestion.calendly.replace('https://calendly.com/', '')
+          }
+          buttons.push(calendly_checkout)
         }
         // buttons.push({
         //     label: 'Email Support',
