@@ -82,32 +82,26 @@ GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## get Verified ✅
+## Verification ✅
 
-**Just edit known.json. Verified names don't expire.** 
+**Fork this repo, and update known.json. Verified names don't expire.** 
 
 **Accepted Values**:
 ```js
 {
-  "action": "update_name",
   "name": "NanoBull",
   "title": "Software Developer",
-  "full_name": "Leroy Jenkins",
   "twitter": "NanoBull",
   "github": "NanoBull",
-  "nostr": "NanoBull",
-  "mastodon": "nanobull.mastodon.org",
   "calendly": "NanoNullConsulting/30min",
+  "calendly_price": 1,
   "location": "Place Name or Lat, Lon",
   "freelance": "80 NANO / hr",
   "website": "https://fwd.dev",
   "name_for_sale": 500,
   "address": "NEW_NANO_ADDRESS",
   "donation_address": "OPTIONAL_NANO_ADDRESS",
-  "planet": "Earth",
-  "metadata": {
-    "something-custom": true
-  }
+  "planet": "Earth"
 }
 ```
 
