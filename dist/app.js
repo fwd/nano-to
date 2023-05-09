@@ -421,7 +421,8 @@ var nano = new Vue({
           }
 
           this.checkout = {
-            title: item.title || query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : 'Nano Pay'),
+            title: query.title || (item.name && !amount ? (this.capitalizeFirstLetter(item.name)) : ''),
+            // title: query.title || (item.name &&  ? (this.capitalizeFirstLetter(item.name)) : 'Nano Pay'),
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.expires ? true : false,
@@ -937,12 +938,12 @@ var nano = new Vue({
           }
         ]
         if (suggestion.calendly) {
-          var calendly_checkout = {
+          var checkout = {
             label: 'Nano Meeting',
             link: "iframe"
           }
           if ( Number(suggestion.calendly_rate) ) {
-            calendly_checkout.checkout = {
+            checkout.checkout = {
               name: suggestion.name,
               address: suggestion.address,
               price: suggestion.calendly_rate,
@@ -953,9 +954,10 @@ var nano = new Vue({
               back: false
             }
           } else {
-            calendly_checkout.url = 'https://calendly.com/' + suggestion.calendly.replace('https://calendly.com/', '')
+            checkout.url = 'https://calendly.com/' + suggestion.calendly.replace('https://calendly.com/', '')
           }
-          buttons.push(calendly_checkout)
+
+          buttons.push(checkout)
         }
         // buttons.push({
         //     label: 'Email Support',
