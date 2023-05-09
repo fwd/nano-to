@@ -102,8 +102,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: inherit;
+    height: 100vh;
 }
 
 .container {
@@ -542,10 +541,6 @@ body .cybr-btn + .cybr-btn {
   }
   body {
     /*filter: brightness(1) !important;*/
-  }
-  #app {
-    zoom:  0.9;
-    height: 100%;
   }
   .row.centered {
         flex-direction: column;
@@ -1017,7 +1012,7 @@ body.off::after {
     text-shadow: 2px 1px 1px #0000007d;
 }
 .dark .available {
-    color: #f7229a!important;
+    color: #ee00ff!important;
     filter: brightness(3.5) !important;
 }
 .light .available {
@@ -1266,6 +1261,7 @@ code {
 }
 .cyber {
     width: 100%;
+    height: 95vh;
 }
 @media (max-width: 768px) {
     #backdrop {
@@ -1280,9 +1276,6 @@ code {
       }
     .suggest {
         zoom:  0.75;
-    }
-    .cyber {
-        zoom:  0.97;
     }
     .pip-head li {
         zoom:  0.8;
@@ -1885,9 +1878,8 @@ hr {
     font-size: 14px;
     cursor: pointer;
     color: #FFF;
-    letter-spacing: 0.3px;
     font-weight: 400px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
 }
 
 .address img {
@@ -2175,9 +2167,6 @@ hr.memo {
     }
     .hide-desktop {
         display: inline-block
-    }
-    #app {
-        flex-direction: column;
     }
     #avatar {
         position: absolute;
@@ -6200,17 +6189,34 @@ hr.memo {
 }
 
 .suggest .verified {
-/*  max-width: 16px;*/
-/*  vertical-align: middle;*/
-  filter: hue-rotate(130deg);
-/*  margin-bottom: 0px;*/
-/*  margin-left: -4px;*/
-  max-width: 18px;
-  vertical-align: middle;
-  margin-bottom: 1px;
-  margin-left: -4px;
+    max-width: 17px;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    margin-left: -4px;
 }
 
 .dark .suggest .verified {
     filter: hue-rotate(444deg);
+}
+
+.frame {
+    background: #0000006e;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.backdrop_click_area { 
+  position: absolute;
+  background: #00000075;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }

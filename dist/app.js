@@ -34,6 +34,7 @@ var nano = new Vue({
       notification: false,
       dev_mode: false,
       checkout: false,
+      frame: false,
       suggestions: [],
       buttons: [],
       strings: {
@@ -375,7 +376,7 @@ var nano = new Vue({
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ discord: item.discord, twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires, expires_unix: item.expires_unix, expired: item.expired })
+          if (!cache && query.nocache) return this.doSuggestion({ calendly: item.calendly, discord: item.discord, twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires, expires_unix: item.expires_unix, expired: item.expired })
           
           var custom = false
           var plans = item.plans || query.plans
@@ -411,7 +412,7 @@ var nano = new Vue({
           }
 
           this.checkout = {
-            title: item.title || query.name || query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : 'Pay with NANO'),
+            title: item.title || query.name || query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : 'Nano Pay'),
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.expires ? true : false,
@@ -419,6 +420,7 @@ var nano = new Vue({
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
             description: query.description || query.body || query.message,
+            calendly: item.calendly,
             discord: item.discord,
             twitter: item.twitter,
             github: item.github,
@@ -507,7 +509,7 @@ var nano = new Vue({
             amount,
             plans,
             goal,
-            title: query.name || query.title || 'Pay with NANO',
+            title: query.name || query.title || 'NANO Pay',
             color: {
               right: query.rightBackground || '#009dff', 
               address: {
@@ -552,8 +554,8 @@ var nano = new Vue({
           var amount = Math.floor(this.rate * plan.value)
           return `$${amount}`
         }
-        if (String(plan.value) == '0.133') return plan.value + ' NANO'
-        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(1) : Math.floor(plan.value)} NANO`
+        if (String(plan.value) == '0.133') return plan.value + ' Nano'
+        return `${plan.value && Number(plan.value) < 1 ? Number(plan.value).toFixed(1) : Math.floor(plan.value)} Nano`
       },
       clickPlan(plan) {
         this.checkout.amount = plan.value
@@ -761,6 +763,7 @@ var nano = new Vue({
               github: username[username.length - 1].github,
               twitter: username[username.length - 1].twitter,
               discord: username[username.length - 1].discord,
+              calendly: username[username.length - 1].calendly,
               nostr: username[username.length - 1].nostr,
               expires_unix: username[username.length - 1].expires_unix,
               checkout: {
@@ -800,7 +803,7 @@ var nano = new Vue({
             this.suggestions.unshift({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.5,
+              opacity: 0.8,
               color: 'cyan',
               available: true,
               checkout: {
@@ -811,7 +814,7 @@ var nano = new Vue({
             this.suggestions.push({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.5,
+              opacity: 0.8,
               color: 'cyan',
               available: true,
               checkout: {
@@ -856,6 +859,9 @@ var nano = new Vue({
           this._checkout(button.checkout, null, true)
           return 
         }
+        if (button.link === "iframe") {
+          this.frame = button.url
+        }
         if (button.link === "qrcode") {
           this.prompt.showQR = true
           this.$forceUpdate()
@@ -870,6 +876,7 @@ var nano = new Vue({
         this.search = true
         this.dev_mode = false
         this.checkout = false
+        this.frame = false
         this.customAmount = ''
         this.status = 'blue'
         this.color = 'blue'
@@ -894,12 +901,41 @@ var nano = new Vue({
           github: suggestion.github,
           twitter: suggestion.twitter,
           discord: suggestion.discord,
+          calendly: suggestion.calendly,
+          nostr: suggestion.nostr,
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
           back: true,
           amount: false
         }
+        var buttons = [
+          {
+            label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
+            link: "external",
+            checkout,
+          }, 
+          {
+            label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
+            link: "external",
+            url: `nano:${suggestion.address}`
+          }
+        ]
+        if (suggestion.calendly) {
+          buttons.push({
+            label: 'Nano Meeting',
+            link: "iframe",
+            // url: `https://calendly.com/nano2dev/30min?embed_domain=nano.to&embed_type=PopupText`
+            url: `https://calendly.com/${suggestion.calendly.replace('https://calendly.com/', '')}?embed_domain=nano.to&embed_type=PopupText&month=2023-05`
+          })
+        }
+        // buttons.push({
+        //     label: 'Email Support',
+        //     link: "external",
+        //     url: 'https://calendly.com/' + suggestion.calendly.replace('https://calendly.com/', '')
+        //   })
+        // }
         self.prompt = {
-          title: `${suggestion.name}`,
+          name: `${suggestion.name}`,
+          title: suggestion.title,
           qrcode: `nano:${suggestion.address}`,
           created: suggestion.created,
           expires: suggestion.expires,
@@ -907,20 +943,13 @@ var nano = new Vue({
           github: suggestion.github,
           twitter: suggestion.twitter,
           discord: suggestion.discord,
+          calendly: suggestion.calendly,
           nanogram: suggestion.nanogram,
           body: `
-<p onclick="window.copy('${suggestion.address}')" style="font-size: 35px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;">
+<p onclick="window.copy('${suggestion.address}')" style="font-size: 34px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;letter-spacing: 3px;">
 <span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
 </p>`,
-          buttons: [{
-            label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
-            link: "external",
-            checkout,
-          }, {
-            label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
-            link: "external",
-            url: `nano:${suggestion.address}`
-          }, ]
+          buttons
         }
         history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
