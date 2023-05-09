@@ -48,6 +48,7 @@
   "github": "NanoBull",
   "nostr": "NanoBull",
   "mastodon": "nanobull.mastodon.org",
+  "calendly": "NanoNullConsulting/30min",
   "location": "Place Name or Lat, Lon",
   "freelance": "80 NANO / hr",
   "website": "https://fwd.dev",
