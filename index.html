@@ -92,10 +92,11 @@ https://github.com/fwd/nano
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
                       <div>
-                        <h1  v-if="prompt.title" style=" margin-bottom: -10px; color: #ff2323; font-size: 40px !important; word-break: break-all; margin-top: 0px; margin-top: 20px; letter-spacing: 4px;">
-                          <span @click="dev_mode = !dev_mode">{{ prompt.title }}</span>
+                        <h1 v-if="prompt.name" style="margin-bottom: -10px;color: rgb(255, 35, 35);font-size: 40px !important;word-break: break-all;margin-top: 20px;letter-spacing: 4px;margin-left: 10px;">
+                          <span @click="dev_mode = !dev_mode">{{ prompt.name }}</span>
                           <img @click="whois(prompt)" v-if="prompt.github && !prompt.expired" src="dist/images/verified.png" class="verified" alt="">
-                          </h1>
+                        </h1>
+                        <span v-if="prompt.title" style=" text-transform: none;margin-top: 34px;display: block;opacity: 1;font-size: 28px;font-family: Cyber;margin-bottom: -3px;color: rgb(255, 72, 72);border-bottom: 1px solid #ffffff33;padding-bottom: 20px;border-top: 1px solid #ffffff33;padding-top: 18px; ">{{ prompt.title }}</span>
                         <p v-html="prompt.body"></p>
                       </div>
                     </div>
@@ -113,7 +114,7 @@ https://github.com/fwd/nano
                         <a target="_blank" :href="'https://twitter.com/' + prompt.twitter">@{{ prompt.twitter }}</a>
                       </div>
                     </div>
-                    <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
+                    <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}; flex-wrap: wrap;`">
                       <div v-for="button in prompt.buttons">
                         <a @click="doButton(button)">
                           <button class="cybr-btn" style="zoom: 0.65;">
@@ -128,7 +129,7 @@ https://github.com/fwd/nano
                     </div>
                     <div v-if="prompt && dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div>
-                        <a target="_blank" :href="`https://nano.to/${prompt.title}/renew`">
+                        <a target="_blank" :href="`https://nano.to/${prompt.name}/renew`">
                           <button class="cybr-btn" style="zoom: 0.6;">
                             {{ (strings[lang] ? strings[lang].renew : strings['en'].renew) }}
                             <span aria-hidden>_</span>
@@ -163,7 +164,7 @@ https://github.com/fwd/nano
                 <img style="margin-left:-4px;zoom:0.8;" @click="whois(checkout)" v-if="!checkout.expired && checkout.github" src="dist/images/verified.png" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">
-              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.3;zoom: 0.9;">
+              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.5;zoom: 0.9;">
               {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
               </p>
               <p v-if="checkout.amount && checkout.random_int" class="price">
@@ -250,6 +251,12 @@ https://github.com/fwd/nano
             </div>
           </div>
         </section>
+      </div>
+      <div v-if="frame" class="frame">
+        <div class="backdrop_click_area" @click="frame = false"></div>
+        <div style=" max-width: 1024px; max-height: 1024px; width: 100%; height: 100%; ">
+          <iframe style="width: 100%; height: 100%;" :src="frame" frameborder="0"></iframe>
+        </div>
       </div>
     </div>
     <script src="dist/vue.min.js"></script>
