@@ -352,7 +352,7 @@ var nano = new Vue({
       },
       async _checkout(item, data, cache) {
 
-        this.getRate()
+        await this.getRate()
         
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
         var name = decodeURIComponent(path).replace('@', '')
@@ -370,7 +370,11 @@ var nano = new Vue({
         
         var query = this.queryToObject()
 
-        var amount = query.price || query.amount || query.n || query.x || query.cost || query.p || false 
+        var amount = query.price || query.amount || query.cost || query.p || false 
+
+        if (query.currency && query.currency.toLowerCase() === 'usd') {
+          amount = (amount / this.rate).toFixed(2)
+        }
 
         var goal = false
 
@@ -382,7 +386,7 @@ var nano = new Vue({
           var plans = item.plans || query.plans
           var vanity = item.vanity || query.vanity
           var donation = item.donate || query.custom
-          var highlight = query.button || query.backdrop || query.border || query.backgrounds || query.highlight
+          var highlight = query.backdrop || query.border || query.backgrounds || query.highlight
           
           if (!amount && !plans || donation) custom = true
 
@@ -399,6 +403,10 @@ var nano = new Vue({
             })
           }
 
+          if ((!plans || !plans.length) && (query.random || query.r)) {
+            amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary2(10000, 100000)
+          }
+
           if (query.goal) {
 
             var account_info = await this.balance(query.address || query.to || item.address)
@@ -412,7 +420,7 @@ var nano = new Vue({
           }
 
           this.checkout = {
-            title: item.title || query.name || query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : 'Nano Pay'),
+            title: item.title || query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : 'Nano Pay'),
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.expires ? true : false,
@@ -424,6 +432,8 @@ var nano = new Vue({
             discord: item.discord,
             twitter: item.twitter,
             github: item.github,
+            buttonText: query.button,
+            note: item.note || query.note,
             expired: item.expired || this.expired(item.expires_unix),
             goal,
             custom,
@@ -449,7 +459,8 @@ var nano = new Vue({
             },
             success_url, 
             success_button, 
-            cancel: query.cancel || query.cancel_url || query.c, 
+            cancel: query.cancel || query.cancel_url || query.c,
+            known: item 
           }
 
           setTimeout(() => {
@@ -499,7 +510,9 @@ var nano = new Vue({
           }
 
           this.checkout = {
+            title: query.title,
             custom: !amount || donation ? true : false,
+            note: query.note,
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: true,
@@ -648,9 +661,7 @@ var nano = new Vue({
           block,
           confetti: true,
           title: 'Success',
-          message: 'Payment was sent.',
-          // confirm: true,
-          // button: !query.success && this.checkout.fullscreen ? this.checkout.success_button : false,
+          message: 'Payment received',
           redirect: redirect,
         }
         if (redirect) {
@@ -661,7 +672,12 @@ var nano = new Vue({
           .split('{{hash}}').join(block.hash)
           .split('{{block}}').join(block.hash)
           setTimeout(() => {
-            window.location.href = success_url
+            if (success_url === 'calendly') {
+              this.frame = `https://calendly.com/${this.checkout.known.calendly.replace('https://calendly.com/', '')}?embed_domain=nano.to&embed_type=PopupText`
+              this.success = false
+              this.checkout = false
+              return
+            }
           }, this.checkout.redirect_delay || 3000)
           return
         }
