@@ -1,5 +1,13 @@
 [
   {
+    "name": "ik",
+    "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
+    "created": "May 9, 2023",
+    "expires": "May 9, 2024",
+    "created_unix": 1683639696,
+    "expires_unix": 1715262060
+  },
+  {
     "name": "dcc",
     "address": "nano_1reason1q976g9wkrt69nux7konww46ux73c7xzm7jrm3w4kqdtigym6btq3",
     "created": "April 29, 2023",
@@ -48,25 +56,6 @@
     "expires_unix": 1683409080
   },
   {
-    "name": "NanoOverBitcoin",
-    "address": "nano_3spt91b7apeywmmxadpwwreop9mfyf3ja8b47e3o9se7igqy4p7gtzhmphxc",
-    "created": "April 7, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680829122,
-    "expires_unix": 1680987480
-  },
-  {
-    "status": "active",
-    "github": "takuoimoto",
-    "twitter": "takuoimoto",
-    "name": "takuoimoto",
-    "address": "nano_3qytaa8thdixq4je7ece4xuooqkmfjoywsreditso1ya59h9wogjqnrgsmxw",
-    "created": "April 7, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680827475,
-    "expires_unix": 1680985860
-  },
-  {
     "name": "A",
     "address": "nano_3rrfnepodhm86nsx6iu5sphjjrd7fyq81ojwf1gqnhkgtaw9zk5jq93sjxtf",
     "created": "April 6, 2023",
@@ -83,14 +72,6 @@
     "expires_unix": 1712422920
   },
   {
-    "name": "BeerHarrisMT",
-    "address": "nano_33dbk7c5yfh511wnzfq19mkmurfo4e9b47c68iw7dpjysgqwy57y76txqxyb",
-    "created": "April 6, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680814674,
-    "expires_unix": 1680973020
-  },
-  {
     "name": "dev",
     "address": "nano_3j4noexyq4efjhrzodbi6hzqxwq9hxxgwj7f9yd6qs9cfh5b34q3muea66gg",
     "created": "April 6, 2023",
@@ -105,24 +86,6 @@
     "expires": "April 6, 2024",
     "created_unix": 1680811122,
     "expires_unix": 1712419080
-  },
-  {
-    "name": "ed",
-    "address": "nano_37e5derqsmhk1dwt84gsdy1jxkx3ycs8p45m4kx9qm9t85s1dedp4j1cjoqe",
-    "created": "April 6, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680808540,
-    "expires_unix": 1680966900
-  },
-  {
-    "status": "active",
-    "github": "gpernelle",
-    "name": "gpernelle",
-    "address": "nano_1sg1znsh1814aumtxkjcdy4g4xkb77wmfeijyh3i1t84ohn34gesnr33areg",
-    "created": "April 6, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680765590,
-    "expires_unix": 1680923940
   },
   {
     "name": "bot",
@@ -457,14 +420,6 @@
     "expires": "April 1, 2024",
     "created_unix": 1648808280,
     "expires_unix": 1711966680
-  },
-  {
-    "name": "ae",
-    "address": "nano_3eacxew9rz59uw4kbhry1gamqfs599utcazn9j7yyazw4fyfu7mfo4n7wxim",
-    "created": "April 1, 2022",
-    "expires": "April 1, 2023",
-    "created_unix": 1648793760,
-    "expires_unix": 1680329760
   },
   {
     "name": "allen",
@@ -1816,7 +1771,6 @@
     "discord": "nano2dev",
     "twitter": "nano2dev",
     "name": "esteban",
-    "calendly": "nano2dev/30min",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
     "created": "September 13, 2021",
     "expires": "October 7, 2024",
