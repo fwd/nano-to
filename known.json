@@ -72,14 +72,6 @@
     "expires_unix": 1683409080
   },
   {
-    "name": "NanoOverBitcoin",
-    "address": "nano_3spt91b7apeywmmxadpwwreop9mfyf3ja8b47e3o9se7igqy4p7gtzhmphxc",
-    "created": "April 7, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680829122,
-    "expires_unix": 1680987480
-  },
-  {
     "status": "active",
     "github": "takuoimoto",
     "twitter": "takuoimoto",
@@ -107,14 +99,6 @@
     "expires_unix": 1712422920
   },
   {
-    "name": "BeerHarrisMT",
-    "address": "nano_33dbk7c5yfh511wnzfq19mkmurfo4e9b47c68iw7dpjysgqwy57y76txqxyb",
-    "created": "April 6, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680814674,
-    "expires_unix": 1680973020
-  },
-  {
     "name": "dev",
     "address": "nano_3j4noexyq4efjhrzodbi6hzqxwq9hxxgwj7f9yd6qs9cfh5b34q3muea66gg",
     "created": "April 6, 2023",
@@ -129,14 +113,6 @@
     "expires": "April 6, 2024",
     "created_unix": 1680811122,
     "expires_unix": 1712419080
-  },
-  {
-    "name": "ed",
-    "address": "nano_37e5derqsmhk1dwt84gsdy1jxkx3ycs8p45m4kx9qm9t85s1dedp4j1cjoqe",
-    "created": "April 6, 2023",
-    "expires": "April 8, 2023",
-    "created_unix": 1680808540,
-    "expires_unix": 1680966900
   },
   {
     "status": "active",
@@ -451,14 +427,6 @@
     "expires_unix": 1682913600
   },
   {
-    "name": "Molly",
-    "address": "nano_1upq1wej9z5s9sus1gr8b5g44h513rneizeezytnqrwtg86c5we534jd5e9q",
-    "created": "April 29, 2022",
-    "expires": "April 29, 2023",
-    "created_unix": 1651273560,
-    "expires_unix": 1682740800
-  },
-  {
     "name": "v",
     "address": "nano_3yrn8bx4itoyc69n6m3m16thms1ckypqpaddqx6wca6a55fqh3b3jc36end4",
     "created": "April 15, 2022",
@@ -481,14 +449,6 @@
     "expires": "April 1, 2024",
     "created_unix": 1648808280,
     "expires_unix": 1711966680
-  },
-  {
-    "name": "ae",
-    "address": "nano_3eacxew9rz59uw4kbhry1gamqfs599utcazn9j7yyazw4fyfu7mfo4n7wxim",
-    "created": "April 1, 2022",
-    "expires": "April 1, 2023",
-    "created_unix": 1648793760,
-    "expires_unix": 1680329760
   },
   {
     "name": "allen",
@@ -1840,7 +1800,7 @@
     "discord": "nano2dev",
     "twitter": "nano2dev",
     "name": "esteban",
-    "title":"Software Consultant",
+    "title": "Software Consultant",
     "calendly": "nano2dev/30min",
     "calendly_rate": "1",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
