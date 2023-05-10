@@ -939,7 +939,7 @@ var nano = new Vue({
         ]
         if (suggestion.calendly) {
           var checkout = {
-            label: 'Nano Meeting',
+            label: 'Book Meeting',
             link: "iframe"
           }
           if ( Number(suggestion.calendly_rate) ) {
