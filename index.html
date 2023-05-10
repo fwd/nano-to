@@ -154,7 +154,7 @@ https://github.com/fwd/nano
       </div>
       <div v-if="checkout" id="checkout" class="flex">
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
-          <h3 :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.cancel_text ? '← ' + checkout.cancel_text : `← ${ (strings[lang] ? strings[lang].cancel : strings['en'].cancel) }` }}</h3>
+          <h3 :style="`color:${checkout.plans.length ? '#000' : '#FFF'};`">{{ checkout.cancel_text ? '← ' + checkout.cancel_text : `← ${ (strings[lang] ? strings[lang].cancel : strings['en'].cancel) }` }}</h3>
         </div>
         <section v-if="checkout.plans || checkout.image" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
