@@ -1159,14 +1159,13 @@ body.off::after {
 
 @media (max-width: 769px) {
   .cyber {
+    margin-top:0;
     height: calc(100% - 80px);
   }
   .break {
     display: block !important;
   }
-  .box--outer {
-/*    height: 90%;*/
-  }
+  .box--outer {}
   .box--inner::after,
   .box--inner::before {
     display: none !important;
@@ -1288,9 +1287,6 @@ code {
     margin: auto;
 }
 @media (max-width: 768px) {
-    .cyber {
-/*          margin-top: -7px;*/
-    }
     #backdrop {
       background-size: 270%;
     }
