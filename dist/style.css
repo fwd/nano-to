@@ -1162,7 +1162,6 @@ body.off::after {
     display: block !important;
   }
   .box--outer {
-    margin-top: -12px;
 /*    height: 90%;*/
   }
   .box--inner::after,
