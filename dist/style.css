@@ -1289,7 +1289,7 @@ code {
 }
 @media (max-width: 768px) {
     .cyber {
-          margin-top: -7px;
+/*          margin-top: -7px;*/
     }
     #backdrop {
       background-size: 270%;
