@@ -372,9 +372,9 @@ var nano = new Vue({
         
         var query = this.queryToObject()
 
-        var amount = query.price || query.amount || query.cost || query.p || item.amount || item.price || false 
+        var amount = query.p || query.price || query.amount || query.cost || item.amount || item.price || false 
 
-        if (query.currency && query.currency.toLowerCase() === 'usd') {
+        if (query.currency || query.c) {
           amount = (amount / this.rate).toFixed(2)
         }
 
