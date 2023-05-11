@@ -174,7 +174,7 @@ a {
     border-bottom: #000 18px solid;
     -o-border-image: url(../dist/images/hor_line.png) 17 11 17 round;
     border-image: url(../dist/images/hor_line.png) 17 11 17 round;
-    height: 85vh;
+    height: 91%;
     display: flex;
     align-items: center;
 }
