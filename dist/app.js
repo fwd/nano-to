@@ -462,7 +462,7 @@ var nano = new Vue({
             },
             success_url, 
             success_button, 
-            cancel: query.cancel || query.cancel_url || query.c,
+            cancel: query.cancel || query.cancel_url,
             known: item 
           }
 
