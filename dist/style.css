@@ -544,7 +544,7 @@ body .cybr-btn + .cybr-btn {
 }
 
 @media only screen and (max-width:600px) {
-  .cyber {
+  .holder {
     zoom: 0.9;
   }
   body {
@@ -1188,9 +1188,7 @@ code {
   color: #FFF;
   padding-bottom: 15px;
 }
-.holder, .title {
-  zoom:  1;
-}
+
 #pip {
   display: none;
 }
