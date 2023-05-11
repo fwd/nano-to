@@ -35,6 +35,7 @@ var nano = new Vue({
       dev_mode: false,
       checkout: false,
       frame: false,
+      frame_full: false,
       suggestions: [],
       buttons: [],
       strings: {
@@ -262,6 +263,13 @@ var nano = new Vue({
               self.reset()
           }
       }
+
+      window.onmessage = function(e) {
+          if (e.data == 'close') {
+            self.frame = false
+            self.frame_full = false
+          }
+      };
 
     },
     computed: {
@@ -880,6 +888,7 @@ var nano = new Vue({
           return 
         }
         if (button.link === "iframe") {
+          this.frame_full = button.full
           this.frame = button.url
         }
         if (button.link === "qrcode") {
@@ -961,12 +970,14 @@ var nano = new Vue({
 
           buttons.push(checkout)
         }
-        // buttons.push({
-        //     label: 'Email Support',
-        //     link: "external",
-        //     url: 'https://calendly.com/' + suggestion.calendly.replace('https://calendly.com/', '')
-        //   })
-        // }
+        if (suggestion.store_url) {
+          buttons.push({
+            link: "iframe",
+            full: true,
+            label: suggestion.store_name || 'My Shop',
+            url: suggestion.store_url
+          })
+        }
         self.prompt = {
           name: `${suggestion.name}`,
           title: suggestion.title,
