@@ -734,7 +734,6 @@ var nano = new Vue({
         var query = this.queryToObject()
         var currency = query.currency || query.c
             currency = currency ? currency.toLowerCase() : 'usd'
-        console.log( "currency", currency )
         return axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=nano&vs_currencies=${currency}`).then((res) => {
           if (res.data.nano && res.data.nano[currency]) this.rate = res.data.nano[currency]
           if (cb) cb(res.data)
