@@ -372,11 +372,7 @@ var nano = new Vue({
         
         var query = this.queryToObject()
 
-        var amount = query.p || query.price || query.amount || query.cost || item.amount || item.price || false 
-
-        if (query.currency || query.c) {
-          amount = (amount / this.rate).toFixed(2)
-        }
+        var amount = query.p || query.price || query.amount || item.amount || item.price || false 
 
         var goal = false
 
@@ -409,6 +405,10 @@ var nano = new Vue({
             amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary2(10000, 100000)
           }
 
+          if (amount && query.currency || query.c) {
+            amount = (amount / this.rate).toFixed(2)
+          }
+
           if (query.goal) {
 
             var account_info = await this.balance(query.address || query.to || item.address)
@@ -422,7 +422,7 @@ var nano = new Vue({
           }
 
           this.checkout = {
-            title: query.title || (item.name && !amount ? (this.capitalizeFirstLetter(item.name)) : ''),
+            title: query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : ''),
             // title: query.title || (item.name &&  ? (this.capitalizeFirstLetter(item.name)) : 'Nano Pay'),
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
