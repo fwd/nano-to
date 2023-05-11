@@ -1162,7 +1162,7 @@ body.off::after {
     display: block !important;
   }
   .box--outer {
-    height: 90%;
+/*    height: 90%;*/
   }
   .box--inner::after,
   .box--inner::before {
@@ -1286,7 +1286,7 @@ code {
 }
 @media (max-width: 768px) {
     .cyber {
-          margin-top: 5px;
+          margin-top: -7px;
     }
     #backdrop {
       background-size: 270%;
