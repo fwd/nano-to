@@ -823,7 +823,7 @@ var nano = new Vue({
             this.suggestions.unshift({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.8,
+              opacity: 0.7,
               color: 'cyan',
               available: true,
               checkout: {
@@ -834,7 +834,7 @@ var nano = new Vue({
             this.suggestions.push({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.8,
+              opacity: 0.7,
               color: 'cyan',
               available: true,
               checkout: {
@@ -980,7 +980,7 @@ var nano = new Vue({
           calendly: suggestion.calendly,
           nanogram: suggestion.nanogram,
           body: `
-<p onclick="window.copy('${suggestion.address}')" style="font-size: 34px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;letter-spacing: 3px;">
+<p onclick="window.copy('${suggestion.address}')" style="font-size: 30px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;letter-spacing: 3px;">
 <span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
 </p>`,
           buttons
