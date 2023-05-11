@@ -1158,6 +1158,9 @@ body.off::after {
 }
 
 @media (max-width: 769px) {
+  .cyber {
+    height: calc(100% - 80px);
+  }
   .break {
     display: block !important;
   }
