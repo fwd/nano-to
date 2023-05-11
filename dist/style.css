@@ -535,9 +535,17 @@ body .cybr-btn + .cybr-btn {
   }
 }
 
+#app {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
 @media only screen and (max-width:600px) {
-  .box--outer {
-    /*zoom:  0.9;*/
+  .cyber {
+    zoom: 0.9;
   }
   body {
     /*filter: brightness(1) !important;*/
@@ -1261,12 +1269,12 @@ code {
 }
 .cyber {
     width: 100%;
-    height: 95vh;
+    height: 98%;
+    margin: auto;
 }
 @media (max-width: 768px) {
     #backdrop {
-    background-size: 210%;
-    /*background-position: 50% 62%;*/
+      background-size: 270%;
     }
     .halo {
         background-size: 400%;
@@ -6181,10 +6189,10 @@ hr.memo {
 }
 
 .small-mobile .verified {
-    max-width: 28px;
+    max-width: 26px;
     vertical-align: middle;
     filter: hue-rotate(488deg);
-    margin-bottom: 9px;
+    margin-bottom: 6.4px;
     margin-left: -22px;
 }
 
@@ -6193,6 +6201,7 @@ hr.memo {
     vertical-align: middle;
     margin-bottom: 2px;
     margin-left: -4px;
+    filter: hue-rotate(132deg);
 }
 
 .dark .suggest .verified {
