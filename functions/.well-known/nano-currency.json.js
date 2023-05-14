@@ -29,7 +29,8 @@ export async function onRequestGet(ctx) {
   //   },
   // });
 
-  return new Response({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) }, {
+  return new Response({ names: results }, {
+  // return new Response({ names: JSON.parse().filter(a => a.name.toLowerCase() === name.toLowerCase()) }, {
     headers: {
       "content-type": "application/json;charset=UTF-8",
     },
