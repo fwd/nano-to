@@ -306,7 +306,7 @@ var nano = new Vue({
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       },
       lease(username) {
-        axios.post(`https://api.nano.to`, { action: "lease", username }).then((res) => {
+        axios.post(`https://rpc.nano.to`, { action: "get_name", username }).then((res) => {
           if (res.data.error) return alert(res.data.message)
           res.data.back = true
           this.checkout = res.data
@@ -742,13 +742,13 @@ var nano = new Vue({
         var query = this.queryToObject()
         var currency = query.currency || query.c
             currency = currency ? currency.toLowerCase() : 'usd'
-        return axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=nano&vs_currencies=${currency}`).then((res) => {
-          if (res.data.nano && res.data.nano[currency]) this.rate = res.data.nano[currency]
+        return axios.post('https://rpc.nano.to', { action: 'fiat_price', currency }).then((res) => {
+        this.rate = res.data.price
           if (cb) cb(res.data)
         })
       },
       load(cb) {
-        return axios.get(this.known).then((res) => {
+        return axios.post('https://rpc.nano.to', { action: 'known' }).then((res) => {
           this.usernames = res.data
           if (cb) cb(res.data)
         })
