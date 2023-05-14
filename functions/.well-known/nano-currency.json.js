@@ -1,3 +1,10 @@
+export async function onRequest(next) {
+  const response = await next();
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Max-Age', '86400');
+  return response;
+};
+
 // Respond to OPTIONS method
 export async function onRequestOptions(next) {
 // export const onRequestOptions: PagesFunction = async () => {
