@@ -2246,8 +2246,8 @@ hr.memo {
 @media (max-width: 668px) {
     #avatar {
       position: absolute;
-      top: -10px;
-      left: 10px !important;
+      top: -12px;
+      left: 9px !important;
       align-items: center;
       cursor: pointer;
       left: -15px;
@@ -2255,7 +2255,6 @@ hr.memo {
       max-width: 100%;
       margin: auto;
       padding-left: 0 !important;
-      
     }
 }
 
