@@ -40,7 +40,8 @@ export async function onRequestGet(ctx) {
 
   const _response = await fetch('https://nano.to/known.json', init);
   const results = await gatherResponse(_response);
-  const name = url.searchParams.get('names');
+  let name = url.searchParams.get('names');
+      name = name ? name : ''
 
   // return new Response(, {
   //   status: 200,
@@ -51,7 +52,7 @@ export async function onRequestGet(ctx) {
   // });
 
   // return new Response({ names: results }, {
-  return Response.json({ names: JSON.parse(results)[0] });
-  // return Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) });
+  // return Response.json({ names: JSON.parse(results)[0] });
+  return Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) });
 
 }
