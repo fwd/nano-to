@@ -1,25 +1,34 @@
-export async function onRequest(next) {
-  const response = await next();
-  response.headers.set('Access-Control-Allow-Origin', '*');
-  response.headers.set('Access-Control-Max-Age', '86400');
-  return response;
-};
+// export async function onRequest(next) {
+//   const response = await next();
+//   response.headers.set('Access-Control-Allow-Origin', '*');
+//   response.headers.set('Access-Control-Max-Age', '86400');
+//   return response;
+// };
 
-// Respond to OPTIONS method
-export async function onRequestOptions(next) {
-// export const onRequestOptions: PagesFunction = async () => {
-  return new Response(null, {
-    status: 204,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Allow-Methods': 'GET, OPTIONS',
-      'Access-Control-Max-Age': '86400',
-    },
-  });
-};
+// // Respond to OPTIONS method
+// export async function onRequestOptions(next) {
+// // export const onRequestOptions: PagesFunction = async () => {
+//   return new Response(null, {
+//     status: 204,
+//     headers: {
+//       'Access-Control-Allow-Origin': '*',
+//       'Access-Control-Allow-Headers': '*',
+//       'Access-Control-Allow-Methods': 'GET, OPTIONS',
+//       'Access-Control-Max-Age': '86400',
+//     },
+//   });
+// };
+
+async function corsEnabler(res) {
+   res = await res 
+   const corsResponse = new Response(res.body, res)
+   corsResponse.headers.set('Access-Control-Allow-Origin','*')
+   corsResponse.headers.set('Access-Control-Allow-Methods','GET,POST,HEAD,OPTIONS')
+   return corsResponse
+}
 
 export default {
+
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/.well-known2/')) {
@@ -46,7 +55,7 @@ export default {
         let name = url.searchParams.get('names');
             name = name ? name : ''
 
-        return Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) });
+        return corsEnabler( Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) }) )
 
       // TODO: Add your custom /api/* logic here.
       // return new Response('Ok');
@@ -55,5 +64,6 @@ export default {
     // Otherwise, serve the static assets.
     // Without this, the Worker will error and no assets will be served.
     return env.ASSETS.fetch(request);
-  },
+  }
+
 }
