@@ -1,5 +1,19 @@
-export default {
+const handler: ExportedHandler = {
   async fetch(request, env, ctx) {
+    /**
+     * Example someHost is set up to take in a JSON request
+     * Replace url with the host you wish to send requests to
+     * @param {string} someHost the host to send the request to
+     * @param {string} url the URL to send the request to
+     */
+    const someHost = "https://examples.cloudflareworkers.com/demos";
+    const url = someHost + "/static/json";
+
+    /**
+     * gatherResponse awaits and returns a response body as a string.
+     * Use await gatherResponse(..) in an async function to get the response body
+     * @param {Response} response
+     */
     async function gatherResponse(response) {
       const { headers } = response;
       const contentType = headers.get("content-type") || "";
@@ -8,15 +22,17 @@ export default {
       }
       return response.text();
     }
+
     const init = {
       headers: {
         "content-type": "application/json;charset=UTF-8",
       },
     };
-    const url = new URL(request.url);
-    const response = await fetch('https://nano.to/known.json', init);
+
+    const response = await fetch(url, init);
     const results = await gatherResponse(response);
-    const name = url.searchParams.get('names');
-    return new Response(JSON.stringify({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) }), init);
+    return new Response(results, init);
   },
 };
+
+export default handler;
