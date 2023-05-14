@@ -1,4 +1,4 @@
-export function onRequestGet(ctx) {
+export async function onRequestGet(ctx) {
 
   let url = new URL(ctx.request.url);
 
