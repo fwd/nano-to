@@ -21,11 +21,17 @@ export async function onRequestGet(ctx) {
   const results = await gatherResponse(_response);
   const name = url.searchParams.get('names');
 
+  // return new Response(, {
+  //   status: 200,
+  //   headers: {
+  //     "content-type": "application/json;charset=UTF-8",
+  //     // 'Set-Cookie': `cf_clearance=invalid; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; path=/; domain=.${domain}`,
+  //   },
+  // });
+
   return new Response({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) }, {
-    status: 200,
     headers: {
       "content-type": "application/json;charset=UTF-8",
-      // 'Set-Cookie': `cf_clearance=invalid; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; path=/; domain=.${domain}`,
     },
   });
 
