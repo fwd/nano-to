@@ -13,7 +13,7 @@ export async function onRequestOptions(next) {
 };
 
 // Set CORS to all / responses
-export async function onRequestGet(next) {
+export async function onRequest(next) {
   const response = await next();
   response.headers.set('Access-Control-Allow-Origin', '*');
   response.headers.set('Access-Control-Max-Age', '86400');
