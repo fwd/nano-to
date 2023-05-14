@@ -197,7 +197,7 @@ https://github.com/fwd/nano
             <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 15%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>
-                    {{ plan.title || plan.name }}
+                    {{ plan_title(plan.title || plan.name) }}
                     <span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" v-if="plan.discount" class="discount">{{ Number(plan.discount) ? plan.discount + '% OFF' : plan.discount }}</span>
                   </h4>
                   <h4>{{ Number(plan.value) > 1 ? Math.floor(plan.value) : Number(plan.value).toFixed(3) }} {{ currency }}</h4>
