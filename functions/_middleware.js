@@ -1,5 +1,6 @@
 // Respond to OPTIONS method
-export const onRequestOptions: PagesFunction = async () => {
+export async function onRequestOptions(next) {
+// export const onRequestOptions: PagesFunction = async () => {
   return new Response(null, {
     status: 204,
     headers: {
@@ -12,7 +13,7 @@ export const onRequestOptions: PagesFunction = async () => {
 };
 
 // Set CORS to all / responses
-export const onRequest: PagesFunction = async ({ next }) => {
+export async function onRequest(next) {
   const response = await next();
   response.headers.set('Access-Control-Allow-Origin', '*');
   response.headers.set('Access-Control-Max-Age', '86400');
