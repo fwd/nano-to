@@ -30,6 +30,6 @@ export async function onRequestGet(ctx) {
   // });
 
   // return new Response({ names: results }, {
-  return Response.json(JSON.stringify({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) }));
+  return Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) });
 
 }
