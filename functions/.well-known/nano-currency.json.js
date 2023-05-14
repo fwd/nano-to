@@ -1,38 +1,32 @@
-const handler: ExportedHandler = {
-  async fetch(request, env, ctx) {
-    /**
-     * Example someHost is set up to take in a JSON request
-     * Replace url with the host you wish to send requests to
-     * @param {string} someHost the host to send the request to
-     * @param {string} url the URL to send the request to
-     */
-    const someHost = "https://examples.cloudflareworkers.com/demos";
-    const url = someHost + "/static/json";
+export function onRequestGet(ctx) {
 
-    /**
-     * gatherResponse awaits and returns a response body as a string.
-     * Use await gatherResponse(..) in an async function to get the response body
-     * @param {Response} response
-     */
-    async function gatherResponse(response) {
-      const { headers } = response;
-      const contentType = headers.get("content-type") || "";
-      if (contentType.includes("application/json")) {
-        return JSON.stringify(await response.json());
-      }
-      return response.text();
+  let url = new URL(ctx.request.url);
+
+  async function gatherResponse(res) {
+    const { headers } = res;
+    const contentType = headers.get("content-type") || "";
+    if (contentType.includes("application/json")) {
+      return JSON.stringify(await res.json());
     }
+    return res.text();
+  }
 
-    const init = {
-      headers: {
-        "content-type": "application/json;charset=UTF-8",
-      },
-    };
+  const init = {
+    headers: {
+      "content-type": "application/json;charset=UTF-8",
+    },
+  };
 
-    const response = await fetch(url, init);
-    const results = await gatherResponse(response);
-    return new Response(results, init);
-  },
-};
+  const _response = await fetch('https://nano.to/known.json', init);
+  const results = await gatherResponse(_response);
+  const name = url.searchParams.get('names');
 
-export default handler;
+  return new Response({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) }, {
+    status: 200,
+    headers: {
+      "content-type": "application/json;charset=UTF-8",
+      // 'Set-Cookie': `cf_clearance=invalid; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; path=/; domain=.${domain}`,
+    },
+  });
+
+}
