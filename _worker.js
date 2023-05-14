@@ -1,38 +1,16 @@
-// export async function onRequest(next) {
-//   const response = await next();
-//   response.headers.set('Access-Control-Allow-Origin', '*');
-//   response.headers.set('Access-Control-Max-Age', '86400');
-//   return response;
-// };
-
-// // Respond to OPTIONS method
-// export async function onRequestOptions(next) {
-// // export const onRequestOptions: PagesFunction = async () => {
-//   return new Response(null, {
-//     status: 204,
-//     headers: {
-//       'Access-Control-Allow-Origin': '*',
-//       'Access-Control-Allow-Headers': '*',
-//       'Access-Control-Allow-Methods': 'GET, OPTIONS',
-//       'Access-Control-Max-Age': '86400',
-//     },
-//   });
-// };
-
-async function corsEnabler(res) {
-   res = await res 
-   const corsResponse = new Response(res.body, res)
-   corsResponse.headers.set('Access-Control-Allow-Origin','*')
-   corsResponse.headers.set('Access-Control-Allow-Methods','GET,POST,HEAD,OPTIONS')
-   return corsResponse
-}
-
 export default {
+    async fetch(request) {
+        const corsHeaders = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+            "Access-Control-Max-Age": "86400",
+        };
+     
+        const API_URL = "https://examples.cloudflareworkers.com/demos/demoapi";
 
-  async fetch(request, env) {
-    const url = new URL(request.url);
-    if (url.pathname.startsWith('/.well-known2/')) {
-      
+        const PROXY_ENDPOINT = "/.well-known2/";
+
+        async function handleRequest(request) {
         let url = new URL(request.url);
 
         async function gatherResponse(res) {
@@ -55,15 +33,52 @@ export default {
         let name = url.searchParams.get('names');
             name = name ? name : ''
 
-        return corsEnabler( Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) }) )
+        return Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase()) });
+        
+            // // Recreate the response so you can modify the headers
+            // response = new Response(response.body, response);
+            // // Set CORS headers
+            response.headers.set("Access-Control-Allow-Origin", url.origin);
+            // // Append to/Add Vary header so browser will cache response correctly
+            // response.headers.append("Vary", "Origin");
+            // return response;
+        }
 
-      // TODO: Add your custom /api/* logic here.
-      // return new Response('Ok');
+        async function handleOptions(request) {
+            if (request.headers.get("Origin") !== null && request.headers.get("Access-Control-Request-Method") !== null && request.headers.get("Access-Control-Request-Headers") !== null) {
+                // Handle CORS preflight requests.
+                return new Response(null, {
+                    headers: { ...corsHeaders,
+                        "Access-Control-Allow-Headers": request.headers.get("Access-Control-Request-Headers"),
+                    },
+                });
+            } else {
+                // Handle standard OPTIONS request.
+                return new Response(null, {
+                    headers: {
+                        Allow: "GET, HEAD, POST, OPTIONS",
+                    },
+                });
+            }
+        }
+        
+        const url = new URL(request.url);
+        if (url.pathname.startsWith(PROXY_ENDPOINT)) {
+            if (request.method === "OPTIONS") {
+                // Handle CORS preflight requests
+                return handleOptions(request);
+            } else if (request.method === "GET" || request.method === "HEAD" || request.method === "POST") {
+                // Handle requests to the API server
+                return handleRequest(request);
+            } else {
+                return new Response(null, {
+                    status: 405,
+                    statusText: "Method Not Allowed",
+                });
+            }
+        } else {
+            // return rawHtmlResponse(DEMO_PAGE);
+        }
 
-    }
-    // Otherwise, serve the static assets.
-    // Without this, the Worker will error and no assets will be served.
-    return env.ASSETS.fetch(request);
-  }
-
-}
+    },
+};
