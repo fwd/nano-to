@@ -35,49 +35,26 @@
 
 ## Developer API
 
+
 ```
-GET: https://nano.to?nostr=esteban,atxmj
+GET: https://nano.to/.well-known/nano-currency.json?names=Moon
 ```
 
 ```
-[
-    {
-      "status": "active",
-      "github": "nano2dev",
-      "name": "esteban",
-      "address": "nano_1m747htgqw5f...hmz1zaqoj1puj7h96oj",
-      "created": "September 13, 2021",
-      "expires": "October 7, 2024",
-      "created_unix": 1631584140,
-      "expires_unix": 1728273600
-    },
-    {
-      "name": "atxmj",
-      "address": "nano_1dctqbmqxf....91aurmuho48jx3c",
-      "created": "November 29, 2021",
-      "expires": "November 29, 2023",
-      "created_unix": 1638200760,
-      "expires_unix": 1701234000
-    }
-]
-```
-
-```
-GET: https://nano.to?search=nano_1bank1q3q7x8rim...r51qsdkm8g45
-```
-
-```
-[
-  {
-    "name": "bank",
-    "status": "active",
-    "address": "nano_1bank1q3q7x8rim...r51qsdkm8g45",
-    "created": "October 10, 2022",
-    "expires": "October 14, 2023",
-    "created_unix": 1665418910,
-    "expires_unix": 1697332800
-  }
-]
+{
+  names: [
+      {
+        "status": "active",
+        "github": "nano2dev",
+        "name": "Moon",
+        "address": "nano_1m747htgqw5f...hmz1zaqoj1puj7h96oj",
+        "created": "September 13, 2021",
+        "expires": "October 7, 2024",
+        "created_unix": 1631584140,
+        "expires_unix": 1728273600
+      }
+  ]
+}
 ```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
