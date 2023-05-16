@@ -389,8 +389,6 @@ var nano = new Vue({
         var name = decodeURIComponent(path).replace('@', '')
 
         item = item || this.usernames.find(a => a.name.toLowerCase() === name) || {}
-
-        // console.log("item", item)
         
         if ( name === 'DESIRED_USERNAME' ) return alert('Reading the docs? Try searching for desired name instead.')
 
@@ -406,11 +404,24 @@ var nano = new Vue({
 
         var amount = query.p || query.price || query.amount || item.amount || item.price || false 
 
-        var goal = false
+        // var goal = false
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ calendly: item.calendly, discord: item.discord, twitter: item.twitter, github: item.github, name: item.name, address: item.address, created: item.created, expires: item.expires, expires_unix: item.expires_unix, expired: item.expired })
+          if (!cache && query.nocache) return this.doSuggestion({ 
+            calendly: item.calendly, 
+            discord: item.discord, 
+            twitter: item.twitter, 
+            github: item.github, 
+            name: item.name, 
+            address: item.address, 
+            created: item.created, 
+            expires: item.expires, 
+            expires_unix: item.expires_unix, 
+            expired: item.expired,
+            goal: item.goal_ui,
+            image: item.image,
+          })
           
           var custom = false
           var plans = item.plans || query.plans
@@ -441,7 +452,10 @@ var nano = new Vue({
             amount = (amount / this.rate).toFixed(2)
           }
 
-          var _goal = item.goal_ui || query.goal
+          var goal
+          var _goal = item.goal_ui || item.goal  || query.goal
+
+          console.log(item)
 
           if (_goal) {
 
@@ -461,14 +475,13 @@ var nano = new Vue({
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.expires ? true : false,
-            image: query.image || query.img || query.i || '',
+            image: item.image || query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
             description: query.description || query.body || query.message,
             calendly: item.calendly,
             discord: item.discord,
             twitter: item.twitter,
-            image: item.image,
             github: item.github,
             buttonText: item.button || query.button,
             note: item.note || query.note,
@@ -824,6 +837,8 @@ var nano = new Vue({
                 back: true,
                 name: username[username.length - 1].name,
                 address: username[username.length - 1].address,
+                goal_ui: username[username.length - 1].goal_ui,
+                image: username[username.length - 1].image,
                 // expired: this.expired(username[username.length - 1].expires_unix),
               }
             })
@@ -958,6 +973,9 @@ var nano = new Vue({
           discord: suggestion.discord,
           calendly: suggestion.calendly,
           nostr: suggestion.nostr,
+          goal: suggestion.goal_ui,
+          image: suggestion.image,
+          description: suggestion.description,
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
           back: true,
           amount: false
@@ -965,7 +983,7 @@ var nano = new Vue({
         var buttons = [
           {
             label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
-            link: "external",
+            // link: "external",
             checkout,
           }, 
           {
