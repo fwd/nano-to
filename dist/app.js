@@ -229,10 +229,6 @@ var nano = new Vue({
 
       var self = this
 
-      var query = this.queryToObject()
-
-      if (query.nocache) this.known = 'https://api.nano.to/known'
-
       if (navigator.standalone || (screen.height - document.documentElement.clientHeight < 40)) {
         if (document.body) document.body.classList.add('fullscreen');
       }
