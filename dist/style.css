@@ -1765,9 +1765,14 @@ section:first-child {
     background: #F8DA2D;
     color: #000;
 
-}
-.button span {
-    font-size: 17px;
+
+        text-align: center;
+    font-size: 18px;
+    font-family: Cyber;
+    letter-spacing: 1.3px;
+    color: rgb(0 0 0);
+    text-shadow: transparent 0px 0px;
+
 }
 .crypto {
     text-align: center;
