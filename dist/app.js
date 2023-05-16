@@ -648,8 +648,12 @@ var nano = new Vue({
           axios.post(endpoint, { 
             action: 'account_info', 
             account: address,
+            pending: true
           }).then((res) => {
-            resolve({ balance: this.convert(res.data.balance, 'RAW', 'NANO'), balance_raw: res.data.balance })
+            resolve({ 
+              balance: res.data.receivable_nano && Number(res.data.receivable_nano) ? (Number(res.data.balance_nano) + Number(res.data.receivable_nano)) : res.data.balance_nano, 
+              balance_raw: res.data.balance 
+            })
           })
         })
       },
