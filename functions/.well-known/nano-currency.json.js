@@ -19,10 +19,10 @@ export async function onRequestGet(ctx) {
 
   const _response = await fetch('https://nano.to/known.json', init);
   const results = await gatherResponse(_response);
-  let name = url.searchParams.get('names') || url.searchParams.get('address');
-      name = name ? name.replace('@', '') : '';
+  let name = url.searchParams.get('names');
+      name = name ? name.replace('@', '') : ''
 
-  const response = Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase() || a.address === name });
+  const response = Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase() || a.address === name) });
   response.headers.set('Access-Control-Allow-Origin', '*');
   return response;
 
