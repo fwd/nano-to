@@ -192,7 +192,7 @@ https://github.com/fwd/nano
                 </div>
               </div>
             </div>
-            <div v-if="checkout.lease" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 25px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; ">NANO.TO LEASE</div>
+            <div v-if="checkout.lease" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; ">NANO.TO LEASE</div>
             <p v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
             <div class="plans">
             <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 15%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
