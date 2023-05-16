@@ -2187,8 +2187,8 @@ hr.memo {
 }
 @media (max-width: 768px) {
     #order {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
     .hide-desktop {
         display: inline-block
