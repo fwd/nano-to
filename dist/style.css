@@ -1439,9 +1439,9 @@ code {
 }
 
 #checkout h4 {
-  font-family: Cyber;
+/*  font-family: Cyber;*/
   letter-spacing: 1px;
-  font-size: 20px;
+/*  font-size: 20px;*/
 }
 
 #checkout canvas {
