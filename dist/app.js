@@ -309,6 +309,7 @@ var nano = new Vue({
         return window.alert(string)
       },
       kFormatter(num, digits) {
+        num = Number(num)
         const lookup = [
           { value: 1, symbol: "" },
           { value: 1e3, symbol: "K" },
