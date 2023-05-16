@@ -225,6 +225,10 @@ var nano = new Vue({
     },
     mounted() {
 
+      var query = this.queryToObject()
+
+      if (query.nocache) this.endpoint = 'https://api.nano.to/known.json'
+
       this.lang = window.navigator.language.split('-')[0]
 
       var self = this
@@ -770,7 +774,7 @@ var nano = new Vue({
         })
       },
       load(cb) {
-        return axios.get('/known.json').then((res) => {
+        return axios.get(this.known).then((res) => {
           this.usernames = res.data
           if (cb) cb(res.data)
         })
