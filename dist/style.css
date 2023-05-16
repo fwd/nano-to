@@ -2349,7 +2349,7 @@ hr.memo {
 .name {
     border-bottom: 0.5px solid #00000017;
     margin-bottom: 25px;
-    padding-bottom: 0px;
+    padding-bottom: 5px;
     margin-top: 0;
 }
 
