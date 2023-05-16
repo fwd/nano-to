@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=2.2.5">
+    <link rel="stylesheet" href="dist/style.css?v=2.3.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
@@ -96,7 +96,7 @@ https://github.com/fwd/nano
                           <span @click="dev_mode = !dev_mode">{{ prompt.name }}</span>
                           <img @click="whois(prompt)" v-if="prompt.github && !prompt.expired" src="dist/images/verified.png" class="verified" alt="">
                         </h1>
-                        <span v-if="prompt.title" style=" text-transform: none;margin-top: 34px;display: block;opacity: 1;font-size: 28px;font-family: Cyber;margin-bottom: -3px;color: rgb(255, 72, 72);border-bottom: 1px solid #ffffff33;padding-bottom: 20px;border-top: 1px solid #ffffff33;padding-top: 18px; zoom: 0.8">{{ prompt.title }}</span>
+                        <span v-if="prompt.title" style="text-transform: none;margin-top: 34px;display: block;opacity: 1;font-size: 28px;font-family: Cyber;margin-bottom: -3px;color: rgb(238 11 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;text-transform: uppercase;letter-spacing: 4px;opacity: 0.8;">{{ prompt.title }}</span>
                         <p v-html="prompt.body"></p>
                       </div>
                     </div>
@@ -263,6 +263,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=2.2.5"></script>
+    <script src="dist/app.js?v=2.3.0"></script>
   </body>
 </html>
