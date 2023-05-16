@@ -16,11 +16,12 @@
 ## Quick Links
 
 - [**Public Nano RPC**](https://rpc.nano.to) - Talk to Live Nano Node
-- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline) - JS Nano Wallet
+- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline) - JS Nano Wallet (Beta)
 - [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall) - Non-custodial Nano Paywall
-- [**Javascript - goal.js**](https://github.com/fwd/nano-goal) - Visualize Nano Funding
-- [**Web App - Nano.to Usernames**](https://github.com/fwd/nano-to) 
+- [**Javascript - goal.js**](https://github.com/fwd/nano-goal) - Visualize Nano Funding Easily
+- [**Web App - Usernames Docs**](https://github.com/fwd/nano-to) - 
 - [**Web App - Nano.to Checkout**](https://docs.nano.to/checkout#getting-started) 
+- [**Web App - Nault.Pro**](https://nault.pro) - Nano.to's **Hardened** Fork of Nault.cc
 - [**Ubuntu - Nano Docker**](https://github.com/fwd/nano-docker) - 1-Click Nano Node w/ Docker
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
@@ -35,10 +36,11 @@
 
 ## Developer API
 
-
 ```
 GET: https://nano.to/.well-known/nano-currency.json?names=Moon
 ```
+
+**Lookup:**
 
 ```
 {
@@ -57,15 +59,15 @@ GET: https://nano.to/.well-known/nano-currency.json?names=Moon
 }
 ```
 
-*Reverse Lookup*
+**Reverse Lookup:**
 
 ```
-GET: https://nano.to/.well-known/nano-currency.json?names=nano_1ak3bsi...
+GET: https://nano.to/.well-known/nano-currency.json?names=nano_1ak3bsi..
 ```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Host Your Own Nano.to
+## Host Your Own
 
 Serve the included ```index.html``` file with any web server.
 
@@ -78,13 +80,15 @@ php -S localhost:8080
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Download Username Dataset
+## Download Dataset
 
-[Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use a CDN. 
+The [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** is your guide to a galaxy of accounts. 
 
 - Realtime: https://api.nano.to/known.json
 - Every 24 Hours: https://nano.to/known.json
-- Yearly Snapshot (**Immutable**): https://nano.to/2023/known.json
+- Yearly Snapshot (**Immutable**): [https://nano.to/2023/known.json](https://nano.to/2023/known.json)
+- Yearly Snapshot (**Immutable**): [https://nano.to/2022/known.json](https://nano.to/2023/known.json)
+- Yearly Snapshot (**Immutable**): [https://nano.to/2021/known.json](https://nano.to/2023/known.json)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
