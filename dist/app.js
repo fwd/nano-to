@@ -43,7 +43,7 @@ var nano = new Vue({
           note: 'Verify the recipient address, and only send NANO (XNO) to this address.',
           intro: 'Search Blockchain',
           guide: 'To complete, send:',
-          button: 'Check Payment',
+          button: 'Confirm',
           tap: 'Tap to open Wallet',
           custom: 'Custom Amount:',
           search: 'Search',
