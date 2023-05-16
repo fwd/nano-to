@@ -170,7 +170,7 @@ a {
   text-transform: uppercase;
   text-align: center;
   font-size: 26px;
-  font-weight: 300
+  font-weight: 300;
 }
 
 .title::after,
@@ -1439,8 +1439,9 @@ code {
 }
 
 #checkout h4 {
-        font-family: 'Arial';
-    letter-spacing: 1px;
+  font-family: Cyber;
+  letter-spacing: 1px;
+  font-size: 19px;
 }
 
 #checkout canvas {
@@ -2359,6 +2360,10 @@ hr.memo {
     margin-bottom: 25px;
     padding-bottom: 5px;
     margin-top: 0;
+}
+
+.name h2 {
+      font-family: Cyber;
 }
 
 /* Confetti */
@@ -6156,12 +6161,13 @@ hr.memo {
   margin-bottom: 30px;
 }
 #funding-wrap {
-    zoom: 0.45;
+    zoom: 0.6;
     border-radius: 20px;
     padding: 20px;
     box-sizing: content-box;
     border: 8px solid #089dff;
     overflow: hidden;
+    font-family: Cyber;
 }
 #goal {
   font-size: 48px;
