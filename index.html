@@ -9,7 +9,7 @@ Simplicity is soul of efficiency.
 https://github.com/fwd/nano
 -->
 <!DOCTYPE html>
-<html lang="en" manifest="appcache">
+<html lang="en">
   <head>
     <title>Nano.to - Nano Name Service </title>
     <meta charset="utf-8">
@@ -175,8 +175,8 @@ https://github.com/fwd/nano
             <div v-if="checkout.goal" id="goal-meter">
               <div id="funding-wrap">
                 <div class="flex-item">
-                  <div class="goal-stat">{{ checkout.goal.title || 'Funding Goal' }}</div>
-                  <div class="goal-stat">
+                  <div class="goal-stat" style="text-align: left">{{ checkout.goal.title || 'Funding Goal' }}</div>
+                  <div class="goal-stat" style="text-align: right">
                     <div >
                       <img src="dist/svg/thicc.svg" alt="Verified" style="max-width: 13px;margin-right: -1px;margin-bottom: 0px;opacity: 0.9;zoom: 1.3;margin-left: -6px;display:inline-block"> 
                       <span>{{ kFormatter(checkout.goal.total) }}</span>
@@ -188,14 +188,12 @@ https://github.com/fwd/nano
                   <div id="progress" :style="`width:${ (100 * checkout.goal.balance) / checkout.goal.total > 100 ? '100%' : (100 * checkout.goal.balance) / checkout.goal.total + '%' }`"></div>
                 </div>
                 <div class="flex-item">
-                  <div class="goal-stat"> 
+                  <div class="goal-stat" style="text-align: left"> 
                     <span>{{ ( (100 * checkout.goal.balance) / checkout.goal.total ).toFixed(2) }}% <b>Funded</b></span>
                   </div>
-                  <div class="goal-stat"> 
+                  <div class="goal-stat" style="text-align: right"> 
                     <span>
-                      <img src="dist/svg/thicc.svg" alt="Verified" style="display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;"> 
-                      <span>{{ nFormatter(checkout.goal.balance) }} </span>
-                      <b>Raised</b>
+                      <img src="dist/svg/thicc.svg" alt="Verified" style="display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;"> {{ nFormatter(checkout.goal.balance) }} Raised
                     </span>
                   </div>
                 </div>

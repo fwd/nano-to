@@ -6161,7 +6161,7 @@ hr.memo {
   margin-bottom: 30px;
 }
 #funding-wrap {
-    zoom: 0.5;
+    zoom: 0.7;
     border-radius: 20px;
     padding: 20px;
     box-sizing: content-box;
@@ -6213,6 +6213,7 @@ hr.memo {
   margin: 0;
   /*color: #FFF;*/
   text-align: center;
+  width: 50%;
 }
 
 .goal-number,
