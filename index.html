@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=2.4.5">
+    <link rel="stylesheet" href="dist/style.css?v=2.4.6">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
@@ -164,7 +164,7 @@ https://github.com/fwd/nano
                 <img style="margin-left:-4px;zoom:0.8;" @click="whois(checkout)" v-if="!checkout.expired && checkout.github" src="dist/images/verified.png" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">
-              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.5;zoom: 0.9;">
+              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;">
               {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
               </p>
               <p v-if="checkout.amount && checkout.random_int" class="price">
@@ -176,7 +176,7 @@ https://github.com/fwd/nano
               <div id="funding-wrap">
                 <div class="flex-item">
                   <div class="goal-stat">{{ checkout.goal.title || 'Funding Goal' }}</div>
-                  <div class="goal-stat">Ӿ {{ kFormatter(checkout.goal.total) }}</div>
+                  <div class="goal-stat"><img src="dist/svg/thicc.svg" alt="Verified" style="max-width: 13px;margin-right: -4px;margin-bottom: 0px;opacity: 0.9;zoom: 1.39;"> {{ kFormatter(checkout.goal.total) }}</div>
                 </div>
                 <div id="glass">
                   <div id="contribution" :style="`left:${ (100 * checkout.goal.balance) / checkout.goal.total > 100 ? '100%' : (100 * checkout.goal.balance) / checkout.goal.total + '%' }; width: ${ (100 * checkout.amount) / checkout.goal.total > 100 ? '100%' : (100 * checkout.amount) / checkout.goal.total + '%' }`"></div>
@@ -187,7 +187,7 @@ https://github.com/fwd/nano
                     <span class="goal-number">{{ ( (100 * checkout.goal.balance) / checkout.goal.total ).toFixed(2) }}% <b>Funded</b></span>
                   </div>
                   <div class="goal-stat"> 
-                    <span class="goal-number">Ӿ {{ nFormatter(checkout.goal.balance) }} <b>Raised</b></span>
+                    <span class="goal-number"><img src="dist/svg/thicc.svg" alt="Verified" style="max-width: 13px;margin-right: -2px;margin-bottom: 0px;opacity: 1;zoom: 1.4;"> {{ nFormatter(checkout.goal.balance) }} <b>Raised</b></span>
                   </div>
                 </div>
               </div>
@@ -264,6 +264,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=2.4.5"></script>
+    <script src="dist/app.js?v=2.4.6"></script>
   </body>
 </html>
