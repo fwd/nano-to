@@ -57,30 +57,10 @@ GET: https://nano.to/.well-known/nano-currency.json?names=Moon
 }
 ```
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+*Reverse Lookup*
 
-## Verification ✅
-
-**Fork this repo, and update known.json. Verified names don't expire.** 
-
-**Accepted Values**:
-```js
-{
-  "name": "NanoBull",
-  "title": "Software Developer",
-  "twitter": "NanoBull",
-  "github": "NanoBull",
-  "calendly": "NanoNullConsulting/30min",
-  "calendly_price": 1,
-  "location": "Place Name or Lat, Lon",
-  "freelance": "80 NANO / hr",
-  "website": "https://fwd.dev",
-  "name_for_sale": 500,
-  "goal_ui": "100:Server Hosting"
-  "address": "NEW_NANO_ADDRESS",
-  "donation_address": "OPTIONAL_NANO_ADDRESS",
-  "planet": "Earth"
-}
+```
+GET: https://nano.to/.well-known/nano-currency.json?names=nano_1ak3bsi...
 ```
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
