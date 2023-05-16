@@ -6159,6 +6159,7 @@ hr.memo {
     padding: 20px;
     box-sizing: content-box;
     border: 8px solid #089dff;
+    overflow: hidden;
 }
 #goal {
   font-size: 48px;
