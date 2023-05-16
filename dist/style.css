@@ -1774,6 +1774,8 @@ section:first-child {
     color: rgb(0 0 0);
     text-shadow: transparent 0px 0px;
 
+    max-width: 230px;
+
 }
 .crypto {
     text-align: center;
