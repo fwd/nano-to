@@ -693,9 +693,9 @@ var nano = new Vue({
         this.success = {
           block,
           confetti: true,
-          title: 'Success',
-          message: 'Payment received',
-          redirect: redirect,
+          title: this.checkout.goal ? this.checkout.goal.title  : 'Success',
+          message: this.checkout.goal ? `Contributed` : 'Payment received',
+          redirect: this.checkout.goal ? false : redirect,
         }
         if (redirect) {
           var success_url = this.checkout.success_url
