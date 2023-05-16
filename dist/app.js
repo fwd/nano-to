@@ -280,10 +280,8 @@ var nano = new Vue({
     },
     methods: {
       plan_title(string) {
-        console.log(string)
         if (string && string.includes('POW Credits')) {
           string = `${this.kFormatter(string.replace('POW Credits', '').split(',').join(''))} POW Credits`
-          // string = `${this.nFormatter(string.replace('POW Credits', '').split(',').join(''))} POW Credits`
         }
         return string
       },
@@ -387,6 +385,8 @@ var nano = new Vue({
         var name = decodeURIComponent(path).replace('@', '')
 
         item = item || this.usernames.find(a => a.name.toLowerCase() === name) || {}
+
+        // console.log("item", item)
         
         if ( name === 'DESIRED_USERNAME' ) return alert('Reading the docs? Try searching for desired name instead.')
 
@@ -437,13 +437,15 @@ var nano = new Vue({
             amount = (amount / this.rate).toFixed(2)
           }
 
-          if (query.goal) {
+          var _goal = item.goal_ui || query.goal
+
+          if (_goal) {
 
             var account_info = await this.balance(query.address || query.to || item.address)
 
             goal = { 
-              title: query.goal ? query.goal.split(':')[1] : '',
-              total: query.goal ? query.goal.split(':')[0] : '',
+              title: _goal ? _goal.split(':')[1] : '',
+              total: _goal ? _goal.split(':')[0] : '',
               balance: Number(account_info.balance).toFixed(2)
             }
 
@@ -462,6 +464,7 @@ var nano = new Vue({
             calendly: item.calendly,
             discord: item.discord,
             twitter: item.twitter,
+            image: item.image,
             github: item.github,
             buttonText: item.button || query.button,
             note: item.note || query.note,
@@ -686,7 +689,6 @@ var nano = new Vue({
       },
       show_success(block) {
         var query = this.queryToObject()
-        // return console.log( block )
         redirect = query.r || query.redirect || query.success || this.checkout.success_url || false
         this.success = {
           block,
@@ -768,7 +770,7 @@ var nano = new Vue({
         })
       },
       load(cb) {
-        return axios.post('https://rpc.nano.to', { action: 'known' }).then((res) => {
+        return axios.get('/known.json').then((res) => {
           this.usernames = res.data
           if (cb) cb(res.data)
         })
