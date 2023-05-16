@@ -176,7 +176,7 @@ https://github.com/fwd/nano
               <div id="funding-wrap">
                 <div class="flex-item">
                   <div class="goal-stat">{{ checkout.goal.title || 'Funding Goal' }}</div>
-                  <div class="goal-stat"><img src="dist/svg/thicc.svg" alt="Verified" style="max-width: 13px;margin-right: -4px;margin-bottom: 0px;opacity: 0.9;zoom: 1.39;"> {{ kFormatter(checkout.goal.total) }}</div>
+                  <div class="goal-stat"><div><img src="dist/svg/thicc.svg" alt="Verified" style="max-width: 13px;margin-right: -4px;margin-bottom: 0px;opacity: 0.9;zoom: 1.39;"> {{ kFormatter(checkout.goal.total) }}</div></div>
                 </div>
                 <div id="glass">
                   <div id="contribution" :style="`left:${ (100 * checkout.goal.balance) / checkout.goal.total > 100 ? '100%' : (100 * checkout.goal.balance) / checkout.goal.total + '%' }; width: ${ (100 * checkout.amount) / checkout.goal.total > 100 ? '100%' : (100 * checkout.amount) / checkout.goal.total + '%' }`"></div>
