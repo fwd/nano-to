@@ -6211,7 +6211,10 @@ hr.memo {
   display: block;
 }
 .goal-number {
-  font-weight: bold;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    min-width: 260px;
 }
 
 .flex-item {
