@@ -82,9 +82,9 @@ php -S localhost:8080
 
 [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** or use a CDN. 
 
-- User changes reflect instantly: https://api.nano.to/known.json
-- Updated every 24 hours: https://nano.to/known.json
-- Yearly snapshot (immutable): https://nano.to/2023/known.json
+- Realtime: https://api.nano.to/known.json
+- Every 24 Hours: https://nano.to/known.json
+- Yearly Snapshot (**Immutable**): https://nano.to/2023/known.json
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
