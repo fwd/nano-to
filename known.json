@@ -1843,7 +1843,12 @@
     "expires_unix": 1758181740
   },
   {
+    "status": "active",
     "name": "moon",
+    "goal_ui": "45000:US-Obelisk-1",
+    "name_for_sale": "45000",
+    "image": "https://pbs.twimg.com/media/FwLKAqSWAAILGLb?format=jpg",
+    "github": "nano2dev",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "September 15, 2021",
     "expires": "September 16, 2030",
