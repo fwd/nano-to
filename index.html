@@ -171,6 +171,7 @@ https://github.com/fwd/nano
               {{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}
               </p>
             </div>
+            <img v-if="checkout.image" class="checkout-image" :src="checkout.image" alt="">
             <div v-if="checkout.goal" id="goal-meter">
               <div id="funding-wrap">
                 <div class="flex-item">
@@ -191,7 +192,6 @@ https://github.com/fwd/nano
                 </div>
               </div>
             </div>
-            <img v-if="checkout.image" class="checkout-image" :src="checkout.image" alt="">
             <p v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
             <div class="plans">
             <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 15%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
