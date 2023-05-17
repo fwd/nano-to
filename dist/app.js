@@ -18,6 +18,7 @@ var nano = new Vue({
       convert: NanocurrencyWeb.tools.convert,
       lang: '',
       error: false,
+      pending: false,
       status: '',
       user: false,
       loading: true,
@@ -468,8 +469,10 @@ var nano = new Vue({
 
             goal = { 
               title: _goal ? _goal.split(':')[1] : '',
+              title: _goal ? _goal.split(':')[1] : '',
               total: _goal ? _goal.split(':')[0] : '',
-              balance: Number(account_info.balance).toFixed(2)
+              balance: Number(account_info.balance).toFixed(2),
+              pending: account_info.pending
             }
 
           }
@@ -655,6 +658,7 @@ var nano = new Vue({
             pending: true
           }).then((res) => {
             resolve({ 
+              pending: res.data.receivable_nano, 
               balance: res.data.receivable_nano && Number(res.data.receivable_nano) ? (Number(res.data.balance_nano) + Number(res.data.receivable_nano)) : res.data.balance_nano, 
               balance_raw: res.data.balance 
             })

@@ -6290,3 +6290,7 @@ hr.memo {
   width: 100%;
   height: 100%;
 }
+
+.goal-activity polygon {
+  fill: #04df04;
+}
