@@ -82,13 +82,11 @@ php -S localhost:8080
 
 ## Download Dataset
 
-The [Nano Address Book](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** is your guide to a galaxy of accounts. 
+[Nano Known](https://raw.githubusercontent.com/fwd/nano-to/master/known.json) **(~60KB)** is your guide to the galaxy. 
 
 - Realtime: https://api.nano.to/known.json
-- Every 24 Hours: https://nano.to/known.json
-- Yearly Snapshot (**Immutable**): [https://nano.to/2023/known.json](https://nano.to/2023/known.json)
-- Yearly Snapshot (**Immutable**): [https://nano.to/2022/known.json](https://nano.to/2023/known.json)
-- Yearly Snapshot (**Immutable**): [https://nano.to/2021/known.json](https://nano.to/2023/known.json)
+- Every 24HR: https://nano.to/known.json
+- 2023 Snapshot (**Immutable**): [https://nano.to/2023/known.json](https://nano.to/2023/known.json)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
