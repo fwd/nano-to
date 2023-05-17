@@ -517,7 +517,7 @@ body .cybr-btn + .cybr-btn {
 .amount {
   font-family: 'Cyber';
   font-size: 40px !important;
-  margin-bottom: 4px !important;
+  margin-bottom: 0px !important;
 }
 
 
@@ -546,7 +546,7 @@ body .cybr-btn + .cybr-btn {
     font-size: 13px !important;
   }
   .crypto .amount {
-    font-size: 25px !important;
+/*    font-size: 25px !important;*/
   }
   .content {
     /*zoom:  1.3;*/
@@ -1940,7 +1940,7 @@ hr {
     filter: contrast(100);
 }
 .crypto .amount {
-    font-size: 35px;
+    font-size: 45px !important;
     margin: 10px 0;
     display: block;
     color: #FFF;
