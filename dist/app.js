@@ -273,6 +273,12 @@ var nano = new Vue({
 
     },
     computed: {
+      currencyComputed() {
+        var query = this.queryToObject()
+        var flag = query.currency || query.c
+        if (this.checkout && this.checkout === 'NANO') return 'USD'
+        return query && flag ? flag.toUpperCase() : 'USD'
+      },
       value() {
         if (this.currency === 'NANO') return Number(this.checkout.amount * this.rate).toFixed(2)
         if (this.currency != 'NANO') return Math.floor(this.checkout.amount)
@@ -455,8 +461,6 @@ var nano = new Vue({
 
           var goal
           var _goal = item.goal_ui || item.goal  || query.goal
-
-          console.log(item)
 
           if (_goal) {
 
