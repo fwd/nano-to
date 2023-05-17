@@ -514,7 +514,11 @@ body .cybr-btn + .cybr-btn {
 
 
 
-
+.amount {
+  font-family: 'Cyber';
+  font-size: 40px !important;
+  margin-bottom: 4px !important;
+}
 
 
 
