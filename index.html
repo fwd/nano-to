@@ -192,7 +192,7 @@ https://github.com/fwd/nano
                     <span>{{ ( (100 * checkout.goal.balance) / checkout.goal.total ).toFixed(2) }}% <b>Funded</b></span>
                   </div>
                   <div class="goal-stat" style="text-align: right;display: flex;align-items: center;justify-content: end;"> 
-                    <div v-if="checkout.goal.pending" class="goal-activity"><svg height="42" viewBox="0 0 512 512" width="42" xmlns="http://www.w3.org/2000/svg" style=" display: inline-block; margin-right: 16px; vertical-align: bottom; filter: blue; "><title></title><polygon points="448 368 256 144 64 368 448 368"></polygon></svg></div>
+                    <div v-if="Number(checkout.goal.pending)" class="goal-activity"><svg height="42" viewBox="0 0 512 512" width="42" xmlns="http://www.w3.org/2000/svg" style=" display: inline-block; margin-right: 16px; vertical-align: bottom; filter: blue; "><title></title><polygon points="448 368 256 144 64 368 448 368"></polygon></svg></div>
                     <span>
                       <img src="dist/svg/thicc.svg" alt="Verified" style="display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;"> {{ nFormatter(checkout.goal.balance) }} <b>Raised</b>
                     </span>
