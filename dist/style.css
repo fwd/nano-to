@@ -171,6 +171,7 @@ a {
   text-align: center;
   font-size: 26px;
   font-weight: 300;
+  text-shadow: 1px 1px #00000024;
 }
 
 .title::after,
@@ -1944,6 +1945,7 @@ hr {
     margin: 10px 0;
     display: block;
     color: #FFF;
+    text-shadow: 1px 1px #00000024;
 }
 .hide-desktop {
     display: none
