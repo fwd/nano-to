@@ -11,7 +11,7 @@ https://github.com/fwd/nano
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Nano.to - Nano Name Service </title>
+    <title>Nano.to - Nano Name Service</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
     <meta name="author" content="https://twitter.com/nano2dev"/>
@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=3.0.5-4-lyfe">
+    <link rel="stylesheet" href="dist/style.css?v=7.8.6">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
@@ -231,7 +231,7 @@ https://github.com/fwd/nano
                   <span class="blocky">{{ 'NANO' }}</span>
                   <span class="hide-desktop"><img :style="`filter:${(checkout.color && checkout.color.background) || (checkout.color && checkout.color.address && checkout.color.address.background) ? 'invert(0)' : 'invert(1)'};max-width: 14px;margin-top: 2px;`"src="./dist/images/clipboard.png" alt=""></span>
                 </b>
-                <span v-if="Number(checkout.amount) && rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 25px;`">≈ {{ nFormatter( (checkout.amount * rate).toFixed(2) ) }} {{ currencyComputed }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${ checkout.currency !== 'NANO' && checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="Number(checkout.amount) && rate" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor: pointer;opacity: 0.7; display: block; margin-bottom: 25px; font-family: 'Cyber'`">≈ {{ nFormatter( (checkout.amount * rate).toFixed(2) ) }} {{ currencyComputed }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${ checkout.currency !== 'NANO' && checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
                   </a>
                 </span>
               </h4>
@@ -271,6 +271,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=3.0.5-4-lyfe"></script>
+    <script src="dist/app.js?v=7.8.6"></script>
   </body>
 </html>
