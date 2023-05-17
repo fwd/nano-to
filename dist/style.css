@@ -1773,8 +1773,8 @@ section:first-child {
 
 
     text-align: center;
-    font-size: 17px;
-    font-family: Cyber;
+    font-size: 16px;
+/*    font-family: Cyber;*/
     letter-spacing: 1px;
     color: rgb(0 0 0);
     text-shadow: transparent 0px 0px;
