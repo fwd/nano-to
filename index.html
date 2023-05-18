@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=8.0.1">
+    <link rel="stylesheet" href="dist/style.css?v=8.0.2">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
@@ -242,7 +242,7 @@ https://github.com/fwd/nano
                 <img src="./dist/images/clipboard.png" alt="">
               </p>
               <div class="qrSwitcher">
-                <a :href="`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`">
+                <a style="cursor: pointer;" @click="deepLink(`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`)">
                   <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF'}; background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF'};`">
                     <div id="qrcode"></div>
                   </div>
@@ -272,6 +272,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=8.0.1"></script>
+    <script src="dist/app.js?v=8.0.2"></script>
   </body>
 </html>
