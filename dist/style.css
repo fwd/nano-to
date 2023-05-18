@@ -1548,8 +1548,8 @@ section:first-child {
     align-items: center;
     cursor: pointer;
     z-index: 99;
-    opacity: 0.4;
     zoom: 1.4;
+    opacity: 0.2;
 }
 #avatar.invert {
     filter: invert(1);
