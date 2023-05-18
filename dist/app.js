@@ -18,7 +18,6 @@ var nano = new Vue({
       convert: NanocurrencyWeb.tools.convert,
       lang: '',
       error: false,
-      pending: false,
       status: '',
       user: false,
       loading: true,
