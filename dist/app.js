@@ -227,6 +227,8 @@ var nano = new Vue({
 
       var query = this.queryToObject()
 
+      if (window.name === 'nault') document.documentElement.className += ' nault'
+
       if (query.nocache) this.endpoint = 'https://api.nano.to/known.json'
 
       this.lang = window.navigator.language.split('-')[0]
@@ -290,10 +292,10 @@ var nano = new Vue({
     },
     methods: {
       deepLink(string) {
-        var query = this.queryToObject()
-        if (query.iframe) {
+        if (window.name === 'nault') {
           var event = new CustomEvent('payment', { detail: string })
-          window.parent.document.dispatchEvent(event)
+          // window.parent.document.dispatchEvent(event)
+          parent.postMessage(string, 'http://localhost:4200');
           return
         }
         window.open(string, '_blank');
