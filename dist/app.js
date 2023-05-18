@@ -294,8 +294,7 @@ var nano = new Vue({
       deepLink(string) {
         if (window.name === 'nault') {
           var event = new CustomEvent('payment', { detail: string })
-          // window.parent.document.dispatchEvent(event)
-          parent.postMessage(string, 'http://localhost:4200');
+          parent.postMessage(string, 'https://nault.pro');
           return
         }
         window.open(string, '_blank');
