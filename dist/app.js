@@ -289,6 +289,15 @@ var nano = new Vue({
       }
     },
     methods: {
+      deepLink(string) {
+        var query = this.queryToObject()
+        if (query.iframe) {
+          var event = new CustomEvent('payment', { detail: string })
+          window.parent.document.dispatchEvent(event)
+          return
+        }
+        window.open(string, '_blank');
+      },
       plan_title(string) {
         if (string && string.includes('POW Credits')) {
           string = `${this.kFormatter(string.replace('POW Credits', '').split(',').join(''))} POW Credits`
@@ -940,6 +949,10 @@ var nano = new Vue({
           this._checkout(button.checkout, null, true)
           return 
         }
+        if (button.deep) {
+          this.deepLink(button.deep)
+          return
+        }
         if (button.link === "iframe") {
           this.frame_full = button.full
           this.frame = button.url
@@ -1001,7 +1014,8 @@ var nano = new Vue({
           {
             label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
             link: "external",
-            url: `nano:${suggestion.address}`
+            // url: `nano:${suggestion.address}`
+            deep: `nano:${suggestion.address}`
           }
         ]
         if (suggestion.calendly) {
