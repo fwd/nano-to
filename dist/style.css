@@ -6298,6 +6298,6 @@ hr.memo {
   fill: #04df04;
 }
 
-.nault body {
-  background-color: #121213;
+.nault #app {
+  background-color: #121213 !important;
 }
