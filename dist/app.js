@@ -293,7 +293,12 @@ var nano = new Vue({
     methods: {
       deepLink(string) {
         if (window.name === 'nault') {
-          var event = new CustomEvent('payment', { detail: string })
+          var check_url = this.checkout.checkout || this.checkout.check_url || this.checkout.check
+          if (string && string.includes('?') && check_url) {
+            string += '&callback=' + check_url
+          } else {
+            string += '?callback=' + check_url
+          }
           parent.postMessage(string, 'https://nault.pro');
           return
         }
