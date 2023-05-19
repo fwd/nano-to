@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=8.0.8">
+    <link rel="stylesheet" href="dist/style.css?v=8.0.9">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
@@ -251,8 +251,8 @@ https://github.com/fwd/nano
                   </div>
                 </a>
               </div>
-              <button v-if="checkout.amount || checkout.plans.length" class="button" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="check()">
-                <span>{{ checkout.buttonText || (strings[lang] ? strings[lang].button : strings['en'].button) }}</span>
+              <button v-if="checkout.amount || checkout.plans.length" class="button" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="naultMode ? deepLink(`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`) : check()">
+                <span>{{ naultMode ? 'Open Nault' : (checkout.buttonText || (strings[lang] ? strings[lang].button : strings['en'].button) )  }}</span>
               </button>
               <div class="security-notice shrink">
                 <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.note || (strings[lang] ? strings[lang].note : strings['en'].note) }}</div>
@@ -272,6 +272,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=8.0.8"></script>
+    <script src="dist/app.js?v=8.0.9"></script>
   </body>
 </html>
