@@ -303,7 +303,7 @@ var nano = new Vue({
           } else {
             string += '?callback=' + check_url
           }
-          parent.postMessage(string, 'https://nault.pro');
+          parent.postMessage(string, window.location.hostname === 'localhost' ? 'http://localhost:4200' : 'https://nault.pro');
           return
         }
         window.open(string, '_blank');
@@ -1022,7 +1022,8 @@ var nano = new Vue({
             checkout,
           }, 
           {
-            label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
+            label: window.name === 'nault' ? 'Open Nault' : (this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open),
+            // label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
             link: "external",
             // url: `nano:${suggestion.address}`
             deep: `nano:${suggestion.address}`
