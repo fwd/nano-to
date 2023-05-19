@@ -275,6 +275,10 @@ var nano = new Vue({
 
     },
     computed: {
+      naultMode() {
+        var query = this.queryToObject()
+        return window.name === 'nault' || query.iframe
+      },
       currencyComputed() {
         var query = this.queryToObject()
         var flag = query.currency || query.c
