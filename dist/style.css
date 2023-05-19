@@ -1034,9 +1034,9 @@ body.off::after {
     text-transform: initial;
     font-size: 28px;
 }
+.nault .suggest div,
 .dark .suggest div {
     color: #FFF;
-    text-shadow: 2px 1px 1px #0000007d;
 }
 .dark .available {
     color: #ea23f8!important;
