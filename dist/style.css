@@ -1036,7 +1036,8 @@ body.off::after {
 }
 .nault .suggest div,
 .dark .suggest div {
-    color: #FFF;
+    color: #FFF !important;
+    text-shadow: 0 !important;
 }
 .dark .available {
     color: #ea23f8!important;
