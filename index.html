@@ -108,7 +108,7 @@ https://github.com/fwd/nano
                           <span @click="dev_mode = !dev_mode">{{ prompt.name }}</span>
                           <img @click="whois(prompt)" v-if="prompt.github && !prompt.expired" src="dist/images/verified.png" class="verified" alt="">
                         </h1>
-                        <span v-if="prompt.title" style="text-transform: none;margin-top: 34px;display: block;opacity: 1;font-size: 28px;font-family: Cyber;margin-bottom: -3px;color: rgb(238 11 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;text-transform: uppercase;letter-spacing: 4px;opacity: 0.8;">{{ prompt.title }}</span>
+                        <span v-if="prompt.title" style="text-transform: none;margin-top: 34px;display: block;opacity: 1;font-size: 28px;font-family: Cyber;margin-bottom: -3px;color: rgb(238 11 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;text-transform: uppercase;letter-spacing: 4px;opacity: 0.8;zoom:0.8">{{ prompt.title }}</span>
                         <p v-html="prompt.body"></p>
                       </div>
                     </div>
