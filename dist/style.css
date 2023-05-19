@@ -1026,7 +1026,7 @@ body.off::after {
 .suggest div {
     margin: 10px 0;
     cursor: pointer;
-/*    color: #FFF;*/
+    color: #FFF;
     padding: 5px;
     letter-spacing: 2px;
     text-shadow: 2px 1px 1px #ffffff33;
