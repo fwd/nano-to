@@ -367,6 +367,7 @@ var nano = new Vue({
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
+
       invoice() {
         var query = this.queryToObject()
         var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
@@ -388,7 +389,7 @@ var nano = new Vue({
             }
           }
           this.checkout = res.data
-          history.pushState({}, null, `/${path}`);
+          if (path) history.pushState({}, null, `/${path}`);
           document.title = `${res.data.title ? res.data.title : '#' + path.split('_')[1] + ' - Nano Checkout' }`
           if (res.data.favicon) document.querySelector("link[rel*='icon']").href = res.data.favicon;
           setTimeout(() => {
@@ -406,6 +407,32 @@ var nano = new Vue({
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
+
+      async json_checkout(checkout) {
+        var query = this.queryToObject()
+          var res = { data: checkout }
+          if (res.data.plans && res.data.plans.length) {
+            var selected = res.data.selected && res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()) ? res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()).value : res.data.plans[0].value
+            res.data.amount = selected
+          }
+          if (res.data.goal) {
+            var account_info = await this.balance(query.address || query.to || item.address)
+            res.data.goal = {
+              title: res.data.goal ? res.data.goal.split(':')[1] : '',
+              total: res.data.goal ? res.data.goal.split(':')[0] : '',
+              balance: Number(account_info.balance).toFixed(2)
+            }
+          }
+          res.data.cancel_url = window.location.origin
+          res.data.success_url = window.location.origin
+          this.checkout = res.data
+          // document.title = `${res.data.title ? res.data.title : '#' + path.split('_')[1] + ' - Nano Checkout' }`
+          if (res.data.favicon) document.querySelector("link[rel*='icon']").href = res.data.favicon;
+          setTimeout(() => {
+            this.showQR()
+          }, 100)
+      },
+
       async _checkout(item, data, cache) {
 
         await this.getRate()
@@ -434,11 +461,15 @@ var nano = new Vue({
 
         if (item && item.name) {
         
-          if (!cache && query.nocache) return this.doSuggestion({ 
+          if (!cache && query.nocache || item.website_button_only) return this.doSuggestion({ 
+            title: item.title, 
             calendly: item.calendly, 
             discord: item.discord, 
             twitter: item.twitter, 
             github: item.github, 
+            website: item.website, 
+            website_button_only: item.website_button_only, 
+            website_button_required: item.website_button_required, 
             name: item.name, 
             address: item.address, 
             created: item.created, 
@@ -508,7 +539,8 @@ var nano = new Vue({
             calendly: item.calendly,
             discord: item.discord,
             twitter: item.twitter,
-            github: item.github,
+            github: item.github, 
+            website: item.website, 
             buttonText: item.button || query.button,
             note: item.note || query.note,
             expired: item.expired || this.expired(item.expires_unix),
@@ -827,6 +859,7 @@ var nano = new Vue({
         const regex = /^[\p{L}\p{N}][\p{L}\p{N}._-]*$/gmu;
         return ( 
           (name.length > 0 && name.length < 25) && 
+          !name.includes('.') && 
           regex.test(name) && 
           !(this.usernames && this.usernames.find(a => a.github === name))
         )
@@ -864,6 +897,9 @@ var nano = new Vue({
               calendly: username[username.length - 1].calendly,
               nostr: username[username.length - 1].nostr,
               expires_unix: username[username.length - 1].expires_unix,
+              website: username[username.length - 1].website,
+              website_button_only: username[username.length - 1].website_button_only,
+              website_button_required: username[username.length - 1].website_button_required,
               checkout: {
                 back: true,
                 name: username[username.length - 1].name,
@@ -955,6 +991,25 @@ var nano = new Vue({
         }, 100)
       },
       async doButton(button) {
+        if (button.website) {
+          var body = {}
+          if (button.website_button_required) {
+            body.required = window.prompt(button.website_button_required)
+          }
+          return axios.post(button.website, body).then((res) => {
+            if (!res.data.json && !res.data.id) {
+              console.log(button)
+              return this.notify('Nothing to do.')
+            }
+            if (res.data.json) {
+              return axios.get(res.data.json).then((checkout) => {
+                this.json_checkout(checkout.data, null, true)
+              })
+            }
+            this.json_checkout(res.data, null, true)
+          })
+          return 
+        }
         if (button.checkout) {
           this._checkout(button.checkout, null, true)
           return 
@@ -1016,19 +1071,29 @@ var nano = new Vue({
           amount: false
         }
         var buttons = [
-          {
-            label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
-            // link: "external",
-            checkout,
-          }, 
-          {
+          
+        ]
+        if (!suggestion.website_button_only) {
+          buttons.unshift({
             label: window.name === 'nault' ? 'Open Nault' : (this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open),
             // label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
             link: "external",
             // url: `nano:${suggestion.address}`
             deep: `nano:${suggestion.address}`
-          }
-        ]
+          })
+          buttons.unshift({
+            label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
+            // link: "external",
+            checkout,
+          })
+        } else {
+          buttons.unshift({
+            label: suggestion.website_button_only,
+            website: suggestion.website,
+            website_button_only: suggestion.website_button_only,
+            website_button_required: suggestion.website_button_required
+          })
+        }
         if (suggestion.calendly) {
           var checkout = {
             label: 'Book Meeting',
