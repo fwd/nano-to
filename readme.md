@@ -90,6 +90,31 @@ php -S localhost:8080
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
+## Get Verified
+
+Fork this repo and update *known.json*. Verified names don't expire and provided added features anywhere Nano.to is used.
+
+**Optional Values:**
+
+```
+{
+  "name": "NanoBull",
+  "title": "Software Developer",
+  "twitter": "NanoBull",
+  "github": "NanoBull",
+  "calendly": "NanoNullConsulting/30min",
+  "calendly_price": 1,
+  "location": "Place Name or Lat, Lon",
+  "freelance": "80 NANO / hr",
+  "website": "https://fwd.dev",
+  "name_for_sale": 500,
+  "goal_ui": "100:Server Hosting"
+  "address": "NEW_NANO_ADDRESS",
+  "donation_address": "OPTIONAL_NANO_ADDRESS",
+  "planet": "Earth"
+}
+```
+
 ## Bugs & Features ⭐️
 
 Give a star if this project helped you. Contributions, issues and features are welcome at [issues page](https://github.com/fwd/nano/issues).
