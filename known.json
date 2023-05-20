@@ -1,9 +1,10 @@
 [
   {
     "name": "Rpc",
-    "title": "Buy RPC"
+    "title": "Nano.to RPC Store"
     "github": "nano2dev",
     "website": "https://rpc.nano.to/get_rpc",
+    "website_button_only": "Buy Nano RPC",
     "address": "nano_1rpc19tpfzuotsk346bt674mehj96ju86n5xiop4o68mepqexf5f55xa7ycx",
     "created": "May 20, 2023",
     "expires": "May 20, 2025",
