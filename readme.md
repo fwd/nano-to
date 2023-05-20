@@ -90,7 +90,7 @@ php -S localhost:8080
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Get Verified
+## Verification
 
 Fork this repo and update *known.json*. Verified names don't expire and provided added features anywhere Nano.to is used.
 
