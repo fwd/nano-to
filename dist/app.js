@@ -998,8 +998,8 @@ var nano = new Vue({
           }
           return axios.post(button.website, body).then((res) => {
             if (!res.data.json && !res.data.id) {
-              console.log(button)
-              return this.notify('Nothing to do.')
+              // console.log(button)
+              return
             }
             if (res.data.json) {
               return axios.get(res.data.json).then((checkout) => {
@@ -1124,7 +1124,7 @@ var nano = new Vue({
             url: suggestion.store_url
           })
         }
-        self.prompt = {
+        var _prompt = {
           name: `${suggestion.name}`,
           title: suggestion.title,
           qrcode: `nano:${suggestion.address}`,
@@ -1136,12 +1136,15 @@ var nano = new Vue({
           discord: suggestion.discord,
           calendly: suggestion.calendly,
           nanogram: suggestion.nanogram,
-          body: `
-<p onclick="window.copy('${suggestion.address}')" style="font-size: 30px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;letter-spacing: 3px;">
-<span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
-</p>`,
           buttons
         }
+        if (!suggestion.website_button_only) {
+          _prompt.body = `
+<p onclick="window.copy('${suggestion.address}')" style="font-size: 30px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;letter-spacing: 3px;">
+<span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
+</p>`
+        }
+        self.prompt = _prompt
         history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
       },
