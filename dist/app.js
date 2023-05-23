@@ -990,7 +990,51 @@ var nano = new Vue({
           this.$forceUpdate()
         }, 100)
       },
+
+        downloadKey(key) {
+this.download('nano_rpc_key.txt', `====================================
+NANO NODE API KEY
+====================================
+${key}
+====================================
+KEEP SECRET. NOT FOR PUBLIC VIEW.
+====================================
+`)
+        },
+
+      download(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+      },
+
       async doButton(button) {
+        if (button.purchase_rpc) {
+          // var body = {}
+          return axios.post('https://rpc.nano.to/new_key', { email: window.prompt("Email Address:") }).then((res) => {
+            if (res.data.message) return alert(res.data.message)
+            this.downloadKey(res.data.key)
+            // if (!res.data.json && !res.data.id) {
+            //   // console.log(button)
+            //   return
+            // }
+            // if (res.data.json) {
+            //   return axios.get(res.data.json).then((checkout) => {
+            //     if (checkout.data.message) return alert(checkout.data.message)
+            //     this.json_checkout(checkout.data, null, true)
+            //   })
+            // }
+            // this.json_checkout(res.data, null, true)
+          })
+          return 
+        }
         if (button.website) {
           var body = {}
           if (button.website_button_required) {
@@ -1003,6 +1047,7 @@ var nano = new Vue({
             }
             if (res.data.json) {
               return axios.get(res.data.json).then((checkout) => {
+                if (checkout.data.message) return alert(checkout.data.message)
                 this.json_checkout(checkout.data, null, true)
               })
             }
@@ -1092,6 +1137,13 @@ var nano = new Vue({
             website: suggestion.website,
             website_button_only: suggestion.website_button_only,
             website_button_required: suggestion.website_button_required
+          })
+          buttons.unshift({
+            label: 'NEW KEY',
+            purchase_rpc: true
+            // website: suggestion.website,
+            // website_button_only: suggestion.website_button_only,
+            // website_button_required: suggestion.website_button_required
           })
         }
         if (suggestion.calendly) {
