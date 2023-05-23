@@ -92,7 +92,7 @@ php -S localhost:8080
 
 ## Verification
 
-Fork Nano.to and update *known.json*. Verified names don't expire and provided extra features anywhere Nano.to is used.
+Fork Nano.to and update *known.json*. Verified names don't expire.
 
 **Optional Values:**
 
