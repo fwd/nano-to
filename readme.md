@@ -16,10 +16,10 @@
 ## Quick Links
 
 - [**Public Nano RPC**](https://rpc.nano.to) - Talk to Live Nano Node
-- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline) - JS Nano Wallet (Beta)
+- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline) - JS Nano Wallet (*Beta*)
 - [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall) - Non-custodial Nano Paywall
-- [**Javascript - goal.js**](https://github.com/fwd/nano-goal) - Visualize Nano Funding Easily
-- [**Web App - Nano.to Usernames**](https://github.com/fwd/nano-to)
+- [**Javascript - goal.js**](https://github.com/fwd/nano-goal) - Visualize Nano Funding
+- [**Web App - Nano.to Usernames**](https://docs.nano.to/usernames)
 - [**Web App - Nano.to Checkout**](https://docs.nano.to/checkout#getting-started) 
 - [**Web App - Nault.Pro**](https://nault.pro) - Nano.to's **Hardened** Fork of Nault.cc
 - [**Ubuntu - Nano Docker**](https://github.com/fwd/nano-docker) - 1-Click Nano Node w/ Docker
