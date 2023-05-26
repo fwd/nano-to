@@ -1127,6 +1127,7 @@
     "address": "nano_1uttxpmx41jydu6bikmytmw4jp3ixcdgju1zrrqtupmm75zk65earxmq4uxy",
     "created": "December 1, 2021",
     "expires": "December 1, 2023",
+    "exchange_hot_wallet": "crypto.com",
     "created_unix": 1638396000,
     "expires_unix": 1701468000
   },
@@ -1926,6 +1927,7 @@
     "address": "nano_3cpz7oh9qr5b7obbcb5867omqf8esix4sdd5w6mh8kkknamjgbnwrimxsaaf",
     "created": "September 17, 2021",
     "expires": "October 17, 2031",
+    "exchange_hot_wallet": "kraken.com",
     "created_unix": 1631915940,
     "expires_unix": 1950040740
   },
