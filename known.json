@@ -1545,6 +1545,8 @@
   },
   {
     "name": "faucet",
+    "github": "nano2dev",
+    "title": "Daily Username Faucet",
     "address": "nano_1faucet7b6xjyha7m13objpn5ubkquzd6ska8kwopzf1ecbfmn35d1zey3ys",
     "created": "November 21, 2021",
     "expires": "November 20, 2031",
@@ -1726,6 +1728,7 @@
   {
     "name": "eats",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
+    "donation_address": "@faucet",
     "created": "November 10, 2021",
     "expires": "November 11, 2031",
     "created_unix": 1636590420,
@@ -1734,6 +1737,7 @@
   {
     "name": "miami",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
+    "donation_address": "@faucet",
     "created": "November 7, 2021",
     "expires": "December 2, 2031",
     "created_unix": 1636303080,
@@ -1750,6 +1754,7 @@
   {
     "name": "formsend",
     "address": "nano_1form6qya137cg96u8tfp8feggp8wghomf6epfaxgsg95zkiuh18gqpdgds3",
+    "donation_address": "@faucet",
     "created": "October 28, 2021",
     "expires": "October 29, 2031",
     "created_unix": 1635438600,
@@ -2005,6 +2010,7 @@
     "calendly": "nano2dev/30min",
     "calendly_rate": "1",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
+    "donation_address": "@faucet",
     "created": "September 13, 2021",
     "expires": "October 7, 2024",
     "created_unix": 1631584140,
