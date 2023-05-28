@@ -141,7 +141,7 @@ https://github.com/fwd/nano
                     </div>
                     <div v-if="prompt && dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div>
-                        <a target="_blank" :href="`https://nano.to/${prompt.name}/renew`">
+                        <a target="_self" :href="`https://nano.to/${prompt.name}/renew`">
                           <button class="cybr-btn" style="zoom: 0.6;">
                             {{ (strings[lang] ? strings[lang].renew : strings['en'].renew) }}
                             <span aria-hidden>_</span>
