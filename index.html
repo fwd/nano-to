@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=8.1.6">
+    <link rel="stylesheet" href="dist/style.css?v=8.1.7">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -141,7 +141,7 @@ https://github.com/fwd/nano
                     </div>
                     <div v-if="prompt && dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
                       <div>
-                        <a target="_self" :href="`https://nano.to/${prompt.name}/renew`">
+                        <a @click="renew()">
                           <button class="cybr-btn" style="zoom: 0.6;">
                             {{ (strings[lang] ? strings[lang].renew : strings['en'].renew) }}
                             <span aria-hidden>_</span>
@@ -212,7 +212,8 @@ https://github.com/fwd/nano
                 </div>
               </div>
             </div>
-            <div v-if="checkout.lease" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; ">NEW LEASE</div>
+            <div v-if="checkout.lease" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; ">{{ checkout.available ? 'NEW LEASE' : 'EXTEND LEASE' }}</div>
+            <!-- <div v-if="checkout.lease && !checkout.available" style=" text-align: center; margin-bottom: 30px; display: block; font-family: 'Cyber'; letter-spacing: 2px; opacity: 0.8; ">ONLY ORIGNAL ADDRESS</div> -->
             <p v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
             <div class="plans">
             <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 15%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
@@ -284,6 +285,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=8.1.6"></script>
+    <script src="dist/app.js?v=8.1.7"></script>
   </body>
 </html>

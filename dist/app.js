@@ -295,6 +295,20 @@ var nano = new Vue({
       }
     },
     methods: {
+      renew() {
+        axios.post(`https://rpc.nano.to`, { action: "get_name", username: this.prompt.name }).then((res) => {
+          if (res.data.error) return alert(res.data.message)
+          res.data.back = true
+          this.checkout = res.data
+          setTimeout(() => {
+            this.checkout.amount = this.checkout.plans[2].value
+            this.showQR()
+            this.$forceUpdate()
+          }, 100)
+        }).catch(e => {
+          this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
+        })
+      },
       deepLink(string) {
         if (window.name === 'nault') {
           var check_url = this.checkout.checkout || this.checkout.check_url || this.checkout.check
