@@ -1179,7 +1179,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
             deep: `nano:${suggestion.address}`
           })
           buttons.unshift({
-            label: this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send,
+            label: checkout.goal ? 'Donate' : (this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send),
             // link: "external",
             checkout,
           })
@@ -1247,7 +1247,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         }
         if (!suggestion.website_button_only) {
           _prompt.body = `
-<p onclick="window.copy('${suggestion.address}')" style="font-size: 30px;text-transform: lowercase;word-break: break-word;max-width: 430px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;letter-spacing: 3px;">
+<p onclick="window.copy('${suggestion.address}')" style="font-size: 28px;text-transform: lowercase;word-break: break-word;max-width: 420px;font-family: 'Cyber';text-align: center;width: 100%;display: inline-block;margin-top: 0px;margin-bottom: 0px;text-shadow: rgb(49 49 49 / 0%) 2px 2px 0px;letter-spacing: 3px;">
 <span style="color: rgb(255 56 62);">${suggestion.address.slice(0, 12)}</span>${suggestion.address.slice(12, 58)}<span style="color: rgb(255 56 62);">${suggestion.address.slice(59, 99)}</span>
 </p>`
         }
