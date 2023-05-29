@@ -1305,7 +1305,7 @@ code {
 }
 @media (max-width: 768px) {
     #backdrop {
-      background-size: 270%;
+      background-size: 240%;
     }
     .halo {
         background-size: 400%;
