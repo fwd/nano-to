@@ -295,7 +295,30 @@ var nano = new Vue({
       }
     },
     methods: {
+
+      getYearDifference(timestamp1, timestamp2) {
+        // Convert Unix timestamps to milliseconds
+        var date1 = new Date(timestamp1 * 1000);
+        var date2 = new Date(timestamp2 * 1000);
+
+        // Calculate the difference in years
+        var yearDiff = date2.getFullYear() - date1.getFullYear();
+
+        // Adjust the difference if the second date hasn't reached the same month and day as the first date
+        if (date2.getMonth() < date1.getMonth() || (date2.getMonth() === date1.getMonth() && date2.getDate() < date1.getDate())) {
+          yearDiff--;
+        }
+
+        // console.log("yearDiff", yearDiff)
+
+        return yearDiff;
+      },
+
       renew() {
+        if (window.name !== 'nault') {
+          var ok = window.confirm('Only the original address may extend lease. Press OK to continue.')
+          if (!ok) return
+        }
         axios.post(`https://rpc.nano.to`, { action: "get_name", username: this.prompt.name }).then((res) => {
           if (res.data.error) return alert(res.data.message)
           res.data.back = true
@@ -328,7 +351,14 @@ var nano = new Vue({
         }
         return string
       },
-      whois(prompt) {
+      whois(prompt, diff) {
+        if ( diff && diff >= 10 ) {
+          var prepend = `Name is registered for ${diff} years`
+          if (prompt.github) return window.alert(`${prepend} and verified as @${prompt.github} on Github.`)
+          if (prompt.twitter) return window.alert(`${prepend} and verified as @${prompt.twitter} on Twitter.`)
+          if (prompt.discord) return window.alert(`${prepend} and verified as @${prompt.discord} on Discord.`)
+          return window.alert(prepend + '.')
+        }
         var string = `Verified as @${prompt.github} on Github.` 
         if (
           prompt.github && 
@@ -488,6 +518,7 @@ var nano = new Vue({
             address: item.address, 
             created: item.created, 
             expires: item.expires, 
+            created_unix: item.created_unix, 
             expires_unix: item.expires_unix, 
             expired: item.expired,
             goal: item.goal_ui,
@@ -562,6 +593,7 @@ var nano = new Vue({
             custom,
             amount,
             plans,
+            yearDiff: item.yearDiff || this.getYearDifference(item.created_unix, item.expires_unix),
             color: {
               vanity:  query.vanity ? query.vanity.split(':')[0].replace('$', '#') : '',
               text:  query.color ? query.color.split(':')[0].replace('$', '#') : '',
@@ -910,10 +942,13 @@ var nano = new Vue({
               discord: username[username.length - 1].discord,
               calendly: username[username.length - 1].calendly,
               nostr: username[username.length - 1].nostr,
-              expires_unix: username[username.length - 1].expires_unix,
               website: username[username.length - 1].website,
               website_button_only: username[username.length - 1].website_button_only,
               website_button_required: username[username.length - 1].website_button_required,
+              expired: this.expired(username[username.length - 1].expires_unix),
+              created_unix: username[username.length - 1].created_unix,
+              expires_unix: username[username.length - 1].expires_unix,
+              yearDiff: this.getYearDifference(username[username.length - 1].created_unix, username[username.length - 1].expires_unix),
               checkout: {
                 back: true,
                 name: username[username.length - 1].name,
@@ -942,6 +977,7 @@ var nano = new Vue({
         }
         this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase()) || (a.github && a.github.toLowerCase().includes(string.toLowerCase()))).reverse()
         this.suggestions = this.suggestions.map(a => {
+          a.yearDiff = this.getYearDifference(a.created_unix, a.expires_unix)
           a.expired = this.expired(a.expires_unix)
           return a
         })
@@ -953,7 +989,7 @@ var nano = new Vue({
             this.suggestions.unshift({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.7,
+              opacity: 1,
               color: 'cyan',
               available: true,
               checkout: {
@@ -964,7 +1000,7 @@ var nano = new Vue({
             this.suggestions.push({
               name: `${string} (${this.strings[this.lang] ? this.strings[this.lang].available : this.strings['en'].available})`,
               lease: string,
-              opacity: 0.7,
+              opacity: 1,
               color: 'cyan',
               available: true,
               checkout: {
@@ -1126,6 +1162,8 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           image: suggestion.image,
           description: suggestion.description,
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
+          yearDiff: suggestion.yearDiff || this.getYearDifference(suggestion.created_unix, suggestion.expires_unix),
+          // yearDiff: this.getYearDifference(suggestion.created_unix, suggestion.expires_unix),
           back: true,
           amount: false
         }
@@ -1202,6 +1240,9 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           discord: suggestion.discord,
           calendly: suggestion.calendly,
           nanogram: suggestion.nanogram,
+          expires_unix: suggestion.expires_unix,
+          created_unix: suggestion.created_unix,
+          yearDiff: this.getYearDifference(suggestion.created_unix, suggestion.expires_unix),
           buttons
         }
         if (!suggestion.website_button_only) {

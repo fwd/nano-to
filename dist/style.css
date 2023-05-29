@@ -6,20 +6,24 @@ body {
   transition: 0.5s all;
 }
 
-.light body {
+.light #app {
+  background-color: #FFF;
+}
+
+.light #backdrop {
   filter: invert(1);
 }
 
 .light #success>div,
 .light #checkout {
-  filter: invert(1) !important;
+/*  filter: invert(1) !important;*/
 }
 
 .light .blue .title:not(.error)::after, 
 .light .blue .title:not(.error)::before,
 .light .blue.screen:not(.error)::after,
 .light .blue .box--outer:not(.error) {
-  filter: hue-rotate(45deg) !important;
+/*  filter: hue-rotate(45deg) !important;*/
 }
 
 @font-face {
@@ -84,7 +88,6 @@ html {
 }
 
 body {
-  color: white;
   /*color: #db0e15;*/
   /*font-family: 'Share Tech Mono', monospace;*/
   font-size: 26px;
@@ -97,6 +100,13 @@ body {
   overflow-x: hidden;
 }
 
+.dark #app {
+  color: #FFF;
+}
+
+.light #app {
+  color: #000;
+}
 
 #app {
   position: absolute;
@@ -1026,7 +1036,7 @@ body.off::after {
 .suggest div {
     margin: 10px 0;
     cursor: pointer;
-    color: #000;
+    color: #FFF;
     padding: 5px;
     letter-spacing: 2px;
     text-shadow: 2px 1px 1px #ffffff33;
@@ -1044,7 +1054,7 @@ body.off::after {
     filter: brightness(3.5) !important;
 }
 .light .available {
-  color: #ff8a8a !important;
+  color: #e9e4e4 !important;
   filter: invert(0);
   text-shadow: 1px 1px 1px #00000045;
 }
@@ -1221,7 +1231,7 @@ code {
   margin-bottom: 30px !important;
 }
 .light .button-group .cybr-btn {
-    color: #000;
+/*    color: #000;*/
 }
 .showQR {
   position: fixed;
@@ -1256,14 +1266,15 @@ code {
     right: 0;
     bottom: 0;
     position: fixed;
-    z-index: -1;
+    z-index: 0;
     filter: brightness(0.2);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    opacity: 0.14;
 }
-.light #backdrop {
-  filter: brightness(0.08);
+.dark #backdrop {
+  filter: brightness(1.5);
 }
 #backdrop.active {
   opacity: 0.2;
@@ -1294,7 +1305,7 @@ code {
 }
 @media (max-width: 768px) {
     #backdrop {
-      background-size: 270%;
+      background-size: 150%;
     }
     .halo {
         background-size: 400%;
@@ -6269,8 +6280,16 @@ hr.memo {
     filter: hue-rotate(132deg);
 }
 
+.light .ben-ten .verified {
+/*  filter: invert(1);*/
+}
+
+.light .ten .verified {
+/*  filter: brightness(50);*/
+}
+
 .dark .suggest .verified {
-    filter: hue-rotate(444deg);
+    filter: hue-rotate(451deg);
 }
 
 .frame {
@@ -6301,4 +6320,15 @@ hr.memo {
 
 .nault #app {
   background-color: #121213 !important;
+}
+
+.github {
+  opacity: 0.7; 
+  filter: invert(1); 
+  display: block; 
+  max-width: 70px;
+}
+
+.dark .github {
+  filter: invert(1);
 }
