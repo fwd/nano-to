@@ -17,13 +17,17 @@ export async function onRequestGet(ctx) {
     },
   };
 
-  const _response = await fetch('https://nano.to/known.json', init);
-  const results = await gatherResponse(_response);
+  const json = await fetch('https://raw.githubusercontent.com/fwd/nano-to/master/known.json', init);
+  
+  const results = await gatherResponse(json);
+  
   let name = url.searchParams.get('names');
       name = name ? name.replace('@', '') : ''
 
   const response = Response.json({ names: JSON.parse(results).filter(a => a.name.toLowerCase() === name.toLowerCase() || a.address === name) });
+  
   response.headers.set('Access-Control-Allow-Origin', '*');
+  
   return response;
 
 }
