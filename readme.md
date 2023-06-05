@@ -15,14 +15,14 @@
 
 ## Quick Links
 
-- [**Public Nano RPC**](https://rpc.nano.to) - Talk to Live Nano Node
-- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline) - JS Nano Wallet (*Beta*)
-- [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall) - Non-custodial Nano Paywall
-- [**Javascript - goal.js**](https://github.com/fwd/nano-goal) - Visualize Nano Funding
+- [**Public Nano RPC**](https://rpc.nano.to)
+- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline)
+- [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall)
+- [**Javascript - goal.js**](https://github.com/fwd/nano-goal) 
 - [**Web App - Nano.to Usernames**](https://docs.nano.to/usernames)
 - [**Web App - Nano.to Checkout**](https://docs.nano.to/checkout#getting-started) 
-- [**Web App - Nault.Pro**](https://nault.pro) - Nano.to's **Hardened** Fork of Nault.cc
-- [**Ubuntu - Nano Docker**](https://github.com/fwd/nano-docker) - 1-Click Nano Node w/ Docker
+- [**Web App - Nault.Pro w/ ChatGPT**](https://nault.pro)
+- [**Ubuntu - Nano 1-Click Docker**](https://github.com/fwd/nano-docker) 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
