@@ -128,10 +128,9 @@ Give a star if this project helped you. Contributions, issues and features are w
 
 ## Nano.to Support
 
-- Email: support@nano.to
+- 24/7 Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
-- @nano2dev on [Nano’s Discord](https://discord.com/invite/RNAE2R9) 
-- [30-Min Support Google Meet](https://calendly.com/nano2dev/nano-to)
+- Discord: [Nano.to Discord](https://discord.gg/HgqDCkzP) 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
