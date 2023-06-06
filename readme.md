@@ -126,15 +126,17 @@ Give a star if this project helped you. Contributions, issues and features are w
 <a align="center" target="_blank" href="https://simpleswap.io/?ref=ecc1985b556a"><img style="object-fit: contain;
     max-width: 100%;" src="https://github.com/fwd/fwd/raw/master/ads/simpleswap.png" width="970" /></a>
 
+![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+
 ## Nano.to Support
 
-- 24/7 Email: support@nano.to
+- Email: support@nano.to
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
 - Discord: [Nano.to Discord](https://discord.gg/HgqDCkzP) 
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
-## Usage License
+## License
 
 **Limited Commercial**
 
@@ -143,7 +145,6 @@ Give a star if this project helped you. Contributions, issues and features are w
 - ❌ Commercial use where Nano.to Usernames / Checkout is re-sold.
 
 Contact [support@nano.to](mailto:support@nano.to) for questions.
-
     
 ## Stargazers
 
