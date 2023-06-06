@@ -361,6 +361,12 @@ var nano = new Vue({
         }
         var string = `Verified as @${prompt.github} on Github.` 
         if (
+          !prompt.github && 
+          prompt.twitter 
+          ) {
+          return window.alert(`Verified as @${prompt.twitter} on Twitter.`)
+        }
+        if (
           prompt.github && 
           prompt.discord && 
           prompt.twitter && 
