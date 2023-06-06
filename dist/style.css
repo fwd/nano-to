@@ -1038,7 +1038,7 @@ body.off::after {
     cursor: pointer;
     color: #FFF;
     padding: 5px;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-shadow: 2px 1px 1px #ffffff33;
     font-family: cyber;
     text-transform: initial;
