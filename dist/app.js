@@ -353,7 +353,7 @@ var nano = new Vue({
       },
       whois(prompt, diff) {
         if ( diff && diff >= 10 ) {
-          var prepend = `Name is registered for 10 years or longer.`
+          var prepend = `Name is registered for 10 years or longer`
           if (prompt.github) return window.alert(`${prepend} and verified as @${prompt.github} on Github.`)
           if (prompt.twitter) return window.alert(`${prepend} and verified as @${prompt.twitter} on Twitter.`)
           if (prompt.discord) return window.alert(`${prepend} and verified as @${prompt.discord} on Discord.`)
