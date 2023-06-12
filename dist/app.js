@@ -362,6 +362,12 @@ var nano = new Vue({
         var string = `Verified as @${prompt.github} on Github.` 
         if (
           !prompt.github && 
+          prompt.mastodon 
+          ) {
+          return window.alert(`Verified as @${prompt.mastodon.split('https://')[1]} on Mastodon.`)
+        }
+        if (
+          !prompt.github && 
           prompt.twitter 
           ) {
           return window.alert(`Verified as @${prompt.twitter} on Twitter.`)
@@ -516,6 +522,7 @@ var nano = new Vue({
             calendly: item.calendly, 
             discord: item.discord, 
             twitter: item.twitter, 
+            mastodon: item.mastodon, 
             github: item.github, 
             website: item.website, 
             website_button_only: item.website_button_only, 
@@ -590,6 +597,7 @@ var nano = new Vue({
             calendly: item.calendly,
             discord: item.discord,
             twitter: item.twitter,
+            mastodon: item.mastodon,
             github: item.github, 
             website: item.website, 
             buttonText: item.button || query.button,
@@ -945,6 +953,7 @@ var nano = new Vue({
               name: username[username.length - 1].name,
               github: username[username.length - 1].github,
               twitter: username[username.length - 1].twitter,
+              mastodon: username[username.length - 1].mastodon,
               discord: username[username.length - 1].discord,
               calendly: username[username.length - 1].calendly,
               nostr: username[username.length - 1].nostr,
@@ -1161,6 +1170,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           address: suggestion.address,
           github: suggestion.github,
           twitter: suggestion.twitter,
+          mastodon: suggestion.mastodon,
           discord: suggestion.discord,
           calendly: suggestion.calendly,
           nostr: suggestion.nostr,
@@ -1243,6 +1253,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
           github: suggestion.github,
           twitter: suggestion.twitter,
+          mastodon: suggestion.mastodon,
           discord: suggestion.discord,
           calendly: suggestion.calendly,
           nanogram: suggestion.nanogram,
