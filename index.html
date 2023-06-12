@@ -49,7 +49,6 @@ https://github.com/fwd/nano
     <script src="https://metrics.bar/js/script.js" id="metrics" async defer></script>
   </head>
   <body>
-    <a rel="me" href="https://xno.social/@nano2dev"></a>
     <p class="seo-hackz" style="display: none; opacity: 0;">Username service, Public RPC and Checkout API for the Nano Blockchain. Nano.to is on a mission to accelerate the use of Nano currency around the world.</p>
     <div id="app" :class=" `on ${color}`">
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
@@ -168,6 +167,7 @@ https://github.com/fwd/nano
         </div>
       </div>
       <div v-if="checkout" id="checkout" class="flex">
+        <a style="display: none; opacity: 0;" rel="me" :href="checkout.mastodon"></a>
         <!-- <a style="display: none; opacity: 0;" rel="me" v-if="checkout.mastodon" :href="checkout.mastodon"></a> -->
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
           <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : '#FFF'};`">← </h3>
