@@ -167,7 +167,8 @@ https://github.com/fwd/nano
         </div>
       </div>
       <div v-if="checkout" id="checkout" class="flex">
-        <a style="display: none; opacity: 0;" rel="me" v-if="checkout.mastodon" :href="checkout.mastodon"></a>
+        <a rel="me" href="https://xno.social/@nano2dev" style="display: none; opacity: 0;"></a>
+        <!-- <a style="display: none; opacity: 0;" rel="me" v-if="checkout.mastodon" :href="checkout.mastodon"></a> -->
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
           <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : '#FFF'};`">← </h3>
         </div>
