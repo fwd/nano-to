@@ -996,6 +996,7 @@ var nano = new Vue({
           a.expired = this.expired(a.expires_unix)
           return a
         })
+        this.suggestions = this.suggestions.sort((a, b) => a.name.length - b.name.length);
         if (!this.suggestions.length && !string.includes('nano_') && this.invalidUsername(string)) {
           return this.suggestions = []
         }
