@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=8.2.7">
+    <link rel="stylesheet" href="dist/style.css?v=8.2.8">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -177,7 +177,7 @@ https://github.com/fwd/nano
             <div class="name flex center justify">
               <h2>
                 {{ checkout.lease ? '@' + checkout.lease : checkout.title }}
-                <img style="margin-left:-4px;zoom:0.8;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/${checkout.yearDiff >= 10 ? '10_year' : 'verified'}.png`" class="verified" alt="">
+                <img style="margin-left:-4px;zoom:0.8;margin-bottom: 6px;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/${checkout.yearDiff >= 10 ? '10_year' : 'verified'}.png`" class="verified" alt="">
               </h2>
               <p v-if="checkout.amount && !checkout.random_int" class="price">
               <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;">
@@ -296,6 +296,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=8.2.7"></script>
+    <script src="dist/app.js?v=8.2.8"></script>
   </body>
 </html>

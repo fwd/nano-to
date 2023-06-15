@@ -6273,9 +6273,9 @@ hr.memo {
 }
 
 .suggest .verified {
-    max-width: 17px;
+    max-width: 16px;
     vertical-align: middle;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     margin-left: -4px;
     filter: hue-rotate(132deg);
 }
