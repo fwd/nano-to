@@ -561,6 +561,14 @@ var nano = new Vue({
             amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary2(10000, 100000)
           }
 
+          if (item.goal_ui) {
+            // console.log( item, plans )
+            plans = plans.map(a => {
+              if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+              return a
+            })
+          }
+
           if (amount && query.currency || query.c) {
             amount = (amount / this.rate).toFixed(2)
           }
