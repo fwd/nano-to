@@ -215,7 +215,7 @@ https://github.com/fwd/nano
                   <div class="goal-stat" style="text-align: right;display: flex;align-items: center;justify-content: end; min-width: 65%;"> 
 
                     <div v-if="Number(checkout.goal.pending)" class="goal-activity"><svg height="42" viewBox="0 0 512 512" width="42" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; margin-right: 7px; vertical-align: bottom; filter: blue;"><title></title><polygon points="448 368 256 144 64 368 448 368"></polygon></svg></div>
-                    <span>{{ ( (100 * checkout.goal.balance) / checkout.goal.total ).toFixed(2) }}% <b>Funded</b></span>
+                    <span>{{ ( (100 * checkout.goal.balance) / checkout.goal.total ).toFixed(2) }}% <span>Funded</span></span>
                   </div>
                 </div>
               </div>
