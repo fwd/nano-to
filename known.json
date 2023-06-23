@@ -2018,4 +2018,12 @@
     "created_unix": 1631584140,
     "expires_unix": 1728273600
   }
+  {
+    "name": "GizmoQuest",
+    "title": "GizmoQuest Computing Lab",
+    "address": "nano_3u5oncyz6jbey1itpid13ekk4tucgne654tfrhfnfzxu7178q53hk3uuxfzk",
+    "status": "active",
+    "github": "GizmoQuest",
+    "twitter": "GizmoQuest"
+  },
 ]
