@@ -179,11 +179,11 @@ https://github.com/fwd/nano
                 {{ checkout.lease ? '@' + checkout.lease : checkout.title }}
                 <img style="margin-left:-4px;zoom:0.8;margin-bottom: 6px;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/${checkout.yearDiff >= 10 ? '10_year' : 'verified'}.png`" class="verified" alt="">
               </h2>
-              <p v-if="checkout.amount && !checkout.random_int" class="price">
+              <p v-if="false && checkout.amount && !checkout.random_int" class="price">
               <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;">
               {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
               </p>
-              <p v-if="checkout.amount && checkout.random_int" class="price">
+              <p v-if="false && checkout.amount && checkout.random_int" class="price">
               {{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}
               </p>
             </div>
