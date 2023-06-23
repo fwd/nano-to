@@ -2033,7 +2033,7 @@
     "expires": "October 7, 2024",
     "created_unix": 1631584140,
     "expires_unix": 1728273600
-  }
+  },
   {
     "name": "GizmoQuest",
     "title": "GizmoQuest Computing Lab",
@@ -2041,5 +2041,5 @@
     "status": "active",
     "github": "GizmoQuest",
     "twitter": "GizmoQuest"
-  },
+  }
 ]
