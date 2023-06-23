@@ -779,6 +779,7 @@
   },
   {
     "name": "development",
+    "goal_ui": "100:Monthly Hosting",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
