@@ -2210,7 +2210,7 @@ hr.memo {
     justify-content: center;
 }
 #order.cancel {
-    padding-top: 90px;
+    padding-top: 60px;
 }
 @media (max-width: 768px) {
     #order {
