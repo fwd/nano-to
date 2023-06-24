@@ -1170,7 +1170,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         this.suggestions = []
         history.pushState({}, null, '/');
         document.title = this.doc_title
-        self.size = '100%'
+        this.size = '100%'
       },
       doSuggestion(suggestion) {
         var query = this.queryToObject()
