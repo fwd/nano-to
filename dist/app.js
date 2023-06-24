@@ -264,6 +264,12 @@ var nano = new Vue({
               self.reset()
               self.size = '100%'
           }
+         if (evt.keyCode == '38') {
+              self.size = '100%'
+          }
+          else if (evt.keyCode == '40') {
+                self.size = '350%'
+          }
       }
 
       window.onmessage = function(e) {
