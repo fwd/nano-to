@@ -17,6 +17,7 @@ var nano = new Vue({
       title: 'Nano.to',
       convert: NanocurrencyWeb.tools.convert,
       lang: '',
+      size: window.width > 768 ? 100 : 250,
       error: false,
       status: '',
       user: false,
@@ -261,6 +262,7 @@ var nano = new Vue({
           }
           if (isEscape) {
               self.reset()
+              self.size = '100%'
           }
       }
 
@@ -1162,6 +1164,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         this.suggestions = []
         history.pushState({}, null, '/');
         document.title = this.doc_title
+        self.size = '100%'
       },
       doSuggestion(suggestion) {
         var query = this.queryToObject()
@@ -1280,6 +1283,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         self.prompt = _prompt
         history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
+        self.size = window.width > 768 ? '210%' : '350%' 
       },
     }
 })

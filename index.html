@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=8.3.0">
+    <link rel="stylesheet" href="dist/style.css?v=8.3.1">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -53,7 +53,7 @@ https://github.com/fwd/nano
     <div id="app" :class=" `on ${color}`">
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
-      <div :style=" background ? `background-image: url('${ '${background}' }')` : `background-image: url('${ 'dist/images/optimized.gif' }')` " id="backdrop"></div>
+      <div :style="`background-image: url('dist/images/optimized.gif');background-size:${size}`" id="backdrop"></div>
       <div v-if="success && success.confetti">
         <div v-for="i in 150" :class="`confetti-${i}`"></div>
       </div>
@@ -292,6 +292,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=8.3.0"></script>
+    <script src="dist/app.js?v=8.3.1"></script>
   </body>
 </html>
