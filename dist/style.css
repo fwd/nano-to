@@ -6332,3 +6332,7 @@ hr.memo {
 .dark .github {
   filter: invert(1);
 }
+
+.light .footer-icon {
+  filter: invert(1);
+}
