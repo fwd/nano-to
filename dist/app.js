@@ -598,9 +598,10 @@ var nano = new Vue({
 
           }
 
+          if (item.name === item.name.toLowerCase()) query.title = item.name.toLowerCase()
+
           this.checkout = {
-            title: query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : ''),
-            // title: query.title || (item.name &&  ? (this.capitalizeFirstLetter(item.name)) : 'Nano Pay'),
+            title: query.title || (item.name ? (this.capitalizeFirstLetter(item.name)) : name),
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.expires ? true : false,
