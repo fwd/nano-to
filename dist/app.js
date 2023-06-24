@@ -552,7 +552,7 @@ var nano = new Vue({
           
           if (!amount && !plans || donation) custom = true
 
-          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Tiny:1.33,Small:5,Medium:10,Large:25,Gigantic:100`
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Tiny:1.3300${this.getRandomArbitrary2(100, 1000)},Small:5,Medium:10,Large:25,Gigantic:100`
           
           var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
           var success_button = 'View Block'
@@ -677,7 +677,7 @@ var nano = new Vue({
 
           var success_url = query.success || query.success_url || query.redirect || query.r
 
-          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Tiny:1.33,Small:5,Medium:10,Large:25,Gigantic:100`
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Tiny:1.3300${this.getRandomArbitrary2(100, 1000)},Small:5,Medium:10,Large:25,Gigantic:100`
 
           if (plans) {
             plans = plans.split(',').map(a => {
