@@ -552,7 +552,7 @@ var nano = new Vue({
           
           if (!amount && !plans || donation) custom = true
 
-          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Tiny:1.3300${this.getRandomArbitrary2(100, 1000)},Small:5,Medium:10,Large:25,Gigantic:100`
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.001, 0.9).toFixed(3)},Tiny:1.33,Small:5,Medium:10,Large:25,Gigantic:100`
           
           var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
           var success_button = 'View Block'
@@ -565,12 +565,14 @@ var nano = new Vue({
             })
           }
 
-          if ((!plans || !plans.length) && (query.random || query.r || item.random)) {
-            amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary2(10000, 100000)
-          }
+          // if (item.goal_ui) {
+          //   plans = plans.map(a => {
+          //     if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+          //     return a
+          //   })
+          // }
 
           if (item.goal_ui) {
-            // console.log( item, plans )
             plans = plans.map(a => {
               if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
               return a
@@ -579,6 +581,10 @@ var nano = new Vue({
 
           if (amount && query.currency || query.c) {
             amount = (amount / this.rate).toFixed(2)
+          }
+
+          if (amount && query.random || query.r) {
+            amount = `${String(amount).includes('.') ? String(amount) + '00' + this.getRandomArbitrary2(1000, 10000) : String(amount) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
           }
 
           var goal
@@ -677,7 +683,7 @@ var nano = new Vue({
 
           var success_url = query.success || query.success_url || query.redirect || query.r
 
-          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Tiny:1.3300${this.getRandomArbitrary2(100, 1000)},Small:5,Medium:10,Large:25,Gigantic:100`
+          if (!amount && !plans) plans = `Tip:${this.getRandomArbitrary(0.1, 0.9).toFixed(2)},Tiny:1.33,Small:5,Medium:10,Large:25,Gigantic:100`
 
           if (plans) {
             plans = plans.split(',').map(a => {
@@ -685,6 +691,10 @@ var nano = new Vue({
               if (this.currency !== 'NANO') value = (Number(value) / this.rate).toFixed(2)
               return { title: a.trim().split(':')[0], value } 
             })
+          }
+
+          if ((!plans || !plans.length) && (query.random || query.r || item.random)) {
+            amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary2(10000, 100000)
           }
 
           if (query.goal) {
@@ -697,6 +707,21 @@ var nano = new Vue({
               balance: Number(account_info.balance).toFixed(2)
             }
 
+          }
+
+          if (query.goal) {
+            plans = plans.map(a => {
+              if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+              return a
+            })
+          }
+
+          if (amount && query.currency || query.c) {
+            amount = (amount / this.rate).toFixed(2)
+          }
+
+          if (amount && query.random || query.r) {
+            amount = `${String(amount).includes('.') ? String(amount) + '00' + this.getRandomArbitrary2(1000, 10000) : String(amount) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
           }
 
           this.checkout = {
@@ -712,7 +737,7 @@ var nano = new Vue({
             amount,
             plans,
             goal,
-            title: query.name || query.title || 'Pay Nano',
+            title: query.name || query.title || 'Nano Pay',
             color: {
               right: query.rightBackground || '#009dff', 
               address: {
