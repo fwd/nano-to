@@ -1289,7 +1289,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         self.prompt = _prompt
         history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
-        self.size = window.width > 768 ? '210%' : '350%' 
+        self.size = window.width > 768 ? '210%' : '280%' 
       },
     }
 })
