@@ -268,7 +268,7 @@ var nano = new Vue({
               self.size = '100%'
           }
           else if (evt.keyCode == '40') {
-                self.size = '350%'
+                self.size = '170%'
           }
       }
 
@@ -1289,7 +1289,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         self.prompt = _prompt
         history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
-        self.size = window.width > 768 ? '210%' : '280%' 
+        self.size = window.width > 768 ? '210%' : '160%' 
       },
     }
 })
