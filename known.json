@@ -1,5 +1,13 @@
 [
   {
+    "name": "NanoMagic",
+    "address": "nano_1335owogbe19axaki7gcxoxy3dyq1ysxxoq76xnri18et4r3b7tdejp9wrdf",
+    "created": "June 25, 2023",
+    "expires": "June 25, 2024",
+    "created_unix": 1687688759,
+    "expires_unix": 1719311100
+  },
+  {
     "name": "Sjk",
     "address": "nano_3j9twc4mpp5178n7jgb4yfkjdaamiyt6xe6c6pozkid4yqu9nf7a3jant87s",
     "created": "June 24, 2023",
