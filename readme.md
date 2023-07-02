@@ -9,7 +9,7 @@
   <img src="https://pbs.twimg.com/media/FwQoJPyXsAA2c24?format=jpg&name=medium" alt="Nano.to" />
 </p>
 
-<h1 align="center">🇺🇸 · 🇲🇽 · 🇨🇺 · 🇸🇻 · 🇳🇮 · 🇨🇴 · 🇵🇪 · 🇩🇪 · 🇯🇵 · 🇰🇷 · 🇧🇷 · 🇺🇦 · 🇵🇱 · 🇮🇳</h1>
+<h1 align="center">🇺🇸 · 🇲🇽 · 🇨🇺 · 🇸🇻 · 🇳🇮 · 🇨🇴 · 🇵🇪 · 🇩🇪 · 🇯🇵 · 🇰🇷 · 🇧🇷 · 🇺🇦 · 🇵🇱 · 🇮🇳 · 🇪🇸 · 🇮🇩 · 🇫🇷</h1>
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
