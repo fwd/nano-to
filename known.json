@@ -1756,9 +1756,9 @@
     "twitter": "humblenano",
     "address": "nano_3fq1wt45hpe9a6phqh3ht5y9xusa46z1mszduw6nq47opcxhfa71cnfo1maa",
     "created": "November 20, 2021",
-    "expires": "November 20, 2025",
+    "expires": "November 21, 2030",
     "created_unix": 1637429820,
-    "expires_unix": 1763596800
+    "expires_unix": 1921467600
   },
   {
     "name": "kedrin",
