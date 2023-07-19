@@ -75,9 +75,9 @@
     "name": "Pluto",
     "address": "nano_3h38fahmxyds33n8guxt1oepndmzeujkt6k438h9zmm6phpwj77gasrggmk7",
     "created": "June 26, 2023",
-    "expires": "July 26, 2023",
+    "expires": "August 26, 2023",
     "created_unix": 1687811119,
-    "expires_unix": 1690403100
+    "expires_unix": 1693022400
   },
   {
     "name": "NanoMagic",
