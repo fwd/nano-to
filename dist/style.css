@@ -6337,6 +6337,7 @@ hr.memo {
   filter: invert(1);
 }
 
+.nault .title,
 .nault .content .holder {
   color: #FFF;
 }
