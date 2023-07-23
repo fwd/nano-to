@@ -6336,3 +6336,7 @@ hr.memo {
 .light .footer-icon {
   filter: invert(1);
 }
+
+.nault .content .holder {
+  color: #FFF;
+}
