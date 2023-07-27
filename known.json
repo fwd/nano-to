@@ -1,5 +1,13 @@
 [
   {
+    "name": "Sparrow",
+    "address": "nano_1gqwww84fw9ke6oz6jj3gocbtokd31wj9hz46cqx7h6b644zgje8343fwwdu",
+    "created": "July 27, 2023",
+    "expires": "July 27, 2025",
+    "created_unix": 1690465204,
+    "expires_unix": 1753623600
+  },
+  {
     "name": "𝕏",
     "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
     "created": "July 26, 2023",
