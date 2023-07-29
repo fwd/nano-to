@@ -201,14 +201,6 @@
     "expires_unix": 1689972360
   },
   {
-    "name": "MyEcoria",
-    "address": "nano_1z7ac6amp7phny75of158qxn79t5efqwx9qe737wa877jaqbd4tnj3fe35ze",
-    "created": "June 18, 2023",
-    "expires": "July 18, 2023",
-    "created_unix": 1687078489,
-    "expires_unix": 1689670440
-  },
-  {
     "name": "Y",
     "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
     "created": "June 14, 2023",
