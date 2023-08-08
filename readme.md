@@ -94,7 +94,7 @@ php -S localhost:8080
 
 Fork Nano.to and add "github" to *known.json*. Verified names don't expire. 
 
-**Optional Values:**
+**Optional:**
 
 ```
 {
@@ -102,16 +102,16 @@ Fork Nano.to and add "github" to *known.json*. Verified names don't expire.
   "title": "Software Developer",
   "twitter": "NanoBull",
   "github": "NanoBull",
+  "mastodon": "xno.social/@nano2bot",
   "calendly": "NanoNullConsulting/30min",
   "calendly_price": 1,
   "location": "Place Name or Lat, Lon",
-  "freelance": "80 NANO / hr",
   "website": "https://fwd.dev",
-  "name_for_sale": 500,
+  "for_sale": 500,
   "goal_ui": "100:Server Hosting"
   "address": "NEW_NANO_ADDRESS",
-  "donation_address": "OPTIONAL_NANO_ADDRESS",
-  "planet": "Earth"
+  "rep_address": "YOUR_MACHINE",
+  "donation_address": "OPTIONAL_NANO_ADDRESS"
 }
 ```
 
