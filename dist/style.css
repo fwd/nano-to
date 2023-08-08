@@ -303,6 +303,22 @@ input {
   font-family: 'Arial';
 }
 
+.edit-buttons input {
+  margin: 5px;
+  border-radius: 5px;
+  border: 2px solid #00000029;
+}
+
+.edit-buttons .input-label {
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    color: #000000e0;
+    font-family: 'Cyber';
+    max-width: 175px;
+    background-color: #f9f9f9;
+}
+
 /*input::-moz-selection {
   background: #000
 }
@@ -1543,7 +1559,7 @@ code {
 }
 
 section {
-    width: 50%;
+    min-width: 50%;
     height: 100vh;
     padding: 70px;
     overflow: auto;
@@ -2235,6 +2251,7 @@ hr.memo {
         zoom: 1.3;
     }
     section {
+        min-width: auto;
         width: 100%;
         height: auto;
         padding: 30px 30px;
