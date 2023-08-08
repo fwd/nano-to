@@ -65,6 +65,19 @@ GET: https://nano.to/.well-known/nano-currency.json?names=Moon
 GET: https://nano.to/.well-known/nano-currency.json?names=nano_1ak3bsi..
 ```
 
+**Update Name:**
+
+```
+curl -d '{
+  "action": "update_name",
+  "name": "NanoBull",
+  "title": "Software Developer",
+  "rep_address": "nano_3t6k35gi95xu6tergt6p...xtoncuohr3"
+}' \
+-H "Content-Type: application/json" \
+"https://rpc.nano.to"
+```
+
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
 ## Host Your Own
