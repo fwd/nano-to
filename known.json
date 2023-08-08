@@ -950,6 +950,9 @@
   },
   {
     "name": "reps",
+    "github": "nano2dev",
+    "title": "Nano.to Rep Faucet",
+    "goal_ui": "5:Faucet Cycle",
     "address": "nano_1reason1q976g9wkrt69nux7konww46ux73c7xzm7jrm3w4kqdtigym6btq3",
     "created": "December 15, 2021",
     "expires": "December 15, 2031",
@@ -1677,7 +1680,8 @@
   {
     "name": "faucet",
     "github": "nano2dev",
-    "title": "Daily Username Faucet",
+    "title": "Nano.to Name Faucet",
+    "goal_ui": "10:Faucet Cycle",
     "address": "nano_1faucet7b6xjyha7m13objpn5ubkquzd6ska8kwopzf1ecbfmn35d1zey3ys",
     "created": "November 21, 2021",
     "expires": "November 20, 2031",
@@ -2138,8 +2142,6 @@
     "twitter": "nano2dev",
     "name": "esteban",
     "title": "Software Consultant",
-    "calendly": "nano2dev/30min",
-    "calendly_rate": "1",
     "mastodon": "https://xno.social/@nano2dev",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
     "donation_address": "@faucet",
