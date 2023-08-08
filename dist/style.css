@@ -306,7 +306,7 @@ input {
 .edit-buttons input {
   margin: 5px;
   border-radius: 5px;
-  border: 2px solid #00000029;
+  border: 3px solid #00000029;
 }
 
 .edit-buttons .input-label {
