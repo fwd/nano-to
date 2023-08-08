@@ -179,7 +179,7 @@ https://github.com/fwd/nano
         <a style="display: none; opacity: 0;" rel="me" :href="checkout.mastodon"></a>
         <!-- <a style="display: none; opacity: 0;" rel="me" v-if="checkout.mastodon" :href="checkout.mastodon"></a> -->
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
-          <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : '#FFF'};`">← </h3>
+          <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : ''};`">← </h3>
         </div>
         <section v-if="checkout.plans || checkout.image || checkout.update_name" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
