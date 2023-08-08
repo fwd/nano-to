@@ -2147,13 +2147,16 @@
     "discord": "nano2dev",
     "twitter": "nano2dev",
     "name": "esteban",
-    "title": "Software Consultant",
+    "title": "Software Wizard",
     "mastodon": "https://xno.social/@nano2dev",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
-    "donation_address": "@faucet",
+    "donation_address": "@development",
     "created": "September 13, 2021",
     "expires": "October 7, 2024",
     "created_unix": 1631584140,
-    "expires_unix": 1728273600
+    "expires_unix": 1728273600,
+    "location": "Us-East",
+    "goal_ui": "100:Monthly Hosting",
+    "metadata": "Hello World, Again"
   }
 ]
