@@ -1,5 +1,13 @@
 [
   {
+    "name": "Nick",
+    "address": "nano_3t6tpgbehiiteokyjcxk1cobx38yn6qd54xretk4gdie88hr88u1ubnh7upm",
+    "created": "August 8, 2023",
+    "expires": "August 8, 2033",
+    "created_unix": 1691528672,
+    "expires_unix": 2007147840
+  },
+  {
     "name": "Arena",
     "address": "nano_1arenasufjzqqo3kiopui6jtrp5yhdhd4hzps71jaap6qs8syzxy4k4c34nr",
     "created": "August 8, 2023",
