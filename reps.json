@@ -1,6 +1,6 @@
 [
 	{
-	  "username": "『Node Geass』",
+	  "alias": "『Node Geass』",
 	  "rep_address": "nano_1ba7uuq9kt68jzzw51a5kt577xtzaq37cnj8otqbhhnkgjyhwu91wtsjacez",
 	  "est_payment": null,
 	  "donation_address": "nano_3suiitokai93w7pwjopcxkr1smoaigsnxagjuja4juuz9cmkmo8dj58nn1bj",
@@ -13,7 +13,7 @@
 	  "longitude": 4.3917
 	}, 
 	{
-	  "username": "Art Node",
+	  "alias": "Art Node",
 	  "rep_address": "nano_1artnod3zc5e4rrra73ii4698t7pfiqt4c445efd499psaxyjae5bhm9susp",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -26,7 +26,7 @@
 	  "longitude": 11.0374
 	}, 
 	{
-	  "username": "TipNano ⛲",
+	  "alias": "TipNano ⛲",
 	  "rep_address": "nano_1tipnanogsu7q59pnie3qfc4w378wm43fg4ksqc8wmnnfnizrq1xrpt5geho",
 	  "est_payment": null,
 	  "donation_address": "nano_1tipnanogsu7q59pnie3qfc4w378wm43fg4ksqc8wmnnfnizrq1xrpt5geho",
@@ -39,7 +39,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "scoin.cool",
+	  "alias": "scoin.cool",
 	  "rep_address": "nano_3o5oeefdnrha7x7styp1tnmefen7fnrooy4jgnfb1otws54yf7uqfuxmojoy",
 	  "est_payment": null,
 	  "donation_address": "nano_1mz98gg1xnii9mo4aur6ax9xcpayyzexcejzpednpbyk4n1ztzznp635uy9f",
@@ -52,7 +52,7 @@
 	  "longitude": -121.962
 	}, 
 	{
-	  "username": "validierung.cc 🇩🇪",
+	  "alias": "validierung.cc 🇩🇪",
 	  "rep_address": "nano_15gfawgrsc6tkkm5p1gy749tkibchu73st1ojs3knz6rd3ejfcgt7rj5cmx9",
 	  "est_payment": null,
 	  "donation_address": "nano_19cqzy3z18x49858e3wskosk9zk6sgouhjkntk9a74ftjth7514htk6pp7pu",
@@ -65,7 +65,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "Nanswap",
+	  "alias": "Nanswap",
 	  "rep_address": "nano_1banexkcfuieufzxksfrxqf6xy8e57ry1zdtq9yn7jntzhpwu4pg4hajojmq",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -78,7 +78,7 @@
 	  "longitude": 4.6422
 	}, 
 	{
-	  "username": "VINO Community Rep",
+	  "alias": "VINO Community Rep",
 	  "rep_address": "nano_1sw898hgeexgrsq8x16wdadwdrs3obn418z6x98parb5tymz879mu89qndju",
 	  "est_payment": null,
 	  "donation_address": "nano_1sbho7bycb7h4xjms6n3pyns1r5cw53yw3ssx8buxpsbw9caw7hwqhowixq9",
@@ -91,7 +91,7 @@
 	  "longitude": -121.962
 	}, 
 	{
-	  "username": "TRUSTABLE - NN2",
+	  "alias": "TRUSTABLE - NN2",
 	  "rep_address": "nano_19qo4gtzpoyqf6zzezbcuazcsxtqtdin5qbtk8jkoz4fdmq4ssagn3u1odhz",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -104,7 +104,7 @@
 	  "longitude": -0.0955
 	}, 
 	{
-	  "username": "paypur's node",
+	  "alias": "paypur's node",
 	  "rep_address": "nano_15zntj4a8r6bkihei788ciy1jgc5wnskan1gpgn8e8jku3r4qhr7rwifitir",
 	  "est_payment": null,
 	  "donation_address": "nano_15zntj4a8r6bkihei788ciy1jgc5wnskan1gpgn8e8jku3r4qhr7rwifitir",
@@ -117,7 +117,7 @@
 	  "longitude": -121.798
 	}, 
 	{
-	  "username": "NanoWallet Bot",
+	  "alias": "NanoWallet Bot",
 	  "rep_address": "nano_16k5pimotz9zehjk795wa4qcx54mtusk8hc5mdsjgy57gnhbj3hj6zaib4ic",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -130,7 +130,7 @@
 	  "longitude": -0.0955
 	}, 
 	{
-	  "username": "jserv 🇹🇼🐧",
+	  "alias": "jserv 🇹🇼🐧",
 	  "rep_address": "nano_1bko7zpcow7w6e11az8tnxdnyszgkt61miwuo9i9pom3czdzxqknpiuc7tdb",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -143,7 +143,7 @@
 	  "longitude": 120.3139
 	}, 
 	{
-	  "username": null,
+	  "alias": null,
 	  "rep_address": "nano_16u1uufyoig8777y6r8iqjtrw8sg8maqrm36zzcm95jmbd9i9aj5i8abr8u5",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -156,7 +156,7 @@
 	  "longitude": -0.0955
 	}, 
 	{
-	  "username": null,
+	  "alias": null,
 	  "rep_address": "nano_1ac8snzjkwniynpe3nsshf34iwe46rpjo3tjqtdntktjhqsp5sdndqworgwe",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -169,7 +169,7 @@
 	  "longitude": 2.569
 	}, 
 	{
-	  "username": "mimenode-old",
+	  "alias": "mimenode-old",
 	  "rep_address": "nano_139tfuxmn4xne7kac8gy46rzg3tj8dcahyjjrexk9pc8udh3i1cjxs1h5rme",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -182,7 +182,7 @@
 	  "longitude": 4.9392
 	}, 
 	{
-	  "username": "NanoSG - DeckardCain 🇸🇬",
+	  "alias": "NanoSG - DeckardCain 🇸🇬",
 	  "rep_address": "nano_14mp1ua4oi45rxosft3d8qe4g6a1u1srma59jg85ax6s8zuwhi4yzgdnqhz3",
 	  "est_payment": null,
 	  "donation_address": "nano_3p9qxwkguyowfo313qijzkuo4zszdowi5y6a33y55s5imruxonww49kjd1dw",
@@ -195,7 +195,7 @@
 	  "longitude": 103.7897
 	}, 
 	{
-	  "username": "Drowzee's Nano Node",
+	  "alias": "Drowzee's Nano Node",
 	  "rep_address": "nano_3ciiorjr88nd9xdperhj6u4bmxqxgkariohi1inuqad4b8urr9bgpirgbmqy",
 	  "est_payment": null,
 	  "donation_address": "nano_3ciiorjr88nd9xdperhj6u4bmxqxgkariohi1inuqad4b8urr9bgpirgbmqy",
@@ -208,7 +208,7 @@
 	  "longitude": -87.6318
 	}, 
 	{
-	  "username": "Nanorlando City Node",
+	  "alias": "Nanorlando City Node",
 	  "rep_address": "nano_3zx7rus19yr5qi5zmkawnzo5ehxr7i73xqghhondhfrzftgstgk4gxbubwfq",
 	  "est_payment": null,
 	  "donation_address": "nano_1gqwww84fw9ke6oz6jj3gocbtokd31wj9hz46cqx7h6b644zgje8343fwwdu",
@@ -221,7 +221,7 @@
 	  "longitude": -81.3738
 	}, 
 	{
-	  "username": "xnofor.life",
+	  "alias": "xnofor.life",
 	  "rep_address": "nano_1xj15k5naemt7rno1udawcazo5esjsuajosziopeayk93o8t71hwecfsux4p",
 	  "est_payment": null,
 	  "donation_address": "nano_1xj15k5naemt7rno1udawcazo5esjsuajosziopeayk93o8t71hwecfsux4p",
@@ -234,7 +234,7 @@
 	  "longitude": -121.966532
 	}, 
 	{
-	  "username": "FynCom",
+	  "alias": "FynCom",
 	  "rep_address": "nano_3robocazheuxet5ju1gtif4cefkhfbupkykc97hfanof859ie9ajpdfhy3ez",
 	  "est_payment": null,
 	  "donation_address": "nano_3robocazheuxet5ju1gtif4cefkhfbupkykc97hfanof859ie9ajpdfhy3ez",
@@ -247,7 +247,7 @@
 	  "longitude": -117.6898
 	}, 
 	{
-	  "username": "nanocafe.cc",
+	  "alias": "nanocafe.cc",
 	  "rep_address": "nano_1cafe95a81ko3mq3oin4wnubsbw9z3w3tw5a95u47897wxy96r1zj9hxu1wb",
 	  "est_payment": null,
 	  "donation_address": "nano_1zj4y7h4xd5b7qu9se7t3y8p9647b1udkpg5yc6i96onkcxzhh57uubzmupi",
@@ -260,7 +260,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "XNOPay - Node 1",
+	  "alias": "XNOPay - Node 1",
 	  "rep_address": "nano_1xnopay1bfmyx5eit8ut4gg1j488kt8bjukijerbn37jh3wdm81y6mxjg8qj",
 	  "est_payment": null,
 	  "donation_address": "nano_1xnopay1bfmyx5eit8ut4gg1j488kt8bjukijerbn37jh3wdm81y6mxjg8qj",
@@ -273,7 +273,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "UrbaNano [NL]",
+	  "alias": "UrbaNano [NL]",
 	  "rep_address": "nano_1m1afmq54gum53md3dm3o9arctwn8buwqk8kynxszh468qmm3kn7sawmgihz",
 	  "est_payment": null,
 	  "donation_address": "nano_1m1afmq54gum53md3dm3o9arctwn8buwqk8kynxszh468qmm3kn7sawmgihz",
@@ -286,7 +286,7 @@
 	  "longitude": 4.8975
 	}, 
 	{
-	  "username": "CRPay",
+	  "alias": "CRPay",
 	  "rep_address": "nano_1crpaybw8jip7fm98fzfxnjajb55ty76oyzmpfwe9s66u4aod37tm3kxba8q",
 	  "est_payment": null,
 	  "donation_address": "nano_33mru1r6bbtows86tud6okhbhsymz4t4c9p3dno6wgoqt8hd6tuqxjhg84jt",
@@ -299,7 +299,7 @@
 	  "longitude": 6.8209
 	}, 
 	{
-	  "username": "CryptoVision Nano Node",
+	  "alias": "CryptoVision Nano Node",
 	  "rep_address": "nano_3bsnis6ha3m9cepuaywskn9jykdggxcu8mxsp76yc3oinrt3n7gi77xiggtm",
 	  "est_payment": null,
 	  "donation_address": "nano_3bsnis6ha3m9cepuaywskn9jykdggxcu8mxsp76yc3oinrt3n7gi77xiggtm",
@@ -312,7 +312,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "Brainroot Nano Node [DE]",
+	  "alias": "Brainroot Nano Node [DE]",
 	  "rep_address": "nano_385dyw65hwqtp7pm5igh9ekmaai7qg61tp4mcdine7su3jt69uypa7o9umm8",
 	  "est_payment": null,
 	  "donation_address": "nano_1zo593uztde9rr6659w8uq7fpffifb7w38pq3xa385a1kkqhut6fsjyuba4u",
@@ -325,7 +325,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "NANO ITALIA",
+	  "alias": "NANO ITALIA",
 	  "rep_address": "nano_1wcxcjbwnnsdpee3d9i365e8bcj1uuyoqg9he5zjpt3r57dnjqe3gdc184ck",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -338,7 +338,7 @@
 	  "longitude": 10.6293
 	}, 
 	{
-	  "username": "ScandiNode 🌐 Green, fast & capable! ",
+	  "alias": "ScandiNode 🌐 Green, fast & capable! ",
 	  "rep_address": "nano_318uu1tsbios3kp4dts5b6zy1y49uyb88jajfjyxwmozht8unaxeb43keork",
 	  "est_payment": null,
 	  "donation_address": "nano_318uu1tsbios3kp4dts5b6zy1y49uyb88jajfjyxwmozht8unaxeb43keork",
@@ -351,7 +351,7 @@
 	  "longitude": 11.3353
 	}, 
 	{
-	  "username": "nanowallets.guide",
+	  "alias": "nanowallets.guide",
 	  "rep_address": "nano_1zuksmn4e8tjw1ch8m8fbrwy5459bx8645o9euj699rs13qy6ysjhrewioey",
 	  "est_payment": null,
 	  "donation_address": "nano_1zuksmn4e8tjw1ch8m8fbrwy5459bx8645o9euj699rs13qy6ysjhrewioey",
@@ -364,7 +364,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "My Nano Ninja",
+	  "alias": "My Nano Ninja",
 	  "rep_address": "nano_1ninja7rh37ehfp9utkor5ixmxyg8kme8fnzc4zty145ibch8kf5jwpnzr3r",
 	  "est_payment": null,
 	  "donation_address": "nano_1ninja7rh37ehfp9utkor5ixmxyg8kme8fnzc4zty145ibch8kf5jwpnzr3r",
@@ -377,7 +377,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "Nano Foundation #6",
+	  "alias": "Nano Foundation #6",
 	  "rep_address": "nano_1awsn43we17c1oshdru4azeqjz9wii41dy8npubm4rg11so7dx3jtqgoeahy",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -390,7 +390,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "NanoBank",
+	  "alias": "NanoBank",
 	  "rep_address": "nano_1ec5optppmndqsb3rxu1qa4hpo39957s7mfqycpbd547jga4768o6xz8gfie",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -403,7 +403,7 @@
 	  "longitude": 4.8975
 	}, 
 	{
-	  "username": "Nonna",
+	  "alias": "Nonna",
 	  "rep_address": "nano_1just1zdsnke856mu5pmed1qdkzk6adh3d13iiqr3so66sr8pbcnh15bdjda",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -416,7 +416,7 @@
 	  "longitude": 11.1617
 	}, 
 	{
-	  "username": "NanoQuake",
+	  "alias": "NanoQuake",
 	  "rep_address": "nano_1kd4h9nqaxengni43xy9775gcag8ptw8ddjifnm77qes1efuoqikoqy5sjq3",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -429,7 +429,7 @@
 	  "longitude": -1.1475
 	}, 
 	{
-	  "username": "Nalli | [Fast 💨 - Dedicated 💻 - Green 🍀]",
+	  "alias": "Nalli | [Fast 💨 - Dedicated 💻 - Green 🍀]",
 	  "rep_address": "nano_3zapp5z141qpjipsb1jnjdmk49jwqy58i6u6wnyrh6x7woajeyme85shxewt",
 	  "est_payment": null,
 	  "donation_address": "nano_31csoumwe4xpokwnsq9mfe9cnh1xjsgny9bt8y9cyktm3tpqs8n5oqpmmccp",
@@ -442,7 +442,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "NanoCrawler / meltingice",
+	  "alias": "NanoCrawler / meltingice",
 	  "rep_address": "nano_1x7biz69cem95oo7gxkrw6kzhfywq4x5dupw4z1bdzkb74dk9kpxwzjbdhhs",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -455,7 +455,7 @@
 	  "longitude": 11.0191
 	}, 
 	{
-	  "username": "Kedrin",
+	  "alias": "Kedrin",
 	  "rep_address": "nano_15nt4cis8ac184q9mj7bedww9ay9zh5jk5k7sj9ypmz44twjcpz3cn6oijir",
 	  "est_payment": null,
 	  "donation_address": "nano_15nt4cis8ac184q9mj7bedww9ay9zh5jk5k7sj9ypmz44twjcpz3cn6oijir",
@@ -468,7 +468,7 @@
 	  "longitude": 8.0051
 	}, 
 	{
-	  "username": "1NANO Community",
+	  "alias": "1NANO Community",
 	  "rep_address": "nano_16d45ow3tsj1y3z9n4satwzxgj6qiue1ggxbwbrj3b33qr58bzchkpsffpx4",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -481,7 +481,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "NANO Voting 🌍",
+	  "alias": "NANO Voting 🌍",
 	  "rep_address": "nano_3uaydiszyup5zwdt93dahp7mri1cwa5ncg9t4657yyn3o4i1pe8sfjbimbas",
 	  "est_payment": null,
 	  "donation_address": "nano_3uaydiszyup5zwdt93dahp7mri1cwa5ncg9t4657yyn3o4i1pe8sfjbimbas",
@@ -494,7 +494,7 @@
 	  "longitude": 11.072
 	}, 
 	{
-	  "username": "Nano Charts 📊",
+	  "alias": "Nano Charts 📊",
 	  "rep_address": "nano_3chartsi6ja8ay1qq9xg3xegqnbg1qx76nouw6jedyb8wx3r4wu94rxap7hg",
 	  "est_payment": null,
 	  "donation_address": "nano_1ftukobjnt57oh8jz79z3ag3333yy1nehurifmig6geqhpne16obw9sicwmx",
@@ -507,7 +507,7 @@
 	  "longitude": 11.1617
 	}, 
 	{
-	  "username": "Natrium",
+	  "alias": "Natrium",
 	  "rep_address": "nano_1natrium1o3z5519ifou7xii8crpxpk8y65qmkih8e8bpsjri651oza8imdd",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -520,7 +520,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "NANO TipBot",
+	  "alias": "NANO TipBot",
 	  "rep_address": "nano_3o7uzba8b9e1wqu5ziwpruteyrs3scyqr761x7ke6w1xctohxfh5du75qgaj",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -533,7 +533,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "1. High Performance Server 🚀 - DE",
+	  "alias": "1. High Performance Server 🚀 - DE",
 	  "rep_address": "nano_18shbirtzhmkf7166h39nowj9c9zrpufeg75bkbyoobqwf1iu3srfm9eo3pz",
 	  "est_payment": null,
 	  "donation_address": "nano_18shbirtzhmkf7166h39nowj9c9zrpufeg75bkbyoobqwf1iu3srfm9eo3pz",
@@ -546,7 +546,7 @@
 	  "longitude": 11.1617
 	}, 
 	{
-	  "username": "mimenode",
+	  "alias": "mimenode",
 	  "rep_address": "nano_1mime3jd7dbnshd6zw1gjqax5zit31h6y1x6pczfuz7au33ftacjib5cc1ez",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -559,7 +559,7 @@
 	  "longitude": 4.914212
 	}, 
 	{
-	  "username": "Puddy",
+	  "alias": "Puddy",
 	  "rep_address": "nano_3abuqtbaotp9myn6ihb6mg96hf7jnapuddydf6ytgd174t4phg86nnq4cmxj",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -572,7 +572,7 @@
 	  "longitude": -74.1403
 	}, 
 	{
-	  "username": "⋰·⋰FastFeeless.com⋰·⋰",
+	  "alias": "⋰·⋰FastFeeless.com⋰·⋰",
 	  "rep_address": "nano_3afmp9hx6pp6fdcjq96f9qnoeh1kiqpqyzp7c18byaipf48t3cpzmfnhc1b7",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -585,7 +585,7 @@
 	  "longitude": 11.1617
 	}, 
 	{
-	  "username": "Redeemfor.me 🛍️🛒 —  Luckynano.com 🎰💰",
+	  "alias": "Redeemfor.me 🛍️🛒 —  Luckynano.com 🎰💰",
 	  "rep_address": "nano_1oenixj4qtpfcembga9kqwggkb87wooicfy5df8nhdywrjrrqxk7or4gz15b",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -598,7 +598,7 @@
 	  "longitude": 11.1617
 	}, 
 	{
-	  "username": "nano.strnmn.me 🌿",
+	  "alias": "nano.strnmn.me 🌿",
 	  "rep_address": "nano_3strnmn7h9b7oghxa6h9ckrpf5r454fsobpicixps6xwiwc5q4hat7wjbpqz",
 	  "est_payment": null,
 	  "donation_address": "nano_3strnmn7h9b7oghxa6h9ckrpf5r454fsobpicixps6xwiwc5q4hat7wjbpqz",
@@ -611,7 +611,7 @@
 	  "longitude": 13.4359
 	}, 
 	{
-	  "username": "Nano Node London",
+	  "alias": "Nano Node London",
 	  "rep_address": "nano_18bpu81x4oyqsjjsyaeb7ek4rag1bw8gerhaiumookzc4t5prrm4d7zg56ww",
 	  "est_payment": null,
 	  "donation_address": "nano_18bpu81x4oyqsjjsyaeb7ek4rag1bw8gerhaiumookzc4t5prrm4d7zg56ww",
@@ -624,7 +624,7 @@
 	  "longitude": -0.0955
 	}, 
 	{
-	  "username": "Yakamoz Node - nano.trade",
+	  "alias": "Yakamoz Node - nano.trade",
 	  "rep_address": "nano_3pg8khw8gs94c1qeq9741n99ubrut8sj3n9kpntim1rm35h4wdzirofazmwt",
 	  "est_payment": null,
 	  "donation_address": "nano_1ixztwxgroasquc9ekw5bnortekeghqtt1kxri6bh4ukyt4ik7fru6ippu7j",
@@ -637,7 +637,7 @@
 	  "longitude": 8.4756
 	}, 
 	{
-	  "username": "warai",
+	  "alias": "warai",
 	  "rep_address": "nano_33ad5app7jeo6jfe9ure6zsj8yg7knt6c1zrr5yg79ktfzk5ouhmpn6p5d7p",
 	  "est_payment": null,
 	  "donation_address": "nano_33ad5app7jeo6jfe9ure6zsj8yg7knt6c1zrr5yg79ktfzk5ouhmpn6p5d7p",
@@ -650,7 +650,7 @@
 	  "longitude": -74.0247
 	}, 
 	{
-	  "username": "❤️❤️ Nanolove ❤️❤️",
+	  "alias": "❤️❤️ Nanolove ❤️❤️",
 	  "rep_address": "nano_34amtofxstsfyqcgphp8piij9u33widykq9wbz6ysjpxhbgmqu8btu1eexer",
 	  "est_payment": null,
 	  "donation_address": "nano_34amtofxstsfyqcgphp8piij9u33widykq9wbz6ysjpxhbgmqu8btu1eexer",
@@ -663,7 +663,7 @@
 	  "longitude": 3.178
 	}, 
 	{
-	  "username": "humble_nano_finland 🇫🇮",
+	  "alias": "humble_nano_finland 🇫🇮",
 	  "rep_address": "nano_3n7ky76t4g57o9skjawm8pprooz1bminkbeegsyt694xn6d31c6s744fjzzz",
 	  "est_payment": null,
 	  "donation_address": "nano_3fq1wt45hpe9a6phqh3ht5y9xusa46z1mszduw6nq47opcxhfa71cnfo1maa",
@@ -676,7 +676,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "Nano Foundation #8",
+	  "alias": "Nano Foundation #8",
 	  "rep_address": "nano_1hza3f7wiiqa7ig3jczyxj5yo86yegcmqk3criaz838j91sxcckpfhbhhra1",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -689,7 +689,7 @@
 	  "longitude": 4.914212
 	}, 
 	{
-	  "username": "Moonstruck.dev 🌙",
+	  "alias": "Moonstruck.dev 🌙",
 	  "rep_address": "nano_1ota8bpwwawmc8ksdz4ezzrb3afbdeipk1n7rbeguhm4muy1r649uzw5moon",
 	  "est_payment": null,
 	  "donation_address": "nano_18ce51c3zpa11ddr4ngcb11b8af4ubm7w6r76ufqypusykpz9uybjar8pdk8",
@@ -702,7 +702,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "NanoTicker",
+	  "alias": "NanoTicker",
 	  "rep_address": "nano_1iuz18n4g4wfp9gf7p1s8qkygxw7wx9qfjq6a9aq68uyrdnningdcjontgar",
 	  "est_payment": null,
 	  "donation_address": "nano_1gur37mt5cawjg5844bmpg8upo4hbgnbbuwcerdobqoeny4ewoqshowfakfo",
@@ -715,7 +715,7 @@
 	  "longitude": 11.0191
 	}, 
 	{
-	  "username": "gr0vity",
+	  "alias": "gr0vity",
 	  "rep_address": "nano_3msc38fyn67pgio16dj586pdrceahtn75qgnx7fy19wscixrc8dbb3abhbw6",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -728,7 +728,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "My1s Nano Node",
+	  "alias": "My1s Nano Node",
 	  "rep_address": "nano_1my1snode8rwccjxkckjirj65zdxo6g5nhh16fh6sn7hwewxooyyesdsmii3",
 	  "est_payment": null,
 	  "donation_address": "nano_3xin68k391aepgwprg7tj4fts1qy49ximuci9bhehpojc9pzpkej9g6zbgym",
@@ -741,7 +741,7 @@
 	  "longitude": 6.8448
 	}, 
 	{
-	  "username": null,
+	  "alias": null,
 	  "rep_address": "nano_3oxhohaxp9ceobppkhp7wahauxd4zgyz4fhxfniyp4mb9opq4upfnaccswo7",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -754,7 +754,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "PixelStix",
+	  "alias": "PixelStix",
 	  "rep_address": "nano_1u7anedrbmqx4gr8x44r6k4egg9nhi75yb1qsz63e5ykhz3mx3r3jw463r3t",
 	  "est_payment": null,
 	  "donation_address": "nano_1u7anedrbmqx4gr8x44r6k4egg9nhi75yb1qsz63e5ykhz3mx3r3jw463r3t",
@@ -767,7 +767,7 @@
 	  "longitude": -74.1403
 	}, 
 	{
-	  "username": "FEES? OMEGALUL",
+	  "alias": "FEES? OMEGALUL",
 	  "rep_address": "nano_1nk9zdf1otddxhxfqimjdkmbtq17yzf3z6giz1as7x1huyug8er1ukeqpqpe",
 	  "est_payment": null,
 	  "donation_address": "nano_3shrydersd7kpbmkhrd3bnqece5j86s34q7zjq5wtf3f5kqintzks5m93zz8",
@@ -780,7 +780,7 @@
 	  "longitude": 3.178
 	}, 
 	{
-	  "username": "Huobi Representative",
+	  "alias": "Huobi Representative",
 	  "rep_address": "nano_1bj5cf9hkgkcspmn15day8cyn3hyaciufbba4rqmbnkmbdpjdmo9pwyatjoi",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -793,7 +793,7 @@
 	  "longitude": 139.745521
 	}, 
 	{
-	  "username": "Nanick",
+	  "alias": "Nanick",
 	  "rep_address": "nano_3ekb6tp8ixtkibimyygepgkwckzhds9basxd5zfue4efjnxaan77gsnanick",
 	  "est_payment": null,
 	  "donation_address": "nano_3spt91b7apeywmmxadpwwreop9mfyf3ja8b47e3o9se7igqy4p7gtzhmphxc",
@@ -806,7 +806,7 @@
 	  "longitude": -74.2813
 	}, 
 	{
-	  "username": "Nano Foundation #2",
+	  "alias": "Nano Foundation #2",
 	  "rep_address": "nano_1stofnrxuz3cai7ze75o174bpm7scwj9jn3nxsn8ntzg784jf1gzn1jjdkou",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -819,7 +819,7 @@
 	  "longitude": 8.4756
 	}, 
 	{
-	  "username": "Nano Germany 🇩🇪",
+	  "alias": "Nano Germany 🇩🇪",
 	  "rep_address": "nano_34zuxqdsucurhjrmpc4aixzbgaa4wjzz6bn5ryn56emc9tmd3pnxjoxfzyb6",
 	  "est_payment": null,
 	  "donation_address": "nano_34zuxqdsucurhjrmpc4aixzbgaa4wjzz6bn5ryn56emc9tmd3pnxjoxfzyb6",
@@ -832,7 +832,7 @@
 	  "longitude": 8.4756
 	}, 
 	{
-	  "username": "AnarkNode V23",
+	  "alias": "AnarkNode V23",
 	  "rep_address": "nano_3kc8wwut3u8g1kwa6x4drkzu346bdbyqzsn14tmabrpeobn8igksfqkzajbb",
 	  "est_payment": null,
 	  "donation_address": "nano_3kc8wwut3u8g1kwa6x4drkzu346bdbyqzsn14tmabrpeobn8igksfqkzajbb",
@@ -845,7 +845,7 @@
 	  "longitude": -81.4657
 	}, 
 	{
-	  "username": "Nano Foundation #5",
+	  "alias": "Nano Foundation #5",
 	  "rep_address": "nano_3hd4ezdgsp15iemx7h81in7xz5tpxi43b6b41zn3qmwiuypankocw3awes5k",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -858,7 +858,7 @@
 	  "longitude": 77.587838
 	}, 
 	{
-	  "username": "nanoble",
+	  "alias": "nanoble",
 	  "rep_address": "nano_16d3mdshcfqayyx8rd9ioimjiicrma743qpd86ohfs9kdzgejmnba1zifo8m",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -871,7 +871,7 @@
 	  "longitude": 12.3649
 	}, 
 	{
-	  "username": "TRUSTABLE - NN1",
+	  "alias": "TRUSTABLE - NN1",
 	  "rep_address": "nano_1b9wguhh39at8qtm93oghd6r4f4ubk7zmqc9oi5ape6yyz4s1gamuwn3jjit",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -884,7 +884,7 @@
 	  "longitude": -2.2446
 	}, 
 	{
-	  "username": "NanoIsByUs",
+	  "alias": "NanoIsByUs",
 	  "rep_address": "nano_3o5dcp6kjish9xuu51akx1d8bp4pytk4diput3s8dkt7cktnmcg96aoi1cbw",
 	  "est_payment": null,
 	  "donation_address": "nano_1icpcff36i9qdx1cqj5qcdn53kfms4834t7xt5iezzq3c8ktazpnx4ponubp",
@@ -897,7 +897,7 @@
 	  "longitude": 15.8412
 	}, 
 	{
-	  "username": "Nano Foundation #4",
+	  "alias": "Nano Foundation #4",
 	  "rep_address": "nano_3dmtrrws3pocycmbqwawk6xs7446qxa36fcncush4s1pejk16ksbmakis78m",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -910,7 +910,7 @@
 	  "longitude": -84.4784
 	}, 
 	{
-	  "username": "Madora",
+	  "alias": "Madora",
 	  "rep_address": "nano_3g6ue89jij6bxaz3hodne1c7gzgw77xawpdz4p38siu145u3u17c46or4jeu",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -923,7 +923,7 @@
 	  "longitude": -74.1403
 	}, 
 	{
-	  "username": "Flying Amigos 🇮🇳",
+	  "alias": "Flying Amigos 🇮🇳",
 	  "rep_address": "nano_1xckpezrhg56nuokqh6t1stjca67h37jmrp9qnejjkfgimx1msm9ehuaieuq",
 	  "est_payment": null,
 	  "donation_address": "nano_1xckpezrhg56nuokqh6t1stjca67h37jmrp9qnejjkfgimx1msm9ehuaieuq",
@@ -936,7 +936,7 @@
 	  "longitude": 72.8856
 	}, 
 	{
-	  "username": "Upstart Hosting",
+	  "alias": "Upstart Hosting",
 	  "rep_address": "nano_1ebq356ex7n5efth49o1p31r4fmuuoara5tmwduarg7b9jphyxsatr3ja6g8",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -949,7 +949,7 @@
 	  "longitude": -74.1403
 	}, 
 	{
-	  "username": "nano-no.de 🌍🚀🌑",
+	  "alias": "nano-no.de 🌍🚀🌑",
 	  "rep_address": "nano_1fe17w13stn8rqos3nxmupoez9sne4pc4njmr1fbz9nci6obnng6jatton5q",
 	  "est_payment": null,
 	  "donation_address": "nano_38pyhgukmkqkbe87myusad1xpbnqjgrkgiahwdei1n61s47j6h3sfs187mp3",
@@ -962,7 +962,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "Nanovert",
+	  "alias": "Nanovert",
 	  "rep_address": "nano_375pi67f4i4ag5rudoziza86z715bepsmp1r6ri4domt7ct6tk67mjsxtebm",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -975,7 +975,7 @@
 	  "longitude": -73.9123
 	}, 
 	{
-	  "username": "Kraken",
+	  "alias": "Kraken",
 	  "rep_address": "nano_37imps4zk1dfahkqweqa91xpysacb7scqxf3jqhktepeofcxqnpx531b3mnt",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -988,7 +988,7 @@
 	  "longitude": -119.632159
 	}, 
 	{
-	  "username": "nanotps.com",
+	  "alias": "nanotps.com",
 	  "rep_address": "nano_3mhrc9czyfzzok7xeoeaknq6w5ok9horo7d4a99m8tbtbyogg8apz491pkzt",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1001,7 +1001,7 @@
 	  "longitude": -74.0247
 	}, 
 	{
-	  "username": "WeNano",
+	  "alias": "WeNano",
 	  "rep_address": "nano_1wenanoqm7xbypou7x3nue1isaeddamjdnc3z99tekjbfezdbq8fmb659o7t",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1014,7 +1014,7 @@
 	  "longitude": 11.0731
 	}, 
 	{
-	  "username": "Atomic Wallet",
+	  "alias": "Atomic Wallet",
 	  "rep_address": "nano_35btiz1mgfwp95c3ckazmzbp5gepduxtijuijd9xebeau8u1gsbea41smjca",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1027,7 +1027,7 @@
 	  "longitude": -122.9874
 	}, 
 	{
-	  "username": "NANO Skynode 🏔️",
+	  "alias": "NANO Skynode 🏔️",
 	  "rep_address": "nano_3u7d5iohy14swyhxhgfm9iq4xa9yibhcgnyj697uwhicp14dhx4woik5e9ek",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1040,7 +1040,7 @@
 	  "longitude": 11.1617
 	}, 
 	{
-	  "username": "Flowhub",
+	  "alias": "Flowhub",
 	  "rep_address": "nano_3f1owhubic8wa8rfmj5x6w9ore9btbtju5eampghs3y9ere6q6u96jraoo5s",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1053,7 +1053,7 @@
 	  "longitude": 24.9347
 	}, 
 	{
-	  "username": "Noli Me Tangere",
+	  "alias": "Noli Me Tangere",
 	  "rep_address": "nano_1isgusmnf1xe45iyjtfxw4qiai36zxdituu7gpni1trtj5ojyujobq13bjah",
 	  "est_payment": null,
 	  "donation_address": "nano_3s9aznsmfx1x1jtod7yrms114ho4cgde3bwhjegs9qgbazn1wrp899oyn7hz",
@@ -1066,7 +1066,7 @@
 	  "longitude": -74.0247
 	}, 
 	{
-	  "username": "nano.lol",
+	  "alias": "nano.lol",
 	  "rep_address": "nano_31xitw55kb3ko8yaz3439hqaqpibxa9shx76suaa3no786do3hjuz8dy6izw",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1079,7 +1079,7 @@
 	  "longitude": -121.9753
 	}, 
 	{
-	  "username": "ARaiNode",
+	  "alias": "ARaiNode",
 	  "rep_address": "nano_3kqdiqmqiojr1aqqj51aq8bzz5jtwnkmhb38qwf3ppngo8uhhzkdkn7up7rp",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1092,7 +1092,7 @@
 	  "longitude": -121.966532
 	}, 
 	{
-	  "username": "PowerNode",
+	  "alias": "PowerNode",
 	  "rep_address": "nano_3power3gwb43rs7u9ky3rsjp6fojftejceexfkf845sfczyue4q3r1hfpr3o",
 	  "est_payment": null,
 	  "donation_address": "nano_3fomwexu6e7n3hzxnqd99qaoqt5zkwnrtyspkj4wreibrt4kumwkiaase1ij",
@@ -1105,7 +1105,7 @@
 	  "longitude": -113.5803
 	}, 
 	{
-	  "username": "Nano Foundation #7",
+	  "alias": "Nano Foundation #7",
 	  "rep_address": "nano_1anrzcuwe64rwxzcco8dkhpyxpi8kd7zsjc1oeimpc3ppca4mrjtwnqposrs",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1118,7 +1118,7 @@
 	  "longitude": 151.1897
 	}, 
 	{
-	  "username": "Nano Foundation #1",
+	  "alias": "Nano Foundation #1",
 	  "rep_address": "nano_3arg3asgtigae3xckabaaewkx3bzsh7nwz7jkmjos79ihyaxwphhm6qgjps4",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1131,7 +1131,7 @@
 	  "longitude": 139.6899
 	}, 
 	{
-	  "username": "NanoBrasil 🇧🇷",
+	  "alias": "NanoBrasil 🇧🇷",
 	  "rep_address": "nano_1j78msn5omp8jrjge8txwxm4x3smusa1cojg7nuk8fdzoux41fqeeogg5aa1",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1144,7 +1144,7 @@
 	  "longitude": -48.2873
 	}, 
 	{
-	  "username": "Binance",
+	  "alias": "Binance",
 	  "rep_address": "nano_3jwrszth46rk1mu7rmb4rhm54us8yg1gw3ipodftqtikf5yqdyr7471nsg1k",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1157,7 +1157,7 @@
 	  "longitude": 139.745521
 	}, 
 	{
-	  "username": "KuCoin",
+	  "alias": "KuCoin",
 	  "rep_address": "nano_1niabkx3gbxit5j5yyqcpas71dkffggbr6zpd3heui8rpoocm5xqbdwq44oh",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1170,7 +1170,7 @@
 	  "longitude": 139.6899
 	}, 
 	{
-	  "username": "Ӿ Makonode 🦈",
+	  "alias": "Ӿ Makonode 🦈",
 	  "rep_address": "nano_37ortkby6k68z8tkk8g63ndbp8wjbmofhn56oyxb4rm6s3x51pkpiwcnpgmq",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1183,7 +1183,7 @@
 	  "longitude": 11.1617
 	}, 
 	{
-	  "username": "PlayNANO Representative",
+	  "alias": "PlayNANO Representative",
 	  "rep_address": "nano_3pnanopr3d5g7o45zh3nmdkqpaqxhhp3mw14nzr41smjz8xsrfyhtf9xac77",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1196,7 +1196,7 @@
 	  "longitude": 8.6639
 	}, 
 	{
-	  "username": "NanoLooker",
+	  "alias": "NanoLooker",
 	  "rep_address": "nano_1ookerz3adg5rxc4zwwoshim5yyyihf6dpogjihwwq6ksjpq7ea4fuam5mmc",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1209,7 +1209,7 @@
 	  "longitude": -74.0247
 	}, 
 	{
-	  "username": " 🔐 IronClad 🔐 ➡ Reliable node built to last",
+	  "alias": " 🔐 IronClad 🔐 ➡ Reliable node built to last",
 	  "rep_address": "nano_11pb5aa6uirs9hoqsg4swnzyehoiqowj94kdpthwkhwufmtd6a11xx35iron",
 	  "est_payment": null,
 	  "donation_address": "nano_3f4qc1rd87gcq89a5x8wfon189ygypiie7sozac64rxop4soycxi5yrfghnh",
@@ -1222,7 +1222,7 @@
 	  "longitude": -118.2529
 	}, 
 	{
-	  "username": "Buckeye Nano Node",
+	  "alias": "Buckeye Nano Node",
 	  "rep_address": "nano_3i3dqy5xs98ewtk9ejfpxfwbsscejc6njz9hk5ia1446gdkxpxkjeeia719n",
 	  "est_payment": null,
 	  "donation_address": "nano_3err59dfdzg7zaurxgcjm7qw3trk814gx1sqhxn6pj8yq1nbt9unb3h8audi",
@@ -1235,7 +1235,7 @@
 	  "longitude": -84.3287
 	}, 
 	{
-	  "username": "Kappture",
+	  "alias": "Kappture",
 	  "rep_address": "nano_3ktybzzy14zxgb6osbhcc155pwk7osbmf5gbh5fo73bsfu9wuiz54t1uozi1",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1248,7 +1248,7 @@
 	  "longitude": -6.229773
 	}, 
 	{
-	  "username": "RsNano.com - Nano Rust Port",
+	  "alias": "RsNano.com - Nano Rust Port",
 	  "rep_address": "nano_1tk8h3yzkibbsti8upkfa69wqafz6mzfzgu8bu5edaay9k7hidqdunpr4tb6",
 	  "est_payment": null,
 	  "donation_address": "nano_1iawmcfwmmdyr7xmnordt71gpnhnao8rsk4nywq5khtmedocaj6bafk4fb8h",
@@ -1261,7 +1261,7 @@
 	  "longitude": 12.4819
 	}, 
 	{
-	  "username": "NiF's Node - nano.nifni.net",
+	  "alias": "NiF's Node - nano.nifni.net",
 	  "rep_address": "nano_1fnx59bqpx11s1yn7i5hba3ot5no4ypy971zbkp5wtium3yyafpwhhwkq8fc",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1274,7 +1274,7 @@
 	  "longitude": 8.4756
 	}, 
 	{
-	  "username": "Wirex",
+	  "alias": "Wirex",
 	  "rep_address": "nano_3ngt59dc7hbsjd1dum1bw9wbb87mbtuj4qkwcruididsb5rhgdt9zb4w7kb9",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1287,7 +1287,7 @@
 	  "longitude": 4.8883
 	}, 
 	{
-	  "username": "SupeNode",
+	  "alias": "SupeNode",
 	  "rep_address": "nano_396sch48s3jmzq1bk31pxxpz64rn7joj38emj4ueypkb9p9mzrym34obze6c",
 	  "est_payment": null,
 	  "donation_address": null,
@@ -1300,7 +1300,7 @@
 	  "longitude": -0.6894
 	}, 
 	{
-	  "username": "NanOslo 🐯",
+	  "alias": "NanOslo 🐯",
 	  "rep_address": "nano_1jtx5p8141zjtukz4msp1x93st7nh475f74odj8673qqm96xczmtcnanos1o",
 	  "est_payment": null,
 	  "donation_address": "nano_1kitteh45srbwthaxq11tj54awh1trwuyt6o56ya4ghqinqo3a3jisbjg4dd",
