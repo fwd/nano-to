@@ -361,6 +361,7 @@ var nano = new Vue({
             if (a === 'title') res.data.changes[a] = prompt[a]
             else res.data.changes[a] = res.data[a] || prompt[a]
           })
+          res.data.back = true
           this.checkout = res.data
           setTimeout(() => {
             // this.checkout.amount = this.checkout.plans[2].value
