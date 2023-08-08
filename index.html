@@ -23,7 +23,7 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=8.4.9">
+    <link rel="stylesheet" href="dist/style.css?v=9.0.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -237,7 +237,7 @@ https://github.com/fwd/nano
               <div class="edit-buttons">
                 <div class="flex-wrap" v-for="item in checkout.updatable" style="position: relative;display: flex;justify-content: space-around;">
                   <input type="text" :value="item" disabled class="input-label">
-                  <input type="text" :value="checkout[item]">
+                  <input type="text" v-model="checkout.changes[item]">
                 </div>
               </div>
 
@@ -268,7 +268,7 @@ https://github.com/fwd/nano
             <div class="crypto">
               <!-- <h3 v-if="(!checkout.plans || !checkout.plans.length || !checkout.update_name) && checkout.title" :style="`margin-bottom: 0;color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'}`">{{ checkout.title }}</h3> -->
               <h4 v-if="checkout.amount" class="instructions">
-                <!-- <span v-if="checkout.title" class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.title }}</span> -->
+                <span v-if="checkout.instruction" class="faded" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};`">{{ checkout.instruction }}</span>
                 <b v-if="Number(checkout.amount)" @click="copy(checkout.amount)" class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor:pointer`">{{ checkout.amount }}
                   <span class="blocky">{{ 'NANO' }}</span>
                 </b>
@@ -312,6 +312,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=8.4.9"></script>
+    <script src="dist/app.js?v=9.0.0"></script>
   </body>
 </html>
