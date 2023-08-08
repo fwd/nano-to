@@ -281,6 +281,9 @@ var nano = new Vue({
 
     },
     computed: {
+      localhost() {
+        return window.location.hostname === 'localhost'
+      },
       naultMode() {
         var query = this.queryToObject()
         return window.name === 'nault' || query.iframe
