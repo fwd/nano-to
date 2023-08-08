@@ -281,9 +281,6 @@ var nano = new Vue({
 
     },
     computed: {
-      localhost() {
-        return window.location.hostname === 'localhost'
-      },
       naultMode() {
         var query = this.queryToObject()
         return window.name === 'nault' || query.iframe
@@ -323,55 +320,9 @@ var nano = new Vue({
         return yearDiff;
       },
 
-      update_name(prompt) {
-        if (window.name !== 'nault') {
-          // var ok = window.confirm('Only the Owner may update name. Press OK to continue.')
-          // if (!ok) return
-        }
-        // console.log( prompt )
-        this.checkout = {
-            title: 'Update',
-            description: '<b>@Esteban</b>',
-            update_name: prompt.name,
-            // custom: !amount || donation ? true : false,
-            // note: query.note,
-            currency: 'NANO',
-            // message: query.body || query.message || query.text || query.copy,
-            // fullscreen: true,
-            // image: query.image || query.img || query.i || '',
-            address: prompt.address,
-            // history_count: query.history || query.history_count,
-            amount: 100,
-            // plans,
-            // goal,
-            // title: query.name || query.title || 'Nano Pay',
-            // color: {
-            //   right: query.rightBackground || '#009dff', 
-            //   address: {
-            //     hightlight: query.hightlight,
-            //   }
-            // },
-            // success_url, 
-            // success_button, 
-            // cancel: query.cancel || query.cancel_url || query.c, 
-          }
-        // axios.post(`https://rpc.nano.to`, { action: "update_name", username: this.prompt.name }).then((res) => {
-        //   if (res.data.error) return alert(res.data.message)
-        //   res.data.back = true
-        //   this.checkout = res.data
-        //   setTimeout(() => {
-        //     this.checkout.amount = this.checkout.plans[2].value
-        //     this.showQR()
-        //     this.$forceUpdate()
-        //   }, 100)
-        // }).catch(e => {
-        //   this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
-        // })
-      },
-
       renew() {
         if (window.name !== 'nault') {
-          var ok = window.confirm('Only the Owner may extend lease. Press OK to continue.')
+          var ok = window.confirm('Only the original address may extend lease. Press OK to continue.')
           if (!ok) return
         }
         axios.post(`https://rpc.nano.to`, { action: "get_name", username: this.prompt.name }).then((res) => {
@@ -387,7 +338,6 @@ var nano = new Vue({
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
-
       deepLink(string) {
         if (window.name === 'nault') {
           var check_url = this.checkout.checkout || this.checkout.check_url || this.checkout.check
@@ -662,28 +612,8 @@ var nano = new Vue({
             item.name = this.capitalizeFirstLetter(item.name)
           }
 
-          var updatable = [
-            'name',
-            'address',
-            // 'title',
-            'github',
-            'mastodon',
-            'twitter',
-            // 'calendly',
-            // 'location',
-            // 'freelance',
-            // 'website',
-            'for_sale',
-            'goal_ui',
-            'donation_address',
-            'metadata'
-          ]
-
           this.checkout = {
-            title: 'Update Lease',
-            update_name: '@' + prompt.name,
-            updatable,
-            // plans,
+            title: query.title || item.name,
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: item.expires ? true : false,
@@ -703,6 +633,7 @@ var nano = new Vue({
             goal,
             custom,
             amount,
+            plans,
             yearDiff: item.yearDiff || this.getYearDifference(item.created_unix, item.expires_unix),
             color: {
               vanity:  query.vanity ? query.vanity.split(':')[0].replace('$', '#') : '',
@@ -1366,7 +1297,6 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         var _prompt = {
           name: `${suggestion.name}`,
           title: suggestion.title,
-          address: suggestion.address,
           qrcode: `nano:${suggestion.address}`,
           created: suggestion.created,
           expires: suggestion.expires,
@@ -1376,6 +1306,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           mastodon: suggestion.mastodon,
           discord: suggestion.discord,
           calendly: suggestion.calendly,
+          nanogram: suggestion.nanogram,
           expires_unix: suggestion.expires_unix,
           created_unix: suggestion.created_unix,
           yearDiff: this.getYearDifference(suggestion.created_unix, suggestion.expires_unix),
