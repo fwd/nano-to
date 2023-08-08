@@ -1,5 +1,13 @@
 [
   {
+    "name": "Arena",
+    "address": "nano_1arenasufjzqqo3kiopui6jtrp5yhdhd4hzps71jaap6qs8syzxy4k4c34nr",
+    "created": "August 8, 2023",
+    "expires": "August 8, 2033",
+    "created_unix": 1691527989,
+    "expires_unix": 2007147180
+  },
+  {
     "name": "ElonMusk",
     "address": "nano_3giutise3cw97ahkke1rr9439efkzoonmq95gzebp4smqgtabz8egztypxgi",
     "created": "August 5, 2023",
