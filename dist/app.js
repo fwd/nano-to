@@ -1014,11 +1014,25 @@ var nano = new Vue({
                 confetti: res.data.confetti || false,
                 title: res.data.title || false,
                 message: res.data.message || false,
-                // confirm: res.data.confirm || false,
                 redirect_msg: res.data.redirect_msg || false,
                 button: res.data.button || false,
                 redirect: res.data.redirect || false,
               }
+            }
+            if (this.checkout.update_name || res.data.username) {
+              // setTimeout(() => {
+                this.success = false
+                this.checkout = false
+                // this.prompt = 
+                Object.keys(res.data.username).map(a => {
+                  this.prompt[a] = res.data.username[a]
+                })
+                this.dev_mode = true
+                this.$forceUpdate()
+                // window.location.href = res.data.redirect
+              // }, 500)
+              return
+              // return dev_mode = true
             }
             if (res.data.redirect && !res.data.button) {
               setTimeout(() => {
