@@ -329,14 +329,15 @@ var nano = new Vue({
 
 
           var updatable = [
-            'name',
+            'title',
+            // 'name',
             'address',
             // 'title',
             'github',
             'mastodon',
             'twitter',
             // 'calendly',
-            // 'location',
+            'location',
             // 'freelance',
             // 'website',
             'for_sale',
@@ -356,7 +357,10 @@ var nano = new Vue({
           // if (cb) cb(res.data)
           // console.log(res.data)
           res.data.changes = {}
-          updatable.map(a => res.data.changes[a] = res.data[a])
+          updatable.map(a => {
+            if (a === 'title') res.data.changes[a] = prompt[a]
+            else res.data.changes[a] = res.data[a] || prompt[a]
+          })
           this.checkout = res.data
           setTimeout(() => {
             // this.checkout.amount = this.checkout.plans[2].value
@@ -699,7 +703,8 @@ var nano = new Vue({
           }
 
           var updatable = [
-            'name',
+            'title',
+            // 'name',
             'address',
             // 'title',
             'github',
@@ -709,6 +714,7 @@ var nano = new Vue({
             // 'location',
             // 'freelance',
             // 'website',
+            'location',
             'for_sale',
             'goal_ui',
             'donation_address',
@@ -1180,6 +1186,14 @@ var nano = new Vue({
               expired: this.expired(username[username.length - 1].expires_unix),
               created_unix: username[username.length - 1].created_unix,
               expires_unix: username[username.length - 1].expires_unix,
+
+              title: username[username.length - 1].title,
+              location: username[username.length - 1].location,
+              for_sale: username[username.length - 1].for_sale,
+              goal_ui: username[username.length - 1].goal_ui,
+              donation_address: username[username.length - 1].donation_address,
+              metadata: username[username.length - 1].metadata,
+              
               yearDiff: this.getYearDifference(username[username.length - 1].created_unix, username[username.length - 1].expires_unix),
               checkout: {
                 back: true,
@@ -1472,6 +1486,12 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           expires: suggestion.expires,
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
           github: suggestion.github,
+          location: suggestion.location,
+          for_sale: suggestion.for_sale,
+          goal_ui: suggestion.goal_ui,
+          donation_address: suggestion.donation_address,
+          metadata: suggestion.metadata,
+          // metadata: suggestion.metadata,
           twitter: suggestion.twitter,
           mastodon: suggestion.mastodon,
           discord: suggestion.discord,
