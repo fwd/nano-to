@@ -323,9 +323,91 @@ var nano = new Vue({
         return yearDiff;
       },
 
+      update_name(prompt) {
+        if (window.name !== 'nault') {
+        }
+
+
+          var updatable = [
+            'name',
+            'address',
+            // 'title',
+            'github',
+            'mastodon',
+            'twitter',
+            // 'calendly',
+            // 'location',
+            // 'freelance',
+            // 'website',
+            'for_sale',
+            'goal_ui',
+            'donation_address',
+            'metadata'
+          ]
+
+          // this.checkout = {
+          //   title: 'Update Name',
+          //   update_name: '@' + prompt.name,
+          //   updatable,
+          //   amount: 0.0383902,
+
+        return axios.post('https://rpc.nano.to', { action: 'update_name', name: prompt.name }).then((res) => {
+          // this.usernames = res.data
+          // if (cb) cb(res.data)
+          // console.log(res.data)
+          res.data.changes = {}
+          updatable.map(a => res.data.changes[a] = res.data[a])
+          this.checkout = res.data
+          setTimeout(() => {
+            // this.checkout.amount = this.checkout.plans[2].value
+            this.showQR()
+            this.$forceUpdate()
+          }, 100)
+        })
+        this.checkout = {
+            type: "update",
+            title: 'Update',
+            description: '<b>@Esteban</b>',
+            update_name: prompt.name,
+            // custom: !amount || donation ? true : false,
+            // note: query.note,
+            currency: 'NANO',
+            // message: query.body || query.message || query.text || query.copy,
+            // fullscreen: true,
+            // image: query.image || query.img || query.i || '',
+            address: prompt.address,
+            // history_count: query.history || query.history_count,
+            amount: 100,
+            // plans,
+            // goal,
+            // title: query.name || query.title || 'Nano Pay',
+            // color: {
+            //   right: query.rightBackground || '#009dff', 
+            //   address: {
+            //     hightlight: query.hightlight,
+            //   }
+            // },
+            // success_url, 
+            // success_button, 
+            // cancel: query.cancel || query.cancel_url || query.c, 
+          }
+        // axios.post(`https://rpc.nano.to`, { action: "update_name", username: this.prompt.name }).then((res) => {
+        //   if (res.data.error) return alert(res.data.message)
+        //   res.data.back = true
+        //   this.checkout = res.data
+        //   setTimeout(() => {
+        //     this.checkout.amount = this.checkout.plans[2].value
+        //     this.showQR()
+        //     this.$forceUpdate()
+        //   }, 100)
+        // }).catch(e => {
+        //   this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
+        // })
+      },
+
       renew() {
         if (window.name !== 'nault') {
-          var ok = window.confirm('Only the original address may extend lease. Press OK to continue.')
+          var ok = window.confirm('Only the Owner may extend lease. Press OK to continue.')
           if (!ok) return
         }
         axios.post(`https://rpc.nano.to`, { action: "get_name", username: this.prompt.name }).then((res) => {
@@ -341,6 +423,7 @@ var nano = new Vue({
           this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
         })
       },
+
       deepLink(string) {
         if (window.name === 'nault') {
           var check_url = this.checkout.checkout || this.checkout.check_url || this.checkout.check
@@ -615,6 +698,75 @@ var nano = new Vue({
             item.name = this.capitalizeFirstLetter(item.name)
           }
 
+          var updatable = [
+            'name',
+            'address',
+            // 'title',
+            'github',
+            'mastodon',
+            'twitter',
+            // 'calendly',
+            // 'location',
+            // 'freelance',
+            // 'website',
+            'for_sale',
+            'goal_ui',
+            'donation_address',
+            'metadata'
+          ]
+
+          // this.checkout = {
+          //   title: 'Update Name',
+          //   update_name: '@' + prompt.name,
+          //   updatable,
+          //   amount: 0.0383902,
+          //   buttonText: 'Save Changes',
+          //   instruction: 'To complete, send yourself',
+          //   // plans,
+          //   currency: query.currency || query.c || 'NANO',
+          //   message: query.body || query.message || query.text || query.copy,
+          //   fullscreen: item.expires ? true : false,
+          //   image: item.image || query.image || query.img || query.i || '',
+          //   address: query.address || query.to || item.address,
+          //   history_count: query.history || query.history_count,
+          //   description: query.description || query.body || query.message,
+          //   calendly: item.calendly,
+          //   discord: item.discord,
+          //   twitter: item.twitter,
+          //   mastodon: item.mastodon,
+          //   github: item.github, 
+          //   website: item.website, 
+          //   // buttonText: item.button || query.button,
+          //   note: item.note || query.note,
+          //   expired: item.expired || this.expired(item.expires_unix),
+          //   goal,
+          //   custom,
+          //   // amount,
+          //   yearDiff: item.yearDiff || this.getYearDifference(item.created_unix, item.expires_unix),
+          //   color: {
+          //     vanity:  query.vanity ? query.vanity.split(':')[0].replace('$', '#') : '',
+          //     text:  query.color ? query.color.split(':')[0].replace('$', '#') : '',
+          //     primary: query.color ? query.color.split(':')[0].replace('$', '#') : '',
+          //     highlight_background: highlight && highlight.split(':')[0] ? highlight.split(':')[0].replace('$', '#') : '',
+          //     highlight_color: highlight && highlight.split(':')[1] ? highlight.split(':')[1].replace('$', '#') : '',
+          //     highlight_address: highlight && highlight.split(':')[2] ? highlight.split(':')[2].replace('$', '#') : '',
+          //     left: query.left || query.background && query.background.split(':')[0] ? query.background.split(':')[0].replace('$', '#') : '#FFF', 
+          //     right: query.right || query.background && query.background.split(':')[1] ? query.background.split(':')[1].replace('$', '#') : '#009dff', 
+          //     qrcode: {
+          //       logo: query.logo ? query.logo : '',
+          //       light: query.qrcode && query.qrcode.split(':')[0] ? query.qrcode.split(':')[0].replace('$', '#') : '',
+          //       dark: query.qrcode && query.qrcode.split(':')[1] ? query.qrcode.split(':')[1].replace('$', '#') : '',
+          //     },
+          //     address: {
+          //       hightlight: query.color,
+          //     }
+          //   },
+          //   success_url, 
+          //   success_button, 
+          //   cancel: query.cancel || query.cancel_url,
+          //   known: item 
+          // }
+
           this.checkout = {
             title: query.title || item.name,
             currency: query.currency || query.c || 'NANO',
@@ -854,7 +1006,7 @@ var nano = new Vue({
         })
        },
       check_url() {
-          axios.get(this.checkout.checkout || this.checkout.check_url || this.checkout.check).then((res) => {
+          axios.post(this.checkout.checkout || this.checkout.check_url || this.checkout.check, { changes: this.checkout.changes }).then((res) => {
             if (res.data.error) return this.notify(res.data.message)
             if (res.data.message) {
               this.checkout.fullscreen = true
@@ -1300,6 +1452,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         var _prompt = {
           name: `${suggestion.name}`,
           title: suggestion.title,
+          address: suggestion.address,
           qrcode: `nano:${suggestion.address}`,
           created: suggestion.created,
           expires: suggestion.expires,
@@ -1309,7 +1462,6 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           mastodon: suggestion.mastodon,
           discord: suggestion.discord,
           calendly: suggestion.calendly,
-          nanogram: suggestion.nanogram,
           expires_unix: suggestion.expires_unix,
           created_unix: suggestion.created_unix,
           yearDiff: this.getYearDifference(suggestion.created_unix, suggestion.expires_unix),
