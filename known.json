@@ -1991,9 +1991,9 @@
     "name": "xanza",
     "address": "nano_19ditzdezoffa3g8hjpcoqb6c6q5zjq13u1coqtzrwh9wm6e8j4zeom3i5gw",
     "created": "October 20, 2021",
-    "expires": "October 20, 2026",
+    "expires": "October 20, 2036",
     "created_unix": 1634771100,
-    "expires_unix": 1792537500
+    "expires_unix": 2108088000
   },
   {
     "name": "me",
