@@ -1026,13 +1026,7 @@ var nano = new Vue({
                 redirect: res.data.redirect || false,
               }
             }
-            if (res.data.redirect && !res.data.button) {
-              setTimeout(() => {
-                window.location.href = res.data.redirect
-              }, res.data.redirect_delay || 3000)
-              return
-            }
-            if (this.checkout.update_name || res.data.username) {
+            if (this.checkout.update_name) {
               // setTimeout(() => {
                 this.success = false
                 this.checkout = false
@@ -1046,6 +1040,12 @@ var nano = new Vue({
               // }, 500)
               return
               // return dev_mode = true
+            }
+            if (res.data.redirect && !res.data.button) {
+              setTimeout(() => {
+                window.location.href = res.data.redirect
+              }, res.data.redirect_delay || 3000)
+              return
             }
           })
       },
