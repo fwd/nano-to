@@ -424,7 +424,7 @@ var nano = new Vue({
             if (a === 'title') res.data.changes[a] = chosen[a]
             else res.data.changes[a] = res.data[a] ? res.data[a] : chosen[a]
           })
-          res.data.back = true
+          res.data.cancel = true
           this.checkout = res.data
           setTimeout(() => {
             // this.checkout.amount = this.checkout.plans[2].value
@@ -936,14 +936,16 @@ var nano = new Vue({
         return Math.floor(Math.random() * (max - min) + min)
       },
       cancel() {
-        if (this.checkout.cancel_url) {
+        // console.log( "this.checkout.cancel_url", this.checkout.cancel_url )
+        if (this.checkout.cancel_url && this.checkout.cancel_url !== window.location.origin) {
           return window.location.href = this.checkout.cancel_url
         }
-        var query = this.queryToObject()
-            query = query.cancel || query.cancel_url || query.c
-        if (query) {
-          return window.location.href = query
-        }
+        // var query = this.queryToObject()
+        //     query = query.cancel || query.cancel_url || query.c
+        //     console.log("query", query)
+        // if (query) {
+        //   return window.location.href = query
+        // }
         this.checkout = false
       },
       planValue(plan) {
@@ -1324,6 +1326,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         if (button.purchase_name) {
           return axios.post('https://api.nano.to', { action: 'purchase_name', name: button.purchase_name }).then((res) => {
             // console.log(res.data)
+            res.data.cancel = true
             this.json_checkout(res.data, null, true)
           })
         }
