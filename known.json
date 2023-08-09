@@ -1954,7 +1954,7 @@
   },
   {
     "name": "miami",
-    "for_sale": "100",
+    "for_sale": false,
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "donation_address": "@faucet",
     "created": "November 7, 2021",
