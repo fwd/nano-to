@@ -60,7 +60,8 @@ var nano = new Vue({
           twitter: 'Twitter:',
           nostr: 'Nostr:',
           renew: 'Renew',
-          cancel: 'Cancel'
+          cancel: 'Cancel',
+          purchase: 'Purchase'
         },
         'uk': { 
           note: 'Перевірте адресу одержувача і надсилайте тільки NANO (XNO) на цю адресу.',
@@ -1028,7 +1029,7 @@ var nano = new Vue({
                 redirect: res.data.redirect || false,
               }
             }
-            if (this.checkout.update_name) {
+            if (this.checkout.update_name || this.checkout.purchase_name) {
               // setTimeout(() => {
                 this.success = false
                 this.checkout = false
@@ -1316,6 +1317,12 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
       },
 
       async doButton(button) {
+        if (button.purchase_name) {
+          return axios.post('https://api.nano.to', { action: 'purchase_name', name: button.purchase_name }).then((res) => {
+            // console.log(res.data)
+            this.json_checkout(res.data, null, true)
+          })
+        }
         if (button.purchase_rpc) {
           // var body = {}
           return axios.post('https://rpc.nano.to/new_key', { email: window.prompt("Email Address:") }).then((res) => {
@@ -1438,9 +1445,9 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
             checkout.instructions = `Purchase Nano.to/${suggestion.name}`
 
             buttons.unshift({
-              label: 'Purchase',
+              label: this.strings[this.lang] ? this.strings[this.lang].purchase : this.strings['en'].purchase,
               // link: "external",
-              checkout,
+              purchase_name: suggestion.name,
             })
 
           } else {
