@@ -1954,6 +1954,7 @@
   },
   {
     "name": "miami",
+    "for_sale": "100",
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
     "donation_address": "@faucet",
     "created": "November 7, 2021",
@@ -2200,7 +2201,6 @@
     "status": "active",
     "name": "moon",
     "goal_ui": "45000:US-Obelisk-1",
-    "name_for_sale": "45000",
     "title": "US-Obelisk-1 Fund",
     "image": "https://pbs.twimg.com/media/FwLKAqSWAAILGLb?format=jpg",
     "github": "nano2dev",
