@@ -208,7 +208,85 @@ var nano = new Vue({
           renew: 'Odnów',
           cancel: 'Anuluj'
         }
-      }
+      },
+      updatable: [
+        {
+          label: 'title',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        // 'name',
+        {
+          label: 'address',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        // 'title',
+        {
+          label: 'github',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        {
+          label: 'twitter',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        {
+          label: 'mastodon',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        // 'calendly',
+        {
+          label: 'location',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        // 'freelance',
+        {
+          label: 'website',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        {
+          label: 'for_sale',
+          value: '',
+          max: 99,
+          placeholder: 'Number'
+        },
+        {
+          label: 'goal_ui',
+          value: '',
+          max: 99,
+          placeholder: '10:Monthly Hosting'
+        },
+        {
+          label: 'rep_address',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        {
+          label: 'donation_address',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+        {
+          label: 'metadata',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
+      ]
     },
     watch: {
       customAmount() {
@@ -328,26 +406,6 @@ var nano = new Vue({
         if (window.name !== 'nault') {
         }
 
-
-          var updatable = [
-            'title',
-            // 'name',
-            'address',
-            // 'title',
-            'github',
-            'twitter',
-            'mastodon',
-            // 'calendly',
-            'location',
-            // 'freelance',
-            'website',
-            'for_sale',
-            'goal_ui',
-            'rep_address',
-            'donation_address',
-            'metadata'
-          ]
-
           // this.checkout = {
           //   title: 'Update Name',
           //   update_name: '@' + prompt.name,
@@ -359,9 +417,11 @@ var nano = new Vue({
           // if (cb) cb(res.data)
           // console.log(res.data)
           res.data.changes = {}
-          updatable.map(a => {
-            if (a === 'title') res.data.changes[a] = prompt[a]
-            else res.data.changes[a] = res.data[a] || prompt[a]
+          this.updatable.map(a => a.label).map(a => {
+            var chosen = this.usernames.find(a => a.name === prompt.name)
+            // console.log(a, res.data[a], prompt[a])
+            if (a === 'title') res.data.changes[a] = chosen[a]
+            else res.data.changes[a] = res.data[a] ? res.data[a] : chosen[a]
           })
           res.data.back = true
           this.checkout = res.data
@@ -371,45 +431,6 @@ var nano = new Vue({
             this.$forceUpdate()
           }, 100)
         })
-        this.checkout = {
-            type: "update",
-            title: 'Update',
-            description: '<b>@Esteban</b>',
-            update_name: prompt.name,
-            // custom: !amount || donation ? true : false,
-            // note: query.note,
-            currency: 'NANO',
-            // message: query.body || query.message || query.text || query.copy,
-            // fullscreen: true,
-            // image: query.image || query.img || query.i || '',
-            address: prompt.address,
-            // history_count: query.history || query.history_count,
-            amount: 100,
-            // plans,
-            // goal,
-            // title: query.name || query.title || 'Nano Pay',
-            // color: {
-            //   right: query.rightBackground || '#009dff', 
-            //   address: {
-            //     hightlight: query.hightlight,
-            //   }
-            // },
-            // success_url, 
-            // success_button, 
-            // cancel: query.cancel || query.cancel_url || query.c, 
-          }
-        // axios.post(`https://rpc.nano.to`, { action: "update_name", username: this.prompt.name }).then((res) => {
-        //   if (res.data.error) return alert(res.data.message)
-        //   res.data.back = true
-        //   this.checkout = res.data
-        //   setTimeout(() => {
-        //     this.checkout.amount = this.checkout.plans[2].value
-        //     this.showQR()
-        //     this.$forceUpdate()
-        //   }, 100)
-        // }).catch(e => {
-        //   this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
-        // })
       },
 
       renew() {
@@ -705,25 +726,7 @@ var nano = new Vue({
             item.name = this.capitalizeFirstLetter(item.name)
           }
 
-          var updatable = [
-            'title',
-            // 'name',
-            'address',
-            // 'title',
-            'github',
-            'mastodon',
-            'twitter',
-            // 'calendly',
-            'location',
-            // 'freelance',
-            'website',
-            'location',
-            'for_sale',
-            'goal_ui',
-            'rep_address',
-            'donation_address',
-            'metadata'
-          ]
+   
 
           // this.checkout = {
           //   title: 'Update Name',
