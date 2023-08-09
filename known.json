@@ -161,7 +161,8 @@
     "created": "July 26, 2023",
     "expires": "July 26, 2024",
     "created_unix": 1690376336,
-    "expires_unix": 1721998680
+    "expires_unix": 1721998680,
+    "for_sale": "100"
   },
   {
     "name": "Light",
