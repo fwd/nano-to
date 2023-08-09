@@ -96,7 +96,8 @@
     "expires_unix": 2006364180,
     "title": "nano.garden",
     "goal_ui": "10:Monthly Hosting",
-    "website": "https://nano.garden"
+    "website": "https://nano.garden",
+    "github": "https://github.com/nanogarden"
   },
   {
     "name": "Max",
