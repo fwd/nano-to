@@ -259,6 +259,7 @@ var nano = new Vue({
         {
           label: 'for_sale',
           value: '',
+          type: 'number',
           max: 99,
           placeholder: 'Number'
         },
