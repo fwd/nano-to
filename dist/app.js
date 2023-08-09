@@ -61,7 +61,8 @@ var nano = new Vue({
           nostr: 'Nostr:',
           renew: 'Renew',
           cancel: 'Cancel',
-          purchase: 'Purchase'
+          purchase: 'Purchase',
+          website: 'Website'
         },
         'uk': { 
           note: 'Перевірте адресу одержувача і надсилайте тільки NANO (XNO) на цю адресу.',
@@ -940,12 +941,6 @@ var nano = new Vue({
         if (this.checkout.cancel_url && this.checkout.cancel_url !== window.location.origin) {
           return window.location.href = this.checkout.cancel_url
         }
-        // var query = this.queryToObject()
-        //     query = query.cancel || query.cancel_url || query.c
-        //     console.log("query", query)
-        // if (query) {
-        //   return window.location.href = query
-        // }
         this.checkout = false
       },
       planValue(plan) {
@@ -1185,6 +1180,7 @@ var nano = new Vue({
             suggestions.push({
               name: username[username.length - 1].name,
               github: username[username.length - 1].github,
+              // website: username[username.length - 1].website,
               twitter: username[username.length - 1].twitter,
               mastodon: username[username.length - 1].mastodon,
               discord: username[username.length - 1].discord,
@@ -1419,6 +1415,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           name: suggestion.name,
           address: suggestion.address,
           github: suggestion.github,
+          website: suggestion.website,
           twitter: suggestion.twitter,
           mastodon: suggestion.mastodon,
           discord: suggestion.discord,
@@ -1519,6 +1516,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           expires: suggestion.expires,
           expired: suggestion.expired || this.expired(suggestion.expires_unix),
           github: suggestion.github,
+          website: suggestion.website,
           location: suggestion.location,
           for_sale: suggestion.for_sale,
           goal_ui: suggestion.goal_ui,
