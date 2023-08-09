@@ -334,14 +334,15 @@ var nano = new Vue({
             'address',
             // 'title',
             'github',
-            'mastodon',
             'twitter',
+            'mastodon',
             // 'calendly',
             'location',
             // 'freelance',
-            // 'website',
+            'website',
             'for_sale',
             'goal_ui',
+            'rep_address',
             'donation_address',
             'metadata'
           ]
@@ -712,12 +713,13 @@ var nano = new Vue({
             'mastodon',
             'twitter',
             // 'calendly',
-            // 'location',
+            'location',
             // 'freelance',
-            // 'website',
+            'website',
             'location',
             'for_sale',
             'goal_ui',
+            'rep_address',
             'donation_address',
             'metadata'
           ]
@@ -1428,11 +1430,27 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
             // url: `nano:${suggestion.address}`
             deep: `nano:${suggestion.address}`
           })
-          buttons.unshift({
-            label: checkout.goal ? 'Donate' : (this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send),
-            // link: "external",
-            checkout,
-          })
+          
+          if (suggestion.for_sale) {
+
+            checkout.plans = false
+            checkout.amount = suggestion.for_sale
+            checkout.instructions = `Purchase Nano.to/${suggestion.name}`
+
+            buttons.unshift({
+              label: 'Purchase',
+              // link: "external",
+              checkout,
+            })
+
+          } else {
+            buttons.unshift({
+              label: checkout.goal ? 'Donate' : (this.strings[this.lang] ? this.strings[this.lang].send : this.strings['en'].send),
+              // link: "external",
+              checkout,
+            })
+          }
+
         } else {
           buttons.unshift({
             label: suggestion.website_button_only,
