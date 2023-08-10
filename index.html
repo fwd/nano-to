@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.2.0">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.2.0">
+    <link rel="stylesheet" href="dist/style.css?v=9.2.1">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.2.1">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -223,7 +223,7 @@ https://github.com/fwd/nano
 
       <div v-if="checkout" id="checkout" class="flex">
         <a style="display: none; opacity: 0;" rel="me" :href="checkout.mastodon"></a>
-        <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
+        <div id="avatar" v-if="!loadedName" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
           <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : ''};`">← </h3>
         </div>
         <section v-if="checkout.plans || checkout.image || checkout.update_name" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
@@ -360,6 +360,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.2.0"></script>
+    <script src="dist/app.js?v=9.2.1"></script>
   </body>
 </html>
