@@ -10,6 +10,7 @@ window.copy = function(text) {
 var nano = new Vue({
     el: '#app',
     data: {
+      loadedName: false,
       bigPictureSearch: '',
       big_picture_mode: false,
       copy,
@@ -332,8 +333,9 @@ var nano = new Vue({
 
       this.load((data) => {
 
-      
         var sub_path = window.location.pathname !== '/'
+
+        if (sub_path) this.loadedName = true
         
         if (bigPictureMode && sub_path) {
           this.bigPictureSearch = (window.location.pathname.replace('/', '').replace('@', ''))
@@ -867,8 +869,8 @@ var nano = new Vue({
             },
             success_url, 
             success_button, 
-            back: checkout.cancel,
-            cancel: checkout.cancel || query.cancel || query.cancel_url,
+            back: item.cancel,
+            cancel: item.cancel,
             known: item 
           }
 
@@ -1246,6 +1248,7 @@ var nano = new Vue({
               yearDiff: this.getYearDifference(username[username.length - 1].created_unix, username[username.length - 1].expires_unix),
               checkout: {
                 back: true,
+                cancel: true,
                 name: username[username.length - 1].name,
                 address: username[username.length - 1].address,
                 goal_ui: username[username.length - 1].goal_ui,
@@ -1289,6 +1292,7 @@ var nano = new Vue({
               color: 'cyan',
               available: true,
               checkout: {
+                cancel: true,
                 title: '@' + string
               }
             })
@@ -1300,6 +1304,7 @@ var nano = new Vue({
               color: 'cyan',
               available: true,
               checkout: {
+                cancel: true,
                 title: '@' + string
               }
             })
