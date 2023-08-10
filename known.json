@@ -275,7 +275,8 @@
     "created": "June 14, 2023",
     "expires": "August 13, 2023",
     "created_unix": 1686792840,
-    "expires_unix": 1691899200
+    "expires_unix": 1691899200,
+    "for_sale": "100"
   },
   {
     "name": "Hope",
