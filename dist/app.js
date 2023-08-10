@@ -422,6 +422,7 @@ var nano = new Vue({
             this.json_checkout(res.data, null, true)
           })
         } else {
+          name.back = true
           name.cancel = true
           this._checkout(name)
         }
