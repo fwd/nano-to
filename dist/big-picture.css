@@ -111,6 +111,12 @@
   font-family: Cyber;
   font-size: 30px;
 }
+@media (max-width: 768px) {
+  #big-picture .cards .card,
+  #big-picture .news .card {
+      width: 100%;
+  }
+}
 .cards .card img,
 .news .card img {
 /*  width: 100%;*/
