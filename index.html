@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.2.3">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.2.3">
+    <link rel="stylesheet" href="dist/style.css?v=9.3.0">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.3.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -214,7 +214,7 @@ https://github.com/fwd/nano
               <figure @click="bigPictureCheckout(name)" v-for="name in bigPictureCards" class="card">
                   <img :src="`${name.metadata && name.metadata.includes('.png') ? name.metadata : (name.image || 'https://nault.pro/assets/img/carbon-fiber.png')}`" />
                   <!-- <span v-if="name.for_sale"style=" position: absolute; color: #ff0000; text-shadow: 1px 1px #000; opacity: 1; top: 8px; right: 13px; font-size: 20px; max-width: 60px; text-align: right; ">FOR SALE BY OWNER</span> -->
-                  <span v-if="name.for_sale" :style="` position: absolute; color: ${name.image ? '#ff0000' : '#ff0000'}; text-shadow: 1px 1px #000; opacity: 1; top: 15px; right: 13px; font-size: 22px; max-width: 60px; text-align: right; `">NAME FOR SALE</span>
+                  <span v-if="name.for_sale" :style="` position: absolute; color: rgb(74 255 0); text-shadow: 1px 1px #000; opacity: 1; top: 15px; right: 13px; font-size: 22px; max-width: 60px; text-align: right; `">NAME FOR SALE</span>
                   <span v-if="name.goal_ui && !name.for_sale"style="position: absolute;color: rgb(50 141 255);text-shadow: rgb(0, 0, 0) 1px 1px;opacity: 1;top: 16px;right: 15px;font-size: 22px;max-width: 85px;text-align: right;">DONATE<br><span style=" color: #FFF; opacity: 0.9; text-align: right; ">{{name.goal_ui.split(':')[1]}}</span></span>
                   <figcaption :style="`top: ${name.for_sale || name.image || name.goal_ui ? 'auto' : ''};`">@{{capitalizeFirstLetter(name.name)}} <img style="margin-left:-4px;zoom:0.78;margin-bottom: 6px;" @click="whois(name, name.yearDiff >= 10 ? name.yearDiff : false)" v-if="name.yearDiff >= 10 || (!name.expired && (name.github || name.twitter))" :src="`dist/images/10_year.png`" class="verified" alt=""></figcaption>
               </figure>
@@ -360,6 +360,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.2.3"></script>
+    <script src="dist/app.js?v=9.3.0"></script>
   </body>
 </html>
