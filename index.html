@@ -23,7 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.1.4">
+    <link rel="stylesheet" href="dist/style.css?v=9.1.5">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.1.5">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -180,9 +181,48 @@ https://github.com/fwd/nano
           </div>
         </div>
       </div>
+
+      <div v-if="big_picture_mode" id="big-picture">
+          <div>
+            <input type="text" placeholder="Search Names" v-model="bigPictureSearch" class="search">
+          </div>
+          <h2 v-if="false && !bigPictureSearch"><strong>What's New</strong></h2>
+          <div v-if="false && !bigPictureSearch" class="news">
+              <figure class="article">
+                  <img src="https://www.linkpicture.com/q/news1_1.jpg" />
+                  <figcaption>
+                        <h3>New Item</h3>
+
+                      <p>In today’s update, two heads are better than one, and three heads are
+                          better than that, as the all-new Flockheart’s Gamble Arcana item for Ogre
+                          Magi makes its grand debut.</p>
+                  </figcaption>
+              </figure>
+              <figure class="article">
+                  <img src="https://www.linkpicture.com/q/news2.png" />
+                  <figcaption>
+                        <h3>Update</h3>
+
+                      <p>Just in time for Lunar New Year and the Rat’s time in the cyclical place
+                          of honor, the Treasure of Unbound Majesty is now available.</p>
+                  </figcaption>
+              </figure>
+          </div>
+          <h2 v-if="bigPictureSearch"><strong>Search</strong></h2>
+          <h2 v-if="!bigPictureSearch"><strong>All Names<span>( {{usernames.length}} )</span></strong></h2>
+          <div class="cards">
+              <figure @click="bigPictureCheckout(name)" v-for="name in bigPictureCards" class="card">
+                  <img :src="`${name.metadata && name.metadata.includes('.png') ? name.metadata : (name.image || 'https://nault.pro/assets/img/carbon-fiber.png')}`" />
+                  <!-- <span v-if="name.for_sale"style=" position: absolute; color: #ff0000; text-shadow: 1px 1px #000; opacity: 1; top: 8px; right: 13px; font-size: 20px; max-width: 60px; text-align: right; ">FOR SALE BY OWNER</span> -->
+                  <span v-if="name.for_sale"style=" position: absolute; color: #ff0000; text-shadow: 1px 1px #000; opacity: 1; top: 15px; right: 13px; font-size: 22px; max-width: 60px; text-align: right; ">NAME FOR SALE</span>
+                  <span v-if="name.goal_ui && !name.for_sale"style="position: absolute;color: rgb(0, 255, 76);text-shadow: rgb(0, 0, 0) 1px 1px;opacity: 1;top: 16px;right: 15px;font-size: 22px;max-width: 85px;text-align: right;">DONATE<br><span style=" color: #FFF; opacity: 0.9; text-align: right; ">{{name.goal_ui.split(':')[1]}}</span></span>
+                  <figcaption :style="`top: ${name.for_sale || name.image || name.goal_ui ? 'auto' : ''};`">@{{capitalizeFirstLetter(name.name)}}</figcaption>
+              </figure>
+          </div>
+      </div>
+
       <div v-if="checkout" id="checkout" class="flex">
         <a style="display: none; opacity: 0;" rel="me" :href="checkout.mastodon"></a>
-        <!-- <a style="display: none; opacity: 0;" rel="me" v-if="checkout.mastodon" :href="checkout.mastodon"></a> -->
         <div id="avatar" v-if="!checkout.fullscreen || checkout.cancel" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
           <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : ''};`">← </h3>
         </div>
@@ -307,17 +347,19 @@ https://github.com/fwd/nano
           </div>
         </section>
       </div>
+
       <div v-if="frame" class="frame">
         <div class="backdrop_click_area" @click="frame = false"></div>
         <div :style="` max-width: ${frame_full ? '100%' : '1024px'}; max-height: 100vh; width: 100%; height: 100%; `">
           <iframe style="width: 100%; height: 100%;" :src="frame" frameborder="0"></iframe>
         </div>
       </div>
+
     </div>
     <script src="dist/vue.min.js"></script>
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.1.4"></script>
+    <script src="dist/app.js?v=9.1.5"></script>
   </body>
 </html>

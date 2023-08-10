@@ -10,6 +10,8 @@ window.copy = function(text) {
 var nano = new Vue({
     el: '#app',
     data: {
+      bigPictureSearch: '',
+      big_picture_mode: false,
       copy,
       confetti: true,
       known: 'known.json',
@@ -321,9 +323,23 @@ var nano = new Vue({
 
       this.loading = true
 
+      var bigPictureMode = query.bigPicture || query.big || query.full || query.fullscreen || query.bigPicture || query.bpm || query.b || query.f
+
+      if (bigPictureMode) {
+        this.big_picture_mode = true
+        // return 
+      }
+
       this.load((data) => {
+
+      
+        var sub_path = window.location.pathname !== '/'
         
-        if (window.location.pathname !== '/') {
+        if (bigPictureMode && sub_path) {
+          this.bigPictureSearch = (window.location.pathname.replace('/', '').replace('@', ''))
+        }
+
+        if (!bigPictureMode && sub_path) {
           this._checkout(null, data)
         }
 
@@ -362,6 +378,18 @@ var nano = new Vue({
 
     },
     computed: {
+      bigPictureCards() {
+        var show_collection = window.location.pathname !== '/'
+        var collection = this.usernames.filter(a => {
+          return a.name.toLowerCase().includes(this.bigPictureSearch.replace('@', '').toLowerCase()) || a.address === this.bigPictureSearch
+        })
+        return collection
+        // .reverse()
+        .sort((a, b) => a.created_unix - b.created_unix)
+        .sort((a, b) => b.image ? 1 : -1)
+        // .reverse()
+        // return this.usernames.sort((a, b) => a.image == b.image).reverse()
+      },
       localhost() {
         return window.location.hostname === 'localhost'
       },
@@ -385,6 +413,19 @@ var nano = new Vue({
       }
     },
     methods: {
+
+      bigPictureCheckout(name) {
+        if (name.for_sale) {
+          return axios.post('https://api.nano.to', { action: 'purchase_name', name: name.name }).then((res) => {
+            // console.log(res.data)
+            res.data.cancel = true
+            this.json_checkout(res.data, null, true)
+          })
+        } else {
+          name.cancel = true
+          this._checkout(name)
+        }
+      },
 
       getYearDifference(timestamp1, timestamp2) {
         // Convert Unix timestamps to milliseconds
@@ -786,7 +827,7 @@ var nano = new Vue({
             title: query.title || item.name,
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
-            fullscreen: item.expires ? true : false,
+            fullscreen: item.cancel ? false : true,
             image: item.image || query.image || query.img || query.i || '',
             address: query.address || query.to || item.address,
             history_count: query.history || query.history_count,
@@ -825,7 +866,8 @@ var nano = new Vue({
             },
             success_url, 
             success_button, 
-            cancel: query.cancel || query.cancel_url,
+            back: checkout.cancel,
+            cancel: checkout.cancel || query.cancel || query.cancel_url,
             known: item 
           }
 
@@ -900,7 +942,7 @@ var nano = new Vue({
             note: query.note,
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
-            fullscreen: true,
+            fullscreen: !checkout.cancel,
             image: query.image || query.img || query.i || '',
             address: query.address || query.to || path,
             history_count: query.history || query.history_count,
@@ -1385,6 +1427,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           window.open(button.url || button.checkout, '_blank').focus();
         }
       },
+
       reset() {
         this.title = 'Nano.to'
         this.string = ''
