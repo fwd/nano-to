@@ -323,7 +323,7 @@ var nano = new Vue({
 
       this.loading = true
 
-      var bigPictureMode = query.bigPicture || query.big || query.full || query.fullscreen || query.bigPicture || query.bpm || query.b || query.f
+      var bigPictureMode = query.bigPicture || query.big || query.full || query.fullscreen || query.bpm || query.b || query.f
 
       if (bigPictureMode) {
         this.big_picture_mode = true
