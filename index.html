@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.1.8">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.1.8">
+    <link rel="stylesheet" href="dist/style.css?v=9.2.0">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.2.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -86,7 +86,7 @@ https://github.com/fwd/nano
                       <div class="suggest" v-if="suggestions.length">
                         <div v-for="suggestion in suggestions" :class="`${suggestion.available ? 'available' : ''} ${suggestion.yearDiff >= 10 ? 'ten' : ''}`" :style="`color:${suggestion.color || ''};opacity:${suggestion.opacity || ''}`" @click="doSuggestion(suggestion)">
                           {{ capitalizeFirstLetter(suggestion.name) }}
-                          <img v-if="suggestion.yearDiff >= 10 || ((suggestion.github || suggestion.twitter) || suggestion.verified && !suggestion.expired)" :src="`dist/images/10_year.png`" class="verified" alt="">
+                          <img @click="whois(suggestion, suggestion.yearDiff >= 10 ? suggestion.yearDiff : false)" v-if="suggestion.yearDiff >= 10 || (!suggestion.expired && (suggestion.github || suggestion.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
                           <!-- <img style="margin-left:-24px;zoom:0.8;" v-if="!suggestion.expired && suggestion.github" :src="`dist/images/${suggestion.yearDiff >= 5 ? '10_year' : 'verified'}.png`" class="verified" alt=""> -->
                         </div>
                       </div>
@@ -218,7 +218,6 @@ https://github.com/fwd/nano
                   <span v-if="name.goal_ui && !name.for_sale"style="position: absolute;color: rgb(50 141 255);text-shadow: rgb(0, 0, 0) 1px 1px;opacity: 1;top: 16px;right: 15px;font-size: 22px;max-width: 85px;text-align: right;">DONATE<br><span style=" color: #FFF; opacity: 0.9; text-align: right; ">{{name.goal_ui.split(':')[1]}}</span></span>
                   <figcaption :style="`top: ${name.for_sale || name.image || name.goal_ui ? 'auto' : ''};`">@{{capitalizeFirstLetter(name.name)}} <img style="margin-left:-4px;zoom:0.78;margin-bottom: 6px;" @click="whois(name, name.yearDiff >= 10 ? name.yearDiff : false)" v-if="name.yearDiff >= 10 || (!name.expired && (name.github || name.twitter))" :src="`dist/images/10_year.png`" class="verified" alt=""></figcaption>
               </figure>
-              
           </div>
       </div>
 
@@ -361,6 +360,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.1.8"></script>
+    <script src="dist/app.js?v=9.2.0"></script>
   </body>
 </html>
