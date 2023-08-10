@@ -135,7 +135,7 @@ left: 0;
     position: absolute;
     height: fit-content;
     font-size: 22px;
-    max-width: 200px;
+/*    max-width: 200px;*/
     word-wrap: break-word;
     padding-bottom: 22px;
     background: #00000063;
