@@ -229,14 +229,14 @@ left: 0;
 }
 
 #big-picture input.search {
-      width: 100%;
-    max-width: 100%;
-    border-radius: 5px;
-    border-color: #373d46;
-    margin-bottom: 17px;
-    font-size: 19px;
-    font-family: 'Cyber';
-    padding-left: 20px;
-    zoom: 1.1;
-    color: #FFF;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 5px;
+  border-color: #373d46;
+  margin-bottom: 17px;
+  font-size: 19px;
+  font-family: 'Cyber';
+  padding-left: 20px;
+  zoom: 1.1;
+  color: #FFF;
 }
