@@ -94,22 +94,23 @@
 }
 #big-picture .cards .card,
 #big-picture .news .card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 20px;
-  width: 210px;
-  height: 270px;
-  overflow: hidden;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
-  transform-origin: center top;
-  transform-style: preserve-3d;
-  transform: translateZ(0);
-  transition: 0.3s;
-  zoom: 1;
-  padding: 0;
-  font-family: Cyber;
-  font-size: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 20px;
+    min-width: 240px;
+    flex: 1;
+    height: 270px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: 0.3s;
+    zoom: 1;
+    padding: 0;
+    font-family: Cyber;
+    font-size: 30px;
 }
 @media (max-width: 768px) {
   #big-picture .cards .card,
