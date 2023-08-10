@@ -417,6 +417,12 @@ var nano = new Vue({
     methods: {
 
       bigPictureCheckout(name) {
+        // this.checkout = false
+        if (this.bigPictureSearch.includes('nano_')) {
+          // name.tite = 'asd'
+          // this._checkout(name)
+          return
+        }
         if (name.for_sale) {
           return axios.post('https://api.nano.to', { action: 'purchase_name', name: name.name }).then((res) => {
             // console.log(res.data)
