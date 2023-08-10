@@ -117,8 +117,8 @@
       width: 100%;
   }
 }
-.cards .card img,
-.news .card img {
+.cards .card > img,
+.news .card > img {
 /*  width: 100%;*/
   min-height: 100%;
 }
