@@ -218,6 +218,7 @@ https://github.com/fwd/nano
                   <span v-if="name.goal_ui && !name.for_sale"style="position: absolute;color: rgb(50 141 255);text-shadow: rgb(0, 0, 0) 1px 1px;opacity: 1;top: 16px;right: 15px;font-size: 22px;max-width: 85px;text-align: right;">DONATE<br><span style=" color: #FFF; opacity: 0.9; text-align: right; ">{{name.goal_ui.split(':')[1]}}</span></span>
                   <figcaption :style="`top: ${name.for_sale || name.image || name.goal_ui ? 'auto' : ''};`">@{{capitalizeFirstLetter(name.name)}} <img style="margin-left:-4px;zoom:0.78;margin-bottom: 6px;" @click="whois(name, name.yearDiff >= 10 ? name.yearDiff : false)" v-if="name.yearDiff >= 10 || (!name.expired && (name.github || name.twitter))" :src="`dist/images/10_year.png`" class="verified" alt=""></figcaption>
               </figure>
+              
           </div>
       </div>
 
