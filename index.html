@@ -209,7 +209,7 @@ https://github.com/fwd/nano
               </figure>
           </div>
           <h2 v-if="bigPictureSearch"><strong>Search</strong></h2>
-          <h2 v-if="!bigPictureSearch"><strong>Market<span>( {{usernames.length}} )</span></strong></h2>
+          <h2 v-if="!bigPictureSearch"><strong>Names<span>( {{usernames.length}} )</span></strong></h2>
           <div class="cards">
               <figure @click="bigPictureCheckout(name)" v-for="name in bigPictureCards" class="card">
                   <img :src="`${name.metadata && name.metadata.includes('.png') ? name.metadata : (name.image || 'https://nault.pro/assets/img/carbon-fiber.png')}`" />
