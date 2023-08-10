@@ -8,7 +8,7 @@
     height: 100vh;
     overflow: auto;
     width: 100%;
-    background: #24282e;
+    background: #121213;
     zoom: 1;
     font-size: 13px;
 }
@@ -70,7 +70,7 @@
 }
 #big-picture h2 strong {
   z-index: 2;
-  background: #24282f;
+  background: #121213;
   padding: 4px 8px;
 }
 #big-picture h2 span {

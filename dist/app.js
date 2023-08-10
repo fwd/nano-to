@@ -1380,7 +1380,12 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
             this.json_checkout(res.data, null, true)
           })
         }
-        if (button.purchase_rpc) {
+
+        var query = this.queryToObject()
+        
+        var bigPictureMode = query.bigscreen || query.bigPicture || query.big || query.full || query.fullscreen || query.bpm || query.b || query.f
+
+        if (button.purchase_rpc && !bigPictureMode) {
           // var body = {}
           return axios.post('https://rpc.nano.to/new_key', { email: window.prompt("Email Address:") }).then((res) => {
             if (res.data.message) return alert(res.data.message)
