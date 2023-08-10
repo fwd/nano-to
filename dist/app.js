@@ -1494,6 +1494,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
           
         ]
         if (!suggestion.website_button_only) {
+          
           buttons.unshift({
             label: window.name === 'nault' ? 'Open Nault' : (this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open),
             // label: this.strings[this.lang] ? this.strings[this.lang].open : this.strings['en'].open,
