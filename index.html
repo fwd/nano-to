@@ -69,7 +69,7 @@ https://github.com/fwd/nano
           <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">OK</div>
         </div>
       </div>
-      <div v-if="!checkout" :class="`cyber blue`">
+      <div :class="`cyber blue`">
         <div v-if="title" style="cursor: pointer;" @click="reset()">
           <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">{{ title }}</h3>
         </div>
@@ -192,7 +192,6 @@ https://github.com/fwd/nano
                   <img src="https://www.linkpicture.com/q/news1_1.jpg" />
                   <figcaption>
                         <h3>New Item</h3>
-
                       <p>In today’s update, two heads are better than one, and three heads are
                           better than that, as the all-new Flockheart’s Gamble Arcana item for Ogre
                           Magi makes its grand debut.</p>

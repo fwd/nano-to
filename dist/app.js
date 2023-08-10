@@ -386,11 +386,8 @@ var nano = new Vue({
           return a.name.toLowerCase().includes(this.bigPictureSearch.replace('@', '').toLowerCase()) || a.address === this.bigPictureSearch
         })
         return collection
-        // .reverse()
         .sort((a, b) => a.created_unix - b.created_unix)
         .sort((a, b) => b.image ? 1 : -1)
-        // .reverse()
-        // return this.usernames.sort((a, b) => a.image == b.image).reverse()
       },
       localhost() {
         return window.location.hostname === 'localhost'
