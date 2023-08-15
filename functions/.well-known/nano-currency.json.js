@@ -19,7 +19,10 @@ export async function onRequestGet(ctx) {
 
   const json = await fetch('https://raw.githubusercontent.com/fwd/nano-to/master/known.json', init);
   
-  const results = await gatherResponse(json);
+  let results = await gatherResponse(json);
+  
+  // Nault.cc needs all nanes lowercase
+  results = results.map(a => a.toLowerCase())
   
   let name = url.searchParams.get('names');
       name = name ? name.replace('@', '') : ''
