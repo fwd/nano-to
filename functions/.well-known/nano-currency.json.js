@@ -22,7 +22,10 @@ export async function onRequestGet(ctx) {
   let results = await gatherResponse(json);
   
   // Nault.cc needs all names lowercase
-  results = results.map(a => a.name.toLowerCase())
+  results = results.map(a => {
+    a.name = a.name.toLowerCase()
+    return a
+  })
   
   let name = url.searchParams.get('names');
       name = name ? name.replace('@', '') : ''
