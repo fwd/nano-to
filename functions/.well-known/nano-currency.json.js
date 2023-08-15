@@ -21,8 +21,8 @@ export async function onRequestGet(ctx) {
   
   let results = await gatherResponse(json);
   
-  // Nault.cc needs all nanes lowercase
-  results = results.map(a => a.toLowerCase())
+  // Nault.cc needs all names lowercase
+  results = results.map(a => a.name.toLowerCase())
   
   let name = url.searchParams.get('names');
       name = name ? name.replace('@', '') : ''
