@@ -30,7 +30,6 @@
 
 - nano.to (**Official**)
 - xno.to (**Redirect**)
-- ӿ.to (**Redirect**)
 
 ![line](https://github.com/fwd/n2/raw/master/.github/line.png)
 
