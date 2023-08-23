@@ -606,60 +606,6 @@ var nano = new Vue({
             item.name = this.capitalizeFirstLetter(item.name)
           }
 
-   
-
-          // this.checkout = {
-          //   title: 'Update Name',
-          //   update_name: '@' + prompt.name,
-          //   updatable,
-          //   amount: 0.0383902,
-          //   buttonText: 'Save Changes',
-          //   instruction: 'To complete, send yourself',
-          //   // plans,
-          //   currency: query.currency || query.c || 'NANO',
-          //   message: query.body || query.message || query.text || query.copy,
-          //   fullscreen: item.expires ? true : false,
-          //   image: item.image || query.image || query.img || query.i || '',
-          //   address: query.address || query.to || item.address,
-          //   history_count: query.history || query.history_count,
-          //   description: query.description || query.body || query.message,
-          //   calendly: item.calendly,
-          //   discord: item.discord,
-          //   twitter: item.twitter,
-          //   mastodon: item.mastodon,
-          //   github: item.github, 
-          //   website: item.website, 
-          //   // buttonText: item.button || query.button,
-          //   note: item.note || query.note,
-          //   expired: item.expired || this.expired(item.expires_unix),
-          //   goal,
-          //   custom,
-          //   // amount,
-          //   yearDiff: item.yearDiff || this.getYearDifference(item.created_unix, item.expires_unix),
-          //   color: {
-          //     vanity:  query.vanity ? query.vanity.split(':')[0].replace('$', '#') : '',
-          //     text:  query.color ? query.color.split(':')[0].replace('$', '#') : '',
-          //     primary: query.color ? query.color.split(':')[0].replace('$', '#') : '',
-          //     highlight_background: highlight && highlight.split(':')[0] ? highlight.split(':')[0].replace('$', '#') : '',
-          //     highlight_color: highlight && highlight.split(':')[1] ? highlight.split(':')[1].replace('$', '#') : '',
-          //     highlight_address: highlight && highlight.split(':')[2] ? highlight.split(':')[2].replace('$', '#') : '',
-          //     left: query.left || query.background && query.background.split(':')[0] ? query.background.split(':')[0].replace('$', '#') : '#FFF', 
-          //     right: query.right || query.background && query.background.split(':')[1] ? query.background.split(':')[1].replace('$', '#') : '#009dff', 
-          //     qrcode: {
-          //       logo: query.logo ? query.logo : '',
-          //       light: query.qrcode && query.qrcode.split(':')[0] ? query.qrcode.split(':')[0].replace('$', '#') : '',
-          //       dark: query.qrcode && query.qrcode.split(':')[1] ? query.qrcode.split(':')[1].replace('$', '#') : '',
-          //     },
-          //     address: {
-          //       hightlight: query.color,
-          //     }
-          //   },
-          //   success_url, 
-          //   success_button, 
-          //   cancel: query.cancel || query.cancel_url,
-          //   known: item 
-          // }
-
           this.checkout = {
             title: query.title || item.name,
             currency: query.currency || query.c || 'NANO',
