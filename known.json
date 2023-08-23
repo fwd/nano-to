@@ -132,6 +132,7 @@
   {
     "name": "Max",
     "address": "nano_3dbnbkjhpi5zq43n8eskbfog98s6uexxyhdjf67ufgrtkdx7fr9pw1563oe4",
+    "nostr_public_key": "df34162959de32d09669c39b2c900b915b57d59036b20946ad543b695c1f6db0",
     "created": "July 30, 2023",
     "expires": "July 30, 2028",
     "created_unix": 1690741558,
