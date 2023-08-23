@@ -121,6 +121,12 @@ var nano = new Vue({
           max: 99,
           placeholder: ''
         },
+        {
+          label: 'nostr_public_key',
+          value: '',
+          max: 99,
+          placeholder: ''
+        },
       ]
     },
     watch: {
