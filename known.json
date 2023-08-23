@@ -243,14 +243,6 @@
     "expires_unix": 1720801920
   },
   {
-    "name": "3k",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
-    "created": "July 12, 2023",
-    "expires": "August 12, 2023",
-    "created_unix": 1689179054,
-    "expires_unix": 1691857440
-  },
-  {
     "name": "Bob",
     "address": "nano_1imfns845ibphkhkeif6gbisnsqttowxy8o8419zu1e8yxqd148hi3bnfodj",
     "created": "July 3, 2023",
@@ -300,29 +292,12 @@
     "expires_unix": 2003062980
   },
   {
-    "name": "Y",
-    "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
-    "created": "June 14, 2023",
-    "expires": "August 13, 2023",
-    "created_unix": 1686792840,
-    "expires_unix": 1691899200,
-    "for_sale": "100"
-  },
-  {
     "name": "Hope",
     "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
     "created": "June 14, 2023",
     "expires": "July 14, 2024",
     "created_unix": 1686792137,
     "expires_unix": 1720929600
-  },
-  {
-    "name": "Cuba",
-    "address": "nano_1os7m3fhm5tfafc458eon9y44qpauntd3q4745tad654aq13811qnd4o6bb5",
-    "created": "June 14, 2023",
-    "expires": "August 13, 2023",
-    "created_unix": 1686789116,
-    "expires_unix": 1691899200
   },
   {
     "name": "Luxbe",
