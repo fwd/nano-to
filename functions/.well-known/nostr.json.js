@@ -32,7 +32,8 @@ export async function onRequestGet(ctx) {
 
   var nostr_object = {}
 
-  results.filter(a => a.nostr_public_key).map(a => nostr_object[a.name] = a.nostr_public_key)
+  if (name) results.filter(a => a.nostr_public_key).map(a => nostr_object[a.name] = a.nostr_public_key)
+  else results.filter(a => a.nostr_public_key && a.name === name).map(a => nostr_object[a.name] = a.nostr_public_key)
 
   const response = Response.json({ names: nostr_object });
 
