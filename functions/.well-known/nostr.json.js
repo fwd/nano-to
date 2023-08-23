@@ -23,7 +23,7 @@ export async function onRequestGet(ctx) {
   
   // Nault.cc needs all names lowercase
   results = JSON.parse(results).map(a => {
-    // a.name = a.name.toLowerCase()
+    a.name = a.name.toLowerCase()
     return a
   })
   
