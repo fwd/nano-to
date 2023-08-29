@@ -104,7 +104,7 @@ php -S localhost:8080
 
 ## Verification
 
-Fork Nano.to and add "github" to *known.json*. or use API.
+Fork Nano.to and modify your object in *known.json*. or use API.
 
 ```
 curl -d '{
