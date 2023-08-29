@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.5.1">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.5.1">
+    <link rel="stylesheet" href="dist/style.css?v=9.5.3">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.5.3">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -52,7 +52,7 @@ https://github.com/fwd/nano
   <body>
     <p class="seo-hackz" style="display: none; opacity: 0;">Nano name service, Public RPC and Checkout UI for the Nano blockchain. Nano.to is on a mission to accelerate the use of crypto around the world.</p>
     <div id="app" :class=" `on ${color}`">
-      <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
+      <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" :src="`./dist/images/info2.png`" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
       <div :style="`background-image: url('${ checkout || localhost ? '' : 'dist/images/optimized.gif' }');background-size:${size}`" id="backdrop"></div>
       <div v-if="success && success.confetti">
@@ -99,7 +99,7 @@ https://github.com/fwd/nano
                     </form>
                     <div class="footer-icon">
                       <a href="https://github.com/fwd/nano-to#nano-name-service" target="_blank" class="github">
-                        <div style="width: fit-content;zoom: 0.7;font-family: Cyber;text-align: center;"><img src="dist/svg/github.svg" img/></div>
+                        <div style="width: fit-content;zoom: 0.7;font-family: Cyber;text-align: center;"><img :src="`dist/svg/github.svg`" img/></div>
                       </a>
                     </div>
                   </div>
@@ -132,7 +132,7 @@ https://github.com/fwd/nano
                       </div>
                       <div v-if="prompt.website" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].website ? strings[lang].website : strings['en'].website) }}</span> 
-                        <a target="_blank" :href="prompt.website">{{ prompt.website }}</a>
+                        <a target="_blank" :href="prompt.website">{{ prompt.website.replace('https://', '').replace('http://', '').replace('www.', '') }}</a>
                       </div>
                     </div>
                     <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}; flex-wrap: wrap;`">
@@ -213,7 +213,7 @@ https://github.com/fwd/nano
                 <img style="margin-left:-4px;zoom:0.8;margin-bottom: 6px;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
               </h2>
               <p v-if="false && checkout.amount && !checkout.random_int" class="price">
-              <img src="dist/svg/thicc.svg" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;">
+              <img :src="`dist/svg/thicc.svg`" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;">
               {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
               </p>
               <p v-if="false && checkout.amount && checkout.random_int" class="price">
@@ -227,7 +227,7 @@ https://github.com/fwd/nano
                   <div class="goal-stat" style="text-align: left; min-width: 65%;">{{ checkout.goal.title || 'Funding Goal' }}</div>
                   <div class="goal-stat" style="text-align: right;">
                     <div >
-                      <img src="dist/svg/thicc.svg" alt="Verified" style="max-width: 13px;margin-right: -2px;margin-bottom: 0px;opacity: 0.9;zoom: 1.3;margin-left: -6px;display:inline-block"> 
+                      <img :src="`dist/svg/thicc.svg`" alt="Verified" style="max-width: 13px;margin-right: -2px;margin-bottom: 0px;opacity: 0.9;zoom: 1.3;margin-left: -6px;display:inline-block"> 
                       <span>{{ kFormatter(checkout.goal.total) }}</span>
                     </div>
                   </div>
@@ -241,7 +241,7 @@ https://github.com/fwd/nano
                     
 
                     <span>
-                      <img src="dist/svg/thicc.svg" alt="Verified" style="display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;"> {{ nFormatter(checkout.goal.balance) }}
+                      <img :src="`dist/svg/thicc.svg`" alt="Verified" style="display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;"> {{ nFormatter(checkout.goal.balance) }}
                     </span>
 
                   </div>
@@ -298,14 +298,14 @@ https://github.com/fwd/nano
                 <b v-if="Number(checkout.amount)" @click="copy(checkout.amount)" class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor:pointer`">{{ checkout.amount }}
                   <span class="blocky">{{ 'NANO' }}</span>
                 </b>
-                <span v-if="Number(checkout.amount) && rate" :style="`color: #d8ecf9;cursor: pointer;opacity: 0.7;display: block;margin-bottom: 20px;font-family: Cyber;font-size: 18px;`">≈ {{ nFormatter( (checkout.amount * rate).toFixed(2) ) }} {{ currencyComputed }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${ checkout.currency !== 'NANO' && checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img src="./dist/images/info2.png" alt="" class="info-icon">
+                <span v-if="Number(checkout.amount) && rate" :style="`color: #d8ecf9;cursor: pointer;opacity: 0.7;display: block;margin-bottom: 20px;font-family: Cyber;font-size: 18px;`">≈ {{ nFormatter( (checkout.amount * rate).toFixed(2) ) }} {{ currencyComputed }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${ checkout.currency !== 'NANO' && checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img :src="`./dist/images/info2.png`" alt="" class="info-icon">
                   </a>
                 </span>
               </h4>
               <h1 v-if="!checkout.amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.update_name || checkout.title }}</h1>
               <p class="address" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.highlight_color ? checkout.color.address.highlight_color : '#000'}; background:${checkout.color && checkout.color.address && checkout.color.address.highlight_background ? checkout.color.address.highlight_background : (checkout.color && checkout.color.address && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF')};`" @click="copy(checkout.address)">
                 <span class="highlight" :style="`color:${checkout.color && checkout.color.vanity ? checkout.color.vanity : ''};`">{{ checkout.address.slice(0, 12) }}</span><span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};`">{{ checkout.address.slice(12, 58) }}</span><span class="highlight" :style="`color:${checkout.color && checkout.color.vanity ? checkout.color.vanity : ''};`">{{ checkout.address.slice(59, 99) }}</span>
-                <img src="./dist/images/clipboard.png" alt="">
+                <img :src="`./dist/images/clipboard.png`" alt="">
               </p>
               <div class="qrSwitcher">
                 <a style="cursor: pointer;" @click="deepLink(`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`)">
@@ -313,7 +313,7 @@ https://github.com/fwd/nano
                     <div id="qrcode"></div>
                   </div>
                   <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`">
-                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" src="./dist/images/info2.png" class="lock-icon" style="margin-bottom: 0px;"> {{ checkout.tip || (strings[lang] ? strings[lang].tap : strings['en'].tap) }}
+                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" :src="`./dist/images/info2.png`" class="lock-icon" style="margin-bottom: 0px;"> {{ checkout.tip || (strings[lang] ? strings[lang].tap : strings['en'].tap) }}
                   </div>
                 </a>
               </div>
@@ -340,6 +340,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.5.1"></script>
+    <script src="dist/app.js?v=9.5.3"></script>
   </body>
 </html>
