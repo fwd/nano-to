@@ -104,7 +104,7 @@ php -S localhost:8080
 
 ## Verification
 
-Fork Nano.to and add "github" to *known.json*. Verified names don't expire. 
+Fork Nano.to and add "github" to *known.json*. or use API.
 
 ```
 curl -d '{
