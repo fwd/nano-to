@@ -199,12 +199,12 @@ var nano = new Vue({
               self.reset()
               self.size = '100%'
           }
-         if (evt.keyCode == '38') {
-              self.size = '100%'
-          }
-          else if (evt.keyCode == '40') {
-                self.size = '170%'
-          }
+         // if (evt.keyCode == '38') {
+         //      self.size = 'this.popSize'
+         //  }
+         //  else if (evt.keyCode == '40') {
+         //        self.size = '170%'
+         //  }
       }
 
       window.onmessage = function(e) {
@@ -216,6 +216,9 @@ var nano = new Vue({
 
     },
     computed: {
+      mobile() {
+        return window.width < 769
+      },
       bigPictureCards() {
         var show_collection = window.location.pathname !== '/'
         var collection = this.usernames.filter(a => {
@@ -1389,7 +1392,7 @@ KEEP SECRET. NOT FOR PUBLIC VIEW.
         self.prompt = _prompt
         history.pushState({}, null, '/' + suggestion.name + (query.nocache ? '?nocache=true' : ''));
         self.$forceUpdate()
-        self.size = window.width > 768 ? '210%' : '160%' 
+        self.size = '180%'
       },
     }
 })
