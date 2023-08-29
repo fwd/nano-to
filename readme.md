@@ -106,10 +106,9 @@ php -S localhost:8080
 
 Fork Nano.to and add "github" to *known.json*. Verified names don't expire. 
 
-**Optional:**
-
 ```
-{
+curl -d '{
+  "action": "update_name",
   "name": "NanoBull",
   "title": "Software Developer",
   "twitter": "NanoBull",
@@ -124,7 +123,9 @@ Fork Nano.to and add "github" to *known.json*. Verified names don't expire.
   "address": "NEW_NANO_ADDRESS",
   "rep_address": "YOUR_MACHINE",
   "donation_address": "OPTIONAL_NANO_ADDRESS"
-}
+}' \
+-H "Content-Type: application/json" \
+"https://rpc.nano.to"
 ```
 
 ## Bugs & Features ⭐️
