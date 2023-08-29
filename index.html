@@ -54,7 +54,7 @@ https://github.com/fwd/nano
     <div id="app" :class=" `on ${color}`">
       <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" :src="`./dist/images/info2.png`" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
       <div v-if="loading" class="loader"></div>
-      <div :style="`background-image: url('${ checkout && !mobile ? '' : 'dist/images/optimized.gif' }');background-size:${size}`" id="backdrop"></div>
+      <div :style="`background-image: url('${ checkout || mobile ? '' : 'dist/images/optimized.gif' }');background-size:${size}`" id="backdrop"></div>
       <div v-if="success && success.confetti">
         <div v-for="i in 150" :class="`confetti-${i}`"></div>
       </div>
@@ -170,7 +170,7 @@ https://github.com/fwd/nano
                           <a/>
                       <!-- </div> -->
                     </div>
-                    <a v-if="prompt" @click.prevent="prompt = false; search = true; size = '100%'">
+                    <a v-if="prompt" @click.prevent="prompt = false; search = true;">
                       <p style=" margin-top: 15px; font-size: 16px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;">
                         <span>{{ (strings[lang] ? strings[lang].cancel : strings['en'].cancel) }}</span>
                       </p>
