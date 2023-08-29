@@ -187,27 +187,6 @@ https://github.com/fwd/nano
           <div>
             <input type="text" placeholder="Search Names" v-model="bigPictureSearch" class="search">
           </div>
-          <h2 v-if="false && !bigPictureSearch"><strong>What's New</strong></h2>
-          <div v-if="false && !bigPictureSearch" class="news">
-              <figure class="article">
-                  <img src="https://www.linkpicture.com/q/news1_1.jpg" />
-                  <figcaption>
-                        <h3>New Item</h3>
-                      <p>In today’s update, two heads are better than one, and three heads are
-                          better than that, as the all-new Flockheart’s Gamble Arcana item for Ogre
-                          Magi makes its grand debut.</p>
-                  </figcaption>
-              </figure>
-              <figure class="article">
-                  <img src="https://www.linkpicture.com/q/news2.png" />
-                  <figcaption>
-                        <h3>Update</h3>
-
-                      <p>Just in time for Lunar New Year and the Rat’s time in the cyclical place
-                          of honor, the Treasure of Unbound Majesty is now available.</p>
-                  </figcaption>
-              </figure>
-          </div>
           <h2 v-if="bigPictureSearch"><strong>Search</strong></h2>
           <h2 v-if="!bigPictureSearch"><strong>Names<span>( {{usernames.length}} )</span></strong></h2>
           <div class="cards">
