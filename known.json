@@ -46,54 +46,6 @@
     "expires_unix": 1723552440
   },
   {
-    "name": "E3",
-    "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
-    "created": "August 8, 2023",
-    "expires": "September 8, 2023",
-    "created_unix": 1691541506,
-    "expires_unix": 1694219880
-  },
-  {
-    "name": "E2",
-    "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
-    "created": "August 8, 2023",
-    "expires": "September 8, 2023",
-    "created_unix": 1691541457,
-    "expires_unix": 1694219820
-  },
-  {
-    "name": "Kie",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
-    "created": "August 8, 2023",
-    "expires": "September 8, 2023",
-    "created_unix": 1691531645,
-    "expires_unix": 1694210040
-  },
-  {
-    "name": "Vf",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
-    "created": "August 8, 2023",
-    "expires": "September 8, 2023",
-    "created_unix": 1691531388,
-    "expires_unix": 1694209740
-  },
-  {
-    "name": "Eda",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
-    "created": "August 8, 2023",
-    "expires": "September 8, 2023",
-    "created_unix": 1691531268,
-    "expires_unix": 1694209620
-  },
-  {
-    "name": "Speedrun2",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
-    "created": "August 8, 2023",
-    "expires": "September 8, 2023",
-    "created_unix": 1691531042,
-    "expires_unix": 1694209440
-  },
-  {
     "name": "Speedrun",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "August 8, 2023",
