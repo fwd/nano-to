@@ -575,7 +575,7 @@ var nano = new Vue({
           //   })
           // }
 
-          if (item.goal_ui) {
+          if (item.goal_ui && plans && plans.length) {
             plans = plans.map(a => {
               if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
               return a
