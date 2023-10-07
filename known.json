@@ -1,5 +1,13 @@
 [
   {
+    "name": "Eli",
+    "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
+    "created": "October 7, 2023",
+    "expires": "October 7, 2025",
+    "created_unix": 1696720100,
+    "expires_unix": 1759878480
+  },
+  {
     "name": "Steamdeck",
     "address": "nano_3wroiqxabw415bpphso9a1fwafzw1kgx4z6make5zmji9wysx1n5fa8gfoao",
     "created": "September 3, 2023",
