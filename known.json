@@ -727,42 +727,6 @@
     "expires_unix": 1727624520
   },
   {
-    "name": "vince",
-    "status": "active",
-    "address": "nano_3u9hkzz4eissac86wu6foyfkwiyjyuex1ymfexn3c3o5mudcxeugjz1nnarq",
-    "created": "September 27, 2022",
-    "expires": "September 27, 2023",
-    "created_unix": 1664307043,
-    "expires_unix": 1695843000
-  },
-  {
-    "name": "kit",
-    "status": "active",
-    "address": "nano_1q7gp3n6charnrdzj8cdh87e6cbqhcamt7dz6ko33xj9itpzj6ykfyzja3ko",
-    "created": "September 27, 2022",
-    "expires": "September 27, 2023",
-    "created_unix": 1664295058,
-    "expires_unix": 1695831000
-  },
-  {
-    "name": "god",
-    "status": "active",
-    "address": "nano_1qngeajg7w5wimaux733iyoqjszzcnsspzo6i5xxd6uujzdp879nfzbggh97",
-    "created": "September 26, 2022",
-    "expires": "September 26, 2023",
-    "created_unix": 1664228465,
-    "expires_unix": 1695764460
-  },
-  {
-    "name": "nudge",
-    "status": "active",
-    "address": "nano_3nunzyd37yy15h1em194b8yrdsupg6cjmda9w444c34xebdwhsfon55z5gsu",
-    "created": "September 24, 2022",
-    "expires": "September 26, 2023",
-    "created_unix": 1664051242,
-    "expires_unix": 1695774780
-  },
-  {
     "name": "mitu",
     "github": "jaumebosch",
     "address": "nano_33h3n1jsbib3zro5u44e8u6to46semypp5ptnayz5btictt9jiwkk4dt4wpz",
