@@ -677,10 +677,21 @@
     "name": "mnpezz",
     "status": "active",
     "address": "nano_3urn99zwefm5q8miwqkiypfqx3ikh59ujpiuggewnynoke6eqpntgu78do7j",
+    "donation_address": "@mnpezz",
+    "github": "https://github.com/mnpezz",
+    "twitter": "https://twitter.com/mnpezz",
+    "mastodon": "xno.social/@mnpezz",
+    "freelance": "40 NANO / hr",
+    "website": "https://mnpezz.straw.page",
+    "name_for_sale": 42000,
+    "title": "hello my name is mnpezz",
     "created": "November 10, 2022",
-    "expires": "November 11, 2029",
+    "expires": "November 10, 2024",
     "created_unix": 1668117803,
-    "expires_unix": 1889067600
+    "expires_unix": 1731276180,
+    "location": "US-Central",
+    "goal_ui": "100:Thank you",
+    "metadata": "mnpezz"
   },
   {
     "name": "avigopal",
