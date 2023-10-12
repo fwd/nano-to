@@ -724,15 +724,6 @@
     "metadata": "Hello Nano, Again"
   },
   {
-    "name": "asdasd",
-    "status": "active",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
-    "created": "October 1, 2022",
-    "expires": "October 1, 2023",
-    "created_unix": 1664681619,
-    "expires_unix": 1696217580
-  },
-  {
     "name": "fabs",
     "status": "active",
     "address": "nano_135rob5ctx5yrjej9fig5gpajez5e5w4f3r3931ga7syp5s5n3a67eubh4jh",
