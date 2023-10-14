@@ -219,9 +219,9 @@ section:first-child {
 
 .about h2 {
     max-width: 80%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+/*    white-space: nowrap;*/
+/*    overflow: hidden;*/
+/*    text-overflow: ellipsis;*/
 }
 .price {
     font-size: 20px;
