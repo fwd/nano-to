@@ -5,7 +5,10 @@
     "created": "October 20, 2023",
     "expires": "October 20, 2025",
     "created_unix": 1697818549,
-    "expires_unix": 1760976900
+    "expires_unix": 1760976900,
+    "title": "lafrenieree",
+    "for_sale": "",
+    "nostr_public_key": "npub1kznny8vxcr5whx2gkn6xx4ad5jjfrqcgheea35w3kldffwhfh2uqklanf9"
   },
   {
     "name": "Mini",
