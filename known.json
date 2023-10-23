@@ -1947,20 +1947,21 @@
   },
   {
     "name": "miami",
-    "for_sale": "",
+    "for_sale": "500",
     "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
     "donation_address": "",
     "created": "November 7, 2021",
     "expires": "December 2, 2031",
     "created_unix": 1636303080,
     "expires_unix": 1953997860,
-    "title": "",
+    "title": "Miami, Florida",
     "github": "",
     "twitter": "",
     "mastodon": "",
     "location": "",
     "goal_ui": "",
-    "rep_address": ""
+    "rep_address": "",
+    "metadata": "Hello Miami"
   },
   {
     "name": "nyano",
