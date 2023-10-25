@@ -17,11 +17,11 @@
     "github": "Github:",
     "discord": "Discord:",
     "twitter": "Twitter:",
+    "website": "Website:",
     "nostr": "Nostr:",
     "renew": "Renew",
     "cancel": "Cancel",
     "purchase": "Purchase",
-    "website": "Website",
     "new_lease": "New Lease",
     "extend_lease": "Extend Lease",
     "exchange_address": "Exchange Address"

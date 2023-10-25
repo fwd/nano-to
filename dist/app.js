@@ -362,12 +362,12 @@ var nano = new Vue({
       whois(prompt, diff) {
         if ( diff && diff >= 10 ) {
           var prepend = `Name is registered for 10 years or longer`
-          if (prompt.github) return window.alert(`${prepend} and verified as @${prompt.github} on Github.`)
-          if (prompt.twitter) return window.alert(`${prepend} and verified as @${prompt.twitter} on Twitter.`)
-          if (prompt.discord) return window.alert(`${prepend} and verified as @${prompt.discord} on Discord.`)
+          if (prompt.github) return window.alert(`${prepend} and verified as @${prompt.github.replace('https://github.com/', '')} on Github.`)
+          if (prompt.twitter) return window.alert(`${prepend} and verified as @${prompt.twitter.replace('https://twitter.com/', '')} on Twitter.`)
+          if (prompt.discord) return window.alert(`${prepend} and verified as @${prompt.discord.replace('https://discord.com/', '')} on Discord.`)
           return window.alert(prepend + '.')
         }
-        var string = `Verified as @${prompt.github} on Github.` 
+        var string = `Verified as @${prompt.github.replace('https://github.com/', '')} on Github.` 
         if (
           !prompt.github && 
           prompt.mastodon 
@@ -378,7 +378,7 @@ var nano = new Vue({
           !prompt.github && 
           prompt.twitter 
           ) {
-          return window.alert(`Verified as @${prompt.twitter} on Twitter.`)
+          return window.alert(`Verified as @${prompt.twitter.replace('https://twitter.com/', '')} on Twitter.`)
         }
         if (
           prompt.github && 
@@ -386,14 +386,14 @@ var nano = new Vue({
           prompt.twitter && 
           (prompt.github === prompt.twitter && prompt.github === prompt.discord )
           ) {
-          return window.alert(`Verified as @${prompt.github} on Github, Twitter and Discord.`)
+          return window.alert(`Verified as @${prompt.github.replace('https://github.com/', '')} on Github, Twitter and Discord.`)
         }
         if (
           prompt.github && 
           prompt.twitter && 
           (prompt.github === prompt.twitter )
           ) {
-          return window.alert(`Verified as @${prompt.github} on Github and Twitter.`)
+          return window.alert(`Verified as @${prompt.github.replace('https://github.com/', '')} on Github and Twitter.`)
         }
         return window.alert(string)
       },
