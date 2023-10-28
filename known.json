@@ -755,15 +755,6 @@
     "expires_unix": 1697724840
   },
   {
-    "name": "donna",
-    "status": "active",
-    "address": "nano_16hu4m4kioskdwypsxi1bysghq95jj8ikgf6jbe9ig9efx61amw5ws8s7o7j",
-    "created": "October 18, 2022",
-    "expires": "October 18, 2023",
-    "created_unix": 1666083229,
-    "expires_unix": 1697619180
-  },
-  {
     "name": "bank",
     "status": "active",
     "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
@@ -2107,14 +2098,6 @@
     "expires": "September 17, 2031",
     "created_unix": 1631929440,
     "expires_unix": 1947462240
-  },
-  {
-    "name": "virax",
-    "address": "nano_3bxwx7eyoxwuc7e7tcd7k191es6ofzjzsixjpc1espdbg5o6d3n8ceainypr",
-    "created": "September 17, 2021",
-    "expires": "October 17, 2023",
-    "created_unix": 1631928540,
-    "expires_unix": 1697591880
   },
   {
     "name": "beer",
