@@ -1,5 +1,13 @@
 [
   {
+    "name": "Begura",
+    "address": "nano_1n9ygujoc3ouwhcgqqj8h5p5iwpdm85tksa1tcg8axrtxfzpqqktz6ts7dwj",
+    "created": "October 28, 2023",
+    "expires": "November 28, 2023",
+    "created_unix": 1698544132,
+    "expires_unix": 1701222480
+  },
+  {
     "name": "Twitch",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "October 28, 2023",
