@@ -871,15 +871,6 @@
     "expires_unix": 1731226860
   },
   {
-    "name": "test2",
-    "status": "active",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
-    "created": "October 19, 2022",
-    "expires": "October 19, 2023",
-    "created_unix": 1666188887,
-    "expires_unix": 1697724840
-  },
-  {
     "name": "bank",
     "status": "active",
     "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
