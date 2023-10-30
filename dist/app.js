@@ -181,6 +181,11 @@ var nano = new Vue({
           this._checkout(null, data)
         }
 
+        // Check that the browser language is supported and fall back to english if not
+        if (!Object.keys(this.strings).includes(this.lang)) {
+          this.lang = 'en'
+        }
+
         setTimeout(() => {
           this.loading = false
         }, 100)
