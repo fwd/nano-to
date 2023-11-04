@@ -106,7 +106,7 @@ https://github.com/fwd/nano
                   <div v-if="!search">
                     <div v-if="prompt" class="small-mobile">
                       <div>
-                        <h1 v-if="prompt.name" :class="`${prompt.yearDiff >= 10 ? 'ben-ten' : ''}`" style="margin-bottom: -10px;color: rgb(255, 35, 35);font-size: 40px !important;margin-top: 20px;letter-spacing: 4px;margin-left: 10px;">
+                        <h1 v-if="prompt.name" :class="`${prompt.yearDiff >= 10 ? 'ben-ten' : ''}`" style="margin-bottom: -10px;color: rgb(255, 35, 35);font-size: 40px !important;margin-top: 20px;letter-spacing: 4px;margin-left: 10px;word-break:break-word;">
                           <span @click="dev_mode = !dev_mode">{{ prompt.name }}</span>
                           <img style="margin-left:-24px;zoom:0.8;" @click="whois(prompt, prompt.yearDiff)" v-if="(!prompt.expired && (prompt.github || prompt.twitter)) || prompt.yearDiff >= 10" :src="`dist/images/10_year.png`" class="verified" alt="">
                         </h1>
