@@ -634,6 +634,7 @@ var nano = new Vue({
             twitter: item.twitter,
             mastodon: item.mastodon,
             github: item.github, 
+            notify: item.notify, 
             exchange_hot_wallet: item.exchange_hot_wallet, 
             website: item.website, 
             buttonText: item.button || query.button,
@@ -737,7 +738,8 @@ var nano = new Vue({
           this.checkout = {
             title: query.title,
             custom: !amount || donation ? true : false,
-            note: query.note,
+            note: query.note || query.memo || query.title,
+            notify: query.notify,
             currency: query.currency || query.c || 'NANO',
             message: query.body || query.message || query.text || query.copy,
             fullscreen: !checkout.cancel,
