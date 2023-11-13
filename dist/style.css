@@ -1667,7 +1667,7 @@ section:first-child {
 }
 .card:hover, .plans .active {
     background-color: var(--primary);
-    color: #FFF !important;
+/*    color: #FFF !important;*/
 }
 .gallery {
     position: relative;

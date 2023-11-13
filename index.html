@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.6.0">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.6.0">
+    <link rel="stylesheet" href="dist/style.css?v=9.6.1">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.6.1">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -213,7 +213,7 @@ https://github.com/fwd/nano
                 <img style="margin-left:-4px;zoom:0.8;margin-bottom: 6px;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
               </h2>
               <p v-if="false && checkout.amount && !checkout.random_int" class="price">
-              <img :src="`dist/svg/thicc.svg`" alt="Verified" style="max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;">
+              <img :src="`dist/svg/thicc.svg`" alt="Verified" :style="`max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;${checkout.color && checkout.color.text ? 'filter:invert(1)' : ''}`">
               {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
               </p>
               <p v-if="false && checkout.amount && checkout.random_int" class="price">
@@ -227,7 +227,7 @@ https://github.com/fwd/nano
                   <div class="goal-stat" style="text-align: left; min-width: 65%;">{{ checkout.goal.title || 'Funding Goal' }}</div>
                   <div class="goal-stat" style="text-align: right;">
                     <div >
-                      <img :src="`dist/svg/thicc.svg`" alt="Verified" style="max-width: 13px;margin-right: -2px;margin-bottom: 0px;opacity: 0.9;zoom: 1.3;margin-left: -6px;display:inline-block"> 
+                      <img :src="`dist/svg/thicc.svg`" alt="Verified" :style="`max-width: 13px;margin-right: -2px;margin-bottom: 0px;opacity: 0.9;zoom: 1.3;margin-left: -6px;display:inline-block;${checkout.color && checkout.color.text ? 'filter:invert(1)' : ''}`"> 
                       <span>{{ kFormatter(checkout.goal.total) }}</span>
                     </div>
                   </div>
@@ -241,7 +241,7 @@ https://github.com/fwd/nano
                     
 
                     <span>
-                      <img :src="`dist/svg/thicc.svg`" alt="Verified" style="display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;"> {{ nFormatter(checkout.goal.balance) }}
+                      <img :src="`dist/svg/thicc.svg`" alt="Verified" :style="`display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;${checkout.color && checkout.color.text ? 'filter:invert(1)' : ''}`"> {{ nFormatter(checkout.goal.balance) }}
                     </span>
 
                   </div>
@@ -269,7 +269,7 @@ https://github.com/fwd/nano
 
             </div>
             <div v-if="checkout.plans" class="plans">
-              <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 15%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? '#000' : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
+              <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 15%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? (checkout.color && checkout.color.active ? checkout.color.active : '#000') : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
                 <div class="flex justify center" @click="clickPlan(plan)" >
                   <h4>
                     {{ plan_title(plan.title || plan.name) }}
@@ -340,6 +340,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.6.0"></script>
+    <script src="dist/app.js?v=9.6.1"></script>
   </body>
 </html>
