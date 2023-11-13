@@ -647,6 +647,7 @@ var nano = new Vue({
             yearDiff: item.yearDiff || this.getYearDifference(item.created_unix, item.expires_unix),
             color: {
               vanity:  query.vanity ? query.vanity.split(':')[0].replace('$', '#') : '',
+              active:  query.active ? query.active.split(':')[0].replace('$', '#') : '',
               text:  query.color ? query.color.split(':')[0].replace('$', '#') : '',
               primary: query.color ? query.color.split(':')[0].replace('$', '#') : '',
               highlight_background: highlight && highlight.split(':')[0] ? highlight.split(':')[0].replace('$', '#') : '',
