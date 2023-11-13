@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.5.9">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.5.9">
+    <link rel="stylesheet" href="dist/style.css?v=9.6.0">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.6.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -283,7 +283,7 @@ https://github.com/fwd/nano
               <div :class="`flex justify center`" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'};`">
                 <h4>{{ (strings[lang] ? strings[lang].custom : strings['en'].custom) }}</h4>
                 <div class="dinput">
-                  <input type="number" inputmode="decimal" max="133248297" v-model="customAmount" >
+                  <input type="number" inputmode="decimal" max="133248297" v-model="customAmount" :style="`border-color: ${checkout.color && checkout.color.text ? `${checkout.color.text}` : ''}`">
                 </div>
               </div>
             </div>
@@ -340,6 +340,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.5.9"></script>
+    <script src="dist/app.js?v=9.6.0"></script>
   </body>
 </html>
