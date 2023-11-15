@@ -326,7 +326,9 @@ async function getRepresentatives() {
 
     // Step 2: Loop through each representative and get weight
     const repWeights = [];
-    for (var address of reps.slice(0, 50)) {
+    
+    for (var address of reps) {
+
       const weightResponse = await axios.post(rpcNanoToUrl, {
         action: 'account_weight',
         account: address
