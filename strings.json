@@ -461,21 +461,5 @@
     "redirecting": "Mengalihkan...",
     "created": "Dibuat pada:",
     "expires": "Tamat pada:"
-  },
-  "sv-SE": {
-    "note": "Verifiera mottagarens adress och skicka endast NANO (XNO) till denna adress.",
-    "intro": "Sök i Blockchain",
-    "guide": "För att slutföra, skicka:",
-    "button": "Bekräfta",
-    "tap": "Tryck för att öppna plånboken",
-    "custom": "Anpassad summa:",
-    "search": "Sök",
-    "send": "Skicka Betalning",
-    "open": "Öppna Plånbok",
-    "available": "Namn Tillgängligt",
-    "success": "Framgång",
-    "redirecting": "Omdirigerar...",
-    "created": "Skapat:",
-    "expires": "Utgår:"
   }
 }
