@@ -1613,7 +1613,7 @@ section:first-child {
     letter-spacing: 1px;
     color: #222121;
     font-family: Cyber;
-    font-size: 22px;
+    font-size: 19px;
 }
 
 .description.metadata {
@@ -6208,7 +6208,9 @@ hr.memo {
   padding: 20px 0;
   padding-bottom: 25px;
   margin-bottom: 30px;
+  zoom: 1.06;
 }
+
 #funding-wrap {
     zoom: 0.6;
     border-radius: 20px;
