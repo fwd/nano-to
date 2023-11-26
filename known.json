@@ -1129,18 +1129,18 @@
   },
   {
     "name": "development",
-    "goal_ui": "100:Monthly Hosting",
+    "goal_ui": "800:NanoPay.js w/ Shopify",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
     "created_unix": 1640552100,
     "expires_unix": 2019099600,
     "status": "active",
-    "title": "Research & Development",
+    "title": "Back This Project",
     "github": "nano2dev",
     "mastodon": "xno.social/@nano2dev",
     "twitter": "nano2dev",
-    "metadata": "Test",
+    "metadata": "Early backers get access to Nano.to Early Release Discord ",
     "location": "US-East"
   },
   {
