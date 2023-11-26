@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.6.4">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.6.4">
+    <link rel="stylesheet" href="dist/style.css?v=9.6.5">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.6.5">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -256,7 +256,7 @@ https://github.com/fwd/nano
             <div v-if="checkout.exchange_hot_wallet" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; text-transform: uppercase; ">{{ (strings[lang] ? strings[lang].exchange_address : strings['en'].exchange_address) }}</div>
             <div v-if="checkout.lease" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; text-transform: uppercase; ">{{ checkout.available ? (strings[lang] ? strings[lang].new_lease : strings['en'].new_lease) : (strings[lang] ? strings[lang].extend_lease : strings['en'].extend_lease) }}</div>
             <!-- <div v-if="checkout.lease && !checkout.available" style=" text-align: center; margin-bottom: 30px; display: block; font-family: 'Cyber'; letter-spacing: 2px; opacity: 0.8; ">ONLY ORIGNAL ADDRESS</div> -->
-            <p v-if="checkout.description" class="description" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
+            <p v-if="checkout.description || checkout.metadata" :class="`description ${checkout.metadata ? 'metadata' : ''}`" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message || checkout.metadata"></p>
             <div v-if="checkout.update_name">
               <div class="edit-buttons">
                 <div class="flex-wrap" v-for="item in updatable" style="position: relative;display: flex;justify-content: space-around;">
@@ -339,6 +339,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.6.4"></script>
+    <script src="dist/app.js?v=9.6.5"></script>
   </body>
 </html>
