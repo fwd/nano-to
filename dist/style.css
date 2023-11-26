@@ -1608,11 +1608,15 @@ section:first-child {
 }
 
 .description {
-    font-size: 18px;
     line-height: 1.4;
     margin: 0 0 35px 0;
     letter-spacing: 1px;
     color: #222121;
+    font-family: Cyber;
+    font-size: 22px;
+    border-bottom: 1px solid #00000012;
+    padding-bottom: 25px;
+    margin-top: -3px;
 }
 
 #order {
