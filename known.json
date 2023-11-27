@@ -209,14 +209,6 @@
     "nostr_public_key": "npub1kznny8vxcr5whx2gkn6xx4ad5jjfrqcgheea35w3kldffwhfh2uqklanf9"
   },
   {
-    "name": "Mini",
-    "address": "nano_3wh9fwnbm1uu9nrd8gigz1eg68micx6c38zrym47exjzkmigcx9df74cictu",
-    "created": "October 16, 2023",
-    "expires": "November 16, 2023",
-    "created_unix": 1697507357,
-    "expires_unix": 1700185740
-  },
-  {
     "name": "1",
     "address": "nano_1mmetyz9ytkh5poy6rskjp4qqwuma3o8a7dbw3q7yaeg1ip3dh3padpgz5sa",
     "created": "October 8, 2023",
