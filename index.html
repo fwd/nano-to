@@ -132,7 +132,7 @@ https://github.com/fwd/nano
                       </div>
                       <div v-if="prompt.website" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].website ? strings[lang].website : strings['en'].website) }}</span> 
-                        <a target="_blank" :href="prompt.website">{{ prompt.website.replace('https://', '').replace('http://', '').replace('www.', '') }}</a>
+                        <a target="_blank" :href="`https://${prompt.website.replace('https://', '').replace('http://', '')}`">{{ prompt.website.replace('https://', '').replace('http://', '').replace('www.', '') }}</a>
                       </div>
                     </div>
                     <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}; flex-wrap: wrap;`">
