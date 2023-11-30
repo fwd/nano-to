@@ -202,14 +202,6 @@
     "expires_unix": 1700697360
   },
   {
-    "name": "Art",
-    "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
-    "created": "October 20, 2023",
-    "expires": "November 20, 2023",
-    "created_unix": 1697854256,
-    "expires_unix": 1700532600
-  },
-  {
     "name": "03",
     "address": "nano_158j54titwo6xy14i8zzf9i7djt3y5dkxwmsmsweadh5wom1phokh9kpf56a",
     "created": "October 20, 2023",
@@ -859,22 +851,6 @@
     "expires": "November 20, 2024",
     "created_unix": 1668988408,
     "expires_unix": 1732146780
-  },
-  {
-    "name": "tesla",
-    "address": "nano_3myc6aicjot3z4d614csp9fgcaryg554szuph7qidu4x3qe7nwsmtnshp5jx",
-    "created": "November 20, 2022",
-    "expires": "November 20, 2023",
-    "created_unix": 1668973746,
-    "expires_unix": 1700509740
-  },
-  {
-    "name": "carbon",
-    "address": "nano_3be143brcyeeeqwyuyi5meeuk8dtzbjb8uobqwd773yobsd4jmzw4micutdb",
-    "created": "November 20, 2022",
-    "expires": "November 20, 2023",
-    "created_unix": 1668973670,
-    "expires_unix": 1700509620
   },
   {
     "name": "polyrun",
@@ -2017,30 +1993,6 @@
     "github": "fossephate"
   },
   {
-    "name": "uwu",
-    "address": "nano_173s4so61susebmz9yx4ngns5orhw7ux1wk8gzjs5dr9w7csqtp4iz7j1q4h",
-    "created": "November 20, 2021",
-    "expires": "November 20, 2023",
-    "created_unix": 1637453100,
-    "expires_unix": 1700525100
-  },
-  {
-    "name": "daan",
-    "address": "nano_1cs59ruwh566m6zdwy884gqsmaqu51et4acwjcxgubekibgugxrgfnzhuemk",
-    "created": "November 20, 2021",
-    "expires": "November 20, 2023",
-    "created_unix": 1637451540,
-    "expires_unix": 1700523540
-  },
-  {
-    "name": "george",
-    "address": "nano_38jiq5iwdhmszz9sddbjq85xhtd7kjttduyzd3zc9tugi8s9wkh767xo9ps7",
-    "created": "November 20, 2021",
-    "expires": "November 20, 2023",
-    "created_unix": 1637443080,
-    "expires_unix": 1700515080
-  },
-  {
     "name": "yoel",
     "address": "nano_1ptwyknwf5w35hfmsgyfj7ctjmeh1o5cb8zpdck8mjs1tmko46z1uf8row4i",
     "created": "November 20, 2021",
@@ -2078,30 +2030,6 @@
     "expires": "December 19, 2031",
     "created_unix": 1637337300,
     "expires_unix": 1955462100
-  },
-  {
-    "name": "ludde",
-    "address": "nano_367e1p375jdnc9aaehc1f6wyn5xh7qet8p3m9pzu3fere7wfe5853whdx4bs",
-    "created": "November 19, 2021",
-    "expires": "November 19, 2023",
-    "created_unix": 1637324160,
-    "expires_unix": 1700396160
-  },
-  {
-    "name": "zvex",
-    "address": "nano_3dgaog3iao3winq3u4cjr86ecu9j4tgc99wd4poqu1y6yfmxwh94f6bo18qf",
-    "created": "November 19, 2021",
-    "expires": "November 19, 2023",
-    "created_unix": 1637311500,
-    "expires_unix": 1700370000
-  },
-  {
-    "name": "wenano",
-    "address": "nano_1xm6yfrni6opcxo5sc774nsyhq6q97hsiyc6b8r3cauzswrd7fbk1fu6mwrn",
-    "created": "November 19, 2021",
-    "expires": "November 19, 2023",
-    "created_unix": 1637311140,
-    "expires_unix": 1700370000
   },
   {
     "name": "eats",
