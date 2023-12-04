@@ -829,14 +829,6 @@
     "expires_unix": 1733240580
   },
   {
-    "name": "day",
-    "address": "nano_3hr3ot6pjio6kwfkcs969rubpgktkf6jg3zwdcbb391hpwiz4bdkha3zgsac",
-    "created": "November 23, 2022",
-    "expires": "November 23, 2023",
-    "created_unix": 1669262513,
-    "expires_unix": 1700798460
-  },
-  {
     "name": "naxno",
     "address": "nano_3gq9x6n1q6padzbu13kdk9khbzxuwnhce64bdmwyhxdccm9d5f6oh6taymga",
     "created": "November 20, 2022",
@@ -1749,36 +1741,12 @@
     "expires_unix": 1700937660
   },
   {
-    "name": "bitcoin",
-    "address": "nano_38op3r5xuij9x6bpec4o1qax3cf1m9r6miwg1bznctcuwf9azeyrfe9e6h16",
-    "created": "November 24, 2021",
-    "expires": "November 24, 2023",
-    "created_unix": 1637765400,
-    "expires_unix": 1700837400
-  },
-  {
-    "name": "wagmi",
-    "address": "nano_38op3r5xuij9x6bpec4o1qax3cf1m9r6miwg1bznctcuwf9azeyrfe9e6h16",
-    "created": "November 24, 2021",
-    "expires": "November 24, 2023",
-    "created_unix": 1637765220,
-    "expires_unix": 1700837220
-  },
-  {
     "name": "zatoshi",
     "address": "nano_1xbbhicqmjw6rnatc6w78ynjyio6n7xc4fzh6rnbcz3ke6fmadcaatinuqgq",
     "created": "November 24, 2021",
     "expires": "November 24, 2025",
     "created_unix": 1637764860,
     "expires_unix": 1763995260
-  },
-  {
-    "name": "jimmypark",
-    "address": "nano_34o5zf494mgdfgy9hux64qkqu5demcm6hcb6cjwj9mskqzywzofbigs38rgr",
-    "created": "November 23, 2021",
-    "expires": "November 23, 2023",
-    "created_unix": 1637722020,
-    "expires_unix": 1700794020
   },
   {
     "name": "fuckbtc",
@@ -1795,14 +1763,6 @@
     "expires": "November 23, 2031",
     "created_unix": 1637648280,
     "expires_unix": 1953181080
-  },
-  {
-    "name": "blizzard93",
-    "address": "nano_1qmqdn8z39g48axmmi1ywssjagswpgzfzz5e5ttodjdz3ppjfocbs5yuek77",
-    "created": "November 23, 2021",
-    "expires": "November 23, 2023",
-    "created_unix": 1637643660,
-    "expires_unix": 1700715660
   },
   {
     "name": "Torin",
