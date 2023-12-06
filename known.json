@@ -1741,14 +1741,6 @@
     "expires_unix": 1701252360
   },
   {
-    "name": "sash",
-    "address": "nano_13fscd11jcnspza4hurru4uyj76pw93t35dya8o4rpm7odb3eqzf3ad3xdio",
-    "created": "November 25, 2021",
-    "expires": "November 25, 2023",
-    "created_unix": 1637865660,
-    "expires_unix": 1700937660
-  },
-  {
     "name": "zatoshi",
     "address": "nano_1xbbhicqmjw6rnatc6w78ynjyio6n7xc4fzh6rnbcz3ke6fmadcaatinuqgq",
     "created": "November 24, 2021",
