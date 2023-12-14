@@ -1290,14 +1290,6 @@
     "expires_unix": 2705716800
   },
   {
-    "name": "NanoKnight",
-    "address": "nano_1nngxfso9zk9ca7zbjg63t1ygp5mpdngwkku94s9mttxhubuasn8ecptycbz",
-    "created": "December 4, 2021",
-    "expires": "December 4, 2023",
-    "created_unix": 1638637740,
-    "expires_unix": 1701709740
-  },
-  {
     "name": "markkawika",
     "address": "nano_1i6pixerf1dneyf1buji83qpgubebf9u8hg7h4q1o5am7ijbi4caa453u8tp",
     "created": "December 3, 2021",
