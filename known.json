@@ -1266,22 +1266,6 @@
     "status": "active"
   },
   {
-    "name": "queen",
-    "address": "nano_11hd6xtuco154ygh675cfzw6pf1rzhj4zug1q8xdiepi4cccsz1iaxbznnfa",
-    "created": "December 6, 2021",
-    "expires": "December 6, 2023",
-    "created_unix": 1638832080,
-    "expires_unix": 1701904080
-  },
-  {
-    "name": "jorrit",
-    "address": "nano_1n31catb84couahbmj4e7k9unig8i1k1by1u19fj3kjpaak7pggz1nc65amu",
-    "created": "December 6, 2021",
-    "expires": "December 6, 2023",
-    "created_unix": 1638798360,
-    "expires_unix": 1701870360
-  },
-  {
     "name": "silva",
     "address": "nano_1m3cthieds48zqudoeaxn7x137qposw4opz34wursmb8i7439dgq4oyif4p5",
     "created": "December 5, 2021",
