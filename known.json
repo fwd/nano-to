@@ -1233,14 +1233,6 @@
     "expires_unix": 1954618200
   },
   {
-    "name": "pjf",
-    "address": "nano_14hshexaryebcu4utxf5ttwrrnphfsyx6zwjwgoqbfpxf5cxggio8kjrb6qm",
-    "created": "December 8, 2021",
-    "expires": "December 8, 2023",
-    "created_unix": 1638994980,
-    "expires_unix": 1702066980
-  },
-  {
     "name": "shallitap",
     "address": "nano_1ufjwun58x56mw9ksg5qbtyhihbmca8b3ms74hx8q4pdhd8u3yb4jjnkwexx",
     "created": "December 8, 2021",
