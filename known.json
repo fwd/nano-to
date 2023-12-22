@@ -21,7 +21,11 @@
     "created": "December 22, 2023",
     "expires": "December 22, 2024",
     "created_unix": 1703256055,
-    "expires_unix": 1734878400
+    "expires_unix": 1734878400,
+    "title": "Software Developer",
+    "github": "https://github.com/WriteNaN",
+    "twitter": "https://twitter.com/CelioSevii",
+    "location": "Mars"
   },
   {
     "name": "G",
