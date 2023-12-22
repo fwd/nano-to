@@ -1209,14 +1209,6 @@
     "expires_unix": 1702526760
   },
   {
-    "name": "sp",
-    "address": "nano_3j76kanikbefp6obwc88kmjjrmpdekuwhfuqukw4pa71goey11eo6gss5i3m",
-    "created": "December 12, 2021",
-    "expires": "December 12, 2023",
-    "created_unix": 1639327380,
-    "expires_unix": 1702399380
-  },
-  {
     "name": "whale",
     "address": "nano_19enptkts4xbad3buierfwwebj47osxs6bwc86y4u1zqcwr59gu5xgsq7acr",
     "created": "December 11, 2021",
