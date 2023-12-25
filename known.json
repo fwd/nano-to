@@ -1,5 +1,13 @@
 [
   {
+    "name": "Fox",
+    "address": "nano_1foxedxp8h9j9o3z5sz5zytjaaxwn3q8e9bhe5wm3g6ujnggd1zb67ptjc5b",
+    "created": "December 25, 2023",
+    "expires": "December 25, 2025",
+    "created_unix": 1703541455,
+    "expires_unix": 1766699820
+  },
+  {
     "name": "Nalli",
     "address": "nano_1ihr1kh741jmxruqupa3ozkqbyrhuwor56ajwnbspqnefz8w1cup4uy9atwt",
     "created": "December 25, 2023",
