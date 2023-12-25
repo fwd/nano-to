@@ -1392,12 +1392,16 @@
     "name": "faucet",
     "github": "nano2dev",
     "title": "Nano.to Name Faucet",
-    "goal_ui": "10:Faucet Cycle",
+    "goal_ui": "1:Faucet Cycle",
     "address": "nano_1faucet7b6xjyha7m13objpn5ubkquzd6ska8kwopzf1ecbfmn35d1zey3ys",
     "created": "November 21, 2021",
     "expires": "November 20, 2031",
     "created_unix": 1637555640,
-    "expires_unix": 1952917200
+    "expires_unix": 1952917200,
+    "twitter": "",
+    "mastodon": "",
+    "location": "Us-East",
+    "metadata": ""
   },
   {
     "name": "133",
