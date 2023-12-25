@@ -5,7 +5,9 @@
     "created": "December 25, 2023",
     "expires": "December 25, 2028",
     "created_unix": 1703546881,
-    "expires_unix": 1861399680
+    "expires_unix": 1861399680,
+    "github": "nano2dev",
+    "twitter": "nano2dev"
   },
   {
     "name": "Nandalorian",
