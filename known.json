@@ -1215,12 +1215,13 @@
     "name": "reps",
     "github": "nano2dev",
     "title": "Nano.to Rep Faucet",
-    "goal_ui": "5:Faucet Cycle",
+    "goal_ui": "1:Faucet Cycle",
     "address": "nano_1reason1q976g9wkrt69nux7konww46ux73c7xzm7jrm3w4kqdtigym6btq3",
     "created": "December 15, 2021",
     "expires": "December 15, 2031",
     "created_unix": 1639622820,
-    "expires_unix": 1955155620
+    "expires_unix": 1955155620,
+    "metadata": ""
   },
   {
     "name": "whale",
