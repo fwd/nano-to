@@ -316,25 +316,25 @@ var nano = new Vue({
         whois(prompt, diff) {
             if (diff && diff >= 10) {
                 var prepend = `Name is registered for 10 years or longer`
-                if (prompt.github) return window.alert(`${prepend} and verified as @${prompt.github.replace('https://github.com/', '')} on Github.`)
-                if (prompt.twitter) return window.alert(`${prepend} and verified as @${prompt.twitter.replace('https://twitter.com/', '')} on Twitter.`)
-                if (prompt.discord) return window.alert(`${prepend} and verified as @${prompt.discord.replace('https://discord.com/', '')} on Discord.`)
+                if (prompt.github && prompt.twitter) return window.alert(`${prepend} and self-verified as @${prompt.github.replace('https://github.com/', '')} on Github and @${prompt.twitter.replace('https://twitter.com/', '')} on Twitter.`)
+                if (prompt.github) return window.alert(`${prepend} and self-verified as @${prompt.github.replace('https://github.com/', '')} on Github.`)
+                if (prompt.twitter) return window.alert(`${prepend} and self-verified as @${prompt.twitter.replace('https://twitter.com/', '')} on Twitter.`)
+                if (prompt.discord) return window.alert(`${prepend} and self-verified as @${prompt.discord.replace('https://discord.com/', '')} on Discord.`)
                 return window.alert(prepend + '.')
             }
-            var string = `Verified as @${prompt.github.replace('https://github.com/', '')} on Github.`
-            if (!prompt.github && prompt.mastodon) {
-                return window.alert(`Verified as @${prompt.mastodon.split('https://')[1]} on Mastodon.`)
+            if (prompt.github && prompt.twitter) {
+                return window.alert(`Verified as @${prompt.github.replace('https://github.com/', '').replace('@', '')} on Github and @${prompt.twitter.replace('https://twitter.com/', '').replace('@', '')} on Twitter.`)
             }
-            if (!prompt.github && prompt.twitter) {
-                return window.alert(`Verified as @${prompt.twitter.replace('https://twitter.com/', '')} on Twitter.`)
+            if (prompt.twitter) {
+                return window.alert(`Verified as @${prompt.twitter.replace('https://twitter.com/', '').replace('@', '')} on Twitter.`)
             }
-            if (prompt.github && prompt.discord && prompt.twitter && (prompt.github === prompt.twitter && prompt.github === prompt.discord)) {
-                return window.alert(`Verified as @${prompt.github.replace('https://github.com/', '')} on Github, Twitter and Discord.`)
+            if (prompt.github) {
+                return window.alert(`Verified as @${prompt.github.replace('https://github.com/', '').replace('@', '')} on Github.`)
             }
-            if (prompt.github && prompt.twitter && (prompt.github === prompt.twitter)) {
-                return window.alert(`Verified as @${prompt.github.replace('https://github.com/', '')} on Github and Twitter.`)
+            if (prompt.mastodon) {
+                return window.alert(`Verified as @${prompt.mastodon.split('https://')[1].replace('@', '')} on Mastodon.`)
             }
-            return window.alert(string)
+            return 
         },
         kFormatter(num, digits) {
             num = Number(num)
