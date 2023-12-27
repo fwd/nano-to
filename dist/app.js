@@ -213,6 +213,14 @@ var nano = new Vue({
         }
     },
     methods: {
+        validExternalImage(url) {
+            if (!url || typeof url !== 'string') return false
+            if (url.startsWith('https://nano.to/dist/hosted/')) return true
+            if (url.startsWith('https://video.twimg.com/')) return true
+            if (url.startsWith('https://xno.nano.org/images/')) return true
+            if (url.startsWith('https://pbs.twimg.com/media/')) return true
+            return false
+        },
         bigPictureCheckout(name) {
             if (this.bigPictureSearch.includes('nano_')) {
                 return
