@@ -271,8 +271,8 @@ https://github.com/fwd/nano
                <video autoplay width="100%" muted><source :src="checkout.metadata" type="video/mp4"></video> 
             </p>
 
-            <p v-if="checkout.metadata && checkout.metadata.includes('https://nano.to/dist/hosted')">
-               <img :src="checkout.metadata" alt="">
+            <p v-if="checkout.metadata && ( checkout.metadata.includes('https://nano.to/dist/hosted') || checkout.metadata.includes('https://pbs.twimg.com/media') )" style="border-bottom: 0.5px solid #00000017; margin-bottom: 25px; padding-bottom: 25px;">
+               <img :src="checkout.metadata" style="border-radius: 5px">
             </p>
 
             <div v-if="checkout.update_name">
