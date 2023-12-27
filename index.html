@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.7.6">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.7.6">
+    <link rel="stylesheet" href="dist/style.css?v=9.7.7">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.7.7">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -217,17 +217,19 @@ https://github.com/fwd/nano
         <section v-if="checkout.plans || checkout.image || checkout.update_name" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
-              <h2>
+
+              <h2 style="margin-bottom: 4px;">
                 {{ checkout.lease ? '@' + checkout.lease : checkout.title }}
                 <img style="margin-left:-4px;zoom:0.8;margin-bottom: 6px;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
               </h2>
-              <p v-if="false && checkout.amount && !checkout.random_int" class="price">
-              <img :src="`dist/svg/thicc.svg`" alt="Verified" :style="`max-width:13px;margin-right:1px;margin-bottom: 0;opacity:0.8;zoom: 0.86;${checkout.color && checkout.color.text ? 'filter:invert(1)' : ''}`">
-              {{ nFormatter( String(checkout.amount).includes('.') ? Number(checkout.amount).toFixed(3) : checkout.amount ) }}
-              </p>
-              <p v-if="false && checkout.amount && checkout.random_int" class="price">
-              {{ currency == 'NANO' ? 'Ӿ ' : currency }} {{ Number(checkout.amount).toFixed(0) }}
-              </p>
+              
+              <div class="flex center justify socials">
+                <div v-if="checkout.github"><a :href="'https://github.com/' + checkout.github.replace('https://github.com/', '').replace('@', '')" target="_blank"><img src="/dist/svg/github-alt.svg" alt="Github"></a></div>
+                <div v-if="checkout.website && (checkout.website.startsWith('https://youtube.com') || checkout.website.startsWith('https://www.youtube.com/'))"><a :href="'https://youtube.com/' + checkout.website.replace('https://youtube.com/', '').replace('https://www.youtube.com/', '')" target="_blank"><img src="/dist/svg/youtube.svg" alt="YouTube"></a></div>
+                <div v-if="checkout.twitter"><a :href="'https://twitter.com/' + checkout.twitter.replace('https://twitter.com/', '')" target="_blank"><img src="/dist/svg/twitter.svg" alt="Twitter"></a></div>
+                <div v-if="checkout.website && (!checkout.website.startsWith('https://youtube.com') && !checkout.website.startsWith('https://www.youtube.com/'))" v-if="checkout.website"><a :href="`https://${checkout.website.replace('https://', '').replace('http://', '')}`" target="_blank"><img src="/dist/svg/website.svg" alt="Website"></a></div>
+              </div>
+              
             </div>
             <img v-if="checkout.image" class="checkout-image" :src="checkout.image" alt="">
             <div v-if="checkout.goal" id="goal-meter">
@@ -268,11 +270,11 @@ https://github.com/fwd/nano
             <p v-if="checkout.description" :class="`description`" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
 
             <p v-if="validExternalImage(checkout.metadata) && checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid #00000017; margin-bottom: 25px; padding-bottom: 25px;">
-               <video autoplay width="100%" muted><source :src="checkout.metadata" type="video/mp4"></video> 
+              <video autoplay width="100%" muted><source :src="checkout.metadata" type="video/mp4"></video> 
             </p>
 
             <p v-if="validExternalImage(checkout.metadata) && !checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid #00000017; margin-bottom: 25px; padding-bottom: 25px;">
-               <img :src="checkout.metadata" style="border-radius: 5px">
+              <img :src="checkout.metadata" style="border-radius: 5px">
             </p>
 
             <div v-if="checkout.update_name">
@@ -357,6 +359,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.7.6"></script>
+    <script src="dist/app.js?v=9.7.7"></script>
   </body>
 </html>

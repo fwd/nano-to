@@ -6374,3 +6374,11 @@ hr.memo {
 .nault .content .holder {
   color: #FFF;
 }
+
+.socials img {
+    max-width: 25px;
+    margin: 5px 7px;
+}
+.socials > div:last-child img {
+  margin-right: 0;
+}
