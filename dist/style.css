@@ -2306,7 +2306,7 @@ hr.memo {
 @media (max-width: 668px) {
     #avatar {
       position: absolute;
-      top: -12px;
+      top: -16px;
       left: 9px !important;
       align-items: center;
       cursor: pointer;
