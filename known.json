@@ -971,7 +971,7 @@
     "created_unix": 1668117803,
     "expires_unix": 1889067600,
     "location": "US-Central",
-    "goal_ui": "100:Thank you",
+    "goal_ui": "",
     "metadata": "https://xno.nano.org/images/xno_currencies.gif"
   },
   {
