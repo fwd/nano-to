@@ -1772,9 +1772,8 @@
   {
     "status": "active",
     "name": "moon",
-    "goal_ui": "45000:US-Obelisk-1",
+    "goal_ui": "40000:US-Obelisk-1",
     "title": "US-Obelisk-1 Fund",
-    "image": "https://pbs.twimg.com/media/FwLKAqSWAAILGLb?format=jpg",
     "github": "nano2dev",
     "address": "nano_1tower1hbm11aq5hx5d7kd5wff6b4czr74kxatc6g5ouot54nqjkhu4j7jr6",
     "created": "September 15, 2021",
@@ -1783,9 +1782,8 @@
     "expires_unix": 1915831620,
     "twitter": "nano2dev",
     "mastodon": "nano2dev",
-    "for_sale": "45000",
     "donation_address": "",
-    "metadata": "Coming Late 2027 🥦"
+    "metadata": "https://pbs.twimg.com/media/FwLKAqSWAAILGLb?format=jpg"
   },
   {
     "name": "alberto",
