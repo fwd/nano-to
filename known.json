@@ -5,7 +5,14 @@
     "created": "December 28, 2023",
     "expires": "December 28, 2025",
     "created_unix": 1703745648,
-    "expires_unix": 1766904000
+    "expires_unix": 1766904000,
+    "title": "Adamantem",
+    "twitter": "@1adamantem1",
+    "mastodon": "Adamantem@mastodon.social",
+    "location": "Someplace In Time And Space",
+    "website": "Soon",
+    "rep_address": "nano_33kpth4xzer9e539co5drgrcwcdxw815qu3qnwjsxwj6jomnchr7fr1w8u6n",
+    "donation_address": "nano_33kpth4xzer9e539co5drgrcwcdxw815qu3qnwjsxwj6jomnchr7fr1w8u6n"
   },
   {
     "name": "Flying_amigos",
