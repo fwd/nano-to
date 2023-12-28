@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.7.9">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.7.9">
+    <link rel="stylesheet" href="dist/style.css?v=9.8.0">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.8.0">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -268,11 +268,11 @@ https://github.com/fwd/nano
 
             <p v-if="checkout.description" :class="`description`" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
 
-            <p v-if="validExternalImage(checkout.metadata) && checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);margin-bottom: 20px;padding-bottom: 17px;">
+            <p v-if="validExternalImage(checkout.metadata) && checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);margin-bottom: 20px;padding-bottom: 15px;">
               <video autoplay width="100%" muted><source :src="checkout.metadata" type="video/mp4"></video> 
             </p>
 
-            <p v-if="validExternalImage(checkout.metadata) && !checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);margin-bottom: 20px;padding-bottom: 17px;">
+            <p v-if="validExternalImage(checkout.metadata) && !checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);margin-bottom: 20px;padding-bottom: 15px;">
               <img :src="checkout.metadata" style="border-radius: 5px">
             </p>
 
@@ -358,6 +358,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.7.9"></script>
+    <script src="dist/app.js?v=9.8.0"></script>
   </body>
 </html>

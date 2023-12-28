@@ -2405,8 +2405,8 @@ hr.memo {
 
 .name {
     border-bottom: 0.5px solid #00000017;
-    margin-bottom: 25px;
-    padding-bottom: 0px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
     margin-top: 0;
 }
 
@@ -6206,9 +6206,10 @@ hr.memo {
   margin: -15px 0 25px 0;
   border-bottom: 1px solid #00000012;
   padding: 20px 0;
-  padding-bottom: 25px;
-  margin-bottom: 30px;
+  padding-bottom: 17px;
+  margin-bottom: 17px;
   zoom: 1.06;
+  padding-top: 15px;
 }
 
 #funding-wrap {
