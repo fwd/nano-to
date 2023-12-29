@@ -253,7 +253,7 @@ var nano = new Vue({
             return yearDiff;
         },
         update_name(prompt) {
-            if (window.name !== 'nault') {}
+            // if (window.name !== 'nault') {}
             return axios.post('https://rpc.nano.to', {
                 action: 'update_name',
                 name: prompt.name
@@ -261,7 +261,6 @@ var nano = new Vue({
                 res.data.changes = {}
                 this.updatable.map(a => a.label).map(a => {
                     var chosen = this.usernames.find(a => a.name === prompt.name)
-                    // console.log(a, res.data[a], prompt[a])
                     if (a === 'title') res.data.changes[a] = chosen[a]
                     else res.data.changes[a] = res.data[a] ? res.data[a] : chosen[a]
                 })
@@ -774,21 +773,26 @@ var nano = new Vue({
                         redirect: res.data.redirect || false,
                     }
                 }
-                if (this.checkout.update_name || this.checkout.purchase_name) {
-                    // setTimeout(() => {
-                    this.success = false
-                    this.checkout = false
-                    // this.prompt = 
-                    Object.keys(res.data.username).map(a => {
-                        this.prompt[a] = res.data.username[a]
-                    })
-                    this.dev_mode = true
-                    this.$forceUpdate()
-                    // window.location.href = res.data.redirect
-                    // }, 500)
-                    return
-                    // return dev_mode = true
-                }
+                // if (this.checkout.update_name || this.checkout.purchase_name) {
+                    
+                //     // setTimeout(() => {
+                //     this.success = false
+                //     this.checkout = false
+                //     // this.prompt = 
+                    
+                //     Object.keys(res.data.username).map(a => {
+                //         this.prompt[a] = res.data.username[a]
+                //     })
+                    
+                //     this.dev_mode = true
+
+                //     this.$forceUpdate()
+                //     // window.location.href = res.data.redirect
+                //     // }, 500)
+                //     return
+                //     // return dev_mode = true
+                    
+                // }
                 if (res.data.redirect && !res.data.button) {
                     setTimeout(() => {
                         window.location.href = res.data.redirect
