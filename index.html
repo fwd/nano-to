@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.8.0">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.8.0">
+    <link rel="stylesheet" href="dist/style.css?v=9.8.1">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.8.1">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -112,7 +112,7 @@ https://github.com/fwd/nano
                         </h1>
                         <span v-if="prompt.exchange_hot_wallet" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">EXCHANGE ADDRESS</span>
                         <span v-if="prompt.title" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">{{ prompt.title }}</span>
-                        <div v-if="queryToObject().nocache" style="height: 30px"></div>
+                        <div v-if="queryToObject().nocache && prompt.title" style="height: 30px"></div>
                         <span v-if="!prompt.title && prompt.for_sale" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">FOR SALE</span>
                         <br v-if="dev_mode">
                         <p v-if="!dev_mode && !prompt.title" v-html="prompt.body"></p>
@@ -129,15 +129,15 @@ https://github.com/fwd/nano
                       </div>
                       <div v-if="prompt.github" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].github ? strings[lang].github : strings['en'].github) }}</span> 
-                        <a target="_blank" :href="'https://github.com/' + prompt.github.replace('https://github.com/', '')">github.com/{{ prompt.github.replace('https://github.com/', '').replace('@', '') }}</a>
-                      </div>
-                      <div v-if="prompt.mastodon" style="margin-bottom: 10px;">
-                        <span style="color: red;">{{ (strings[lang] && strings[lang].mastodon ? strings[lang].mastodon : strings['en'].mastodon) }}</span> 
-                        <a target="_blank" :href="'https://' + prompt.mastodon.replace('https://', '')">{{ prompt.mastodon.replace('@', '') }}</a>
+                        <a target="_blank" :href="'https://github.com/' + prompt.github.replace('https://github.com/', '')">@{{ prompt.github.replace('https://github.com/', '').replace('@', '') }}</a>
                       </div>
                       <div v-if="prompt.twitter" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].twitter ? strings[lang].twitter : strings['en'].twitter) }}</span> 
-                        <a target="_blank" :href="'https://twitter.com/' + prompt.twitter.replace('https://twitter.com/', '')">twitter.com/{{ prompt.twitter.replace('https://twitter.com/', '').replace('@', '') }}</a>
+                        <a target="_blank" :href="'https://twitter.com/' + prompt.twitter.replace('https://twitter.com/', '')">@{{ prompt.twitter.replace('https://twitter.com/', '').replace('@', '') }}</a>
+                      </div>
+                      <div v-if="prompt.mastodon" style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].mastodon ? strings[lang].mastodon : strings['en'].mastodon) }}</span> 
+                        <a target="_blank" :href="'https://' + prompt.mastodon.replace('https://', '')">{{ prompt.mastodon.replace('https://', '').replace('@', '') }}</a>
                       </div>
                       <div v-if="prompt.location" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].location ? strings[lang].location : strings['en'].location) }}</span> 
@@ -358,6 +358,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.8.0"></script>
+    <script src="dist/app.js?v=9.8.1"></script>
   </body>
 </html>
