@@ -225,7 +225,7 @@ var nano = new Vue({
             if (this.bigPictureSearch.includes('nano_')) {
                 return
             }
-            if (name.for_sale) {
+            if (Number(name.for_sale)) {
                 return axios.post('https://api.nano.to', {
                     action: 'purchase_name',
                     name: name.name
@@ -1153,7 +1153,7 @@ var nano = new Vue({
                     // url: `nano:${suggestion.address}`
                     deep: `nano:${suggestion.address}`
                 })
-                if (suggestion.for_sale) {
+                if (Number(suggestion.for_sale)) {
                     checkout.plans = false
                     checkout.amount = suggestion.for_sale
                     checkout.instructions = `Purchase Nano.to/${suggestion.name}`
