@@ -267,12 +267,12 @@
   },
   {
     "name": "Boardwalk",
-    "address": "nano_1rune53mf39145dcy8i6otiyje5ewmmzaxxeixutx8xtosgqyzkdy3pnxjs1",
+    "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
     "created": "October 28, 2023",
     "expires": "October 28, 2025",
     "created_unix": 1698517780,
     "expires_unix": 1761676140,
-    "for_sale": "2"
+    "for_sale": 0
   },
   {
     "name": "Kit",
