@@ -253,7 +253,10 @@ var nano = new Vue({
             return yearDiff;
         },
         update_name(prompt) {
-            // if (window.name !== 'nault') {}
+            if (window.name !== 'nault') {
+                var ok = window.confirm('Only address owner can update lease. Press OK to continue.')
+                if (!ok) return
+            }
             return axios.post('https://rpc.nano.to', {
                 action: 'update_name',
                 name: prompt.name
@@ -274,7 +277,7 @@ var nano = new Vue({
         },
         renew() {
             if (window.name !== 'nault') {
-                var ok = window.confirm('Only the Owner may extend lease. Press OK to continue.')
+                var ok = window.confirm('Only address owner can extend lease. Press OK to continue.')
                 if (!ok) return
             }
             axios.post(`https://rpc.nano.to`, {
@@ -793,7 +796,7 @@ var nano = new Vue({
                 //     // }, 500)
                 //     return
                 //     // return dev_mode = true
-                    
+
                 // }
                 if (res.data.redirect && !res.data.button) {
                     setTimeout(() => {
