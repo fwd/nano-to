@@ -45,7 +45,12 @@
     "created": "December 29, 2023",
     "expires": "January 29, 2024",
     "created_unix": 1703888526,
-    "expires_unix": 1706566920
+    "expires_unix": 1706566920,
+    "title": "Armour",
+    "github": "https://www.github.com/BrazyDevelopment",
+    "twitter": "https://www.x.com/Armour_Hosting",
+    "location": "Europe",
+    "website": "https://armour.dev"
   },
   {
     "name": "Newyorkavenue",
