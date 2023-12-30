@@ -1390,9 +1390,9 @@
     "name": "Doge",
     "address": "nano_37duxi99ta69cg18jypfjisy14bzouun64f66j6847fbkjffb6aufmca9iaw",
     "created": "January 7, 2022",
-    "expires": "January 7, 2024",
+    "expires": "January 7, 2029",
     "created_unix": 1641586860,
-    "expires_unix": 1704658860
+    "expires_unix": 1862456400
   },
   {
     "name": "hermes",
