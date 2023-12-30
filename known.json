@@ -193,7 +193,8 @@
     "expires": "January 29, 2029",
     "created_unix": 1703885709,
     "expires_unix": 1864357200,
-    "title": "NewYorkAvenue"
+    "title": "NewYorkAvenue",
+    "for_sale": "134000000"
   },
   {
     "name": "Jonas",
