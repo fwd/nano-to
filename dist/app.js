@@ -108,12 +108,13 @@ var nano = new Vue({
                 value: '',
                 max: 99,
                 placeholder: ''
-            }, {
-                label: 'nostr_public_key',
-                value: '',
-                max: 99,
-                placeholder: ''
-            },
+            }, 
+            // {
+            //     label: 'nostr_public_key',
+            //     value: '',
+            //     max: 99,
+            //     placeholder: ''
+            // },
         ]
     },
     watch: {
@@ -213,6 +214,14 @@ var nano = new Vue({
         }
     },
     methods: {
+        cancel_search() {
+            if (this.prompt) {
+                this.prompt = false;
+                this.search = true;
+            }
+            var query = this.queryToObject()
+            if (query.nocache) this.reset()
+        },
         validExternalImage(url) {
             if (!url || typeof url !== 'string') return false
             if (url.startsWith('https://nano.to/dist/hosted/')) return true
@@ -779,26 +788,6 @@ var nano = new Vue({
                         redirect: res.data.redirect || false,
                     }
                 }
-                // if (this.checkout.update_name || this.checkout.purchase_name) {
-                    
-                //     // setTimeout(() => {
-                //     this.success = false
-                //     this.checkout = false
-                //     // this.prompt = 
-                    
-                //     Object.keys(res.data.username).map(a => {
-                //         this.prompt[a] = res.data.username[a]
-                //     })
-                    
-                //     this.dev_mode = true
-
-                //     this.$forceUpdate()
-                //     // window.location.href = res.data.redirect
-                //     // }, 500)
-                //     return
-                //     // return dev_mode = true
-
-                // }
                 if (res.data.redirect && !res.data.button) {
                     setTimeout(() => {
                         window.location.href = res.data.redirect
@@ -1111,6 +1100,7 @@ var nano = new Vue({
             this.string = ''
             this.search = true
             this.dev_mode = false
+            this.big_picture_mode = false
             this.checkout = false
             this.frame = false
             this.customAmount = ''
