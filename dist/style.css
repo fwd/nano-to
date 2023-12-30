@@ -59,6 +59,9 @@ body {
 }
 
 @media (max-width:  769px) {
+  .hide-mobile {
+    display: none;
+  }
   .address-t {
     font-size: 26px;
   }
