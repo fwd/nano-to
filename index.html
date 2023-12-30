@@ -315,7 +315,7 @@ https://github.com/fwd/nano
               <!-- <h3 v-if="(!checkout.plans || !checkout.plans.length || !checkout.update_name) && checkout.title" :style="`margin-bottom: 0;color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'}`">{{ checkout.title }}</h3> -->
               <h4 v-if="checkout.amount" class="instructions">
                 <b v-if="Number(checkout.amount)" @click="copy(checkout.amount)" class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor:pointer`">{{ String(checkout.amount).length > 10 ? String(checkout.amount).slice(0, 10) + '~' : checkout.amount }}
-                  <span class="blocky">{{ 'NANO' }}</span>
+                  <!-- <span class="blocky">{{ 'NANO' }}</span> -->
                 </b>
                 <span v-if="Number(checkout.amount) && rate" :style="`color: #d8ecf9;cursor: pointer;opacity: 0.7;display: block;margin-bottom: 20px;font-family: Cyber;font-size: 18px;`">≈ {{ nFormatter( (checkout.amount * rate).toFixed(2) ) }} {{ currencyComputed }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${ checkout.currency !== 'NANO' && checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img :src="`./dist/images/info2.png`" alt="" class="info-icon">
                   </a>
