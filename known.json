@@ -15,7 +15,14 @@
     "created": "December 29, 2023",
     "expires": "December 29, 2024",
     "created_unix": 1703893131,
-    "expires_unix": 1735515480
+    "expires_unix": 1735515480,
+    "title": "Brazy",
+    "github": "BrazyDevelopment",
+    "twitter": "RealBrazyUK",
+    "location": "United Kingdom, Europe",
+    "website": "https://armour.dev",
+    "goal_ui": "100000:Lambo",
+    "metadata": "https://pbs.twimg.com/media/GCjpPV2WoAE_Ddo?format=jpg&name=medium"
   },
   {
     "name": "Broccoli",
