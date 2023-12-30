@@ -30,7 +30,13 @@
     "created": "December 29, 2023",
     "expires": "December 29, 2024",
     "created_unix": 1703892785,
-    "expires_unix": 1735515180
+    "expires_unix": 1735515180,
+    "title": "I am Broccoli. Broccoli is love. Broccoli is life.",
+    "twitter": "Armour_Hosting",
+    "location": "Planted in the ground.",
+    "website": "https://i.pinimg.com/736x/82/bb/0a/82bb0a6db2a435585edc6e7e9e7b3907.jpg",
+    "for_sale": "133",
+    "goal_ui": "10000:Broccoli Harvest"
   },
   {
     "name": "Fast",
