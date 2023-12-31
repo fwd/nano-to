@@ -1507,14 +1507,6 @@
     "location": "US-East"
   },
   {
-    "name": "tomsharp",
-    "address": "nano_3hfo8d1yoppygzapw5wgoo8d948jcbax3xz4699suc86x1n41efku1uf3dt4",
-    "created": "December 21, 2021",
-    "expires": "December 21, 2023",
-    "created_unix": 1640125260,
-    "expires_unix": 1703197260
-  },
-  {
     "name": "giveaway",
     "address": "nano_189ketg78s6537xjmacicpstgo9945caa9did3j3dekths4oxdz6cp75udty",
     "created": "December 17, 2021",
