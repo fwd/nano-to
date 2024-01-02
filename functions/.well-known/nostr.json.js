@@ -40,7 +40,9 @@ export async function onRequestGet(ctx) {
 
   const response = Response.json({ names: nostr_object });
 
-  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set("Access-Control-Allow-Origin", "*")
+  response.headers.set("Access-Control-Allow-Headers", "*")
+  response.headers.set("Access-Control-Allow-Methods", "GET,HEAD,POST,OPTIONS")
   
   return response;
 
