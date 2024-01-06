@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=9.9.0">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.9.0">
+    <link rel="stylesheet" href="dist/style.css?v=9.9.1">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.9.1">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -138,7 +138,7 @@ https://github.com/fwd/nano
                       </div>
                       <div v-if="prompt.mastodon" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].mastodon ? strings[lang].mastodon : strings['en'].mastodon) }}</span> 
-                        <a target="_blank" :href="'https://' + prompt.mastodon.replace('https://', '')">{{ prompt.mastodon.replace('https://', '').replace('@', '') }}</a>
+                        <a target="_blank" :href="'https://' + mastodonLink(prompt.mastodon)">{{ mastodonLink(prompt.mastodon) }}</a>
                       </div>
                       <div v-if="prompt.location" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].location ? strings[lang].location : strings['en'].location) }}</span> 
@@ -358,6 +358,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.9.0"></script>
+    <script src="dist/app.js?v=9.9.1"></script>
   </body>
 </html>
