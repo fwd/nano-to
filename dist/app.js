@@ -215,7 +215,7 @@ var nano = new Vue({
     },
     methods: {
         mastodonLink(link) {
-            if (!link.includes('://')) link = `xno.social/${link.replace('http://', '').replace('https://', '')}`
+            if (!link.includes('xno.social')) link = `xno.social/${link.replace('http://', '').replace('https://', '')}`
             return link.replace('http://', '').replace('https://', '')
         },
         cancel_search() {
