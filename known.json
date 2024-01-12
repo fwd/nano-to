@@ -1541,14 +1541,6 @@
     "expires_unix": 1704337860
   },
   {
-    "name": "nw",
-    "address": "nano_18ces8e664odikoh5kicbyc44ib8n49t5cidorajp9zuaxkh9aepbd9acs4d",
-    "created": "January 2, 2022",
-    "expires": "January 2, 2024",
-    "created_unix": 1641152580,
-    "expires_unix": 1704224580
-  },
-  {
     "name": "z",
     "address": "nano_1bowyrm18bz4fmedp81xcdt6uyc51z1aua93kgmpwqfqmtt7fc8bgwpebx8e",
     "created": "December 31, 2021",
@@ -1741,14 +1733,6 @@
     "expires": "November 23, 2031",
     "created_unix": 1637648280,
     "expires_unix": 1953181080
-  },
-  {
-    "name": "Torin",
-    "address": "nano_3jxc7hrudixaxfmtt64fgpeux9t95184t85ah1z94jzbj4fde53zr4xfwhts",
-    "created": "November 22, 2021",
-    "expires": "January 2, 2024",
-    "created_unix": 1637641140,
-    "expires_unix": 1704241920
   },
   {
     "name": "pj",
