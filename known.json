@@ -1488,9 +1488,9 @@
     "name": "auz",
     "address": "nano_1mfaxxxfzk73jdz1nbjdp6itx8wagm574daritciwhwfrriddt4n68x6gawo",
     "created": "January 18, 2022",
-    "expires": "January 18, 2024",
+    "expires": "January 18, 2026",
     "created_unix": 1642550820,
-    "expires_unix": 1705554000
+    "expires_unix": 1768712400
   },
   {
     "name": "mix",
