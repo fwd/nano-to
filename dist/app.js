@@ -214,6 +214,20 @@ var nano = new Vue({
         }
     },
     methods: {
+        do_update_name(res, name) {
+            res.data.changes = {}
+            this.updatable.map(a => a.label).map(a => {
+                var chosen = this.usernames.find(a => a.name.toLowerCase() === name.toLowerCase().replace('@', ''))
+                if (a === 'title') res.data.changes[a] = chosen[a]
+                else res.data.changes[a] = res.data[a] ? res.data[a] : chosen[a]
+            })
+            res.data.cancel = true
+            this.checkout = res.data
+            setTimeout(() => {
+                this.showQR()
+                this.$forceUpdate()
+            }, 100)
+        },
         mastodonLink(link) {
             if (!link.includes('xno.social') && !link.includes('://')) link = `xno.social/${link.replace('http://', '').replace('https://', '')}`
             return link.replace('http://', '').replace('https://', '')
@@ -262,7 +276,6 @@ var nano = new Vue({
             if (date2.getMonth() < date1.getMonth() || (date2.getMonth() === date1.getMonth() && date2.getDate() < date1.getDate())) {
                 yearDiff--;
             }
-            // console.log("yearDiff", yearDiff)
             return yearDiff;
         },
         update_name(prompt) {
@@ -274,18 +287,7 @@ var nano = new Vue({
                 action: 'update_name',
                 name: prompt.name
             }).then((res) => {
-                res.data.changes = {}
-                this.updatable.map(a => a.label).map(a => {
-                    var chosen = this.usernames.find(a => a.name === prompt.name)
-                    if (a === 'title') res.data.changes[a] = chosen[a]
-                    else res.data.changes[a] = res.data[a] ? res.data[a] : chosen[a]
-                })
-                res.data.cancel = true
-                this.checkout = res.data
-                setTimeout(() => {
-                    this.showQR()
-                    this.$forceUpdate()
-                }, 100)
+                this.do_update_name(res, prompt.name)
             })
         },
         renew() {
@@ -408,6 +410,7 @@ var nano = new Vue({
             if (configured) configured = configured.replace(':path', path).replace(':id', path)
             var endpoint = configured || `https://api.nano.to/checkout/${path}`
             axios.get(endpoint).then(async (res) => {
+                if (res.data.update_name) return this.do_update_name(res, res.data.update_name)
                 if (res.data.error) return this.notify(res.data.message)
                 if (res.data.plans && res.data.plans.length) {
                     var selected = res.data.selected && res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()) ? res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()).value : res.data.plans[0].value
@@ -437,7 +440,7 @@ var nano = new Vue({
                 }
             }).catch(e => {
                 this.reset()
-                this.notify(e.message ? e.message : 'Error 27', 'error', 10000)
+                this.notify(e.message ? 'Error 27:' + e.message : 'Error 27', 'error', 10000)
             })
         },
         async json_checkout(checkout) {
@@ -474,9 +477,7 @@ var nano = new Vue({
             if (name === 'DESIRED_USERNAME') return alert('Reading the docs? Try searching for desired name instead.')
             if (item && Number(item.for_sale)) return this.bigPictureCheckout(item)
             var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_')
-            if (path && checkout) {
-                return this.invoice()
-            }
+            if (path && checkout) return this.invoice()
             if ((path && !path.includes('nano_')) && !this.usernames.find(a => a.name.toLowerCase() === name)) return alert('Name not registered.')
             var query = this.queryToObject()
             var amount = query.p || query.price || query.amount || item.amount || item.price || false
@@ -698,7 +699,6 @@ var nano = new Vue({
             return Math.floor(Math.random() * (max - min) + min)
         },
         cancel() {
-            // console.log( "this.checkout.cancel_url", this.checkout.cancel_url )
             if (this.checkout.cancel_url && this.checkout.cancel_url !== window.location.origin) {
                 return window.location.href = this.checkout.cancel_url
             }
@@ -1052,7 +1052,6 @@ var nano = new Vue({
                     action: 'purchase_name',
                     name: button.purchase_name
                 }).then((res) => {
-                    // console.log(res.data)
                     res.data.cancel = true
                     this.json_checkout(res.data, null, true)
                 })
@@ -1066,7 +1065,6 @@ var nano = new Vue({
                 }
                 return axios.post(button.website, body).then((res) => {
                     if (!res.data.json && !res.data.id) {
-                        // console.log(button)
                         return
                     }
                     if (res.data.json) {
