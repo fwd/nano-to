@@ -518,7 +518,8 @@ var nano = new Vue({
                 if (plans && typeof plans === 'string') {
                     plans = plans.split(',').map(a => {
                         var value = a.trim().split(':')[1]
-                        if (query.random || query.r) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                        var random = query.random || query.r
+                        if (random !== "false" && random !== false) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
                         return {
                             title: a.trim().split(':')[0],
                             value
