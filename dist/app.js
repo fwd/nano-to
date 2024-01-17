@@ -140,7 +140,7 @@ var nano = new Vue({
             if (document.body) document.body.classList.add('fullscreen');
         }
         this.loading = true
-        var bigPictureMode = query.bigscreen || query.bigPicture || query.big || query.full || query.fullscreen || query.bpm || query.b || query.f
+        var bigPictureMode = query.bigscreen || query.bigPicture || query.big || query.full || query.fullscreen || query.bpm || query.b || query.f || query.play || query.nanopoly
         if (bigPictureMode) {
             this.big_picture_mode = true
         }
@@ -214,6 +214,26 @@ var nano = new Vue({
         }
     },
     methods: {
+        addRandomAmount(plans) {
+            if (plans.includes(',')) {
+                var query = this.queryToObject()
+                return plans.split(',').map(a => {
+                    var value = a.trim().split(':')[1]
+                    var random = query.random || query.r
+                    if (random !== "false" && random !== false) {
+                        if (Number(value) < 1) value = `${String(value).includes('.') ? String(value) + '0' + this.getRandomArbitrary(10, 1000) : String(value) + '.00' + this.getRandomArbitrary(1000, 10000) }`
+                        if (Number(value) >= 1) value = `${String(value).includes('.') ? String(value) + '000' + this.getRandomArbitrary(1000, 10000) : String(value) + '.000' + this.getRandomArbitrary(1000, 10000) }`
+                    }
+                    return {
+                        title: a.trim().split(':')[0],
+                        value
+                    }
+                })
+            }
+            if (typeof plans === 'string' && Number(plans)) {
+                return `${String(plans).includes('.') ? String(plans) + '00' + this.getRandomArbitrary(1000, 10000) : String(plans) + '.00' + this.getRandomArbitrary(1000, 10000) }`
+            }
+        },
         do_update_name(res, name) {
             res.data.changes = {}
             this.updatable.map(a => a.label).map(a => {
@@ -516,22 +536,11 @@ var nano = new Vue({
                 var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
                 var success_button = 'View Block'
                 if (plans && typeof plans === 'string') {
-                    plans = plans.split(',').map(a => {
-                        var value = a.trim().split(':')[1]
-                        var random = query.random || query.r
-                        if (random !== "false" && random !== false) {
-                            if (Number(value) < 1) value = `${String(value).includes('.') ? String(value) + '0' + this.getRandomArbitrary2(10, 1000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
-                            if (Number(value) >= 1) value = `${String(value).includes('.') ? String(value) + '000' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.000' + this.getRandomArbitrary2(1000, 10000) }`
-                        }
-                        return {
-                            title: a.trim().split(':')[0],
-                            value
-                        }
-                    })
+                    plans = this.addRandomAmount(plans)
                 }
                 // if (item.goal_ui && plans && plans.length) {
                 //     plans = plans.map(a => {
-                //         if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                //         if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary(1000, 10000) }`
                 //         return a
                 //     })
                 // }
@@ -539,7 +548,7 @@ var nano = new Vue({
                     amount = (amount / this.rate).toFixed(2)
                 }
                 if (amount && query.random || query.r) {
-                    amount = `${String(amount).includes('.') ? String(amount) + '00' + this.getRandomArbitrary2(1000, 10000) : String(amount) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                    amount = this.addRandomAmount(amount)
                 }
                 var goal
                 var _goal = item.goal_ui || item.goal || query.goal
@@ -627,20 +636,12 @@ var nano = new Vue({
                 if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
                 var plans = query.p
                 var success_url = query.success || query.success_url || query.redirect
-                if (!amount && !plans) plans = `Tip:0.1330${this.getRandomArbitrary2(100, 1000)},Small:5,Medium:10,Large:25,Gigantic:100`
-                if (plans) {
-                    plans = plans.split(',').map(a => {
-                        var value = a.trim().split(':')[1]
-                        if (this.currency !== 'NANO') value = (Number(value) / this.rate).toFixed(2)
-                        return {
-                            title: a.trim().split(':')[0],
-                            value
-                        }
-                    })
-                }
-                if ((!plans || !plans.length) && (query.random || query.r || item.random)) {
-                    amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary2(10000, 100000)
-                }
+                if (!amount && !plans) plans = `Tip:0.133,Small:5,Medium:10,Large:25,Gigantic:100`
+                if (plans) plans = this.addRandomAmount(plans)
+                // duplicate code
+                // if ((!plans || !plans.length) && (query.random || query.r || item.random)) {
+                //     amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary(10000, 100000)
+                // }
                 if (query.goal) {
                     var account_info = await this.balance(query.address || query.to || path)
                     goal = {
@@ -649,17 +650,11 @@ var nano = new Vue({
                         balance: Number(account_info.balance).toFixed(2)
                     }
                 }
-                // if (query.goal) {
-                //     plans = plans.map(a => {
-                //         if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
-                //         return a
-                //     })
-                // }
                 if (amount && query.currency || query.c) {
                     amount = (amount / this.rate).toFixed(2)
                 }
                 if (amount && query.random || query.r) {
-                    amount = `${String(amount).includes('.') ? String(amount) + '00' + this.getRandomArbitrary2(1000, 10000) : String(amount) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                    amount = this.addRandomAmount(amount)
                 }
                 this.checkout = {
                     title: query.title,
@@ -697,9 +692,6 @@ var nano = new Vue({
             }
         },
         getRandomArbitrary(min, max) {
-            return Math.random() * (max - min) + min
-        },
-        getRandomArbitrary2(min, max) {
             return Math.floor(Math.random() * (max - min) + min)
         },
         cancel() {
@@ -926,7 +918,6 @@ var nano = new Vue({
                         name: username[username.length - 1].name,
                         github: username[username.length - 1].github,
                         exchange_hot_wallet: username[username.length - 1].exchange_hot_wallet,
-                        // website: username[username.length - 1].website,
                         metadata: username[username.length - 1].metadata,
                         twitter: username[username.length - 1].twitter,
                         location: username[username.length - 1].location,
