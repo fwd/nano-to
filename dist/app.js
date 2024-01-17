@@ -512,26 +512,29 @@ var nano = new Vue({
                 var donation = item.donate || query.custom
                 var highlight = query.backdrop || query.border || query.backgrounds || query.highlight
                 if (!amount && !plans || donation) custom = true
-                if (!amount && !plans) plans = `Tip:0.1330${this.getRandomArbitrary2(100, 1000)},Small:5,Medium:10,Large:25,Gigantic:100`
+                if (!amount && !plans) plans = `Tip:0.133,Small:5,Medium:10,Large:25,Gigantic:100`
                 var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
                 var success_button = 'View Block'
                 if (plans && typeof plans === 'string') {
                     plans = plans.split(',').map(a => {
                         var value = a.trim().split(':')[1]
                         var random = query.random || query.r
-                        if (random !== "false" && random !== false) value = `${String(value).includes('.') ? String(value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                        if (random !== "false" && random !== false) {
+                            if (Number(value) < 1) value = `${String(value).includes('.') ? String(value) + '0' + this.getRandomArbitrary2(10, 1000) : String(value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                            if (Number(value) >= 1) value = `${String(value).includes('.') ? String(value) + '000' + this.getRandomArbitrary2(1000, 10000) : String(value) + '.000' + this.getRandomArbitrary2(1000, 10000) }`
+                        }
                         return {
                             title: a.trim().split(':')[0],
                             value
                         }
                     })
                 }
-                if (item.goal_ui && plans && plans.length) {
-                    plans = plans.map(a => {
-                        if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
-                        return a
-                    })
-                }
+                // if (item.goal_ui && plans && plans.length) {
+                //     plans = plans.map(a => {
+                //         if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                //         return a
+                //     })
+                // }
                 if (amount && query.currency || query.c) {
                     amount = (amount / this.rate).toFixed(2)
                 }
@@ -623,7 +626,7 @@ var nano = new Vue({
                 var donation = query.custom
                 if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
                 var plans = query.p
-                var success_url = query.success || query.success_url || query.redirect || query.r
+                var success_url = query.success || query.success_url || query.redirect
                 if (!amount && !plans) plans = `Tip:0.1330${this.getRandomArbitrary2(100, 1000)},Small:5,Medium:10,Large:25,Gigantic:100`
                 if (plans) {
                     plans = plans.split(',').map(a => {
@@ -646,12 +649,12 @@ var nano = new Vue({
                         balance: Number(account_info.balance).toFixed(2)
                     }
                 }
-                if (query.goal) {
-                    plans = plans.map(a => {
-                        if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
-                        return a
-                    })
-                }
+                // if (query.goal) {
+                //     plans = plans.map(a => {
+                //         if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary2(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary2(1000, 10000) }`
+                //         return a
+                //     })
+                // }
                 if (amount && query.currency || query.c) {
                     amount = (amount / this.rate).toFixed(2)
                 }
@@ -803,12 +806,12 @@ var nano = new Vue({
         },
         show_success(block) {
             var query = this.queryToObject()
-            redirect = query.r || query.redirect || query.success || this.checkout.success_url || false
+            redirect = query.redirect || query.success || this.checkout.success_url || false
             this.success = {
                 block,
                 confetti: true,
                 title: this.checkout.goal ? this.checkout.goal.title : 'Success',
-                message: this.checkout.goal ? `Contributed` : 'Payment received',
+                message: this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send),
                 redirect: this.checkout.goal ? false : redirect,
             }
             if (redirect) {
