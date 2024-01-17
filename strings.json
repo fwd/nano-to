@@ -11,7 +11,6 @@
     "open": "Open Wallet",
     "available": "Name Available",
     "success": "Success",
-    "redirecting": "Redirecting..",
     "created": "Created:",
     "location": "Location:",
     "expires": "Expires:",
@@ -27,7 +26,10 @@
     "purchase": "Purchase",
     "new_lease": "New Lease",
     "extend_lease": "Extend Lease",
-    "exchange_address": "Exchange Address"
+    "exchange_address": "Exchange Address",
+    "donated": "Contributed",
+    "redirecting": "Redirecting..",
+    "payment_send": "Payment Sent"
   },
   "uk": { 
     "note": "Перевірте адресу одержувача і надсилайте тільки NANO (XNO) на цю адресу.",
