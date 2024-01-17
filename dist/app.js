@@ -437,7 +437,7 @@ var nano = new Vue({
                     res.data.amount = selected
                 }
                 if (res.data.goal) {
-                    var account_info = await this.balance(query.address || query.to || item.donation_address || item.address)
+                    var account_info = await this.balance(query.address || query.to || item.address)
                     res.data.goal = {
                         title: res.data.goal ? res.data.goal.split(':')[1] : '',
                         total: res.data.goal ? res.data.goal.split(':')[0] : '',
@@ -553,7 +553,7 @@ var nano = new Vue({
                 var goal
                 var _goal = item.goal_ui || item.goal || query.goal
                 if (_goal) {
-                    var account_info = await this.balance(query.address || query.to || item.donation_address || item.address)
+                    var account_info = await this.balance(query.address || query.to || item.address)
                     goal = {
                         title: _goal ? _goal.split(':')[1] : '',
                         total: _goal ? _goal.split(':')[0] : '',
