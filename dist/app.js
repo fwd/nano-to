@@ -818,7 +818,7 @@ var nano = new Vue({
                     // window.location.reload()
                     this.success = false
                     // this.checkout = false
-                }, this.checkout.redirect_delay || 3000)
+                }, this.checkout.redirect_delay || 5000)
                 return
             }
             if (redirect) {
