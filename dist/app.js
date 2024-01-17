@@ -797,7 +797,7 @@ var nano = new Vue({
         },
         show_success(block) {
             var query = this.queryToObject()
-            redirect = query.redirect || query.success || this.checkout.success_url || false
+            redirect = query.redirect || query.success || this.checkout.success_url
             this.success = {
                 block,
                 confetti: true,
@@ -805,8 +805,24 @@ var nano = new Vue({
                 message: this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send),
                 redirect: this.checkout.goal ? false : redirect,
             }
+            if (this.checkout.goal) {
+                setTimeout(async () => {
+                    var account_info = await this.balance(this.checkout.address)
+                    this.checkout.goal = {
+                        title: this.checkout.goal.title,
+                        total: this.checkout.goal.total,
+                        balance: Number(account_info.balance).toFixed(2),
+                        pending: account_info.pending
+                    }
+                    this.notify('Balance Updated')
+                    // window.location.reload()
+                    this.success = false
+                    // this.checkout = false
+                }, this.checkout.redirect_delay || 3000)
+                return
+            }
             if (redirect) {
-                var success_url = this.checkout.success_url.split('{{account}}').join(block.account).split('{{amount}}').join(this.convert(this.checkout.amount, 'RAW', 'NANO')).split('{{amount_raw}}').join(block.amount).split('{{hash}}').join(block.hash).split('{{block}}').join(block.hash)
+                var success_url = redirect.split('{{account}}').join(block.account).split('{{amount}}').join(this.convert(this.checkout.amount, 'RAW', 'NANO')).split('{{amount_raw}}').join(block.amount).split('{{hash}}').join(block.hash).split('{{block}}').join(block.hash)
                 setTimeout(() => {
                     if (success_url === 'calendly') {
                         this.frame = `https://calendly.com/${this.checkout.known.calendly.replace('https://calendly.com/', '')}?embed_domain=nano.to&embed_type=PopupText`
@@ -814,6 +830,7 @@ var nano = new Vue({
                         this.checkout = false
                         return
                     }
+                    window.location.href = success_url
                 }, this.checkout.redirect_delay || 3000)
                 return
             }
