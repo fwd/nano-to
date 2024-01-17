@@ -556,7 +556,6 @@ var nano = new Vue({
                     var account_info = await this.balance(query.address || query.to || item.donation_address || item.address)
                     goal = {
                         title: _goal ? _goal.split(':')[1] : '',
-                        title: _goal ? _goal.split(':')[1] : '',
                         total: _goal ? _goal.split(':')[0] : '',
                         balance: Number(account_info.balance).toFixed(2),
                         pending: account_info.pending
