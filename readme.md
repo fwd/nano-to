@@ -144,6 +144,7 @@ Give a star if this project helped you. Contributions, issues and features are w
 ## Nano.to Support
 
 - Email: support@nano.to
+- Twitter: [@nano_known](https://twitter.com/nano_known)
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
 - **Mastodon:** [Xno.Social](https://xno.social/public/local) 
 - Discord: [Nano.to Discord](https://discord.gg/HgqDCkzP) 
