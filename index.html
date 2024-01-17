@@ -24,7 +24,7 @@ https://github.com/fwd/nano
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
     <link rel="stylesheet" href="dist/style.css?v=9.9.8">
-    <link rel="stylesheet" href="dist/big-picture.css?v=9.9.7">
+    <link rel="stylesheet" href="dist/big-picture.css?v=9.9.8">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -58,7 +58,7 @@ https://github.com/fwd/nano
       <div v-if="success && success.confetti">
         <div v-for="i in 150" :class="`confetti-${i}`"></div>
       </div>
-      <div v-if="success" id="success">
+      <div v-if="success" id="success" @click="success = false">
         <div>
           <h3 class="success-title">{{ success.title || (strings[lang] ? strings[lang].success : strings['en'].success) }}</h3>
           <p style="margin-bottom: 0">{{ success.message }}</p>
@@ -358,6 +358,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=9.9.7"></script>
+    <script src="dist/app.js?v=9.9.8"></script>
   </body>
 </html>
