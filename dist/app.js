@@ -10,6 +10,7 @@ window.copy = function(text) {
 var nano = new Vue({
     el: '#app',
     data: {
+        buttonText: false,
         loadedName: false,
         bigPictureSearch: '',
         big_picture_mode: false,
@@ -775,7 +776,10 @@ var nano = new Vue({
             axios.post(this.checkout.checkout || this.checkout.check_url || this.checkout.check, {
                 changes: this.checkout.changes
             }).then((res) => {
-                if (res.data.error) return this.notify(res.data.message)
+                if (res.data.error) {
+                    this.buttonText = false
+                    return this.notify(res.data.message)
+                }
                 if (res.data.message) {
                     this.checkout.fullscreen = true
                     this.success = {
@@ -786,6 +790,7 @@ var nano = new Vue({
                         button: res.data.button || false,
                         redirect: res.data.redirect || false,
                     }
+                    this.buttonText = false
                 }
                 if (res.data.redirect && !res.data.button) {
                     setTimeout(() => {
@@ -837,7 +842,10 @@ var nano = new Vue({
             return
         },
         check() {
-            if (this.checkout.checkout || this.checkout.check_url || this.checkout.check) return this.check_url()
+            this.buttonText = this.strings[this.lang] ? this.strings[this.lang].checking : this.strings['en'].checking
+            if (this.checkout.checkout || this.checkout.check_url || this.checkout.check) {
+                return this.check_url()
+            }
             try {
                 return this.pending().then((_pending) => {
                     var in_pending = _pending.find(a => a.amount === this.convert(this.checkout.amount, 'NANO', 'RAW'))
@@ -848,6 +856,7 @@ var nano = new Vue({
                             if (in_history) return this.show_success(in_history)
                             if (!in_history) {
                                 this.notify('Payment not found', 'warn')
+                                this.buttonText = false
                             }
                         })
                     }
@@ -1119,6 +1128,7 @@ var nano = new Vue({
             this.customAmount = ''
             this.status = 'blue'
             this.color = 'blue'
+            this.buttonText = false
             this.suggestions = []
             history.pushState({}, null, '/');
             document.title = this.doc_title

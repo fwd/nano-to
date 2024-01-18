@@ -3,6 +3,7 @@
     "note": "Verify the recipient address, and only send NANO (XNO) to this address.",
     "intro": "Search Blockchain",
     "guide": "To complete, send:",
+    "checking": "Checking..",
     "button": "Confirm",
     "tap": "Tap to open Wallet",
     "custom": "Custom Amount:",
