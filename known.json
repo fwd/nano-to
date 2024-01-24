@@ -1576,7 +1576,7 @@
   },
   {
     "name": "development",
-    "goal_ui": "300:Monthly Development",
+    "goal_ui": "300:Development",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
@@ -1587,7 +1587,7 @@
     "github": "nano2dev",
     "mastodon": "xno.social/@nano2dev",
     "twitter": "nano2dev",
-    "metadata": "",
+    "metadata": "plans=Tip:0.133,Small:5,Medium:50,Large:100,Gigantic:300",
     "location": "US-East"
   },
   {
