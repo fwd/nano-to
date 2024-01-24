@@ -219,7 +219,7 @@ https://github.com/fwd/nano
           <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
             <div class="name flex center justify">
 
-              <h2 style="margin-bottom: 4px;">
+              <h2 style="margin-bottom: 4px;text-wrap:balance;">
                 {{ checkout.lease ? '@' + checkout.lease : checkout.title }}
                 <img style="margin-left:-4px;zoom:0.8;margin-bottom: 6px;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
               </h2>
