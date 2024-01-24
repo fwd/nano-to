@@ -215,12 +215,12 @@ var nano = new Vue({
         }
     },
     methods: {
-        addRandomAmount(plans) {
+        addRandomAmount(plans, random) {
             if (plans.includes(',')) {
                 var query = this.queryToObject()
                 return plans.split(',').map(a => {
                     var value = a.trim().split(':')[1]
-                    var random = query.random || query.r
+                    // var random = query.random || query.r
                     if (random !== "false" && random !== false) {
                         if (Number(value) < 1) value = `${String(value).includes('.') ? String(value) + '0' + this.getRandomArbitrary(10, 1000) : String(value) + '.00' + this.getRandomArbitrary(1000, 10000) }`
                         if (Number(value) >= 1) value = `${String(value).includes('.') ? String(value) + '000' + this.getRandomArbitrary(1000, 10000) : String(value) + '.000' + this.getRandomArbitrary(1000, 10000) }`
@@ -503,6 +503,7 @@ var nano = new Vue({
             var query = this.queryToObject()
             var amount = query.p || query.price || query.amount || item.amount || item.price || false
             if (item && item.name) {
+
                 if (!cache && query.nocache || item.website_button_only) return this.doSuggestion({
                     title: item.title,
                     calendly: item.calendly,
@@ -527,30 +528,62 @@ var nano = new Vue({
                     goal: item.goal_ui,
                     image: item.image,
                 })
+
                 var custom = false
                 var plans = item.plans || query.plans
+                var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
+                var success_button = 'View Block'
                 var vanity = item.vanity || query.vanity
                 var donation = item.donate || query.custom
                 var highlight = query.backdrop || query.border || query.backgrounds || query.highlight
+                var random = query.random || query.r
+
+                // configure plans in metdata
+                if (item && item.metadata && item.metadata.includes('plans=')) {
+                    plans = item.metadata.split('&').find(a => a.includes('plans=')).replace('?', '').replace('plans=', '').split('%20').join(' ').trim()
+                }
+
+                // configure title in metdata
+                if (item && item.metadata && item.metadata.includes('title=')) {
+                    item.title = item.metadata.split('&').find(a => a.includes('title=')).replace('?', '').replace('title=', '').split('&nbsp;').join(' ').split('%20').join(' ').trim()
+                }
+
+                // configure buttonText in metdata
+                if (item && item.metadata && item.metadata.includes('button=')) {
+                    item.button = item.metadata.split('&').find(a => a.includes('button=')).replace('?', '').replace('button=', '').split('&nbsp;').join(' ').split('%20').join(' ').trim()
+                }
+
+                // configure success_url in metdata
+                if (item && item.metadata && item.metadata.includes('success=')) {
+                    success_url = item.metadata.split('&').find(a => a.includes('success=')).replace('?', '').replace('success=', '').trim()
+                }
+
+                // configure custom in metdata
+                if (item && item.metadata && item.metadata.includes('custom=')) {
+                    custom = item.metadata.split('&').find(a => a.includes('custom=')).replace('?', '').replace('custom=', '').trim()
+                }
+
+                // configure random in metdata
+                if (item && item.metadata && item.metadata.includes('random=')) {
+                    random = item.metadata.split('&').find(a => a.includes('random=')).replace('?', '').replace('random=', '').trim()
+                    if (random === "false" || random === "0") random = false
+                }
+
                 if (!amount && !plans || donation) custom = true
                 if (!amount && !plans) plans = `Tip:0.133,Small:5,Medium:10,Large:25,Gigantic:100`
-                var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
-                var success_button = 'View Block'
+
                 if (plans && typeof plans === 'string') {
-                    plans = this.addRandomAmount(plans)
+                    plans = this.addRandomAmount(plans, random)
                 }
-                // if (item.goal_ui && plans && plans.length) {
-                //     plans = plans.map(a => {
-                //         if (a.title !== 'Tip') a.value = `${String(a.value).includes('.') ? String(a.value) + '00' + this.getRandomArbitrary(1000, 10000) : String(a.value) + '.00' + this.getRandomArbitrary(1000, 10000) }`
-                //         return a
-                //     })
-                // }
+
                 if (amount && query.currency || query.c) {
                     amount = (amount / this.rate).toFixed(2)
                 }
-                if (amount && query.random || query.r) {
-                    amount = this.addRandomAmount(amount)
+                
+                if (amount && random) {
+                    amount = this.addRandomAmount(amount, random)
                 }
+
                 var goal
                 var _goal = item.goal_ui || item.goal || query.goal
                 if (_goal) {
@@ -569,7 +602,7 @@ var nano = new Vue({
                     item.name = this.capitalizeFirstLetter(item.name)
                 }
                 this.checkout = {
-                    title: query.title || item.name,
+                    title: query.title || item.title || item.name,
                     currency: query.currency || query.c || 'NANO',
                     message: query.body || query.message || query.text || query.copy,
                     fullscreen: item.cancel ? false : true,
@@ -636,8 +669,9 @@ var nano = new Vue({
                 if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
                 var plans = query.p
                 var success_url = query.success || query.success_url || query.redirect
+                var random = query.random || query.r
                 if (!amount && !plans) plans = `Tip:0.133,Small:5,Medium:10,Large:25,Gigantic:100`
-                if (plans) plans = this.addRandomAmount(plans)
+                if (plans) plans = this.addRandomAmount(plans, random)
                 // duplicate code
                 // if ((!plans || !plans.length) && (query.random || query.r || item.random)) {
                 //     amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary(10000, 100000)
@@ -653,8 +687,8 @@ var nano = new Vue({
                 if (amount && query.currency || query.c) {
                     amount = (amount / this.rate).toFixed(2)
                 }
-                if (amount && query.random || query.r) {
-                    amount = this.addRandomAmount(amount)
+                if (amount && random) {
+                    amount = this.addRandomAmount(amount, random)
                 }
                 this.checkout = {
                     title: query.title,
