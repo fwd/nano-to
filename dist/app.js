@@ -529,6 +529,8 @@ var nano = new Vue({
                     image: item.image,
                 })
 
+                var goal
+                var _goal = item.goal_ui || item.goal || query.goal
                 var custom = false
                 var plans = item.plans || query.plans
                 var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
@@ -569,6 +571,11 @@ var nano = new Vue({
                     if (random === "false" || random === "0") random = false
                 }
 
+                // configure _goal in metdata
+                if (item && item.metadata && item.metadata.includes('goal=')) {
+                    _goal = item.metadata.split('&').find(a => a.includes('goal=')).replace('?', '').replace('goal=', '').trim()
+                }
+
                 if (!amount && !plans || donation) custom = true
                 if (!amount && !plans) plans = `Tip:0.133,Small:5,Medium:10,Large:25,Gigantic:100`
 
@@ -584,8 +591,6 @@ var nano = new Vue({
                     amount = this.addRandomAmount(amount, random)
                 }
 
-                var goal
-                var _goal = item.goal_ui || item.goal || query.goal
                 if (_goal) {
                     var account_info = await this.balance(query.address || query.to || item.address)
                     goal = {
