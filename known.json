@@ -45,8 +45,7 @@
     "created": "January 17, 2024",
     "expires": "January 17, 2025",
     "created_unix": 1705487947,
-    "expires_unix": 1737110280,
-    "metadata": "?goal=25000&plans=Small:10,1%20Hour:90,Half%20day%20:360,Full%20Day:720"
+    "expires_unix": 1737110280
   },
   {
     "name": "O",
