@@ -607,7 +607,8 @@ var nano = new Vue({
                     item.name = this.capitalizeFirstLetter(item.name)
                 }
                 this.checkout = {
-                    title: query.title || item.title || item.name,
+                    title: query.title || item.name,
+                    // title: query.title || item.title || item.name, // safari is trash
                     currency: query.currency || query.c || 'NANO',
                     message: query.body || query.message || query.text || query.copy,
                     fullscreen: item.cancel ? false : true,
