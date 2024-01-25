@@ -859,11 +859,10 @@ var nano = new Vue({
                         balance: Number(account_info.balance).toFixed(2),
                         pending: account_info.pending
                     }
-                    this.notify('Balance Updated')
-                    // window.location.reload()
+                    this.notify('Goal Meter Updated')
                     this.success = false
-                    // this.checkout = false
-                }, this.checkout.redirect_delay || 5000)
+                    this.buttonText = false
+                }, this.checkout.redirect_delay || 4000)
                 return
             }
             if (redirect) {
