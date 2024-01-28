@@ -45,7 +45,11 @@
     "created": "January 17, 2024",
     "expires": "January 17, 2025",
     "created_unix": 1705487947,
-    "expires_unix": 1737110280
+    "expires_unix": 1737110280,
+    "title": "Week 4: Protocol work by Dimitrios",
+    "github": "https://github.com/dsiganos",
+    "website": "https://github.com/nanocurrency/nano-node",
+    "metadata": "plans=Small:20,One Hour:90,Half Day:350,Full Day:700"
   },
   {
     "name": "O",
