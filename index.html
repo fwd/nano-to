@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="dist/images/cover.png">
     <link rel="apple-touch-icon" href="dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="dist/favicon.png">
-    <link rel="stylesheet" href="dist/style.css?v=10.0.4">
-    <link rel="stylesheet" href="dist/big-picture.css?v=10.0.4">
+    <link rel="stylesheet" href="dist/style.css?v=10.0.5">
+    <link rel="stylesheet" href="dist/big-picture.css?v=10.0.5">
     <link rel="manifest" href="dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -233,6 +233,8 @@ https://github.com/fwd/nano
               
             </div>
 
+            <div v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);padding-bottom: 20px;margin-bottom: 18px;text-align: center;font-size: 20px;font-family: Cyber;letter-spacing: 3px;color: rgb(8, 157, 255);text-shadow: transparent 0px 0px;text-transform: uppercase;" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></div>
+
             <div v-if="checkout.goal" id="goal-meter">
               <div id="funding-wrap">
                 <div class="flex-item">
@@ -264,10 +266,12 @@ https://github.com/fwd/nano
                 </div>
               </div>
             </div>
+
             <div v-if="checkout.exchange_hot_wallet" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; text-transform: uppercase; ">{{ (strings[lang] ? strings[lang].exchange_address : strings['en'].exchange_address) }}</div>
+
             <div v-if="checkout.lease" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; text-transform: uppercase; ">{{ checkout.available ? (strings[lang] ? strings[lang].new_lease : strings['en'].new_lease) : (strings[lang] ? strings[lang].extend_lease : strings['en'].extend_lease) }}</div>
 
-            <p v-if="checkout.description" :class="`description`" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p>
+            <!-- <p v-if="checkout.description" :class="`description`" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></p> -->
 
             <p v-if="validExternalImage(checkout.metadata) && checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);margin-bottom: 20px;padding-bottom: 15px;">
               <video autoplay width="100%" muted><source :src="checkout.metadata" type="video/mp4"></video> 
@@ -359,6 +363,6 @@ https://github.com/fwd/nano
     <script src="dist/axios.min.js"></script>
     <script src="dist/easy.qrcode.min.js"></script>
     <script src="dist/nanocurrency.min.js"></script>
-    <script src="dist/app.js?v=10.0.4"></script>
+    <script src="dist/app.js?v=10.0.5"></script>
   </body>
 </html>
