@@ -593,10 +593,13 @@ var nano = new Vue({
 
                 if (_goal) {
                     var account_info = await this.balance(query.address || query.to || item.address)
+                    var baseline = _goal.split(':')[2]
+                    var balance = Number(account_info.balance).toFixed(2)
+                    if (baseline) balance = Number(Number(balance) - Number(baseline)).toFixed(2)
                     goal = {
                         title: _goal ? _goal.split(':')[1] : '',
                         total: _goal ? _goal.split(':')[0] : '',
-                        balance: Number(account_info.balance).toFixed(2),
+                        balance,
                         pending: account_info.pending
                     }
                 }
@@ -615,7 +618,7 @@ var nano = new Vue({
                     image: item.image || query.image || query.img || query.i || '',
                     address: query.address || query.to || item.address,
                     history_count: query.history || query.history_count,
-                    description: query.description || query.body || query.message,
+                    description: item.title || query.description || query.body || query.message,
                     metadata: item.metadata || false,
                     calendly: item.calendly,
                     discord: item.discord,
