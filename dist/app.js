@@ -596,10 +596,10 @@ var nano = new Vue({
                     var baseline = _goal.split(':')[2]
                     var balance = Number(account_info.balance).toFixed(2)
                     if (baseline) balance = Number(Number(balance) - Number(baseline)).toFixed(2)
-                    var title = _goal ? _goal.split(':')[0] : false
-                    var total = _goal ? _goal.split(':')[1] : false
+                    var title = _goal ? _goal.split(':')[1] : false
+                    var total = _goal ? _goal.split(':')[0] : false
                     // support reverse title and total
-                    if (Number(total)) {
+                    if (Number(title)) {
                         title = _goal ? _goal.split(':')[0] : false
                         total = _goal ? _goal.split(':')[1] : false
                     }
