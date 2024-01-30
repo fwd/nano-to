@@ -530,7 +530,7 @@ var nano = new Vue({
                 })
 
                 var goal
-                var _goal = item.goal_ui || item.goal || query.goal
+                var _goal = query.goal || item.goal_ui || item.goal
                 var custom = false
                 var plans = item.plans || query.plans
                 var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
