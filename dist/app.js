@@ -493,7 +493,7 @@ var nano = new Vue({
         async _checkout(item, data, cache) {
             await this.getRate()
             var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
-            var name = decodeURIComponent(path).replace('@', '')
+            var name = decodeURIComponent(path).replace('@', '').replace(':', '')
             item = item || this.usernames.find(a => a.name.toLowerCase() === name) || {}
             if (name === 'DESIRED_USERNAME') return alert('Reading the docs? Try searching for desired name instead.')
             if (item && Number(item.for_sale)) return this.bigPictureCheckout(item)
