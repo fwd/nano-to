@@ -238,7 +238,7 @@ var nano = new Vue({
         do_update_name(res, name) {
             res.data.changes = {}
             this.updatable.map(a => a.label).map(a => {
-                var chosen = this.usernames.find(a => a.name.toLowerCase() === name.toLowerCase().replace('@', ''))
+                var chosen = this.usernames.find(a => a.name.toLowerCase() === name.toLowerCase().replace('@', '').replace(':', ''))
                 if (a === 'title') res.data.changes[a] = chosen[a]
                 else res.data.changes[a] = res.data[a] ? res.data[a] : chosen[a]
             })
@@ -869,7 +869,7 @@ var nano = new Vue({
                         balance: Number(account_info.balance).toFixed(2),
                         pending: account_info.pending
                     }
-                    this.notify('Goal Meter Updated')
+                    this.notify('Donated')
                     this.success = false
                     this.buttonText = false
                 }, this.checkout.redirect_delay || 4000)
