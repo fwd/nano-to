@@ -500,7 +500,11 @@ var nano = new Vue({
             if (item && Number(item.for_sale)) return this.bigPictureCheckout(item)
             var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_')
             if (path && checkout) return this.invoice()
-            if ((path && !path.includes('nano_')) && !this.usernames.find(a => a.name.toLowerCase() === name)) return alert('Name not registered.')
+            if ((path && !path.includes('nano_')) && !this.usernames.find(a => a.name.toLowerCase() === name)) {
+                this.string = path
+                alert('Name not registered.')
+                return 
+            }
             var query = this.queryToObject()
             var amount = query.p || query.price || query.amount || item.amount || item.price || false
             if (item && item.name) {
