@@ -600,7 +600,10 @@ var nano = new Vue({
                     var account_info = await this.balance(query.address || query.to || item.address)
                     var baseline = _goal.split(':')[2]
                     var balance = Number(account_info.balance).toFixed(2)
-                    if (baseline) balance = Number(Number(balance) - Number(baseline)).toFixed(2)
+                    if (baseline) {
+                        balance = Number(Number(balance) - Number(baseline)).toFixed(2)
+                        if (Number(balance) < 0) balance = 0
+                    }
                     var title = _goal ? _goal.split(':')[1] : false
                     var total = _goal ? _goal.split(':')[0] : false
                     // support reverse title and total
