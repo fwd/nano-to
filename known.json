@@ -1298,14 +1298,6 @@
     "expires_unix": 1710668280
   },
   {
-    "name": "gustav",
-    "address": "nano_1iawmcfwmmdyr7xmnordt71gpnhnao8rsk4nywq5khtmedocaj6bafk4fb8h",
-    "created": "January 30, 2023",
-    "expires": "January 30, 2024",
-    "created_unix": 1675072559,
-    "expires_unix": 1706608500
-  },
-  {
     "name": "gr0vity",
     "github": "gr0vity-dev",
     "address": "nano_118tih7f81iiuujdezyqnbb9aonybf6y3cj7mo7hbeetqiymkn16a67w8rkp",
