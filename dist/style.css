@@ -1483,6 +1483,7 @@ code {
 #checkout h4 {
 /*  font-family: Cyber;*/
   letter-spacing: 1px;
+  text-wrap: ;
 /*  font-size: 20px;*/
 }
 
@@ -2385,6 +2386,7 @@ hr.memo {
     font-size: 12px;
     vertical-align: middle;
 }
+
 
 .redirecting {
     margin-top: 25px;
@@ -6230,11 +6232,17 @@ hr.memo {
   /*color: #FFF;*/
 }
 @media only screen and (max-width: 640px) {
+  .discount {
+    display: block;
+    width: -webkit-max-content;
+    margin-left: -5px;
+    margin-top: 5px;
+  }
   #goal {
     text-align: center;
   }
-    #funding-wrap {
-      zoom: 0.47;
+  #funding-wrap {
+    zoom: 0.47;
   }
 }
 #glass {
