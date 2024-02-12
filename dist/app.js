@@ -728,7 +728,7 @@ var nano = new Vue({
                     amount,
                     plans,
                     goal,
-                    title: query.name || query.title || 'Nano Pay',
+                    title: query.name || query.title || 'Pay Nano',
                     color: {
                         right: query.rightBackground || '#009dff',
                         address: {
