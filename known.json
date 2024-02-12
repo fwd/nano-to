@@ -1,5 +1,13 @@
 [
   {
+    "name": "Lotto",
+    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
+    "created": "February 12, 2024",
+    "expires": "February 12, 2029",
+    "created_unix": 1707761577,
+    "expires_unix": 1865614320
+  },
+  {
     "name": "Nanopoly",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "February 12, 2024",
