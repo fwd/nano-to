@@ -9,12 +9,12 @@
   },
   {
     "name": "Nanopoly",
-    "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
+    "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
     "created": "February 12, 2024",
     "expires": "February 12, 2029",
     "created_unix": 1707761431,
     "expires_unix": 1865614200,
-    "for_sale": "5"
+    "for_sale": 0
   },
   {
     "name": "Nyanogifs",
