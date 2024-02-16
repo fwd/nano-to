@@ -2119,10 +2119,13 @@
   {
     "status": "active",
     "name": "moon",
-    "goal_ui": "40000:US-Obelisk-1",
+    "goal_ui": "45000:First Super Node",
     "title": "US-Obelisk-1 Fund",
+    "description": "US-Obelisk-1. <a target='_blank' href='https://blog.nano.to/introducing-nano-obelisk-a-self-sustaining-super-node' style='border-bottom: 1px solid'>Full Story</a>",
     "github": "nano2dev",
     "address": "nano_1tower1hbm11aq5hx5d7kd5wff6b4czr74kxatc6g5ouot54nqjkhu4j7jr6",
+    "image": "https://blog.nano.to/images/super-node/hero.jpeg",
+    "website": "https://blog.nano.to/images/super-node/hero.jpeg",
     "created": "September 15, 2021",
     "expires": "September 16, 2030",
     "created_unix": 1631748420,
@@ -2130,7 +2133,7 @@
     "twitter": "nano2dev",
     "mastodon": "nano2dev",
     "donation_address": "",
-    "metadata": "https://pbs.twimg.com/media/FwLKAqSWAAILGLb?format=jpg"
+    "metadata": "plans=Tip:0.133,Thanks:100,Supporter:1000,Investor:15000,Get It Done:45000"
   },
   {
     "name": "alberto",
