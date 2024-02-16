@@ -267,6 +267,7 @@ var nano = new Vue({
             if (url.startsWith('https://video.twimg.com/')) return true
             if (url.startsWith('https://xno.nano.org/images/')) return true
             if (url.startsWith('https://pbs.twimg.com/media/')) return true
+            if (url.startsWith('https://blog.nano.to/images/')) return true
             return false
         },
         bigPictureCheckout(name) {
@@ -518,6 +519,7 @@ var nano = new Vue({
                     location: item.location,
                     mastodon: item.mastodon,
                     metadata: item.metadata,
+                    image: item.image,
                     github: item.github,
                     website: item.website,
                     website_button_only: item.website_button_only,
@@ -530,8 +532,7 @@ var nano = new Vue({
                     created_unix: item.created_unix,
                     expires_unix: item.expires_unix,
                     expired: item.expired,
-                    goal: item.goal_ui,
-                    image: item.image,
+                    goal: item.goal_ui
                 })
 
                 var goal
@@ -633,7 +634,7 @@ var nano = new Vue({
                     image: item.image || query.image || query.img || query.i || '',
                     address: query.address || query.to || item.address,
                     history_count: query.history || query.history_count,
-                    description: item.title || query.description || query.body || query.message,
+                    description: item.description || item.title || query.description || query.body || query.message,
                     metadata: item.metadata || false,
                     calendly: item.calendly,
                     discord: item.discord,
@@ -1001,6 +1002,7 @@ var nano = new Vue({
                         github: username[username.length - 1].github,
                         exchange_hot_wallet: username[username.length - 1].exchange_hot_wallet,
                         metadata: username[username.length - 1].metadata,
+                        image: username[username.length - 1].image,
                         twitter: username[username.length - 1].twitter,
                         location: username[username.length - 1].location,
                         mastodon: username[username.length - 1].mastodon,
@@ -1213,11 +1215,11 @@ var nano = new Vue({
                 location: suggestion.location,
                 mastodon: suggestion.mastodon,
                 metadata: suggestion.metadata,
+                image: suggestion.image,
                 discord: suggestion.discord,
                 calendly: suggestion.calendly,
                 nostr: suggestion.nostr,
                 goal: suggestion.goal_ui,
-                image: suggestion.image,
                 description: suggestion.description,
                 expired: suggestion.expired || this.expired(suggestion.expires_unix),
                 yearDiff: suggestion.yearDiff || this.getYearDifference(suggestion.created_unix, suggestion.expires_unix),
@@ -1309,6 +1311,7 @@ var nano = new Vue({
                 goal_ui: suggestion.goal_ui,
                 donation_address: suggestion.donation_address,
                 metadata: suggestion.metadata,
+                image: suggestion.image,
                 twitter: suggestion.twitter,
                 location: suggestion.location,
                 mastodon: suggestion.mastodon,
