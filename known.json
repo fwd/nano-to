@@ -79,11 +79,11 @@
     "expires": "January 17, 2025",
     "created_unix": 1705487947,
     "expires_unix": 1737110280,
-    "title": "Week 4: Protocol work by Dimitrios",
+    "title": "Community Protocol Fund",
     "github": "https://github.com/dsiganos",
     "website": "https://github.com/nanocurrency/nano-node",
-    "metadata": "plans=Small:20,One Hour:90,Half Day:350,Full Day:700",
-    "goal_ui": "1000:Week4:22900"
+    "metadata": "plans=Supporter:10,Advocate:50,Champion:100,Hero:200,Visionary:500,Legend:1000",
+    "goal_ui": ""
   },
   {
     "name": "O",
