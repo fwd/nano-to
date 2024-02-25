@@ -1510,14 +1510,6 @@
     "expires_unix": 1708067820
   },
   {
-    "name": "soul",
-    "address": "nano_1w6qii8twfnns75u8jeoz8t4qs5sofdkosocaxbowk9y8o8o4h9ut45dzcxm",
-    "created": "February 15, 2022",
-    "expires": "February 15, 2024",
-    "created_unix": 1644958560,
-    "expires_unix": 1708030560
-  },
-  {
     "name": "auz",
     "address": "nano_1mfaxxxfzk73jdz1nbjdp6itx8wagm574daritciwhwfrriddt4n68x6gawo",
     "created": "January 18, 2022",
