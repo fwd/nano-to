@@ -47,7 +47,7 @@ export async function onRequest(ctx) {
   } catch(e) {
 
     const response = Response.json({ 
-      error: 400),
+      error: 400,
       message: e
     });
 
