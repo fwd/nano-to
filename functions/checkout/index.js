@@ -29,11 +29,11 @@ function checkout() {
 
 export async function onRequest(ctx) {
 
-  var req = { body: await ctx.request.json() }
-
   try {
+    
+    var req = { body: await ctx.request.json() }
   
-    // POST: https://nano.to/api
+    // POST: https://cloud.nano.to/checkout
     const response = Response.json(checkout());
 
     response.headers.set("Access-Control-Allow-Origin", "*")
