@@ -29,17 +29,34 @@ function checkout() {
 
 export async function onRequest(ctx) {
 
-  // POST: https://nano.to/api
-  const response = Response.json({ 
-    checkout: checkout(),
-    body: await ctx.request.json()
-    // request: JSON.parse(JSON.stringify(ctx)),
-  });
+  try {
+  
+    // POST: https://nano.to/api
+    const response = Response.json({ 
+      checkout: checkout(),
+      body: await ctx.request.json()
+      // request: JSON.parse(JSON.stringify(ctx)),
+    });
 
-  response.headers.set("Access-Control-Allow-Origin", "*")
-  response.headers.set("Access-Control-Allow-Headers", "*")
-  response.headers.set("Access-Control-Allow-Methods", "HEAD,POST,OPTIONS")
+    response.headers.set("Access-Control-Allow-Origin", "*")
+    response.headers.set("Access-Control-Allow-Headers", "*")
+    response.headers.set("Access-Control-Allow-Methods", "HEAD,POST,OPTIONS")
 
-  return response;
+    return response;
+
+  } catch(e) {
+
+    const response = Response.json({ 
+      error: 400),
+      message: e
+    });
+
+    response.headers.set("Access-Control-Allow-Origin", "*")
+    response.headers.set("Access-Control-Allow-Headers", "*")
+    response.headers.set("Access-Control-Allow-Methods", "HEAD,POST,OPTIONS")
+
+    return response;
+
+  }
 
 }
