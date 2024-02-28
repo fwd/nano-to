@@ -48,7 +48,7 @@ export async function onRequest(ctx) {
 
     const response = Response.json({ 
       error: 400,
-      message: JSON.stringify(e)
+      message: "Bad JSON."
     });
 
     response.headers.set("Access-Control-Allow-Origin", "*")
