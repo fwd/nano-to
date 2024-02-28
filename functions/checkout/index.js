@@ -8,8 +8,9 @@ function generateUUID() {
 }
 
 function checkout() {
+
   var id = generateUUID()
-  // mock for now
+  
   return {
     "id": `${id}`,
     "browser": `https://nano.to/id_${id}`,
@@ -23,6 +24,7 @@ function checkout() {
     "currency": "NANO",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o"
   }
+
 }
 
 export async function onRequest(ctx) {
@@ -30,7 +32,8 @@ export async function onRequest(ctx) {
   // POST: https://nano.to/api
   const response = Response.json({ 
     checkout: checkout(),
-    request: JSON.parse(JSON.stringify(ctx))
+    body: ctx.request.json()
+    // request: JSON.parse(JSON.stringify(ctx)),
   });
 
   response.headers.set("Access-Control-Allow-Origin", "*")
