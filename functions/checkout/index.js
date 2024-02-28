@@ -32,7 +32,7 @@ export async function onRequest(ctx) {
   // POST: https://nano.to/api
   const response = Response.json({ 
     checkout: checkout(),
-    body: ctx.request.json()
+    body: await ctx.request.json()
     // request: JSON.parse(JSON.stringify(ctx)),
   });
 
