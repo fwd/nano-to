@@ -1543,18 +1543,18 @@
   },
   {
     "name": "development",
-    "goal_ui": "500:Monthly Fund",
+    "goal_ui": "500:Hosting Fund",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
     "created_unix": 1640552100,
     "expires_unix": 2019099600,
     "status": "active",
-    "title": "Research & Development",
+    "title": "Monthly Hosting",
     "github": "nano2dev",
     "mastodon": "xno.social/@nano2dev",
     "twitter": "nano2dev",
-    "metadata": "plans=Tip:0.133,Thanks:5,Amazing:50,Huge:100,Gigantic:300",
+    "metadata": "plans=Tip:0.133,Thanks:10,Amazing:100,Huge:250,Gigantic:500",
     "location": "US-East"
   },
   {
