@@ -16,7 +16,7 @@ var nano = new Vue({
         big_picture_mode: false,
         copy,
         confetti: true,
-        known: 'known.json',
+        known: '../../known.json',
         doc_title: 'Nano.to - Nano Name Service',
         title: 'Nano.to',
         convert: NanocurrencyWeb.tools.convert,
@@ -502,6 +502,7 @@ var nano = new Vue({
             var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_')
             if (path && checkout) return this.invoice()
             if ((path && !path.includes('nano_')) && !this.usernames.find(a => a.name.toLowerCase() === name)) {
+                if (path.includes('/')) return window.location.href = '/'
                 this.string = path
                 alert('Name not registered.')
                 return 
