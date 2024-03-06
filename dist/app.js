@@ -447,6 +447,7 @@ var nano = new Vue({
                     }
                 }
                 this.checkout = res.data
+                if (res.data.block) return this.show_success(res.data.block, 'Checkout Complete')
                 if (path) history.pushState({}, null, `/${path}`);
                 document.title = `${res.data.title ? res.data.title : '#' + path.split('_')[1] + ' - Nano Checkout' }`
                 if (res.data.favicon) document.querySelector("link[rel*='icon']").href = res.data.favicon;
@@ -860,14 +861,14 @@ var nano = new Vue({
                 }
             })
         },
-        show_success(block) {
+        show_success(block, message) {
             var query = this.queryToObject()
             redirect = query.redirect || query.success || this.checkout.success_url
             this.success = {
                 block,
                 confetti: true,
                 title: this.checkout.goal ? this.checkout.goal.title : 'Success',
-                message: this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send),
+                message: message || (this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send)),
                 redirect: this.checkout.goal ? false : redirect,
             }
             if (this.checkout.goal) {
