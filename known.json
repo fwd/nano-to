@@ -5,7 +5,10 @@
     "created": "March 9, 2024",
     "expires": "March 9, 2026",
     "created_unix": 1710006393,
-    "expires_unix": 1773078360
+    "expires_unix": 1773078360,
+    "title": "j e n o k i",
+    "mastodon": "https://mas.to/@jenoki",
+    "website": "https://jenoki.net"
   },
   {
     "name": "Gustav",
