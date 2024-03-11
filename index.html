@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="../../dist/images/cover.png">
     <link rel="apple-touch-icon" href="../../dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="../../dist/favicon.png">
-    <link rel="stylesheet" href="../../dist/style.css?v=10.2.0">
-    <link rel="stylesheet" href="../../dist/big-picture.css?v=10.2.0">
+    <link rel="stylesheet" href="../../dist/style.css?v=10.2.1">
+    <link rel="stylesheet" href="../../dist/big-picture.css?v=10.2.1">
     <link rel="manifest" href="../../dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -223,6 +223,7 @@ https://github.com/fwd/nano
               <div class="flex center justify socials">
                 <div v-if="checkout.github"><a :href="'https://github.com/' + checkout.github.replace('https://github.com/', '').replace('@', '')" target="_blank"><img src="/dist/svg/github-alt.svg" alt="Github"></a></div>
                 <div v-if="checkout.website && (checkout.website.startsWith('https://youtube.com') || checkout.website.startsWith('https://www.youtube.com/'))"><a :href="'https://youtube.com/' + checkout.website.replace('https://youtube.com/', '').replace('https://www.youtube.com/', '')" target="_blank"><img src="/dist/svg/youtube.svg" alt="YouTube"></a></div>
+                <div v-if="checkout.mastodon"><a :href="`https://${checkout.mastodon.replace('https://', '')}`" target="_blank"><img src="/dist/svg/mastodon.svg" alt="Mastodon"></a></div>
                 <div v-if="checkout.twitter"><a :href="'https://twitter.com/' + checkout.twitter.replace('https://twitter.com/', '')" target="_blank"><img src="/dist/svg/twitter.svg" alt="Twitter"></a></div>
                 <div v-if="checkout.website && (!checkout.website.startsWith('https://youtube.com') && !checkout.website.startsWith('https://www.youtube.com/'))" v-if="checkout.website"><a :href="`https://${checkout.website.replace('https://', '').replace('http://', '')}`" target="_blank"><img src="/dist/svg/website.svg" alt="Website"></a></div>
               </div>
@@ -355,6 +356,6 @@ https://github.com/fwd/nano
     <script src="../../dist/axios.min.js"></script>
     <script src="../../dist/easy.qrcode.min.js"></script>
     <script src="../../dist/nanocurrency.min.js"></script>
-    <script src="../../dist/app.js?v=10.2.0"></script>
+    <script src="../../dist/app.js?v=10.2.1"></script>
   </body>
 </html>
