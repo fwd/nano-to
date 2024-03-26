@@ -10,6 +10,7 @@ window.copy = function(text) {
 var nano = new Vue({
     el: '#app',
     data: {
+        explorer: 'https://nanobrowse.com',
         buttonText: false,
         loadedName: false,
         bigPictureSearch: '',
@@ -541,7 +542,7 @@ var nano = new Vue({
                 var _goal = query.goal || item.goal_ui || item.goal
                 var custom = false
                 var plans = item.plans || query.plans
-                var success_url = query.success || query.success_url || query.redirect || `https://nanolooker.com/block/{{block}}`
+                var success_url = query.success || query.success_url || query.redirect || `${this.explorer}/block/{{block}}`
                 var success_button = 'View Block'
                 var vanity = item.vanity || query.vanity
                 var donation = item.donate || query.custom
@@ -1034,8 +1035,8 @@ var nano = new Vue({
                         }
                     })
                     suggestions.push({
-                        name: `Nanolooker (${string.slice(0, 12)})`,
-                        url: `https://nanolooker.com/account/${string}`
+                        name: `NanoBrowse (${string.slice(0, 12)})`,
+                        url: `${this.explorer}/account/${string}`
                     })
                 }
                 this.suggestions = suggestions.map(a => {
@@ -1046,8 +1047,8 @@ var nano = new Vue({
             }
             if (!string.includes('nano_') && string.length >= 60) {
                 return this.suggestions = [{
-                    name: `Hash (${string.slice(0, 12)})`,
-                    url: `https://nanolooker.com/block/${string}`
+                    name: `Block (${string.slice(0, 12)}..)`,
+                    url: `${this.explorer}/block/${string}`
                 }]
             }
             this.suggestions = this.usernames.filter(a => a.name.toLowerCase().includes(string.toLowerCase()) || (a.github && a.github.toLowerCase().includes(string.toLowerCase()))).reverse()
