@@ -1497,22 +1497,6 @@
     "expires_unix": 1710676140
   },
   {
-    "name": "marmol",
-    "address": "nano_3tc85bigtima4n5cq9cox1sesudgrckutr75g6d5z8ndojb3ui6hib5gfkra",
-    "created": "March 16, 2022",
-    "expires": "March 16, 2024",
-    "created_unix": 1647440460,
-    "expires_unix": 1710598860
-  },
-  {
-    "name": "marvin",
-    "address": "nano_18wa681dmuicja5rkcyxdzyb1qfeyyz5tkpx1yfwtxg56gdywyne38roiaoc",
-    "created": "March 16, 2022",
-    "expires": "March 16, 2024",
-    "created_unix": 1647439260,
-    "expires_unix": 1710597660
-  },
-  {
     "name": "nanogram",
     "address": "nano_3mq1qwxq1t4bk3i96nnnp1rucmo1nxqw7ptasgesscu9ex7fz5uotgd188nu",
     "created": "March 7, 2022",
