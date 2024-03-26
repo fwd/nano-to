@@ -1,0 +1,361 @@
+<!--
+ ________  ____      ____  ______    
+|_   __  ||_  _|    |_  _||_   _ `.  
+  | |_ \_|  \ \  /\  / /    | | `. \ 
+  |  _|      \ \/  \/ /     | |  | | 
+ _| |_        \  /\  /     _| |_.' / 
+|_____|        \/  \/     |______.'  
+Simplicity is soul of efficiency.
+https://github.com/fwd/nano
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Nano.to - Nano Name Service</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="author" content="https://twitter.com/nano2dev"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
+    <meta name="apple-mobile-web-app-title" content="Nano.to">
+    <meta property="og:title" content="Nano.to">
+    <meta property="og:image" content="../../dist/images/cover.png">
+    <meta property="twitter:image" content="../../dist/images/cover.png">
+    <link rel="apple-touch-icon" href="../../dist/images/new_icon.png">
+    <link rel="icon" type="image/png" href="../../dist/favicon.png">
+    <link rel="stylesheet" href="../../dist/style.css?v=10.2.1">
+    <link rel="stylesheet" href="../../dist/big-picture.css?v=10.2.1">
+    <link rel="manifest" href="../../dist/manifest.json">
+    <script>
+      function queryToObject(string) {
+        var pairs = (string || window.location.search).substring(1).split("&"),
+          obj = {},
+          pair,
+          i;
+        for ( i in pairs ) {
+          if ( pairs[i] === "" ) continue;
+          pair = pairs[i].split("=");
+          obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+        }
+        return obj;
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
+        document.documentElement.className += ' dark'
+      } else {
+        if (window.name !== 'nault') document.documentElement.className += ' light'
+      }
+      const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || (window.navigator.standalone) || document.referrer.includes('android-app://')
+      if (isInStandaloneMode) document.documentElement.className += ' web-app'
+    </script>
+    <script src="https://metrics.bar/js/script.js" id="metrics" async defer></script>
+  </head>
+  <body>
+    <p class="seo-hackz" style="display: none; opacity: 0;">Nano name service, Public RPC and Checkout UI for the Nano blockchain. Nano.to is on a mission to accelerate the use of crypto around the world.</p>
+    <div id="app" :class=" `on ${color}`">
+      <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" :src="`./dist/images/info2.png`" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
+      <div v-if="loading" class="loader"></div>
+      <div :style="`background-image: url('${ checkout || mobile ? '' : 'dist/images/optimized.gif' }');background-size:${size}`" id="backdrop"></div>
+      <div v-if="success && success.confetti">
+        <div v-for="i in 150" :class="`confetti-${i}`"></div>
+      </div>
+      <div v-if="success" id="success" @click="success = false">
+        <div>
+          <h3 class="success-title">{{ success.title || (strings[lang] ? strings[lang].success : strings['en'].success) }}</h3>
+          <p style="margin-bottom: 0">{{ success.message }}</p>
+          <button v-if="checkout.fullscreen && success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
+            <span>{{ success.button }}</span>
+          </button>
+          <div v-if="checkout.fullscreen && success.redirect && !success.button" class="redirecting">{{ success.redirect_msg || (strings[lang] ? strings[lang].redirecting : strings['en'].redirecting) }}</div>
+          <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">OK</div>
+        </div>
+      </div>
+      <div :class="`cyber blue`">
+        <div v-if="title" style="cursor: pointer;" @click="reset()">
+          <h3 :class="`title ${status.status && status.status == false ? 'error' : ''}`" style="margin-top: 10px; font-size: 22px">{{ title }}</h3>
+        </div>
+        <div v-if="strings[lang]" :class="`box--outer ${status.status && status.status == false ? 'error' : ''}`">
+          <div class="box">
+            <div class="box--inner">
+              <div class="content">
+                <div v-if="suggestions.length" id="search-screen" @click="suggestions = []"></div>
+                <div class="holder" style="max-width: 440px">
+                  <div v-if="search">
+                    <p style="font-size: 20px; margin-bottom: 30px; margin-top: 0;">{{ strings[lang] ? strings[lang].intro : strings['en'].intro }}</p>
+                    <form @submit.prevent="query()">
+                      <input type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2">
+                      <div class="suggest" v-if="suggestions.length">
+                        <div v-for="suggestion in suggestions" :class="`${suggestion.available ? 'available' : ''} ${suggestion.yearDiff >= 10 ? 'ten' : ''}`" :style="`color:${suggestion.color || ''};opacity:${suggestion.opacity || ''}`" @click="doSuggestion(suggestion)">
+                          {{ capitalizeFirstLetter(suggestion.name) }}
+                          <img @click="whois(suggestion, suggestion.yearDiff >= 10 ? suggestion.yearDiff : false)" v-if="suggestion.yearDiff >= 10 || (!suggestion.expired && (suggestion.github || suggestion.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
+                        </div>
+                      </div>
+                      <div style="display: block; height: 15px;"></div>
+                      <div class="row centered">
+                        <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; "> {{ (strings[lang] ? strings[lang].search : strings['en'].search) }} <span aria-hidden>_</span>
+                          <span aria-hidden class="cybr-btn__glitch">NANO_</span>
+                        </button>
+                      </div>
+                    </form>
+                    <div class="footer-icon">
+                      <a href="https://github.com/fwd/nano-to#nano-name-service" target="_blank" class="github">
+                        <div style="width: fit-content;zoom: 0.7;font-family: Cyber;text-align: center;"><img :src="`../../dist/svg/github.svg`" img/></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div v-if="!search">
+                    <div v-if="prompt" class="small-mobile">
+                      <div>
+                        <h1 v-if="prompt.name" :class="`${prompt.yearDiff >= 10 ? 'ben-ten' : ''}`" style="margin-bottom: -10px;color: rgb(255, 35, 35);font-size: 40px !important;margin-top: 20px;letter-spacing: 4px;margin-left: 10px;word-break:break-word;">
+                          <span @click="dev_mode = !dev_mode">{{ prompt.name }}</span>
+                          <img style="margin-left:-24px;zoom:0.8;" @click="whois(prompt, prompt.yearDiff)" v-if="(!prompt.expired && (prompt.github || prompt.twitter)) || prompt.yearDiff >= 10" :src="`dist/images/10_year.png`" class="verified" alt="">
+                        </h1>
+                        <span v-if="prompt.exchange_hot_wallet" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">EXCHANGE ADDRESS</span>
+                        <span v-if="prompt.title && !Number(prompt.for_sale)" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">{{ prompt.title }}</span>
+                        <span v-if="Number(prompt.for_sale)" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">FOR SALE</span>
+                        <br v-if="(!dev_mode && queryToObject().nocache) || (dev_mode && !queryToObject().nocache) || (dev_mode && queryToObject().nocache)">
+                        <p v-if="!dev_mode && !prompt.title" v-html="prompt.body" :style="`${queryToObject().nocache ? 'margin-top: 0' : ''}`"></p>
+                      </div>
+                    </div>
+                    <div v-if="prompt && (dev_mode || queryToObject().nocache)" style="font-size: 16px;">
+                      <div style="margin-bottom: 10px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}</span> {{ prompt.created }}</div>
+                      <div style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}</span> {{ prompt.expires }} <span>{{ prompt.expired ? '[EXPIRED]' : '' }}</span>
+                      </div>
+                      <div v-if="prompt.website" style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].website ? strings[lang].website : strings['en'].website) }}</span> 
+                        <a target="_blank" :href="`https://${prompt.website.replace('https://', '').replace('http://', '')}`">{{ prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').length > 30 ? prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').slice(0, 12) + '...' + prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').slice(prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').length - 12, prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').length) : prompt.website.replace('https://', '').replace('http://', '').replace('www.', '') }}</a>
+                      </div>
+                      <div v-if="prompt.github" style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].github ? strings[lang].github : strings['en'].github) }}</span> 
+                        <a target="_blank" :href="'https://github.com/' + prompt.github.replace('https://github.com/', '')">@{{ prompt.github.replace('https://github.com/', '').replace('@', '') }}</a>
+                      </div>
+                      <div v-if="prompt.twitter" style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].twitter ? strings[lang].twitter : strings['en'].twitter) }}</span> 
+                        <a target="_blank" :href="'https://twitter.com/' + prompt.twitter.replace('https://twitter.com/', '')">@{{ prompt.twitter.replace('https://twitter.com/', '').replace('@', '') }}</a>
+                      </div>
+                      <div v-if="prompt.mastodon" style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].mastodon ? strings[lang].mastodon : strings['en'].mastodon) }}</span> 
+                        <a target="_blank" :href="'https://' + mastodonLink(prompt.mastodon)">{{ mastodonLink(prompt.mastodon) }}</a>
+                      </div>
+                      <div v-if="prompt.location" style="margin-bottom: 10px;">
+                        <span style="color: red;">{{ (strings[lang] && strings[lang].location ? strings[lang].location : strings['en'].location) }}</span> 
+                        <a>{{ prompt.location }}</a>
+                      </div>
+                    </div>
+                    <div v-if="prompt && prompt.buttons && prompt.buttons.length && !dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}; flex-wrap: wrap;`">
+                      <div v-for="button in prompt.buttons">
+                        <a @click="doButton(button)">
+                          <button class="cybr-btn" style="zoom: 0.65;">
+                            {{ button.label }}
+                            <span aria-hidden>_</span>
+                            <span aria-hidden class="cybr-btn__glitch">{{ button.label }}
+                              <span aria-hidden>_</span>
+                            </span>
+                          </button>
+                          <a/>
+                      </div>
+                    </div>
+                    <div v-if="prompt && dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
+                      <!-- <div> -->
+                        <a @click="update_name(prompt)">
+                          <button class="cybr-btn" style="zoom: 0.6;">
+                            {{ (strings[lang] && strings[lang].update ? strings[lang].update : 'Update') }}
+                            <span aria-hidden>_</span>
+                            <span aria-hidden class="cybr-btn__glitch">{{ (strings[lang] && strings[lang].update ? strings[lang].update : 'Update') }}
+                              <span aria-hidden>_</span>
+                            </span>
+                          </button>
+                          <a/>
+                        <a @click="renew()">
+                          <button class="cybr-btn" style="zoom: 0.6;">
+                            {{ (strings[lang] ? strings[lang].renew : strings['en'].renew) }}
+                            <span aria-hidden>_</span>
+                            <span aria-hidden class="cybr-btn__glitch">{{ (strings[lang] ? strings[lang].renew : strings['en'].renew) }}
+                              <span aria-hidden>_</span>
+                            </span>
+                          </button>
+                          <a/>
+                      <!-- </div> -->
+                    </div>
+                    <a v-if="prompt" @click.prevent="cancel_search()">
+                      <p style=" margin-top: 15px; font-size: 16px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;">
+                        <span>{{ (strings[lang] ? strings[lang].cancel : strings['en'].cancel) }}</span>
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="big_picture_mode" id="big-picture">
+          <div>
+            <input type="text" placeholder="Search Names" v-model="bigPictureSearch" class="search">
+          </div>
+          <h2 v-if="bigPictureSearch"><strong>Search</strong></h2>
+          <h2 v-if="!bigPictureSearch"><strong>Names<span>( {{usernames.length}} )</span></strong></h2>
+          <div class="cards">
+              <figure @click="bigPictureCheckout(name)" v-for="name in bigPictureCards" class="card">
+                  <img :src="`${name.metadata && name.metadata.includes('.png') ? name.metadata : (name.image || 'https://nault.pro/assets/img/carbon-fiber.png')}`" />
+                  <span v-if="Number(name.for_sale)" :style="` position: absolute; color: rgb(236 198 24); text-shadow: 1px 1px #000; opacity: 1; top: 15px; right: 13px; font-size: 22px; max-width: 60px; text-align: right; `">NAME FOR SALE</span>
+                  <span v-if="name.goal_ui && !Number(name.for_sale)"style="position: absolute;color: rgb(50 141 255);text-shadow: rgb(0, 0, 0) 1px 1px;opacity: 1;top: 16px;right: 15px;font-size: 22px;max-width: 85px;text-align: right;">DONATE<br><span style=" color: #FFF; opacity: 0.9; text-align: right; ">{{name.goal_ui.split(':')[1]}}</span></span>
+                  <figcaption :style="`top: ${Number(name.for_sale) || name.image || name.goal_ui ? 'auto' : ''};`">@{{capitalizeFirstLetter(name.name)}} <img style="margin-left:-4px;zoom:0.78;margin-bottom: 6px;" @click="whois(name, name.yearDiff >= 10 ? name.yearDiff : false)" v-if="name.yearDiff >= 10 || (!name.expired && (name.github || name.twitter))" :src="`dist/images/10_year.png`" class="verified" alt=""></figcaption>
+              </figure>
+          </div>
+      </div>
+
+      <div v-if="checkout" id="checkout" class="flex">
+        <a style="display: none; opacity: 0;" rel="me" :href="checkout.mastodon"></a>
+        <div id="avatar" v-if="!loadedName" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
+          <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : ''};`">← </h3>
+        </div>
+        <section v-if="checkout.plans || checkout.image || checkout.update_name" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
+          <div class="about" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#000'};`">
+            <div class="name flex center justify">
+
+              <h2 style="margin-bottom: 4px;text-wrap:balance;">
+                {{ checkout.lease ? '@' + checkout.lease : checkout.title }}
+                <img style="margin-left:-4px;zoom:0.8;margin-bottom: 6px;" @click="whois(checkout, checkout.yearDiff >= 10 ? checkout.yearDiff : false)" v-if="checkout.yearDiff >= 10 || (!checkout.expired && (checkout.github || checkout.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
+              </h2>
+              
+              <div class="flex center justify socials">
+                <div v-if="checkout.github"><a :href="'https://github.com/' + checkout.github.replace('https://github.com/', '').replace('@', '')" target="_blank"><img src="/dist/svg/github-alt.svg" alt="Github"></a></div>
+                <div v-if="checkout.website && (checkout.website.startsWith('https://youtube.com') || checkout.website.startsWith('https://www.youtube.com/'))"><a :href="'https://youtube.com/' + checkout.website.replace('https://youtube.com/', '').replace('https://www.youtube.com/', '')" target="_blank"><img src="/dist/svg/youtube.svg" alt="YouTube"></a></div>
+                <div v-if="checkout.mastodon"><a :href="`https://${checkout.mastodon.replace('https://', '')}`" target="_blank"><img src="/dist/svg/mastodon.svg" alt="Mastodon"></a></div>
+                <div v-if="checkout.twitter"><a :href="'https://twitter.com/' + checkout.twitter.replace('https://twitter.com/', '')" target="_blank"><img src="/dist/svg/twitter.svg" alt="Twitter"></a></div>
+                <div v-if="checkout.website && (!checkout.website.startsWith('https://youtube.com') && !checkout.website.startsWith('https://www.youtube.com/'))" v-if="checkout.website"><a :href="`https://${checkout.website.replace('https://', '').replace('http://', '')}`" target="_blank"><img src="/dist/svg/website.svg" alt="Website"></a></div>
+              </div>
+              
+            </div>
+
+            <div v-if="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);padding-bottom: 20px;margin-bottom: 18px;text-align: center;font-size: 20px;font-family: Cyber;letter-spacing: 3px;color: rgb(8, 157, 255);text-shadow: transparent 0px 0px;text-transform: uppercase;" v-html="checkout.description || checkout.body || checkout.text || checkout.note || checkout.message"></div>
+
+            <div v-if="checkout.goal" id="goal-meter">
+              <div id="funding-wrap">
+                <div class="flex-item">
+                  <div class="goal-stat" style="text-align: left; min-width: 65%;">{{ checkout.goal.title || 'Funding Goal' }}</div>
+                  <div class="goal-stat" style="text-align: right;">
+                    <div >
+                      <img :src="`dist/svg/thicc.svg`" alt="Verified" :style="`max-width: 13px;margin-right: -2px;margin-bottom: 0px;opacity: 0.9;zoom: 1.3;margin-left: -6px;display:inline-block;${checkout.color && checkout.color.text ? 'filter:invert(1)' : ''}`"> 
+                      <span>{{ kFormatter(checkout.goal.total) }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div id="glass">
+                  <div id="contribution" :style="`left:${ (100 * checkout.goal.balance) / checkout.goal.total > 100 ? '100%' : (100 * checkout.goal.balance) / checkout.goal.total + '%' }; width: ${ (100 * checkout.amount) / checkout.goal.total > 100 ? '100%' : (100 * checkout.amount) / checkout.goal.total + '%' }`"></div>
+                  <div id="progress" :style="`width:${ (100 * checkout.goal.balance) / checkout.goal.total > 100 ? '100%' : (100 * checkout.goal.balance) / checkout.goal.total + '%' }`"></div>
+                </div>
+                <div class="flex-item">
+                  <div class="goal-stat" style="text-align: left"> 
+
+                    <span>
+                      <img :src="`dist/svg/thicc.svg`" alt="Verified" :style="`display:inline-block; max-width: 13px; margin-right: -1px; margin-bottom: 0px; opacity: 0.9; zoom: 1.3; margin-left: -6px;${checkout.color && checkout.color.text ? 'filter:invert(1)' : ''}`"> {{ nFormatter(checkout.goal.balance) }}
+                    </span>
+
+                  </div>
+                  <div class="goal-stat" style="text-align: right;display: flex;align-items: center;justify-content: end; min-width: 65%;"> 
+
+                    <div v-if="Number(checkout.goal.pending)" class="goal-activity"><svg height="42" viewBox="0 0 512 512" width="42" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; margin-right: 7px; vertical-align: bottom; filter: blue;"><title></title><polygon points="448 368 256 144 64 368 448 368"></polygon></svg></div>
+                    <span>{{ ( (100 * checkout.goal.balance) / checkout.goal.total ).toFixed(2) }}% <span>Funded</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="checkout.exchange_hot_wallet" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 25px; margin-bottom: 28px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; text-transform: uppercase; ">{{ (strings[lang] ? strings[lang].exchange_address : strings['en'].exchange_address) }}</div>
+
+            <div v-if="checkout.lease" style=" border-bottom: 0.5px solid #00000017; padding-bottom: 20px; margin-bottom: 25px; text-align: center; font-size: 20px; font-family: 'Cyber'; letter-spacing: 3px; color: #089dff; text-shadow: 0 0 transparent; text-transform: uppercase; ">{{ checkout.available ? (strings[lang] ? strings[lang].new_lease : strings['en'].new_lease) : (strings[lang] ? strings[lang].extend_lease : strings['en'].extend_lease) }}</div>
+
+            <p v-if="validExternalImage(checkout.metadata) && checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);margin-bottom: 20px;padding-bottom: 15px;">
+              <video autoplay width="100%" muted><source :src="checkout.metadata" type="video/mp4"></video> 
+            </p>
+
+            <p v-if="validExternalImage(checkout.image || checkout.metadata) && !checkout.metadata.includes('.mp4')" style="border-bottom: 0.5px solid rgba(0, 0, 0, 0.09);margin-bottom: 20px;padding-bottom: 15px;">
+              <img :src="checkout.image || checkout.metadata" style="border-radius: 5px">
+            </p>
+
+            <div v-if="checkout.update_name">
+              <div class="edit-buttons">
+                <div class="flex-wrap" v-for="item in updatable" style="position: relative;display: flex;justify-content: space-around;">
+                  <input type="text" :value="item.label" disabled class="input-label">
+                  <input :oninput="`javascript: if (this.value.length > ${item.max}) this.value = this.value.slice(0, ${item.max});`"
+                  :type="item.type || 'text'" :max="item.max" :maxlength="item.max" v-model="checkout.changes[item.label]" :placeholder="item.placeholder">
+                </div>
+              </div>
+
+            </div>
+            <div v-if="checkout.plans" class="plans">
+              <div v-for="plan in checkout.plans" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 15%)'} !important; background: ${String(plan.value) === String(checkout.amount) ? (checkout.color && checkout.color.active ? checkout.color.active : '#000') : 'transparent'};};`" :class="`${String(plan.value) == String(checkout.amount) ? 'active' : ''}`">
+                <div class="flex justify center" @click="clickPlan(plan)" >
+                  <h4>
+                    {{ plan_title(plan.title || plan.name) }}
+                    <span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" v-if="plan.discount" class="discount">{{ Number(plan.discount) ? plan.discount + '% OFF' : plan.discount }}</span>
+                  </h4>
+                  <h4>{{ Number(plan.value) > 1 ? Math.floor(plan.value) : Number(plan.value).toFixed(3) }} {{ currency }}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="plans custom" v-if="checkout.custom && !checkout.lease">
+              <div :class="`flex justify center`" :style="`border-color:${checkout.color && checkout.color.primary ? checkout.color.primary : 'rgb(70 91 104 / 8%)'};`">
+                <h4>{{ (strings[lang] ? strings[lang].custom : strings['en'].custom) }}</h4>
+                <div class="dinput">
+                  <input type="number" inputmode="decimal" max="133248297" v-model="customAmount" :style="`border-color: ${checkout.color && checkout.color.text ? `${checkout.color.text}` : ''}`">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="payment" :style="checkout.color && checkout.color.right ? `background-color: ${checkout.color.right}` : 'background-color: #009dff'" :class="checkout.plans || checkout.image ? '' : 'full'">
+          <div class="details">
+            <div class="crypto">
+              <h3 v-if="checkout.purchase_name" :style="`margin-bottom: -6px; font-size: 21px; color: ${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'}; font-family: 'Cyber'`">{{ strings[lang] ? strings[lang].purchase : strings['en'].purchase }} @{{checkout.purchase_name}}</h3>
+              <h4 v-if="checkout.amount" class="instructions">
+                <b v-if="Number(checkout.amount)" @click="copy(checkout.amount)" class="amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : '#FFF'};cursor:pointer`">{{ String(checkout.amount).length > 10 ? String(checkout.amount).slice(0, 10) + '~' : checkout.amount }}
+                  <span class="blocky hide-mobile">{{ 'NANO' }}</span>
+                </b>
+                <span v-if="Number(checkout.amount) && rate" :style="`color: #d8ecf9;cursor: pointer;opacity: 0.7;display: block;margin-bottom: 20px;font-family: Cyber;font-size: 18px;`">≈ {{ nFormatter( (checkout.amount * rate).toFixed(2) ) }} {{ currencyComputed }} @ <a :href="`https://www.coingecko.com/en/coins/nano/${ checkout.currency !== 'NANO' && checkout.currency ? checkout.currency.toLowerCase() : 'usd'}`"  :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};cursor: pointer;`" target="_blank" class="cursor"> {{ rate.toFixed(3) }} <img :src="`./dist/images/info2.png`" alt="" class="info-icon">
+                  </a>
+                </span>
+              </h4>
+              <h1 v-if="!checkout.amount" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.update_name || checkout.title }}</h1>
+              <p class="address" :style="`color:${checkout.color && checkout.color.address && checkout.color.address.highlight_color ? checkout.color.address.highlight_color : '#000'}; background:${checkout.color && checkout.color.address && checkout.color.address.highlight_background ? checkout.color.address.highlight_background : (checkout.color && checkout.color.address && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF')};`" @click="copy(checkout.address)">
+                <span class="highlight" :style="`color:${checkout.color && checkout.color.vanity ? checkout.color.vanity : ''};`">{{ checkout.address.slice(0, 12) }}</span><span :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};`">{{ checkout.address.slice(12, 59) }}</span><span class="highlight" :style="`color:${checkout.color && checkout.color.vanity ? checkout.color.vanity : ''};`">{{ checkout.address.slice(59, 99) }}</span>
+                <img :src="`./dist/images/clipboard.png`" alt="">
+              </p>
+              <div class="qrSwitcher">
+                <a style="cursor: pointer;" @click="deepLink(`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`)">
+                  <div class="qrcode" :style="`border-color:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF'}; background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : '#FFF'};`">
+                    <div id="qrcode"></div>
+                  </div>
+                  <div class="security-notice nano" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`">
+                    <img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'}`" :src="`./dist/images/info2.png`" class="lock-icon" style="margin-bottom: 0px;"> {{ checkout.tip || (strings[lang] ? strings[lang].tap : strings['en'].tap) }}
+                  </div>
+                </a>
+              </div>
+              <button v-if="checkout.amount || (checkout.plans && checkout.plans.length)" class="button" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="naultMode ? deepLink(`nano:${checkout.address}${checkout.amount ? '?amount=' + convert(checkout.amount, 'NANO', 'RAW') : ''}`) : check()">
+                <span v-if="buttonText">{{ buttonText }}</span>
+                <span v-if="!buttonText">{{ naultMode ? 'Open Nault' : (checkout.buttonText || ( checkout.goal ? 'Donate' : false ) || (strings[lang] ? strings[lang].button : strings['en'].button) )  }}</span>
+              </button>
+              <div class="security-notice shrink hide-mobile">
+                <div class="flex center" :style="`color:${checkout.color && checkout.color.text ? checkout.color.text : ''};`">{{ checkout.note || (strings[lang] ? strings[lang].note : strings['en'].note) }}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div v-if="frame" class="frame">
+        <div class="backdrop_click_area" @click="frame = false"></div>
+        <div :style="` max-width: ${frame_full ? '100%' : '1024px'}; max-height: 100vh; width: 100%; height: 100%; `">
+          <iframe style="width: 100%; height: 100%;" :src="frame" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    <script src="../../dist/vue.min.js"></script>
+    <script src="../../dist/axios.min.js"></script>
+    <script src="../../dist/easy.qrcode.min.js"></script>
+    <script src="../../dist/nanocurrency.min.js"></script>
+    <script src="../../dist/app.js?v=10.2.1"></script>
+  </body>
+</html>
