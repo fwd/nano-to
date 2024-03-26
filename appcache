@@ -1,0 +1,10 @@
+CACHE MANIFEST 
+dist/images/new_icon.png
+dist/images/verified.png
+dist/favicon.png
+dist/vue.min.js
+dist/axios.min.js
+dist/easy.qrcode.min.js
+dist/nanocurrency.min.js
+dist/style.css?v=10.2.1
+dist/app.js?v=10.2.1
