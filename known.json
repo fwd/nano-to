@@ -1303,14 +1303,6 @@
     "expires_unix": 1680923940
   },
   {
-    "name": "bot",
-    "address": "nano_1bot18r7zy58qom5y4byk9pgj31ofn5oedeuf8ninuzyjgunkp68rbyg5d5p",
-    "created": "March 17, 2023",
-    "expires": "March 17, 2024",
-    "created_unix": 1679060334,
-    "expires_unix": 1710668280
-  },
-  {
     "name": "gr0vity",
     "github": "gr0vity-dev",
     "address": "nano_118tih7f81iiuujdezyqnbb9aonybf6y3cj7mo7hbeetqiymkn16a67w8rkp",
@@ -1495,14 +1487,6 @@
     "expires": "April 1, 2024",
     "created_unix": 1648793400,
     "expires_unix": 1711951800
-  },
-  {
-    "name": "vincent",
-    "address": "nano_3rrensztwhbjiys4uxhbccspt9rwn864ii4xj4rfgje7kuau73ayook9cwmz",
-    "created": "March 17, 2022",
-    "expires": "March 17, 2024",
-    "created_unix": 1647517740,
-    "expires_unix": 1710676140
   },
   {
     "name": "nanogram",
