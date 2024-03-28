@@ -1482,8 +1482,8 @@ code {
 
 #checkout h4 {
   letter-spacing: 1px;
-  max-width: 190px;
 }
+
 
 #checkout canvas {
     width: 100%;
@@ -1513,6 +1513,9 @@ code {
 }
 
 @media (max-width:  768px) {
+    #checkout .plans h4 {
+      max-width: 190px;
+    }
     #checkout h1 {
         /*margin-top: 25px;*/
     }
