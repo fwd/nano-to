@@ -108,7 +108,7 @@ var nano = new Vue({
             }, {
                 label: 'metadata',
                 value: '',
-                max: 99,
+                max: 500,
                 placeholder: ''
             }, 
             // {
