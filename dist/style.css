@@ -1943,8 +1943,8 @@ hr {
     opacity: 0.2;
 }
 .instructions {
-    margin-top: 0;
     margin-bottom: 20px;
+    margin: 0 auto;
 }
 
 #checkout .address {
