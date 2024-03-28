@@ -577,7 +577,7 @@ var nano = new Vue({
 
                 // configure custom in metdata
                 if (item && item.metadata && item.metadata.includes('message=')) {
-                    item.message = item.metadata.split('&').find(a => a.includes('message=')).replace('?', '').replace('message=', '').trim()
+                    item.success_message = item.metadata.split('&').find(a => a.includes('message=')).replace('?', '').replace('message=', '').trim()
                 }
 
                 // configure random in metdata
@@ -637,7 +637,8 @@ var nano = new Vue({
                 this.checkout = {
                     title: query.title || item.name,
                     currency: query.currency || query.c || 'NANO',
-                    message: item.message,
+                    message: query.body || query.message,
+                    success_message: item.success_message,
                     fullscreen: item.cancel ? false : true,
                     image: item.image || query.image || query.img || query.i || '',
                     address: query.address || query.to || item.address,
@@ -870,13 +871,13 @@ var nano = new Vue({
         show_success(block, message) {
             var query = this.queryToObject()
             var delay = this.checkout.redirect_delay || 4000
-            if (this.checkout.message) delay = 10000
+            if (this.checkout.success_message) delay = 10000
             redirect = query.redirect || query.success || this.checkout.success_url
             this.success = {
                 block,
                 confetti: true,
                 title: this.checkout.goal ? this.checkout.goal.title : 'Success',
-                message: this.checkout.message || message || (this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send)),
+                message: this.checkout.success_message || message || (this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send)),
                 redirect: this.checkout.goal ? false : redirect,
             }
             if (this.checkout.goal) {
