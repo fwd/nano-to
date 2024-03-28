@@ -1549,7 +1549,7 @@
     "github": "nano2dev",
     "mastodon": "xno.social/@nano2dev",
     "twitter": "nano2dev",
-    "metadata": "plans=Tip:0.133,Beta Tester:10,Thanks on Github Readme:100,Thanks on App Store:250,Thanks on Github + App Store:500",
+    "metadata": "plans=Tip:0.133,Beta Tester:10,Thanks on Github Readme:100 (10 Max),Thanks on App Store:250 (8 Max),Thanks on Github + App Store:500 (4 Max)",
     "location": "US-East"
   },
   {
