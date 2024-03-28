@@ -1481,10 +1481,8 @@ code {
 }
 
 #checkout h4 {
-/*  font-family: Cyber;*/
   letter-spacing: 1px;
-  text-wrap: ;
-/*  font-size: 20px;*/
+  max-width: 190px;
 }
 
 #checkout canvas {
