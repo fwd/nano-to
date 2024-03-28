@@ -1538,7 +1538,7 @@
   },
   {
     "name": "development",
-    "goal_ui": "500:Dev Fund",
+    "goal_ui": "2000:Business Wallet",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
@@ -1549,7 +1549,7 @@
     "github": "nano2dev",
     "mastodon": "xno.social/@nano2dev",
     "twitter": "nano2dev",
-    "metadata": "plans=Tip:0.133,Beta Tester:10,Thanks on Github Readme:100,Thanks In-App:250,Readme + In-App:500",
+    "metadata": "plans=Tip:0.133,Beta Tester:10,Thanks on Github Readme:100,Thanks on App Store:250,Thanks on Github + App Store:500",
     "location": "US-East"
   },
   {
