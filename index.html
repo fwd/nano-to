@@ -23,8 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="../../dist/images/cover.png">
     <link rel="apple-touch-icon" href="../../dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="../../dist/favicon.png">
-    <link rel="stylesheet" href="../../dist/style.css?v=10.2.6">
-    <link rel="stylesheet" href="../../dist/big-picture.css?v=10.2.6">
+    <link rel="stylesheet" href="../../dist/style.css?v=10.2.7">
+    <link rel="stylesheet" href="../../dist/big-picture.css?v=10.2.7">
     <link rel="manifest" href="../../dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -61,7 +61,7 @@ https://github.com/fwd/nano
       <div v-if="success" id="success" @click="success = false">
         <div>
           <h3 class="success-title">{{ success.title || (strings[lang] ? strings[lang].success : strings['en'].success) }}</h3>
-          <p style="margin-bottom: 0">{{ success.message }}</p>
+          <p style="margin-bottom: 0" v-html="success.message"></p>
           <button v-if="checkout.fullscreen && success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
             <span>{{ success.button }}</span>
           </button>
@@ -356,6 +356,6 @@ https://github.com/fwd/nano
     <script src="../../dist/axios.min.js"></script>
     <script src="../../dist/easy.qrcode.min.js"></script>
     <script src="../../dist/nanocurrency.min.js"></script>
-    <script src="../../dist/app.js?v=10.2.6"></script>
+    <script src="../../dist/app.js?v=10.2.7"></script>
   </body>
 </html>

@@ -574,6 +574,12 @@ var nano = new Vue({
                     custom = item.metadata.split('&').find(a => a.includes('custom=')).replace('?', '').replace('custom=', '').trim()
                 }
 
+
+                // configure custom in metdata
+                if (item && item.metadata && item.metadata.includes('message=')) {
+                    item.message = item.metadata.split('&').find(a => a.includes('message=')).replace('?', '').replace('message=', '').trim()
+                }
+
                 // configure random in metdata
                 if (item && item.metadata && item.metadata.includes('random=')) {
                     random = item.metadata.split('&').find(a => a.includes('random=')).replace('?', '').replace('random=', '').trim()
@@ -630,9 +636,8 @@ var nano = new Vue({
                 }
                 this.checkout = {
                     title: query.title || item.name,
-                    // title: query.title || item.title || item.name, // safari is trash
                     currency: query.currency || query.c || 'NANO',
-                    message: query.body || query.message || query.text || query.copy,
+                    message: item.message,
                     fullscreen: item.cancel ? false : true,
                     image: item.image || query.image || query.img || query.i || '',
                     address: query.address || query.to || item.address,
@@ -864,12 +869,14 @@ var nano = new Vue({
         },
         show_success(block, message) {
             var query = this.queryToObject()
+            var delay = this.checkout.redirect_delay || 4000
+            if (this.checkout.message) delay = 10000
             redirect = query.redirect || query.success || this.checkout.success_url
             this.success = {
                 block,
                 confetti: true,
                 title: this.checkout.goal ? this.checkout.goal.title : 'Success',
-                message: message || (this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send)),
+                message: this.checkout.message || message || (this.checkout.goal ? (this.strings[this.lang] ? this.strings[this.lang].donated : this.strings['en'].donated) : (this.strings[this.lang] ? this.strings[this.lang].payment_send : this.strings['en'].payment_send)),
                 redirect: this.checkout.goal ? false : redirect,
             }
             if (this.checkout.goal) {
@@ -881,10 +888,10 @@ var nano = new Vue({
                         balance: Number(account_info.balance).toFixed(2),
                         pending: account_info.pending
                     }
-                    this.notify('Donated')
+                    this.notify(`Donated to ${this.checkout.goal.title}`)
                     this.success = false
                     this.buttonText = false
-                }, this.checkout.redirect_delay || 4000)
+                }, delay)
                 return
             }
             if (redirect) {
