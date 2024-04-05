@@ -408,8 +408,8 @@ body .cybr-btn + .cybr-btn {
   height: 75px;
   line-height: 75px;
   transition: background 0.2s;
-  zoom: 1.2;
-  -moz-transform: scale(1.2);
+  zoom: 0.6;
+  -moz-transform: scale(0.6);
 }
 
 .cybr-btn:hover {
