@@ -82,7 +82,7 @@ https://github.com/fwd/nano
                   <div v-if="search">
                     <p style="font-size: 20px; margin-bottom: 30px; margin-top: 0;">{{ strings[lang] ? strings[lang].intro : strings['en'].intro }}</p>
                     <form @submit.prevent="query()">
-                      <input type="text" v-model="string" placeholder="Username, Address, Hash" style="zoom: 1.2">
+                      <input type="text" v-model="string" placeholder="Username, Address, Hash" autocomplete="off" style="zoom: 1.2;-moz-transform: scale(1.2);">
                       <div class="suggest" v-if="suggestions.length">
                         <div v-for="suggestion in suggestions" :class="`${suggestion.available ? 'available' : ''} ${suggestion.yearDiff >= 10 ? 'ten' : ''}`" :style="`color:${suggestion.color || ''};opacity:${suggestion.opacity || ''}`" @click="doSuggestion(suggestion)">
                           {{ capitalizeFirstLetter(suggestion.name) }}
@@ -91,14 +91,14 @@ https://github.com/fwd/nano
                       </div>
                       <div style="display: block; height: 15px;"></div>
                       <div class="row centered">
-                        <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto; "> {{ (strings[lang] ? strings[lang].search : strings['en'].search) }} <span aria-hidden>_</span>
+                        <button class="cybr-btn" style="zoom: 0.6; margin: 20px auto;-moz-transform: scale(0.6);"> {{ (strings[lang] ? strings[lang].search : strings['en'].search) }} <span aria-hidden>_</span>
                           <span aria-hidden class="cybr-btn__glitch">NANO_</span>
                         </button>
                       </div>
                     </form>
                     <div class="footer-icon">
                       <a href="https://github.com/fwd/nano-to#nano-name-service" target="_blank" class="github">
-                        <div style="width: fit-content;zoom: 0.7;font-family: Cyber;text-align: center;"><img :src="`../../dist/svg/github.svg`" img/></div>
+                        <div style="width: fit-content;zoom: 0.7;-moz-transform: scale(0.7);font-family: Cyber;text-align: center;"><img :src="`../../dist/svg/github.svg`" img/></div>
                       </a>
                     </div>
                   </div>
