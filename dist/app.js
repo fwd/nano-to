@@ -904,7 +904,7 @@ var nano = new Vue({
                         this.checkout = false
                         return
                     }
-                    window.location.href = success_url
+                    // window.location.href = success_url
                 }, this.checkout.redirect_delay || 3000)
                 return
             }
