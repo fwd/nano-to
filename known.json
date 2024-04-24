@@ -1500,14 +1500,6 @@
     "expires_unix": 1965614400
   },
   {
-    "name": "testuser",
-    "address": "nano_11qwaxtmb5c7xc16wat5rgirbxzug1kgq8tf996xi8kf5cdcrjyaiy39foun",
-    "created": "April 14, 2022",
-    "expires": "April 14, 2024",
-    "created_unix": 1649952540,
-    "expires_unix": 1713110940
-  },
-  {
     "name": "nanogram",
     "address": "nano_3mq1qwxq1t4bk3i96nnnp1rucmo1nxqw7ptasgesscu9ex7fz5uotgd188nu",
     "created": "March 7, 2022",
