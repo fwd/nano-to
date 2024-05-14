@@ -1565,7 +1565,7 @@
   },
   {
     "name": "development",
-    "goal_ui": "2000:Business Wallet",
+    "goal_ui": "800:Command Line Tool",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
