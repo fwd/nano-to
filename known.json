@@ -1533,7 +1533,7 @@
   },
   {
     "name": "development",
-    "goal_ui": "1000:Command Line Tool",
+    "goal_ui": "1000:Nano Node UI",
     "address": "nano_37y6iq8m1zx9inwkkcgqh34kqsihzpjfwgp9jir8xpb9jrcwhkmoxpo61f4o",
     "created": "December 26, 2021",
     "expires": "December 25, 2033",
