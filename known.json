@@ -1537,7 +1537,13 @@
     "mastodon": "xno.social/@nano2dev",
     "twitter": "nano2dev",
     "metadata": "plans=Tip:0.133,Beta Tester:20,Your Name on Github Readme (10 Seats):100,Your Name on Docs Page (4 Seats):250,Your Name on Github + Docs Page (2 Seats):500&custom=true&message=Thanks for donating. To receive your mention, email your nano address and name to <a target='_blank' href='mailto:business@nano.to?subject=Sponsor Mention' style='border-bottom: 1px solid;'>business@nano.to</a>",
-    "location": "US-East"
+    "location": "US-East",
+    "links": [
+      {
+        "title": "Twitter",
+        "url": "https://twitter.com/nano2dev"
+      }
+    ]
   },
   {
     "name": "giveaway",
