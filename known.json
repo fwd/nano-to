@@ -1897,28 +1897,12 @@
     "expires_unix": 2108088000
   },
   {
-    "name": "me",
-    "address": "nano_1nthzryoextiqzmhus1b1o8th3si9ctmzodoy86shmmqefhr57orf5esmbk7",
-    "created": "October 17, 2021",
-    "expires": "June 5, 2024",
-    "created_unix": 1634496420,
-    "expires_unix": 1717624320
-  },
-  {
     "name": "elon",
     "address": "nano_3mch77jubq3ttit6cndrsscheg9fzqzq1eoyy6dxak3ukeptkkzw3n4mkacn",
     "created": "October 17, 2021",
     "expires": "November 20, 2028",
     "created_unix": 1634496360,
     "expires_unix": 1858309200
-  },
-  {
-    "name": "chris",
-    "address": "nano_1n3xshcr1iqin1n5dtkag1g7zp9bwpfitjqoyc5e6ujjezbum9bk7zttrqei",
-    "created": "October 17, 2021",
-    "expires": "June 5, 2024",
-    "created_unix": 1634496360,
-    "expires_unix": 1717624200
   },
   {
     "name": "michael",
