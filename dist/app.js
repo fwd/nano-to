@@ -147,20 +147,25 @@ var nano = new Vue({
             this.big_picture_mode = true
         }
         this.load((data) => {
-            var sub_path = window.location.pathname !== '/'
-            if (sub_path) this.loadedName = true
-            if (bigPictureMode && sub_path) {
+            var path = window.location.pathname !== '/'
+            if (path) this.loadedName = true
+            if (bigPictureMode && path) {
                 this.bigPictureSearch = (window.location.pathname.replace('/', '').replace('@', ''))
-            }
-            if (!bigPictureMode && sub_path) {
-                this._checkout(null, data)
             }
             if (!Object.keys(this.strings).includes(this.lang)) {
                 this.lang = 'en'
             }
+            var sub_path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
+            if (sub_path) {
+                var checkout = sub_path.includes('pay_') || sub_path.includes('inv_') || sub_path.includes('invoice_') || sub_path.includes('id_')
+                if (checkout) return this.invoice()
+            }
+            if (!bigPictureMode && path) {
+                this._checkout(null, data)
+            }
             setTimeout(() => {
                 this.loading = false
-            }, 100)
+            }, 500)
         })
         document.onkeydown = function(evt) {
             evt = evt || window.event;
@@ -458,6 +463,7 @@ var nano = new Vue({
                         this.checkout.amount = selected
                     }
                     this.showQR()
+                    this.loading = false
                 }, 100)
                 if (res.data.error) {
                     return this.notify(`Error 26: Expired Checkout.`, 'error', 10000)
@@ -501,8 +507,6 @@ var nano = new Vue({
             if (item && path.includes(':')) return window.location.href = window.location.origin + '/' + path.replace(':', '')
             if (name === 'DESIRED_USERNAME') return alert('Reading the docs? Try searching for desired name instead.')
             if (item && Number(item.for_sale)) return this.bigPictureCheckout(item)
-            var checkout = path.includes('pay_') || path.includes('inv_') || path.includes('invoice_') || path.includes('id_')
-            if (path && checkout) return this.invoice()
             if ((path && !path.includes('nano_')) && !this.usernames.find(a => a.name.toLowerCase() === name)) {
                 if (path.includes('/')) return window.location.href = '/'
                 this.string = path
@@ -512,7 +516,6 @@ var nano = new Vue({
             var query = this.queryToObject()
             var amount = query.p || query.price || query.amount || item.amount || item.price || false
             if (item && item.name) {
-
                 if (!cache && query.nocache || item.website_button_only) return this.doSuggestion({
                     title: item.title,
                     calendly: item.calendly,
@@ -706,10 +709,6 @@ var nano = new Vue({
                 var random = query.random || query.r
                 if (!amount && !plans) plans = `Tip:0.133,Small:5,Medium:10,Large:25,Gigantic:100`
                 if (plans) plans = this.addRandomAmount(plans, random)
-                // duplicate code
-                // if ((!plans || !plans.length) && (query.random || query.r || item.random)) {
-                //     amount = (!String(amount).includes('.') ? amount + '.00' : amount + '0') + this.getRandomArbitrary(10000, 100000)
-                // }
                 if (query.goal) {
                     var account_info = await this.balance(query.address || query.to || path)
                     goal = {
