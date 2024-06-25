@@ -439,7 +439,7 @@ var nano = new Vue({
             var endpoint = configured || `https://api.nano.to/checkout/${path}`
             axios.get(endpoint).then(async (res) => {
                 if (res.data.update_name) return this.do_update_name(res, res.data.update_name)
-                if (res.data.error) return this.notify(res.data.message)
+                if (res.data.error) return this.notify(res.data.message, 'warn', 1000000)
                 if (res.data.plans && res.data.plans.length) {
                     var selected = res.data.selected && res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()) ? res.data.plans.find(a => a.title.toLowerCase() === res.data.selected.toLowerCase()).value : res.data.plans[0].value
                     res.data.amount = selected
