@@ -47,7 +47,8 @@ https://github.com/fwd/nano
       const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || (window.navigator.standalone) || document.referrer.includes('android-app://')
       if (isInStandaloneMode) document.documentElement.className += ' web-app'
     </script>
-    <script src="https://metrics.bar/js/script.js" id="metrics" async defer></script>
+    <script>UST_CT = [];UST = { s: Date.now(), addTag: function(tag) { UST_CT.push(tag) } };UST.addEvent = UST.addTag;</script>
+    <script src="https://beta.metrics.bar/server/ust.min.js?v=7.0.0" async></script>
   </head>
   <body>
     <p class="seo-hackz" style="display: none; opacity: 0;">Nano name service, Public RPC and Checkout UI for the Nano blockchain. Nano.to is on a mission to accelerate the use of crypto around the world.</p>
