@@ -1127,14 +1127,6 @@
     "expires_unix": 1846202460
   },
   {
-    "name": "NanoMagic",
-    "address": "nano_1335owogbe19axaki7gcxoxy3dyq1ysxxoq76xnri18et4r3b7tdejp9wrdf",
-    "created": "June 25, 2023",
-    "expires": "June 25, 2024",
-    "created_unix": 1687688759,
-    "expires_unix": 1719311100
-  },
-  {
     "name": "Paypur_node",
     "lowercase": true,
     "address": "nano_15zntj4a8r6bkihei788ciy1jgc5wnskan1gpgn8e8jku3r4qhr7rwifitir",
