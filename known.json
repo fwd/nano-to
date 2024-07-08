@@ -1501,14 +1501,6 @@
     "expires_unix": 1720670400
   },
   {
-    "name": "nautilus",
-    "address": "nano_38713x95zyjsqzx6nm1dsom1jmm668owkeb9913ax6nfgj15az3nu8xkx579",
-    "created": "June 28, 2022",
-    "expires": "June 28, 2024",
-    "created_unix": 1656471060,
-    "expires_unix": 1719547200
-  },
-  {
     "name": "v",
     "address": "nano_3yrn8bx4itoyc69n6m3m16thms1ckypqpaddqx6wca6a55fqh3b3jc36end4",
     "created": "April 15, 2022",
