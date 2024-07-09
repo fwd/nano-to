@@ -730,7 +730,7 @@ var nano = new Vue({
                     notify: query.notify,
                     currency: query.currency || query.c || 'NANO',
                     message: query.body || query.message || query.text || query.copy,
-                    fullscreen: !checkout.cancel,
+                    fullscreen: !this.checkout.cancel,
                     image: query.image || query.img || query.i || '',
                     address: query.address || query.to || path,
                     history_count: query.history || query.history_count,
