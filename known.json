@@ -1,5 +1,13 @@
 [
   {
+    "name": "Rebelz",
+    "address": "nano_1tjjai75wieuz3u47cnji6fgzcz65cbqpkgc8e88nyi67mmk8kac1h819ucr",
+    "created": "July 16, 2024",
+    "expires": "July 16, 2026",
+    "created_unix": 1721178270,
+    "expires_unix": 1784250240
+  },
+  {
     "name": "Akari",
     "address": "nano_1akarined7s1qsbtagjpjwjz9xcksh4h46orgqksd1w3n18nw563ee64qf49",
     "created": "July 12, 2024",
