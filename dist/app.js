@@ -253,6 +253,7 @@ var nano = new Vue({
             setTimeout(() => {
                 this.showQR()
                 this.$forceUpdate()
+                this.loading = false
             }, 100)
         },
         mastodonLink(link) {
