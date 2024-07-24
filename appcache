@@ -6,5 +6,5 @@ dist/vue.min.js
 dist/axios.min.js
 dist/easy.qrcode.min.js
 dist/nanocurrency.min.js
-dist/style.css?v=10.3.3
-dist/app.js?v=10.3.3
+dist/style.css?v=10.3.4
+dist/app.js?v=10.3.4
