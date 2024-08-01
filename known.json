@@ -1096,14 +1096,6 @@
     "for_sale": "100"
   },
   {
-    "name": "Light",
-    "address": "nano_3wroiqxabw415bpphso9a1fwafzw1kgx4z6make5zmji9wysx1n5fa8gfoao",
-    "created": "July 22, 2023",
-    "expires": "July 22, 2024",
-    "created_unix": 1690071860,
-    "expires_unix": 1721694180
-  },
-  {
     "name": "Law",
     "address": "nano_1hk7tidf9yp6z37pbqysbfo89e3yhm3m1dnxfeyzospsw8zntmjmo43w1e13",
     "created": "July 19, 2023",
