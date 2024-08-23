@@ -970,14 +970,6 @@
     "expires_unix": 2007825660
   },
   {
-    "name": "Fortune",
-    "address": "nano_1hcbxih53x614db1c5r6qdxhupihpxs1yhugr7z863k11wz41p3uh15gdj85",
-    "created": "August 13, 2023",
-    "expires": "August 13, 2024",
-    "created_unix": 1691930094,
-    "expires_unix": 1723552440
-  },
-  {
     "name": "Nick",
     "address": "nano_3t6tpgbehiiteokyjcxk1cobx38yn6qd54xretk4gdie88hr88u1ubnh7upm",
     "created": "August 8, 2023",
