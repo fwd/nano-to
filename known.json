@@ -948,14 +948,6 @@
     "expires_unix": 1759878480
   },
   {
-    "name": "Steamdeck",
-    "address": "nano_3wroiqxabw415bpphso9a1fwafzw1kgx4z6make5zmji9wysx1n5fa8gfoao",
-    "created": "September 3, 2023",
-    "expires": "September 3, 2024",
-    "created_unix": 1693768196,
-    "expires_unix": 1725390540
-  },
-  {
     "name": "Runescape",
     "address": "nano_1rune53mf39145dcy8i6otiyje5ewmmzaxxeixutx8xtosgqyzkdy3pnxjs1",
     "created": "August 20, 2023",
