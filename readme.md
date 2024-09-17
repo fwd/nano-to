@@ -1,9 +1,9 @@
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 <h1 align="center">Nano Name Service</h1>
 <h3 align="center">Hosted on Github</h3>
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 <p align="center">
   <img src="https://pbs.twimg.com/media/FwQoJPyXsAA2c24?format=jpg&name=medium" alt="Nano.to" />
@@ -11,7 +11,7 @@
 
 <h1 align="center">🇺🇸 · 🇨🇦 · 🇲🇽 · 🇨🇺 · 🇸🇻 · 🇳🇮 · 🇨🇴 · 🇵🇪 · 🇳🇱 · 🇩🇪 · 🇯🇵 · 🇰🇷 · 🇧🇷 · 🇺🇦 · 🇵🇱 · 🇳🇬 ·  🇮🇳 · 🇪🇸 · 🇮🇩 · 🇫🇷 · 🇲🇲 · 🇦🇺 · 🇵🇭 · 🇸🇪 · 🇵🇹 · 🇹🇷</h1>
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## Quick Links
 
@@ -24,7 +24,7 @@
 - [**Web App - Nault.Pro w/ ChatGPT**](https://nault.pro)
 - [**Ubuntu - Nano 1-Click Docker**](https://github.com/fwd/nano-docker) 
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## More Domains
 
@@ -33,7 +33,7 @@
 - ӿ.to (**Redirect**)
 
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## Developer API
 
@@ -79,7 +79,7 @@ curl -d '{
 "https://rpc.nano.to"
 ```
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## Host Your Own
 
@@ -92,7 +92,7 @@ git clone git@github.com:fwd/nano.git && cd nano
 php -S localhost:8080
 ```
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## Download Dataset
 
@@ -102,46 +102,20 @@ php -S localhost:8080
 - Every 24HR: https://nano.to/known.json
 - 2023 Snapshot (**Immutable**): [https://nano.to/2023/known.json](https://nano.to/2023/known.json)
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
-
-## Verification
-
-Fork Nano.to and modify your object in *known.json*. or use API.
-
-```
-curl -d '{
-  "action": "update_name",
-  "name": "NanoBull",
-  "title": "Software Developer",
-  "twitter": "NanoBull",
-  "github": "NanoBull",
-  "mastodon": "xno.social/@nano2bot",
-  "calendly": "NanoNullConsulting/30min",
-  "calendly_price": 1,
-  "location": "Place Name or Lat, Lon",
-  "website": "https://fwd.dev",
-  "for_sale": 500,
-  "goal_ui": "100:Server Hosting"
-  "address": "NEW_NANO_ADDRESS",
-  "rep_address": "YOUR_MACHINE",
-  "donation_address": "OPTIONAL_NANO_ADDRESS"
-}' \
--H "Content-Type: application/json" \
-"https://rpc.nano.to"
-```
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## Bugs & Features ⭐️
 
 Give a star if this project helped you. Contributions, issues and features are welcome at [issues page](https://github.com/fwd/nano/issues).
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## Sponsor (DigitalOcean)
 
 <a align="center" target="_blank" href="https://m.do.co/c/f139acf4ddcb"><img style="object-fit: contain;
     max-width: 100%;" src="https://github.com/fwd/fwd/raw/master/ads/digitalocean_new.png" width="970" /></a>
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## Nano.to Support
 
@@ -151,7 +125,7 @@ Give a star if this project helped you. Contributions, issues and features are w
 - **Mastodon:** [Xno.Social](https://xno.social/public/local) 
 - Discord: [Nano.to Discord](https://discord.gg/HgqDCkzP) 
 
-![line](https://github.com/fwd/n2/raw/master/.github/line.png)
+![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
 ## License
 
