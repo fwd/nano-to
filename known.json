@@ -2052,7 +2052,7 @@
   {
     "status": "active",
     "name": "moon",
-    "goal_ui": "45000:First Super Node",
+    "goal_ui": "100000:First Super Node",
     "title": "US-Obelisk-1 Fund",
     "description": "US-Obelisk-1. <a target='_blank' href='https://blog.nano.to/introducing-nano-obelisk-a-self-sustaining-super-node' style='border-bottom: 1px solid'>Full Story</a>",
     "github": "nano2dev",
@@ -2066,7 +2066,7 @@
     "twitter": "nano2dev",
     "mastodon": "nano2dev",
     "donation_address": "",
-    "metadata": "plans=Tip:5,Hobby:100,Backer:1000,Investor:15000,Co-Owner:45000&custom=true"
+    "metadata": "plans=Tip:5,Hobby:100,Backer:1000,Investor:25000,Co-Owner:50000&custom=true"
   },
   {
     "name": "alberto",
