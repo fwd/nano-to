@@ -888,14 +888,6 @@
     "donation_address": "nano_3kenn3ae3dsb1h4ni5uemd6yyhs3dj46swrgotma3qe36b17fmp7wjcaedfm"
   },
   {
-    "name": "Bedlam520",
-    "address": "nano_313od9rtdb4pitidf9ff9sjtf4teobfmu9mc5nrsxrwwoeoq8q4dko64as36",
-    "created": "October 28, 2023",
-    "expires": "October 28, 2024",
-    "created_unix": 1698505191,
-    "expires_unix": 1730127540
-  },
-  {
     "name": "Holger",
     "address": "nano_11jnuodx48ukw9fxx9nrs3dhu36u5wpez8swtdj654y5wbdwoyj38qsf9skf",
     "created": "October 28, 2023",
