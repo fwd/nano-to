@@ -1394,15 +1394,6 @@
     "metadata": "https://xno.nano.org/images/xno_currencies.gif"
   },
   {
-    "name": "avigopal",
-    "status": "active",
-    "address": "nano_1mz98gg1xnii9mo4aur6ax9xcpayyzexcejzpednpbyk4n1ztzznp635uy9f",
-    "created": "November 10, 2022",
-    "expires": "November 10, 2024",
-    "created_unix": 1668068505,
-    "expires_unix": 1731226860
-  },
-  {
     "name": "bank",
     "status": "active",
     "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
