@@ -1339,14 +1339,6 @@
     "expires_unix": 1733240580
   },
   {
-    "name": "naxno",
-    "address": "nano_3gq9x6n1q6padzbu13kdk9khbzxuwnhce64bdmwyhxdccm9d5f6oh6taymga",
-    "created": "November 20, 2022",
-    "expires": "November 20, 2024",
-    "created_unix": 1668988408,
-    "expires_unix": 1732146780
-  },
-  {
     "name": "polyrun",
     "address": "nano_3po1yrun1qrproqtq699p748ymduwp856qsk64x4yftca7onp5t1t81mxeeu",
     "created": "November 20, 2022",
@@ -1355,14 +1347,6 @@
     "expires_unix": 1732129860,
     "twitter": "polyrunapp",
     "website": "polyrun.app"
-  },
-  {
-    "name": "forest",
-    "address": "nano_3aex6th4z1w4dt3emiiaqhga6jaz9jdagad14zkqimx5gykogkcwtm3bk4wf",
-    "created": "November 20, 2022",
-    "expires": "November 20, 2024",
-    "created_unix": 1668947309,
-    "expires_unix": 1732105680
   },
   {
     "name": "keywordcrypto",
