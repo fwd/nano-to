@@ -1557,15 +1557,6 @@
     "expires_unix": 1954500120
   },
   {
-    "name": "dabossdaus",
-    "address": "nano_3whr6wamz3bnr89bh7d4t1my3y8rb16p5qumsjfr1oaipjn7kjxrdcesaobt",
-    "created": "December 6, 2021",
-    "expires": "December 6, 2024",
-    "created_unix": 1638834420,
-    "expires_unix": 1733461200,
-    "status": "active"
-  },
-  {
     "name": "silva",
     "address": "nano_1m3cthieds48zqudoeaxn7x137qposw4opz34wursmb8i7439dgq4oyif4p5",
     "created": "December 5, 2021",
