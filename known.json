@@ -1754,14 +1754,6 @@
     "metadata": "https://nanswap.com/art/assets/LRBaXOPbQNK"
   },
   {
-    "name": "kedrin",
-    "address": "nano_15nt4cis8ac184q9mj7bedww9ay9zh5jk5k7sj9ypmz44twjcpz3cn6oijir",
-    "created": "November 19, 2021",
-    "expires": "December 20, 2024",
-    "created_unix": 1637340480,
-    "expires_unix": 1734670800
-  },
-  {
     "name": "basedlemahieu",
     "address": "nano_13djxwu4bbih85kc5uq9949pjr7d3ax5csntwgwi4x71aw1shcaim3ujght6",
     "created": "November 19, 2021",
