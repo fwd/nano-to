@@ -100,6 +100,7 @@ php -S localhost:8080
 
 - Realtime: https://api.nano.to/known.json
 - Every 24HR: https://nano.to/known.json
+- 2024 Snapshot (**Immutable**): [https://nano.to/2024/known.json](https://nano.to/2024/known.json)
 - 2023 Snapshot (**Immutable**): [https://nano.to/2023/known.json](https://nano.to/2023/known.json)
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
