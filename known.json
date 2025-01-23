@@ -331,14 +331,6 @@
     "goal_ui": ""
   },
   {
-    "name": "O",
-    "address": "nano_1neebqac78jt7hamcp5y8bm9nhjkp66k7obuxsq4ocgjdgyj5d4bouy1camw",
-    "created": "January 13, 2024",
-    "expires": "January 13, 2025",
-    "created_unix": 1705187463,
-    "expires_unix": 1736809800
-  },
-  {
     "name": "Blockracer",
     "address": "nano_1xno5fdkdrbxrwkdhmjp4ah9oxg49qkdy3d491ge3tywyqyt87ubwygq8m7k",
     "created": "January 6, 2024",
