@@ -1632,19 +1632,19 @@
   },
   {
     "status": "active",
-    "github": "humble-nano",
+    "github": "",
     "name": "humblenano",
-    "twitter": "humblenano",
+    "twitter": "",
     "address": "nano_3fq1wt45hpe9a6phqh3ht5y9xusa46z1mszduw6nq47opcxhfa71cnfo1maa",
     "created": "November 20, 2021",
     "expires": "November 21, 2032",
     "created_unix": 1637429820,
     "expires_unix": 1984626000,
-    "title": "Node owner for the digital currency #nano. Always try to find special hardware/configurations or locations. Beefy #nano nodes :)",
-    "mastodon": "https://mastodon.social/@humblenano",
+    "title": "!!Will shutdown soon!!",
+    "mastodon": "",
     "rep_address": "nano_3n7ky76t4g57o9skjawm8pprooz1bminkbeegsyt694xn6d31c6s744fjzzz",
     "donation_address": "nano_3fq1wt45hpe9a6phqh3ht5y9xusa46z1mszduw6nq47opcxhfa71cnfo1maa",
-    "metadata": "https://nanswap.com/art/assets/LRBaXOPbQNK"
+    "metadata": ""
   },
   {
     "name": "basedlemahieu",
