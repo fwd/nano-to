@@ -1930,9 +1930,9 @@
     "address": "nano_1m747htgqw5fbhuafuswpwuc18y7zjwqntbi1fynehmz1zaqoj1puj7h96oj",
     "donation_address": "@development",
     "created": "September 13, 2021",
-    "expires": "November 7, 2024",
+    "expires": "November 7, 2026",
     "created_unix": 1631584140,
-    "expires_unix": 1730955600,
+    "expires_unix": 1794027600,
     "location": "Us-East",
     "goal_ui": "100:Monthly Hosting",
     "metadata": "Hello World, Again"
