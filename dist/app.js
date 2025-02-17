@@ -67,12 +67,13 @@ var nano = new Vue({
                 value: '',
                 max: 99,
                 placeholder: ''
-            }, {
-                label: 'mastodon',
-                value: '',
-                max: 99,
-                placeholder: ''
-            },
+            }, 
+            // {
+            //     label: 'mastodon',
+            //     value: '',
+            //     max: 99,
+            //     placeholder: ''
+            // },
             {
                 label: 'location',
                 value: '',
@@ -111,12 +112,6 @@ var nano = new Vue({
                 max: 500,
                 placeholder: ''
             }, 
-            // {
-            //     label: 'nostr_public_key',
-            //     value: '',
-            //     max: 99,
-            //     placeholder: ''
-            // },
         ]
     },
     watch: {
@@ -125,13 +120,9 @@ var nano = new Vue({
             this.showQR()
             this.$forceUpdate()
         },
-        currency() {},
         string() {
             this.query()
         },
-        admin() {
-            this.background = !this.background
-        }
     },
     mounted() {
         var query = this.queryToObject()
