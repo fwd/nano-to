@@ -13,16 +13,9 @@
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
-## Quick Links
+## Documentation
 
-- [**Public Nano RPC**](https://rpc.nano.to)
-- [**Javascript -  @nano/wallet.js**](https://github.com/fwd/nano-offline)
-- [**Javascript -  paywall.js**](https://github.com/fwd/nano-wall)
-- [**Javascript - goal.js**](https://github.com/fwd/nano-goal) 
-- [**Web App - Nano.to Usernames**](https://docs.nano.to/usernames)
-- [**Web App - Nano.to Checkout**](https://docs.nano.to/checkout#getting-started) 
-- [**Web App - Nault.Pro w/ ChatGPT**](https://nault.pro)
-- [**Ubuntu - Nano 1-Click Docker**](https://github.com/fwd/nano-docker) 
+https://docs.nano.to
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
@@ -31,7 +24,6 @@
 - nano.to (**Original**)
 - xno.to (**Redirect**)
 - ӿ.to (**Redirect**)
-
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
@@ -123,7 +115,6 @@ Give a star if this project helped you. Contributions, issues and features are w
 - Email: support@nano.to
 - Twitter: [@nano_known](https://twitter.com/nano_known)
 - Twitter: [@nano2dev](https://twitter.com/nano2dev)
-- **Mastodon:** [Xno.Social](https://xno.social/public/local) 
 - Discord: [Nano.to Discord](https://discord.gg/HgqDCkzP) 
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
