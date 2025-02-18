@@ -15,7 +15,7 @@
 
 ## Documentation
 
-https://docs.nano.to
+https://docs.nano.to/checkout
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
