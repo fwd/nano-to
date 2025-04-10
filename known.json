@@ -1,5 +1,13 @@
 [
   {
+    "name": "Music",
+    "address": "nano_1598eeu4i9rnswm9iungmn4wgbbts1qty7zd63ksipm9epzsiaum8kmfpyit",
+    "created": "April 10, 2025",
+    "expires": "April 10, 2027",
+    "created_unix": 1744277525,
+    "expires_unix": 1807349520
+  },
+  {
     "name": "Games",
     "address": "nano_1598eeu4i9rnswm9iungmn4wgbbts1qty7zd63ksipm9epzsiaum8kmfpyit",
     "created": "April 10, 2025",
