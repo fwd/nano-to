@@ -1220,14 +1220,6 @@
     "expires_unix": 1999347720
   },
   {
-    "name": "paypur",
-    "address": "nano_1paypur3bf9oawtbfcm4gqeekirjy37jw3ttfsidhxw99aky8auqwaf6na9q",
-    "created": "April 9, 2023",
-    "expires": "April 9, 2025",
-    "created_unix": 1681028959,
-    "expires_unix": 1744172940
-  },
-  {
     "status": "active",
     "github": "takuoimoto",
     "twitter": "takuoimoto",
