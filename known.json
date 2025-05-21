@@ -1204,14 +1204,6 @@
     "expires_unix": 1747071180
   },
   {
-    "name": "Fraser",
-    "address": "nano_1thguu8ohs91afjhewknmci37ngcws5d15rjhaxrpudw6rdo6xosmiqzjtii",
-    "created": "May 11, 2023",
-    "expires": "May 11, 2025",
-    "created_unix": 1683823167,
-    "expires_unix": 1746981540
-  },
-  {
     "name": "FairKing",
     "address": "nano_1ebeg7sx9q53rbqit6ww3rbhw6ygj5insyxzsonsqhe9jk95u8f68wb6wzrb",
     "created": "May 10, 2023",
