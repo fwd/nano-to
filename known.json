@@ -1191,14 +1191,6 @@
     "expires_unix": 1866085200
   },
   {
-    "name": "Kopeboy",
-    "address": "nano_3qx5cz95xxpd5wsm9imggxpuxhpf5oupx14456ms5f5hn9qhyexiszfhshfb",
-    "created": "May 18, 2023",
-    "expires": "May 18, 2025",
-    "created_unix": 1684402818,
-    "expires_unix": 1747561200
-  },
-  {
     "name": "FairKing",
     "address": "nano_1ebeg7sx9q53rbqit6ww3rbhw6ygj5insyxzsonsqhe9jk95u8f68wb6wzrb",
     "created": "May 10, 2023",
