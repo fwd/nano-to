@@ -1,5 +1,13 @@
 [
   {
+    "name": "Kopeboy",
+    "address": "nano_3qx5cz95xxpd5wsm9imggxpuxhpf5oupx14456ms5f5hn9qhyexiszfhshfb",
+    "created": "June 1, 2025",
+    "expires": "June 1, 2027",
+    "created_unix": 1748786293,
+    "expires_unix": 1811858280
+  },
+  {
     "name": "Nico",
     "address": "nano_11d9boacgf6qfpgku1s634r5779c68okgkeowfw6463e69e5ead9341y178k",
     "created": "May 24, 2025",
