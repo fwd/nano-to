@@ -5,7 +5,11 @@
     "created": "June 1, 2025",
     "expires": "June 1, 2027",
     "created_unix": 1748786293,
-    "expires_unix": 1811858280
+    "expires_unix": 1811858280,
+    "title": "kopeboy",
+    "github": "kopeboy",
+    "twitter": "kopeboy",
+    "website": "ioc.xyz"
   },
   {
     "name": "Nico",
