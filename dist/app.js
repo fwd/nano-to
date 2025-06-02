@@ -629,16 +629,23 @@ var nano = new Vue({
                 if (item && !(item.lowercase_title || item.lowercase)) {
                     item.name = this.capitalizeFirstLetter(item.name)
                 }
+                var name = item.name
+                var description = item.description || item.title || query.description || query.body || query.message
+                // Let users customie how their name is shown by setting name in title field
+                if (description && description.toLowerCase() === name.toLowerCase()) {
+                    name = description
+                    description = null
+                }
                 this.checkout = {
-                    title: query.title || item.name,
+                    title: name,
                     currency: query.currency || query.c || 'NANO',
-                    message: query.body || query.message,
+                    // message: query.body || query.message,
                     success_message: item.success_message,
                     fullscreen: item.cancel ? false : true,
-                    image: item.image || query.image || query.img || query.i || '',
-                    address: query.address || query.to || item.address,
-                    history_count: query.history || query.history_count,
-                    description: item.description || item.title || query.description || query.body || query.message,
+                    image: item.image || '',
+                    address: item.address,
+                    // history_count: query.history || query.history_count,
+                    description,
                     metadata: item.metadata || false,
                     calendly: item.calendly,
                     discord: item.discord,
@@ -651,7 +658,7 @@ var nano = new Vue({
                     exchange_hot_wallet: item.exchange_hot_wallet,
                     website: item.website,
                     buttonText: item.button || query.button,
-                    note: item.note || query.note,
+                    note: item.note,
                     expired: item.expired || this.expired(item.expires_unix),
                     goal,
                     custom,
