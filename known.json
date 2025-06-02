@@ -1166,14 +1166,6 @@
     "expires_unix": 1748078460
   },
   {
-    "name": "Matthijs",
-    "address": "nano_3cmo5qpkcfi9z44wtb1sbcwbzjgmy8ju7xaqk9xzjyaw8wogeqnrfwn4gxwg",
-    "created": "May 23, 2023",
-    "expires": "May 23, 2025",
-    "created_unix": 1684882535,
-    "expires_unix": 1748040900
-  },
-  {
     "name": "Rpc",
     "title": "Nano.to RPC Store",
     "github": "nano2dev",
