@@ -1158,14 +1158,6 @@
     "expires_unix": 1748148540
   },
   {
-    "name": "Fntx",
-    "address": "nano_3fdqzd9pe55kpozg534kk1xskhybxy8ecjbc63ha7dx3o9nap84irgaqxd79",
-    "created": "May 24, 2023",
-    "expires": "May 24, 2025",
-    "created_unix": 1684920117,
-    "expires_unix": 1748078460
-  },
-  {
     "name": "Rpc",
     "title": "Nano.to RPC Store",
     "github": "nano2dev",
