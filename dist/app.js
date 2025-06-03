@@ -632,7 +632,8 @@ var nano = new Vue({
                 var name = item.name
                 var description = item.description || item.title || query.description || query.body || query.message
                 // Let users customie how their name is shown by setting name in title field
-                if (description && description.toLowerCase() === name.toLowerCase()) {
+                var customNameFormat = description && description.toLowerCase() === name.toLowerCase()
+                if (customNameFormat) {
                     name = description
                     description = null
                 }
@@ -697,7 +698,7 @@ var nano = new Vue({
                     }
                     this.showQR()
                 }, 100)
-                document.title = `${this.capitalizeFirstLetter(name)} - Nano Checkout`
+                document.title = `${customNameFormat ? name : this.capitalizeFirstLetter(name)} - Nano Checkout`
             }
             var query = this.queryToObject()
             if (path && path.includes('nano_')) {
