@@ -697,7 +697,7 @@ var nano = new Vue({
                     }
                     this.showQR()
                 }, 100)
-                document.title = `${this.capitalizeFirstLetter(item.name)} - Nano Checkout`
+                document.title = `${this.capitalizeFirstLetter(name)} - Nano Checkout`
             }
             var query = this.queryToObject()
             if (path && path.includes('nano_')) {
