@@ -106,7 +106,14 @@ var nano = new Vue({
                 value: '',
                 max: 99,
                 placeholder: ''
-            }, {
+            }, 
+            {
+                label: 'sitemap',
+                value: '',
+                max: 7,
+                placeholder: 'false'
+            },
+            {
                 label: 'metadata',
                 value: '',
                 max: 500,
