@@ -22,8 +22,7 @@ https://docs.nano.to/checkout
 ## More Domains
 
 - nano.to (**Original**)
-- xno.to (**Redirect**)
-- ӿ.to (**Redirect**)
+- xno.to (**Optional**)
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
