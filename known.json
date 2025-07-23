@@ -1067,14 +1067,6 @@
     "expires_unix": 1847395080
   },
   {
-    "name": "User",
-    "address": "nano_1xno5fdkdrbxrwkdhmjp4ah9oxg49qkdy3d491ge3tywyqyt87ubwygq8m7k",
-    "created": "July 13, 2023",
-    "expires": "July 13, 2025",
-    "created_unix": 1689243236,
-    "expires_unix": 1752401580
-  },
-  {
     "name": "Corican",
     "address": "nano_1oqiq4pwx1yun94xg3zyzsnosep4ro7tzqud1wgc9w7osw9quuzuprnwkb4s",
     "created": "July 2, 2023",
