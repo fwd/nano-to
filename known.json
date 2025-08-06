@@ -1051,14 +1051,6 @@
     "expires_unix": 1848412800
   },
   {
-    "name": "Sparrow",
-    "address": "nano_1gqwww84fw9ke6oz6jj3gocbtokd31wj9hz46cqx7h6b644zgje8343fwwdu",
-    "created": "July 27, 2023",
-    "expires": "July 27, 2025",
-    "created_unix": 1690465204,
-    "expires_unix": 1753623600
-  },
-  {
     "name": "Law",
     "address": "nano_1hk7tidf9yp6z37pbqysbfo89e3yhm3m1dnxfeyzospsw8zntmjmo43w1e13",
     "created": "July 19, 2023",
