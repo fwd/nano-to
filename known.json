@@ -1859,14 +1859,6 @@
     "expires_unix": 1760716620
   },
   {
-    "name": "Ben",
-    "address": "nano_3odn1ypkz1omjs9n9es1oidgw68gob8oneu3cqsma9nttbpaxwpsffiot456",
-    "created": "September 17, 2021",
-    "expires": "September 18, 2025",
-    "created_unix": 1631889840,
-    "expires_unix": 1758181740
-  },
-  {
     "status": "active",
     "name": "moon",
     "goal_ui": "100000:First Super Node",
