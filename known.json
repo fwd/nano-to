@@ -1811,14 +1811,6 @@
     "expires_unix": 1950040740
   },
   {
-    "name": "tally",
-    "address": "nano_3spiffyfbcchbm6ftbzwk7cjcc9a3r3j3asccbew6p7tq3azu9eh5t47j3id",
-    "created": "September 17, 2021",
-    "expires": "October 17, 2025",
-    "created_unix": 1631908500,
-    "expires_unix": 1760729520
-  },
-  {
     "name": "martynas",
     "address": "nano_3pqf4wc8qgn8i686p8nx36hmjprg6wo4r8i3nr7nmmosc4sgx87pj97bg516",
     "created": "September 17, 2021",
@@ -1833,14 +1825,6 @@
     "expires": "September 17, 2031",
     "created_unix": 1631903520,
     "expires_unix": 1947436320
-  },
-  {
-    "name": "nanoqueen",
-    "address": "nano_3wy8ossia4kq1xkht7hezjm3iznqf3ougz54fa95rfrdjircbxut4ycboobs",
-    "created": "September 17, 2021",
-    "expires": "October 17, 2025",
-    "created_unix": 1631894220,
-    "expires_unix": 1760716620
   },
   {
     "status": "active",
