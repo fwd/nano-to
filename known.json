@@ -838,15 +838,6 @@
     "website": "https://www.odysee.com/@nudge:4"
   },
   {
-    "name": "Boardwalk",
-    "address": "nano_1bank1q3q7x8rimo3hf6qu6ezq3fmtximyt8kggtfaosg8kyr51qsdkm8g45",
-    "created": "October 28, 2023",
-    "expires": "October 28, 2025",
-    "created_unix": 1698517780,
-    "expires_unix": 1761676140,
-    "for_sale": 0
-  },
-  {
     "name": "Kit",
     "address": "nano_3w5pngxcupzxfwbc7cq9parye8ds7rri9qqo4quu9q311m78hg6dhsf7chnd",
     "created": "October 28, 2023",
