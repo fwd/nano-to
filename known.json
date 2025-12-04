@@ -1457,14 +1457,6 @@
     "mastodon": "@atxmj"
   },
   {
-    "name": "zatoshi",
-    "address": "nano_1xbbhicqmjw6rnatc6w78ynjyio6n7xc4fzh6rnbcz3ke6fmadcaatinuqgq",
-    "created": "November 24, 2021",
-    "expires": "November 24, 2025",
-    "created_unix": 1637764860,
-    "expires_unix": 1763995260
-  },
-  {
     "name": "fuckbtc",
     "address": "nano_3k3d9t5qcdofi6m7orqgzu4c56ok49qt84j6ege167wsizd9gjmff4xphtja",
     "created": "November 23, 2021",
