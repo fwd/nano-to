@@ -651,14 +651,6 @@
     "twitter": "nano2dev"
   },
   {
-    "name": "Nandalorian",
-    "address": "nano_1qbqyp1rheyk3bhtxp67x7wrnh5ghung7p1tzujsfyim7uo8trsd4dn7dbww",
-    "created": "December 25, 2023",
-    "expires": "December 25, 2025",
-    "created_unix": 1703546073,
-    "expires_unix": 1766704440
-  },
-  {
     "name": "Fox",
     "address": "nano_1foxedxp8h9j9o3z5sz5zytjaaxwn3q8e9bhe5wm3g6ujnggd1zb67ptjc5b",
     "created": "December 25, 2023",
