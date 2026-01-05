@@ -633,14 +633,6 @@
     "metadata": "https://nano.to/dist/hosted/nyanocats.gif"
   },
   {
-    "name": "Alex",
-    "address": "nano_3dq4grwui66g1ttn4gk98dobak55xnw3db5kiiju1ch3iaqrn8h9xtbkdfyn",
-    "created": "December 26, 2023",
-    "expires": "December 26, 2025",
-    "created_unix": 1703597047,
-    "expires_unix": 1766755440
-  },
-  {
     "name": "Name",
     "address": "nano_1name191y1bqcbh5r9xz4a9gk1r54aerf7rd4ngubwr8gckojxosjfch53bx",
     "created": "December 25, 2023",
