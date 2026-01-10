@@ -425,14 +425,6 @@
     "expires_unix": 1862319300
   },
   {
-    "name": "Faultykids",
-    "address": "nano_1orzstooh8upueyc4hhjsde8cgbrrrpgkoueiczn6py8s7swg8nywhou31bp",
-    "created": "December 31, 2023",
-    "expires": "December 31, 2025",
-    "created_unix": 1704014138,
-    "expires_unix": 1767172500
-  },
-  {
     "name": "Ashley",
     "address": "nano_3grzgfxm6cnb41hqrq68uqsz6e1rowsioqz83uaw6p1qq8nkkq9o1i94cgob",
     "created": "December 30, 2023",
