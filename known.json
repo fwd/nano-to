@@ -178,14 +178,6 @@
     "expires_unix": 1897113660
   },
   {
-    "name": "S",
-    "address": "nano_1k7jd7zhdy9xoxs9kg4omf5kfbcy65tu7raqwd5mctkjpbrbcr4m489jmgzs",
-    "created": "January 13, 2025",
-    "expires": "January 13, 2026",
-    "created_unix": 1736752554,
-    "expires_unix": 1768288500
-  },
-  {
     "name": "Tipjar",
     "address": "nano_1ni1b59qdcnbj7k6nzwdf95s65co8h9p58o6ug95jmchojc9ymrs4jd7fkfe",
     "created": "January 12, 2025",
