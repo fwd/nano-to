@@ -1196,14 +1196,6 @@
     "expires_unix": 1804469640
   },
   {
-    "name": "auz",
-    "address": "nano_1mfaxxxfzk73jdz1nbjdp6itx8wagm574daritciwhwfrriddt4n68x6gawo",
-    "created": "January 18, 2022",
-    "expires": "January 18, 2026",
-    "created_unix": 1642550820,
-    "expires_unix": 1768712400
-  },
-  {
     "name": "Isaac",
     "address": "nano_3h3gyzq5ybbmkjjaoqsd8o4bazfc6madmqihdjcpynfag8uh71aok1qgxt1t",
     "created": "January 11, 2022",
