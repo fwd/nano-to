@@ -1,5 +1,13 @@
 [
   {
+    "name": "NanoTap",
+    "address": "nano_3hukfstg1b8iyzupohtmz7tn3n1hnwaa18fow4beq18ur8p67wuj8a1k9eo6",
+    "created": "February 5, 2026",
+    "expires": "February 5, 2027",
+    "created_unix": 1770273244,
+    "expires_unix": 1801809240
+  },
+  {
     "name": "Lambert",
     "address": "nano_3zp987sjb35xroe1eyrh17dgucxtfss618dmat8frzf4aioamggtebqrops1",
     "created": "January 21, 2026",
