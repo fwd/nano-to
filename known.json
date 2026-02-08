@@ -1,5 +1,13 @@
 [
   {
+    "name": "ObjectCounterPro",
+    "address": "nano_1a6a4sowfno5roayby4cx4tk6zqc86ojd1y67jpn1piku4apcuf9gs9wfx6q",
+    "created": "February 8, 2026",
+    "expires": "February 8, 2031",
+    "created_unix": 1770545678,
+    "expires_unix": 1928312040
+  },
+  {
     "name": "NanoTap",
     "address": "nano_3hukfstg1b8iyzupohtmz7tn3n1hnwaa18fow4beq18ur8p67wuj8a1k9eo6",
     "created": "February 5, 2026",
