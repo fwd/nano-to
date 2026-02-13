@@ -407,14 +407,6 @@
     "for_sale": 0
   },
   {
-    "name": "Nyanogifs",
-    "address": "nano_1k16e715bxsh3drktgwncp1xch9d6f5ejnox68jubemsd7g7n5msikx1uedm",
-    "created": "February 3, 2024",
-    "expires": "February 3, 2026",
-    "created_unix": 1706978941,
-    "expires_unix": 1770137340
-  },
-  {
     "name": "Day",
     "address": "nano_3hr3ot6pjio6kwfkcs969rubpgktkf6jg3zwdcbb391hpwiz4bdkha3zgsac",
     "created": "January 22, 2024",
