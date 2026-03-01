@@ -23,10 +23,8 @@ https://github.com/fwd/nano
     <meta property="twitter:image" content="../../dist/images/cover.png">
     <link rel="apple-touch-icon" href="../../dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="../../dist/favicon.png">
-    <link rel="stylesheet" href="../../dist/style.css?v=	
-10.3.8">
-    <link rel="stylesheet" href="../../dist/big-picture.css?v=	
-10.3.8">
+    <link rel="stylesheet" href="../../dist/style.css?v=10.3.8">
+    <link rel="stylesheet" href="../../dist/big-picture.css?v=10.3.8">
     <link rel="manifest" href="../../dist/manifest.json">
     <script>
       function queryToObject(string) {
@@ -165,7 +163,6 @@ https://github.com/fwd/nano
                       </div>
                     </div>
                     <div v-if="prompt && dev_mode" class="row centered button-group" :style="`margin-top: 30px; justify-content: ${prompt.buttons.length > 1 ? 'space-around' : ''}`">
-                      <!-- <div> -->
                         <a @click="update_name(prompt)">
                           <button class="cybr-btn" style="zoom: 0.6;">
                             {{ (strings[lang] && strings[lang].update ? strings[lang].update : 'Update') }}
@@ -184,7 +181,6 @@ https://github.com/fwd/nano
                             </span>
                           </button>
                           <a/>
-                      <!-- </div> -->
                     </div>
                     <a v-if="prompt" @click.prevent="cancel_search()">
                       <p style=" margin-top: 15px; font-size: 16px; opacity: 0.7; margin-bottom: -20px; text-transform: uppercase;">
