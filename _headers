@@ -12,8 +12,3 @@
 
 /strings.json
   Cache-Control: public, max-age=3600
-
-/*
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: SAMEORIGIN
-  Referrer-Policy: strict-origin-when-cross-origin
