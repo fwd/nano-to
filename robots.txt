@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nano.to/sitemap.xml
+
+# LLM-readable directory
+# See https://llmstxt.org
+LLMs.txt: https://nano.to/llms.txt

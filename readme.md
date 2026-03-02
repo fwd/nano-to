@@ -98,7 +98,7 @@ php -S localhost:8080
 
 ## Bugs & Features ⭐️
 
-Give a star if this project helped you. Contributions, issues and features are welcome at [issues page](https://github.com/fwd/nano/issues).
+Give a star if this project helped you. Contributions, issues and features are welcome at [issues page](https://github.com/nano-to/nano-to/issues).
 
 ![line](https://raw.githubusercontent.com/nano-to/nano-node-cli/main/.github/line.png)
 
@@ -130,4 +130,4 @@ Contact [support@nano.to](mailto:support@nano.to) for questions.
     
 ## Stargazers
 
-[![Stargazers over time](https://starchart.cc/fwd/nano-to.svg)](https://github.com/fwd/nano-to)
+[![Stargazers over time](https://starchart.cc/nano-to/nano-to.svg)](https://github.com/nano-to/nano-to)

@@ -1,0 +1,19 @@
+/dist/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/dist/app.js*
+  Cache-Control: public, max-age=3600
+
+/dist/style.css*
+  Cache-Control: public, max-age=3600
+
+/known.json
+  Cache-Control: public, max-age=300
+
+/strings.json
+  Cache-Control: public, max-age=3600
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin

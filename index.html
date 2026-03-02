@@ -6,73 +6,53 @@
  _| |_        \  /\  /     _| |_.' / 
 |_____|        \/  \/     |______.'  
 Simplicity is soul of efficiency.
-https://github.com/fwd/nano
+https://github.com/nano-to/nano-to
 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Nano.to - Nano Name Service</title>
+    <title>Nano.to - Name Service for Nano Currency</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0">
     <meta name="author" content="https://twitter.com/nano2dev"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
     <meta name="apple-mobile-web-app-title" content="Nano.to">
-    <meta property="og:title" content="Nano.to">
-    <meta property="og:image" content="../../dist/images/cover.png">
-    <meta property="twitter:image" content="../../dist/images/cover.png">
-    <link rel="apple-touch-icon" href="../../dist/images/new_icon.png">
+    <meta name="description" content="Name service for Nano currency. Register a human-readable name for your Nano address.">
+    <meta property="og:title" content="Nano.to - Name Service for Nano Currency">
+    <meta property="og:image" content="https://nano.to/dist/images/cover.png">
+    <meta property="twitter:image" content="https://nano.to/dist/images/cover.png">
+    <link rel="apple-touch-icon" href="https://nano.to/dist/images/new_icon.png">
     <link rel="icon" type="image/png" href="../../dist/favicon.png">
     <link rel="stylesheet" href="../../dist/style.css?v=10.3.8">
-    <link rel="stylesheet" href="../../dist/big-picture.css?v=10.3.8">
+
     <link rel="manifest" href="../../dist/manifest.json">
     <script>
-      function queryToObject(string) {
-        var pairs = (string || window.location.search).substring(1).split("&"),
-          obj = {},
-          pair,
-          i;
-        for ( i in pairs ) {
-          if ( pairs[i] === "" ) continue;
-          pair = pairs[i].split("=");
-          obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
-        }
-        return obj;
-      }
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || navigator.userAgent.includes('Linux')) {
         document.documentElement.className += ' dark'
       } else {
         if (window.name !== 'nault') document.documentElement.className += ' light'
       }
-      const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || (window.navigator.standalone) || document.referrer.includes('android-app://')
-      if (isInStandaloneMode) document.documentElement.className += ' web-app'
     </script>
   </head>
   <body>
-
-    <p class="seo-hackz" style="display: none; opacity: 0;">Nano name service, Public RPC and Checkout UI for the Nano blockchain. Nano.to is on a mission to accelerate the use of crypto around the world.</p>
-
     <div id="app" :class=" `on ${color}`">
       
-      <div v-if="notification" :class="`notification ${status}`"><img :style="`filter:${checkout.color && checkout.color.background ? 'invert(1)' : 'invert(0)'};margin-bottom: 0px;max-width: 14px;margin-right: 12px;vertical-align: middle;margin-bottom: 2px;`" :src="`./dist/images/info2.png`" class="lock-icon" style="margin-bottom: 0px;">{{ notification }}</div>
+      <div v-if="notification" :class="`notification ${status}`"><img class="notification-icon" :src="`./dist/images/info2.png`">{{ notification }}</div>
 
       <div v-if="loading" class="loader"></div>
 
       <div v-if="!loading && !checkout" :style="`background-image: url('${ checkout || mobile ? '' : 'dist/images/optimized.gif' }');background-size:${size}`" id="backdrop"></div>
 
-      <div v-if="success && success.confetti">
-        <div v-for="i in 150" :class="`confetti-${i}`"></div>
-      </div>
-
       <div v-if="success" id="success" @click="success = false">
         <div>
           <h3 class="success-title">{{ success.title || (strings[lang] ? strings[lang].success : strings['en'].success) }}</h3>
           <p style="margin-bottom: 0" v-html="success.message"></p>
-          <button v-if="checkout.fullscreen && success.button" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="redirect()">
+          <button v-if="checkout.fullscreen && success.button" class="btn co-highlight" @click="redirect()">
             <span>{{ success.button }}</span>
           </button>
           <div v-if="checkout.fullscreen && success.redirect && !success.button" class="redirecting">{{ success.redirect_msg || (strings[lang] ? strings[lang].redirecting : strings['en'].redirecting) }}</div>
-          <div v-if="!checkout.fullscreen" class="btn" :style="`color:${checkout.color && checkout.color.highlight_color ? checkout.color.highlight_color : ''};background:${checkout.color && checkout.color.highlight_background ? checkout.color.highlight_background : ''};`" @click="checkout = false; success = false">OK</div>
+          <div v-if="!checkout.fullscreen" class="btn co-highlight" @click="checkout = false; success = false">OK</div>
         </div>
       </div>
 
@@ -96,15 +76,14 @@ https://github.com/fwd/nano
                           <img @click="whois(suggestion, suggestion.yearDiff >= 10 ? suggestion.yearDiff : false)" v-if="suggestion.yearDiff >= 10 || (!suggestion.expired && (suggestion.github || suggestion.twitter))" :src="`dist/images/10_year.png`" class="verified" alt="">
                         </div>
                       </div>
-                      <div style="display: block; height: 15px;"></div>
-                      <div class="row centered">
+                      <div class="row centered" style="margin-top: 15px;">
                         <button class="cybr-btn" style="margin: 20px auto;"> {{ (strings[lang] ? strings[lang].search : strings['en'].search) }} <span aria-hidden>_</span>
                           <span aria-hidden class="cybr-btn__glitch">NANO_</span>
                         </button>
                       </div>
                     </form>
                     <div class="footer-icon">
-                      <a href="https://github.com/fwd/nano-to#nano-name-service" target="_blank" class="github">
+                      <a href="https://github.com/nano-to/nano-to#nano-name-service" target="_blank" class="github">
                         <div style="width: fit-content;zoom: 0.7;-moz-transform: scale(0.7);font-family: Cyber;text-align: center;"><img :src="`../../dist/svg/github.svg`" img/></div>
                       </a>
                     </div>
@@ -119,18 +98,18 @@ https://github.com/fwd/nano
                         <span v-if="prompt.exchange_hot_wallet" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">EXCHANGE ADDRESS</span>
                         <span v-if="prompt.title && !Number(prompt.for_sale)" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">{{ prompt.title }}</span>
                         <span v-if="Number(prompt.for_sale)" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">FOR SALE</span>
-                        <br v-if="(!dev_mode && queryToObject().nocache) || (dev_mode && !queryToObject().nocache) || (dev_mode && queryToObject().nocache)">
-                        <p v-if="!dev_mode && !prompt.title" v-html="prompt.body" :style="`${queryToObject().nocache ? 'margin-top: 0' : ''}`"></p>
+                        <br v-if="dev_mode || _query.nocache">
+                        <p v-if="!dev_mode && !prompt.title" v-html="prompt.body" :style="`${_query.nocache ? 'margin-top: 0' : ''}`"></p>
                       </div>
                     </div>
-                    <div v-if="prompt && (dev_mode || queryToObject().nocache)" style="font-size: 16px;">
+                    <div v-if="prompt && (dev_mode || _query.nocache)" style="font-size: 16px;">
                       <div style="margin-bottom: 10px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}</span> {{ prompt.created }}</div>
                       <div style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}</span> {{ prompt.expires }} <span>{{ prompt.expired ? '[EXPIRED]' : '' }}</span>
                       </div>
                       <div v-if="prompt.website" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].website ? strings[lang].website : strings['en'].website) }}</span> 
-                        <a target="_blank" :href="`https://${prompt.website.replace('https://', '').replace('http://', '')}`">{{ prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').length > 30 ? prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').slice(0, 12) + '...' + prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').slice(prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').length - 12, prompt.website.replace('https://', '').replace('http://', '').replace('www.', '').length) : prompt.website.replace('https://', '').replace('http://', '').replace('www.', '') }}</a>
+                        <a target="_blank" :href="`https://${cleanUrl(prompt.website)}`">{{ truncateUrl(prompt.website) }}</a>
                       </div>
                       <div v-if="prompt.github" style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] && strings[lang].github ? strings[lang].github : strings['en'].github) }}</span> 
@@ -195,25 +174,8 @@ https://github.com/fwd/nano
         </div>
       </div>
 
-      <div v-if="big_picture_mode" id="big-picture">
-          <div>
-            <input type="text" placeholder="Search Names" v-model="bigPictureSearch" class="search">
-          </div>
-          <h2 v-if="bigPictureSearch"><strong>Search</strong></h2>
-          <h2 v-if="!bigPictureSearch"><strong>Names<span>( {{usernames.length}} )</span></strong></h2>
-          <div class="cards">
-              <figure @click="bigPictureCheckout(name)" v-for="name in bigPictureCards" class="card">
-                  <img :src="`${name.metadata && name.metadata.includes('.png') ? name.metadata : (name.image || 'https://nault.pro/assets/img/carbon-fiber.png')}`" />
-                  <span v-if="Number(name.for_sale)" :style="` position: absolute; color: rgb(236 198 24); text-shadow: 1px 1px #000; opacity: 1; top: 15px; right: 13px; font-size: 22px; max-width: 60px; text-align: right; `">NAME FOR SALE</span>
-                  <span v-if="name.goal_ui && !Number(name.for_sale)"style="position: absolute;color: rgb(50 141 255);text-shadow: rgb(0, 0, 0) 1px 1px;opacity: 1;top: 16px;right: 15px;font-size: 22px;max-width: 85px;text-align: right;">DONATE<br><span style=" color: #FFF; opacity: 0.9; text-align: right; ">{{name.goal_ui.split(':')[1]}}</span></span>
-                  <figcaption :style="`top: ${Number(name.for_sale) || name.image || name.goal_ui ? 'auto' : ''};`">@{{capitalizeFirstLetter(name.name)}} <img style="margin-left:-4px;zoom:0.78;margin-bottom: 6px;" @click="whois(name, name.yearDiff >= 10 ? name.yearDiff : false)" v-if="name.yearDiff >= 10 || (!name.expired && (name.github || name.twitter))" :src="`dist/images/10_year.png`" class="verified" alt=""></figcaption>
-              </figure>
-          </div>
-      </div>
-
       <div v-if="checkout" id="checkout" class="flex">
-        <a style="display: none; opacity: 0;" rel="me" :href="checkout.mastodon"></a>
-        <div id="avatar" v-if="!loadedName" :class="`flex center justify ${!checkout.plans || !checkout.plans.length ? '' : ''}`" @click="cancel()">
+        <div id="avatar" v-if="!loadedName" class="flex center justify" @click="cancel()">
           <h3 :style="`color:${checkout.plans && checkout.plans.length ? '#000' : ''};`">← </h3>
         </div>
         <section v-if="checkout.plans || checkout.image || checkout.update_name" id="order" :class="`${!checkout.fullscreen || checkout.cancel ? 'cancel' : ''}`" :style="`background-color: ${checkout.color && checkout.color.left ? checkout.color.left : '#FFF'}; align-items: ${checkout.plans && checkout.plans.length < 4 ? 'start' : 'center'};`">
@@ -356,6 +318,7 @@ https://github.com/fwd/nano
     <script src="../../dist/axios.min.js"></script>
     <script src="../../dist/easy.qrcode.min.js"></script>
     <script src="../../dist/nanocurrency.min.js"></script>
+    <script src="../../dist/confetti.js?v=10.3.8"></script>
     <script src="../../dist/app.js?v=10.3.8"></script>
   </body>
 </html>
