@@ -15,7 +15,7 @@ var nano = new Vue({
         loadedName: false,
         copy,
         confetti: true,
-        _query: {},
+        queryCache: {},
         known: '../../known.json',
         doc_title: 'Nano.to - Nano Name Service',
         title: 'Nano.to',
@@ -135,8 +135,8 @@ var nano = new Vue({
         },
     },
     mounted() {
-        this._query = this.queryToObject()
-        var query = this._query
+        this.queryCache = this.queryToObject()
+        var query = this.queryCache
         if (window.name === 'nault') document.documentElement.className += ' nault'
         this.lang = window.navigator.language.split('-')[0]
         var self = this
@@ -190,11 +190,11 @@ var nano = new Vue({
             return window.location.hostname === 'localhost'
         },
         naultMode() {
-            var query = this._query
+            var query = this.queryCache
             return window.name === 'nault' || query.iframe
         },
         currencyComputed() {
-            var query = this._query
+            var query = this.queryCache
             var flag = query.currency || query.c
             if (this.checkout && this.checkout === 'NANO') return 'USD'
             return query && flag ? flag.toUpperCase() : 'USD'
@@ -211,7 +211,7 @@ var nano = new Vue({
         // ── Utility Methods ──────────────────────────────
         addRandomAmount(plans, random) {
             if (plans.includes(',')) {
-                var query = this._query
+                var query = this.queryCache
                 return plans.split(',').map(a => {
                     var value = a.trim().split(':')[1]
                     // var random = query.random || query.r
@@ -260,7 +260,7 @@ var nano = new Vue({
                 this.prompt = false;
                 this.search = true;
             }
-            var query = this._query
+            var query = this.queryCache
             if (query.nocache) this.reset()
         },
         validExternalImage(url) {
@@ -412,7 +412,7 @@ var nano = new Vue({
         },
         // ── Checkout & Payment ────────────────────────────
         invoice() {
-            var query = this._query
+            var query = this.queryCache
             var path = window.location.pathname.replace('/', '').toLowerCase().replace('@', '')
             var configured = query.check_url || query.check || query.c || query.url || query.api || false
             if (configured) configured = configured.replace(':path', path).replace(':id', path)
@@ -454,7 +454,7 @@ var nano = new Vue({
             })
         },
         async json_checkout(checkout) {
-            var query = this._query
+            var query = this.queryCache
             var res = {
                 data: checkout
             }
@@ -499,7 +499,7 @@ var nano = new Vue({
                 alert('Name not registered.')
                 return 
             }
-            var query = this._query
+            var query = this.queryCache
             var amount = query.p || query.price || query.amount || item.amount || item.price || false
             if (item && item.name) {
                 if (!cache && query.nocache || item.website_button_only) return this.doSuggestion({
@@ -694,7 +694,7 @@ var nano = new Vue({
                 }, 100)
                 document.title = `${customNameFormat ? name : this.capitalizeFirstLetter(name)} - Nano Checkout`
             }
-            var query = this._query
+            var query = this.queryCache
             if (path && path.includes('nano_')) {
                 var donation = query.custom
                 if (!NanocurrencyWeb.tools.validateAddress(path)) return alert('Invalid Address')
@@ -862,7 +862,7 @@ var nano = new Vue({
             })
         },
         show_success(block, message) {
-            var query = this._query
+            var query = this.queryCache
             var delay = this.checkout.redirect_delay || 4000
             if (this.checkout.success_message) delay = 10000
             redirect = query.redirect || query.success || this.checkout.success_url
@@ -953,7 +953,7 @@ var nano = new Vue({
             return string.charAt(0).toUpperCase() + string.slice(1);
         },
         getRate(cb) {
-            var query = this._query
+            var query = this.queryCache
             var currency = query.currency || query.c
             currency = currency ? currency.toLowerCase() : 'usd'
             return axios.post('https://rpc.nano.to', {
@@ -965,7 +965,7 @@ var nano = new Vue({
             })
         },
         load(cb) {
-            var query = this._query
+            var query = this.queryCache
             if (query.nocache) this.known = 'https://api.nano.to/known.json'
             return Promise.all([
                 axios.get('/strings.json'),
@@ -1144,7 +1144,7 @@ var nano = new Vue({
                     this.json_checkout(res.data, null, true)
                 })
             }
-            var query = this._query
+            var query = this.queryCache
             if (button.website) {
                 var body = {}
                 if (button.website_button_required) {
@@ -1200,7 +1200,7 @@ var nano = new Vue({
             this.size = '100%'
         },
         doSuggestion(suggestion) {
-            var query = this._query
+            var query = this.queryCache
             if (suggestion.alert) return this.notify(suggestion.alert)
             if (suggestion.lease) return this.lease(suggestion.lease)
             if (suggestion.url) return window.open(suggestion.url, '_blank');
