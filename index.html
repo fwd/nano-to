@@ -98,11 +98,11 @@ https://github.com/nano-to/nano-to
                         <span v-if="prompt.exchange_hot_wallet" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">EXCHANGE ADDRESS</span>
                         <span v-if="prompt.title && !Number(prompt.for_sale)" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">{{ prompt.title }}</span>
                         <span v-if="Number(prompt.for_sale)" style="text-transform: uppercase;margin-top: 40px;display: block;opacity: 0.8;font-size: 28px;font-family: Cyber;margin-bottom: -10px;color: rgb(238, 11, 11);border-bottom: 1px solid rgba(255, 255, 255, 0.2);padding-bottom: 20px;border-top: 1px solid rgba(255, 255, 255, 0.2);padding-top: 18px;letter-spacing: 4px;zoom: 0.74;">FOR SALE</span>
-                        <br v-if="dev_mode || _query.nocache">
-                        <p v-if="!dev_mode && !prompt.title" v-html="prompt.body" :style="`${_query.nocache ? 'margin-top: 0' : ''}`"></p>
+                        <br v-if="dev_mode || queryCache.nocache">
+                        <p v-if="!dev_mode && !prompt.title" v-html="prompt.body" :style="`${queryCache.nocache ? 'margin-top: 0' : ''}`"></p>
                       </div>
                     </div>
-                    <div v-if="prompt && (dev_mode || _query.nocache)" style="font-size: 16px;">
+                    <div v-if="prompt && (dev_mode || queryCache.nocache)" style="font-size: 16px;">
                       <div style="margin-bottom: 10px"><span style="color: red;">{{ (strings[lang] ? strings[lang].created : strings['en'].created) }}</span> {{ prompt.created }}</div>
                       <div style="margin-bottom: 10px;">
                         <span style="color: red;">{{ (strings[lang] ? strings[lang].expires : strings['en'].expires) }}</span> {{ prompt.expires }} <span>{{ prompt.expired ? '[EXPIRED]' : '' }}</span>
