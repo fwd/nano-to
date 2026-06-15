@@ -1,5 +1,13 @@
 [
   {
+    "name": "ZUDMATAR",
+    "address": "nano_3arcw6ssbiiiopprngk6wqwgodsmmifthdamyetwjbz6hcocerojx73sttkg",
+    "created": "June 15, 2026",
+    "expires": "July 15, 2026",
+    "created_unix": 1781550421,
+    "expires_unix": 1784142420
+  },
+  {
     "name": "Openrai",
     "address": "nano_33u43z4ucsh4tbpsjhmp149mp7ex8xu6cnyt8k9ex4ogwbkwc3igcy1c1bgp",
     "created": "May 26, 2026",
