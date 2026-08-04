@@ -8,14 +8,6 @@
     "expires_unix": 1786606620
   },
   {
-    "name": "Bistouquette",
-    "address": "nano_15peoaf7khjbap9xfrmmd14ymetekkweri4grr1pdpkjpqjhrk1ymxfszyys",
-    "created": "June 25, 2026",
-    "expires": "July 25, 2026",
-    "created_unix": 1782401305,
-    "expires_unix": 1784993280
-  },
-  {
     "name": "Openrai",
     "address": "nano_33u43z4ucsh4tbpsjhmp149mp7ex8xu6cnyt8k9ex4ogwbkwc3igcy1c1bgp",
     "created": "May 26, 2026",
